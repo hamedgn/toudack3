@@ -4,16 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{260410D2-2DD1-4742-ABBD-F9EB553456A0}</ProjectGuid>
+    <ProjectGuid>{3968C131-5ABE-4B82-97DA-CAB8F55DD93B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>toudack1</RootNamespace>
-    <AssemblyName>toudack1</AssemblyName>
+    <RootNamespace>scanbarcode</RootNamespace>
+    <AssemblyName>scanbarcode</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <TargetFrameworkProfile />
-    <PublishUrl>C:\Users\h7mad-mac\Desktop\1111111111\</PublishUrl>
+    <PublishUrl>C:\Users\h7mad-mac\Desktop\1111111111\333\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -23,7 +23,6 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <AutorunEnabled>true</AutorunEnabled>
     <ApplicationRevision>1</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
@@ -39,7 +38,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -49,13 +47,12 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>B4343F8435EDF287E2C83C9104ACD0128CEBDEC0</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>8715DC860683500317947E7AD5C97D40D9A07073</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>toudack1_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>scanbarcode_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -67,11 +64,7 @@
     <Reference Include="BC.NetBarcodeReaderTrial.Qrcode">
       <HintPath>..\..\..\Users\h7mad-mac\Desktop\BC.NetBarcodeReaderTrial.Qrcode.dll</HintPath>
     </Reference>
-    <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
-      <HintPath>..\packages\BouncyCastle.1.8.5\lib\BouncyCastle.Crypto.dll</HintPath>
-    </Reference>
-    <Reference Include="Dynamsoft.BarcodeReader, Version=6.1.0.514, Culture=neutral, PublicKeyToken=ad0967c36e09320a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Dynamsoft.BarcodeReader">
       <HintPath>..\..\..\Program Files (x86)\Dynamsoft\Dynamic .NET TWAIN 8.0\Redistributable\Assembly\For .NETFramework 4.0\Dynamsoft.BarcodeReader.dll</HintPath>
     </Reference>
     <Reference Include="Dynamsoft.Camera">
@@ -80,104 +73,45 @@
     <Reference Include="Dynamsoft.Forms.Viewer">
       <HintPath>..\..\..\Program Files (x86)\Dynamsoft\Dynamic .NET TWAIN 8.0\Redistributable\Assembly\For .NETFramework 4.0\Dynamsoft.Forms.Viewer.dll</HintPath>
     </Reference>
-    <Reference Include="Dynamsoft.ImageCore, Version=8.0.0.510, Culture=neutral, PublicKeyToken=298ad97013b423eb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Dynamsoft.ImageCore">
       <HintPath>..\..\..\Program Files (x86)\Dynamsoft\Dynamic .NET TWAIN 8.0\Redistributable\Assembly\For .NETFramework 4.0\Dynamsoft.ImageCore.dll</HintPath>
     </Reference>
-    <Reference Include="Google.Protobuf, Version=3.10.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
-      <HintPath>..\packages\Google.Protobuf.3.10.0\lib\net45\Google.Protobuf.dll</HintPath>
+    <Reference Include="IronBarCode">
+      <HintPath>..\toudack1\bin\Debug\IronBarCode.dll</HintPath>
     </Reference>
-    <Reference Include="IronBarCode, Version=4.0.2.18638, Culture=neutral, PublicKeyToken=b971bb3971bdf306, processorArchitecture=MSIL">
-      <HintPath>..\packages\BarCode.4.0.2.2\lib\net40\IronBarCode.dll</HintPath>
+    <Reference Include="KeepDynamic.BarcodeReader">
+      <HintPath>..\..\..\Users\h7mad-mac\Desktop\KeepDynamic.BarcodeReader.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data, Version=8.0.17.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.8.0.17\lib\net452\MySql.Data.dll</HintPath>
-    </Reference>
-    <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
-      <HintPath>..\packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
+    <Reference Include="OnBarcode.Barcode.BarcodeScanner">
+      <HintPath>..\..\..\Users\h7mad-mac\Desktop\OnBarcode.Barcode.BarcodeScanner.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Configuration" />
-    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing.Design" />
-    <Reference Include="System.Management" />
-    <Reference Include="System.Transactions" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DBConnect.cs" />
-    <Compile Include="factory.cs">
+    <Compile Include="Class1.cs" />
+    <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="factory.Designer.cs">
-      <DependentUpon>factory.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Bank.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Bank.Designer.cs">
-      <DependentUpon>Bank.cs</DependentUpon>
-    </Compile>
-    <Compile Include="barcode.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="barcode.Designer.cs">
-      <DependentUpon>barcode.cs</DependentUpon>
-    </Compile>
-    <Compile Include="population.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="population.Designer.cs">
-      <DependentUpon>population.cs</DependentUpon>
-    </Compile>
-    <Compile Include="resources.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="resources.Designer.cs">
-      <DependentUpon>resources.cs</DependentUpon>
-    </Compile>
-    <Compile Include="wisposh.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="wisposh.Designer.cs">
-      <DependentUpon>wisposh.cs</DependentUpon>
-    </Compile>
-    <Compile Include="log-in.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="log-in.Designer.cs">
-      <DependentUpon>log-in.cs</DependentUpon>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="barcode.resx">
-      <DependentUpon>barcode.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="factory.resx">
-      <DependentUpon>factory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Bank.resx">
-      <DependentUpon>Bank.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="wisposh.resx">
-      <DependentUpon>wisposh.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="log-in.resx">
-      <DependentUpon>log-in.cs</DependentUpon>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -186,8 +120,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="app.config" />
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -197,19 +129,25 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="toudack1_TemporaryKey.pfx" />
+    <None Include="scanbarcode_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\demo.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Resources\barcod.png" />
-    <Content Include="Resources\GetStarted.png" />
-    <Content Include="Resources\TextFile1.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

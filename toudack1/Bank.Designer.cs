@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.prs_barcode_btn = new System.Windows.Forms.Button();
             this.prs_code_box = new System.Windows.Forms.TextBox();
             this.prs_code_lable = new System.Windows.Forms.Label();
@@ -58,6 +59,7 @@
             this.loans_pay_num_Installments_lable = new System.Windows.Forms.Label();
             this.loans_pay_Final_amount_lable = new System.Windows.Forms.Label();
             this.loans_pay_ok_btn = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.loans_get_num_Installments_numeric)).BeginInit();
             this.SuspendLayout();
             // 
@@ -401,6 +403,11 @@
             this.loans_pay_ok_btn.Visible = false;
             this.loans_pay_ok_btn.Click += new System.EventHandler(this.loans_pay_ok_btn_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Bank
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -477,5 +484,6 @@
         private System.Windows.Forms.Label loans_pay_num_Installments_lable;
         private System.Windows.Forms.Label loans_pay_Final_amount_lable;
         private System.Windows.Forms.Button loans_pay_ok_btn;
+        private System.Windows.Forms.Timer timer1;
     }
 }

@@ -3,47 +3,43 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-//using IronBarCode;
 using Dynamsoft.UVC;
 using Dynamsoft.Core;
 using System.IO;
 using System.Runtime.InteropServices;
 using Dynamsoft.Common;
+//using IronBarCode;
+//using KeepDynamic.BarcodeReader;
+using OnBarcode.Barcode.BarcodeScanner;
 using Dynamsoft.Barcode;
 
-namespace toudack1
+namespace scanbarcode
 {
-    public partial class barcode : Form
+    public partial class Form1 : Form
     {
-       
-        
         private int m_iDesignWidth = 755;
         private int iControlWidth = 275;
         private int iControlHeight = 295;
         private CameraManager m_CameraManager = null;
         private ImageCore m_ImageCore = null;
+
         private string m_StrProductKey = "t0068UwAAAIcVCMR0LfYuOyMnEOjUBCwp0Ic58BqPnpK9L6GdbLRj1OctKZzfOueNck25ncqc/GjhaduvqDSm8J6/4t4LWlA=";
 
         private Camera m_CurrentCamera = null;
 
-        public barcode()
+
+        public Form1()
         {
             InitializeComponent();
-           
-            
             m_CameraManager = new CameraManager(m_StrProductKey);
             m_ImageCore = new ImageCore();
             dsViewer1.Bind(m_ImageCore);
-            this.Load += new EventHandler(barcode_Load);
-            
-
+            this.Load += new EventHandler(Form1_Load);
         }
 
-        void barcode_Load(object sender, EventArgs e)
+        void Form1_Load(object sender, EventArgs e)
         {
             try
             {
@@ -64,60 +60,6 @@ namespace toudack1
             {
                 MessageBox.Show(exp.Message);
             }
-        }
-
-        private void create_qr_btn_Click(object sender, EventArgs e)
-        {
-           for(int i = 101; i < 141; i++)
-            {
-                for (int j = 1; j < 6; j++)
-                {
-                    var mybarcod = IronBarCode.QRCodeWriter.CreateQrCode(""+i+"0"+j+"", 500);
-
-                    mybarcod.ChangeBarCodeColor(Color.Black).SaveAsPng("q"+i+"0"+j+".png");
-                }
-            }
-            
-            
-        }
-
-        private void create_barcod_btn_Click(object sender, EventArgs e)
-        {
-            for (int i = 101; i < 141; i++)
-            {
-                for (int j = 1; j < 6; j++)
-                {
-                  //  var MyBarCode = IronBarCode.BarcodeWriter.CreateBarcode("" + i + "0" + j + "", BarcodeEncoding.Code128);
-                  //   MyBarCode.SaveAsImage("b" + i + "0" + j + ".png");
-                }
-            }
-
-        }
-
-        private void read_qr_btn_Click(object sender, EventArgs e)
-        {   
-
-            if (m_CurrentCamera != null)
-            {
-                Bitmap tempBmp = m_CurrentCamera.GrabImage();
-                m_ImageCore.IO.LoadImage(tempBmp);
-                
-            /*
-            //BarcodeResult Result = IronBarCode.BarcodeReader.ReadASingleBarcode("aa.png", BarcodeEncoding.QRCode | BarcodeEncoding.Code128, BarcodeReader.BarcodeRotationCorrection.High, BarcodeReader.BarcodeImageCorrection.MediumCleanPixels);
-            BarcodeResult r1 = IronBarCode.BarcodeReader.ReadASingleBarcode(tempBmp, BarcodeEncoding.All);
-                if(r1 != null) { 
-                MessageBox.Show(r1.Text);
-                }
-                */
-            }
-        }
-
-        private void read_barcode_btn_Click(object sender, EventArgs e)
-        {
-           // BarcodeResult Result = BarcodeReader.QuicklyReadOneBarcode("GetStarted.png");
-            
-               // MessageBox.Show(Result.Text);
-            
         }
 
         private void cbxSources_SelectedIndexChanged(object sender, EventArgs e)
@@ -147,29 +89,47 @@ namespace toudack1
                     cbxResolution.SelectedIndex = 0;
                 ResizePictureBox();
             }
-        }
 
-        void m_CurrentCamera_OnFrameCaptrue(Bitmap bitmap)
-        {
-            SetPicture(bitmap);
         }
-
-        private void SetPicture(Image img)
+        private void cbxResolution_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Bitmap temp = ((Bitmap)(img)).Clone(new Rectangle(0, 0, img.Width, img.Height), img.PixelFormat);
-            if (pictureBox1.InvokeRequired)
+            if (cbxResolution.Text != null)
             {
-                pictureBox1.BeginInvoke(new MethodInvoker(
-                delegate ()
+                string[] strWXH = cbxResolution.Text.Split(new char[] { ' ' });
+                if (strWXH.Length == 3)
                 {
-                    pictureBox1.Image = temp;
-                }));
+                    try
+                    {
+                        m_CurrentCamera.CurrentResolution = new CamResolution(int.Parse(strWXH[0]), int.Parse(strWXH[2]));
+                    }
+                    catch { }
+                }
+                m_CurrentCamera.RotateVideo(Dynamsoft.UVC.Enums.EnumVideoRotateType.Rotate_0);
+                ResizePictureBox();
             }
-            else
-            {
-                pictureBox1.Image = temp;
-            }
+        }
 
+
+        private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            Point tempPoint = new Point(e.X, e.Y);
+            float tempWidth = pictureBox1.Width;
+            float tempHeight = pictureBox1.Height;
+
+            float imageWidth = m_CurrentCamera.CurrentResolution.Width;
+            float imageHeight = m_CurrentCamera.CurrentResolution.Height;
+            float zoomX = imageWidth / tempWidth;
+            float zoomY = imageHeight / tempHeight;
+            Point tempFocusPoint = new Point((int)(e.X * imageWidth), (int)(e.Y * imageHeight));
+            Rectangle tempRect = new Rectangle(tempFocusPoint, new Size(50, 50));
+            try
+            {
+                m_CurrentCamera.FocusOnArea(tempRect);
+            }
+            catch (Exception exp)
+            {
+                MessageBox.Show(exp.Message);
+            }
         }
 
         private void ResizePictureBox()
@@ -186,13 +146,12 @@ namespace toudack1
                         if (iVideoHeight < iContentHeight)
                         {
                             //pictureBox1.Location = new Point(0, (iContentHeight - iVideoHeight) / 2);
-                            pictureBox1.Size = new Size(iVideoWidth, iVideoHeight);
+                           // pictureBox1.Size = new Size(iVideoWidth, iVideoHeight);
                         }
                         else
                         {
-                            pictureBox1.Size = new Size(iVideoWidth, iVideoHeight);
-                            //pictureBox1.Location = new Point(0, 0);
-                            pictureBox1.Size = new Size(dsViewer1.Width, dsViewer1.Height);
+                           // pictureBox1.Location = new Point(0, 0);
+                           // pictureBox1.Size = new Size(pictureBox1.Width, pictureBox1.Height);
                         }
                     }
                 }
@@ -224,35 +183,38 @@ namespace toudack1
                 }
             }
         }
-
-        private void cbxResolution_SelectedIndexChanged(object sender, EventArgs e)
+        private void SetPicture(Image img)
         {
-            if (cbxResolution.Text != null)
+            Bitmap temp = ((Bitmap)(img)).Clone(new Rectangle(0, 0, img.Width, img.Height), img.PixelFormat);
+            if (pictureBox1.InvokeRequired)
             {
-                string[] strWXH = cbxResolution.Text.Split(new char[] { ' ' });
-                if (strWXH.Length == 3)
+                pictureBox1.BeginInvoke(new MethodInvoker(
+                delegate ()
                 {
-                    try
-                    {
-                        m_CurrentCamera.CurrentResolution = new CamResolution(int.Parse(strWXH[0]), int.Parse(strWXH[2]));
-                    }
-                    catch { }
-                }
-                m_CurrentCamera.RotateVideo(Dynamsoft.UVC.Enums.EnumVideoRotateType.Rotate_0);
-                ResizePictureBox();
+                    pictureBox1.Image = temp;
+                }));
+            }
+            else
+            {
+                pictureBox1.Image = temp;
+            }
+
+        }
+
+        void m_CurrentCamera_OnFrameCaptrue(Bitmap bitmap)
+        {
+            SetPicture(bitmap);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (m_CurrentCamera != null)
+            {
+                Bitmap tempBmp = m_CurrentCamera.GrabImage();
+                m_ImageCore.IO.LoadImage(tempBmp);
             }
         }
 
-        private void dsViewer1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-        
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (m_CurrentCamera != null)
@@ -275,13 +237,13 @@ namespace toudack1
                     {
                         for (var i = 0; i < aryResult.Length; i++)
                         {
-                            // Console.WriteLine("Barcode: {0}", (i + 1));
-                            // Console.WriteLine("BarcodeFormat: {0}", aryResult[i].BarcodeFormat.ToString());
+                           // Console.WriteLine("Barcode: {0}", (i + 1));
+                           // Console.WriteLine("BarcodeFormat: {0}", aryResult[i].BarcodeFormat.ToString());
                             //MessageBox.Show(aryResult[i].BarcodeText);
                             TextWriter txt = new StreamWriter("demo");
                             txt.Write(aryResult[i].BarcodeText);
                             txt.Close();
-                            this.Hide();
+                            Application.Exit();
                         }
                     }
                 }
@@ -321,10 +283,5 @@ namespace toudack1
                 m_ImageCore.ImageBuffer.RemoveAllImages();
             }
         }
-
-        
     }
-
-        
-   
 }

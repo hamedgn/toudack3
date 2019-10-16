@@ -347,25 +347,46 @@ namespace toudack1
             loans_pay_Final_amount_box.Text = "";
 
         }
-
+        barcode barcode = new barcode();
         private void prs_barcode_btn_Click(object sender, EventArgs e)
         {
+            string content = File.ReadAllText("demo");
+            if (content != "")
+            {
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer1.Enabled = true;
+
+                barcode.Show();
+            }
+            else
+            {
+                timer1.Enabled = true;
+
+                barcode.Show();
+            }
+            
+            
+            // FileStream stream = File.Open("scanbarcode.exe", FileMode.Open);
             // barcode form2 = new barcode();
             //form2.Show();
             //this.Close();
             //cache1.A1();
             //Application.Run(new barcode());
-            barcode mod = new barcode();
-            mod.Show();
-            this.Hide();
+            // barcode mod = new barcode();
+            //mod.Show();
+            //this.Hide();
+           
+            
+            
         }
 
         private void Bank_Load(object sender, EventArgs e)
         {
             
             //prs_code_box.Text = Test.Remove(Test.Length - 2);
-            string content = File.ReadAllText("demo.txt");
-            prs_code_box.Text = content.Remove(content.Length-2);
+            
         }
 
         private void prs_code_lable_Click(object sender, EventArgs e)
@@ -373,6 +394,23 @@ namespace toudack1
             //MessageBox.Show(Test);
             MessageBox.Show(Convert.ToString(""));
             
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                string content = File.ReadAllText("demo");
+                prs_code_box.Text = content.Remove(content.Length - 2);
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer1.Enabled = false;
+            }
+            catch
+            {
+                
+            }
         }
     }
 }
