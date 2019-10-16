@@ -278,7 +278,7 @@
             // button_prs_code_box
             // 
             this.button_prs_code_box.BackgroundImage = global::toudack1.Properties.Resources.barcod;
-            this.button_prs_code_box.Location = new System.Drawing.Point(339, 58);
+            this.button_prs_code_box.Location = new System.Drawing.Point(338, 58);
             this.button_prs_code_box.Name = "button_prs_code_box";
             this.button_prs_code_box.Size = new System.Drawing.Size(32, 32);
             this.button_prs_code_box.TabIndex = 45;
