@@ -90,6 +90,18 @@ namespace toudack1
 
         #endregion
 
+        #region price
+        public int price_oil;
+        public int price_silk;
+        public int price_gold;
+        public int price_diamond;
+        public int price_industry;
+        public int price_education;
+        public int price_weapons;
+        public int price_services;
+
+        #endregion
+
         #endregion
 
 
@@ -898,6 +910,70 @@ namespace toudack1
             factory_en_updown(type, factory_en, groupnum);
         }
         #endregion
+
+        #region price
+
+        //get price
+        public void getprice(string type)
+        {
+
+            string query = "SELECT * FROM recource_price WHERE type='"+type+"'";
+
+            if (this.OpenConnection() == true)
+            {
+
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader myreader = cmd.ExecuteReader();
+                while (myreader.Read())
+                {
+                    price_diamond = Convert.ToInt32(myreader["diamond"]);
+                    price_education = Convert.ToInt32(myreader["education"]);
+                    price_gold = Convert.ToInt32(myreader["gold"]);
+                    price_industry = Convert.ToInt32(myreader["industry"]);
+                    price_oil = Convert.ToInt32(myreader["oil"]);
+                    price_services = Convert.ToInt32(myreader["services"]);
+                    price_silk = Convert.ToInt32(myreader["silk"]);
+                    price_weapons = Convert.ToInt32(myreader["weapons"]);
+                  
+
+
+                }
+
+                //close connection
+                this.CloseConnection();
+
+            }
+
+        }
+
+        //set price
+        public void setprice(string type, int number)
+        {
+            string query = "UPDATE recource_price SET `" + type + "`=" + number + " WHERE type='variable'";
+
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                //create mysql command
+                MySqlCommand cmd = new MySqlCommand();
+                //Assign the query using CommandText
+                cmd.CommandText = query;
+                //Assign the connection using Connection
+                cmd.Connection = connection;
+
+                //Execute query
+                cmd.ExecuteNonQuery();
+
+                //close connection
+                this.CloseConnection();
+            }
+        }
+
+
+
+        #endregion
+
 
         #endregion
 

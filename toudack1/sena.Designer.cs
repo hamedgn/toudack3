@@ -52,10 +52,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.Industry_price_change = new System.Windows.Forms.TextBox();
-            this.Change_weapon_prices = new System.Windows.Forms.TextBox();
-            this.Change_price_training = new System.Windows.Forms.TextBox();
-            this.Changing_service_prices = new System.Windows.Forms.TextBox();
             this.Approach_button = new System.Windows.Forms.Button();
             this.button_Uninstall_code = new System.Windows.Forms.Button();
             this.button__Price_change = new System.Windows.Forms.Button();
@@ -88,7 +84,15 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.Change_service_price = new System.Windows.Forms.NumericUpDown();
+            this.Change_education_price = new System.Windows.Forms.NumericUpDown();
+            this.Change_weapon_price = new System.Windows.Forms.NumericUpDown();
+            this.Change_industry_price = new System.Windows.Forms.NumericUpDown();
             this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Change_service_price)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Change_education_price)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Change_weapon_price)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Change_industry_price)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -327,38 +331,6 @@
             this.label12.TabIndex = 140;
             this.label12.Text = "خدمات";
             // 
-            // Industry_price_change
-            // 
-            this.Industry_price_change.Enabled = false;
-            this.Industry_price_change.Location = new System.Drawing.Point(443, 335);
-            this.Industry_price_change.Name = "Industry_price_change";
-            this.Industry_price_change.Size = new System.Drawing.Size(51, 20);
-            this.Industry_price_change.TabIndex = 141;
-            // 
-            // Change_weapon_prices
-            // 
-            this.Change_weapon_prices.Enabled = false;
-            this.Change_weapon_prices.Location = new System.Drawing.Point(443, 302);
-            this.Change_weapon_prices.Name = "Change_weapon_prices";
-            this.Change_weapon_prices.Size = new System.Drawing.Size(51, 20);
-            this.Change_weapon_prices.TabIndex = 142;
-            // 
-            // Change_price_training
-            // 
-            this.Change_price_training.Enabled = false;
-            this.Change_price_training.Location = new System.Drawing.Point(442, 268);
-            this.Change_price_training.Name = "Change_price_training";
-            this.Change_price_training.Size = new System.Drawing.Size(51, 20);
-            this.Change_price_training.TabIndex = 143;
-            // 
-            // Changing_service_prices
-            // 
-            this.Changing_service_prices.Enabled = false;
-            this.Changing_service_prices.Location = new System.Drawing.Point(443, 233);
-            this.Changing_service_prices.Name = "Changing_service_prices";
-            this.Changing_service_prices.Size = new System.Drawing.Size(51, 20);
-            this.Changing_service_prices.TabIndex = 144;
-            // 
             // Approach_button
             // 
             this.Approach_button.BackColor = System.Drawing.Color.White;
@@ -400,6 +372,7 @@
             this.button__Price_change.TabIndex = 147;
             this.button__Price_change.Text = "تغییر قیمت";
             this.button__Price_change.UseVisualStyleBackColor = false;
+            this.button__Price_change.Click += new System.EventHandler(this.button__Price_change_Click);
             // 
             // textBox9_investment
             // 
@@ -699,11 +672,43 @@
             this.label3.TabIndex = 176;
             this.label3.Text = "نام گروه پشمک";
             // 
+            // Change_service_price
+            // 
+            this.Change_service_price.Location = new System.Drawing.Point(458, 236);
+            this.Change_service_price.Name = "Change_service_price";
+            this.Change_service_price.Size = new System.Drawing.Size(51, 20);
+            this.Change_service_price.TabIndex = 177;
+            // 
+            // Change_education_price
+            // 
+            this.Change_education_price.Location = new System.Drawing.Point(458, 269);
+            this.Change_education_price.Name = "Change_education_price";
+            this.Change_education_price.Size = new System.Drawing.Size(51, 20);
+            this.Change_education_price.TabIndex = 178;
+            // 
+            // Change_weapon_price
+            // 
+            this.Change_weapon_price.Location = new System.Drawing.Point(458, 303);
+            this.Change_weapon_price.Name = "Change_weapon_price";
+            this.Change_weapon_price.Size = new System.Drawing.Size(51, 20);
+            this.Change_weapon_price.TabIndex = 179;
+            // 
+            // Change_industry_price
+            // 
+            this.Change_industry_price.Location = new System.Drawing.Point(458, 336);
+            this.Change_industry_price.Name = "Change_industry_price";
+            this.Change_industry_price.Size = new System.Drawing.Size(51, 20);
+            this.Change_industry_price.TabIndex = 180;
+            // 
             // sena
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 416);
+            this.Controls.Add(this.Change_industry_price);
+            this.Controls.Add(this.Change_weapon_price);
+            this.Controls.Add(this.Change_education_price);
+            this.Controls.Add(this.Change_service_price);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -732,10 +737,6 @@
             this.Controls.Add(this.button__Price_change);
             this.Controls.Add(this.button_Uninstall_code);
             this.Controls.Add(this.Approach_button);
-            this.Controls.Add(this.Changing_service_prices);
-            this.Controls.Add(this.Change_price_training);
-            this.Controls.Add(this.Change_weapon_prices);
-            this.Controls.Add(this.Industry_price_change);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
@@ -762,6 +763,10 @@
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.sena_Load);
             this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Change_service_price)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Change_education_price)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Change_weapon_price)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Change_industry_price)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -792,10 +797,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox Industry_price_change;
-        private System.Windows.Forms.TextBox Change_weapon_prices;
-        private System.Windows.Forms.TextBox Change_price_training;
-        private System.Windows.Forms.TextBox Changing_service_prices;
         private System.Windows.Forms.Button Approach_button;
         private System.Windows.Forms.Button button_Uninstall_code;
         private System.Windows.Forms.Button button__Price_change;
@@ -828,5 +829,9 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown Change_service_price;
+        private System.Windows.Forms.NumericUpDown Change_education_price;
+        private System.Windows.Forms.NumericUpDown Change_weapon_price;
+        private System.Windows.Forms.NumericUpDown Change_industry_price;
     }
 }

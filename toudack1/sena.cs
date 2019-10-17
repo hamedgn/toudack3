@@ -12,10 +12,12 @@ namespace toudack1
 {
     public partial class sena : Form
     {
+        private DBConnect dbconnect;
         int sena_number_mode = 0;
         public sena()
         {
             InitializeComponent();
+            dbconnect = new DBConnect();
         }
 
         private void label16_Click(object sender, EventArgs e)
@@ -60,10 +62,10 @@ namespace toudack1
                 Approach_price.Enabled = false;
                 button_Uninstall_code.Enabled = false;
                 //lable click 3
-                Changing_service_prices.Enabled = false;
-                Change_price_training.Enabled = false;
-                Change_weapon_prices.Enabled = false;
-                Industry_price_change.Enabled = false;
+                Change_service_price.Enabled = false;
+                Change_education_price.Enabled = false;
+                Change_weapon_price.Enabled = false;
+                Change_industry_price.Enabled = false;
                 button__Price_change.Enabled = false;
                 //lable click 4
                 listBox_Uninstall_code.Enabled = false;
@@ -92,10 +94,10 @@ namespace toudack1
                 Approach_price.Enabled = false;
                 button_Uninstall_code.Enabled = false;
                 //lable click 3
-                Changing_service_prices.Enabled = false;
-                Change_price_training.Enabled = false;
-                Change_weapon_prices.Enabled = false;
-                Industry_price_change.Enabled = false;
+                Change_service_price.Enabled = false;
+                Change_education_price.Enabled = false;
+                Change_weapon_price.Enabled = false;
+                Change_industry_price.Enabled = false;
                 button__Price_change.Enabled = false;
                 //lable click 4
                 listBox_Uninstall_code.Enabled = false;
@@ -112,10 +114,10 @@ namespace toudack1
             sena_number_mode = 2;
             if (sena_number_mode == 2)
             {
-                Changing_service_prices.Enabled = true;
-                Change_price_training.Enabled = true;
-                Change_weapon_prices.Enabled = true;
-                Industry_price_change.Enabled = true;
+                Change_service_price.Enabled = true;
+                Change_education_price.Enabled = true;
+                Change_weapon_price.Enabled = true;
+                Change_industry_price.Enabled = true;
                 button__Price_change.Enabled = true;
                 ///////////////////////
                 //able click 2
@@ -144,10 +146,10 @@ namespace toudack1
             }
             else
             {
-                Changing_service_prices.Enabled = false;
-                Change_price_training.Enabled = false;
-                Change_weapon_prices.Enabled = false;
-                Industry_price_change.Enabled = false;
+                Change_service_price.Enabled = false;
+                Change_education_price.Enabled = false;
+                Change_weapon_price.Enabled = false;
+                Change_industry_price.Enabled = false;
                 button__Price_change.Enabled = false;
             }
         }
@@ -181,10 +183,10 @@ namespace toudack1
                 Approach_price.Enabled = false;
                 Approach_button.Enabled = false;
                 //lable click 3
-                Changing_service_prices.Enabled = false;
-                Change_price_training.Enabled = false;
-                Change_weapon_prices.Enabled = false;
-                Industry_price_change.Enabled = false;
+                Change_service_price.Enabled = false;
+                Change_education_price.Enabled = false;
+                Change_weapon_price.Enabled = false;
+                Change_industry_price.Enabled = false;
                 button__Price_change.Enabled = false;
                
             }
@@ -220,10 +222,10 @@ namespace toudack1
                 checkBox4_investment.Enabled = false;
                 button_investment.Enabled = false;
                 //lable click 3
-                Changing_service_prices.Enabled = false;
-                Change_price_training.Enabled = false;
-                Change_weapon_prices.Enabled = false;
-                Industry_price_change.Enabled = false;
+                Change_service_price.Enabled = false;
+                Change_education_price.Enabled = false;
+                Change_weapon_price.Enabled = false;
+                Change_industry_price.Enabled = false;
                 button__Price_change.Enabled = false;
             }
                 else
@@ -254,10 +256,10 @@ namespace toudack1
             Approach_price.ResetText();
            
             //lable click 3
-            Changing_service_prices.ResetText();
-            Change_price_training.ResetText();
-            Change_weapon_prices.ResetText();
-            Industry_price_change.ResetText();
+            Change_service_price.ResetText();
+            Change_education_price.ResetText();
+            Change_weapon_price.ResetText();
+            Change_industry_price.ResetText();
            
             //lable click 4
             listBox_Uninstall_code.ResetText();
@@ -266,6 +268,29 @@ namespace toudack1
             Installation_code.ResetText();
             
            
+        }
+
+        private void button__Price_change_Click(object sender, EventArgs e)
+        {
+            if (Change_service_price.Text != "0")
+            {
+                dbconnect.setprice("services",Convert.ToInt32(Change_service_price.Text));
+            }
+            
+            if(Change_education_price.Text !="0")
+            {
+                dbconnect.setprice("education", Convert.ToInt32(Change_education_price.Text));
+            }
+            if(Change_weapon_price.Text != "0")
+            {
+                dbconnect.setprice("weapons", Convert.ToInt32(Change_weapon_price.Text));
+            }
+            if(Change_industry_price.Text != "0")
+            {
+                dbconnect.setprice("industry", Convert.ToInt32(Change_industry_price.Text));
+            }
+           // dbconnect.getprice("dolati");
+            
         }
     }
 }
