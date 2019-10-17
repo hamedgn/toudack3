@@ -147,6 +147,12 @@
     <Compile Include="resources.Designer.cs">
       <DependentUpon>resources.cs</DependentUpon>
     </Compile>
+    <Compile Include="sena.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sena.Designer.cs">
+      <DependentUpon>sena.cs</DependentUpon>
+    </Compile>
     <Compile Include="wisposh.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Bank.resx">
       <DependentUpon>Bank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sena.resx">
+      <DependentUpon>sena.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="wisposh.resx">
       <DependentUpon>wisposh.cs</DependentUpon>
