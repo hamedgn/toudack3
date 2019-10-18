@@ -102,6 +102,10 @@ namespace toudack1
 
         #endregion
 
+        #region TIME
+         public string timenow;
+        #endregion
+
         #endregion
 
 
@@ -974,6 +978,54 @@ namespace toudack1
 
         #endregion
 
+        #region TIME
+        public void TIME_SET(string time)
+        {
+            string query = "UPDATE time SET timenow=" + time + " WHERE 1";
+
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                //create mysql command
+                MySqlCommand cmd = new MySqlCommand();
+                //Assign the query using CommandText
+                cmd.CommandText = query;
+                //Assign the connection using Connection
+                cmd.Connection = connection;
+
+                //Execute query
+                cmd.ExecuteNonQuery();
+
+                //close connection
+                this.CloseConnection();
+            }
+        }
+
+        //get price
+        public void TIME_GET()
+        {
+
+            string query = "SELECT * FROM time ";
+
+            if (this.OpenConnection() == true)
+            {
+
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader myreader = cmd.ExecuteReader();
+                while (myreader.Read())
+                {
+                   timenow= myreader["timenow"].ToString();
+
+                }
+
+                //close connection
+                this.CloseConnection();
+
+            }
+
+        }
+        #endregion
 
         #endregion
 

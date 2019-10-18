@@ -79,15 +79,13 @@
             this.label23 = new System.Windows.Forms.Label();
             this.button_Installation_code = new System.Windows.Forms.Button();
             this.sena_clear = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.Change_service_price = new System.Windows.Forms.NumericUpDown();
             this.Change_education_price = new System.Windows.Forms.NumericUpDown();
             this.Change_weapon_price = new System.Windows.Forms.NumericUpDown();
             this.Change_industry_price = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
+            this.sena_boss_changeprice_box = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Change_service_price)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Change_education_price)).BeginInit();
@@ -292,7 +290,7 @@
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.label9.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label9.Location = new System.Drawing.Point(510, 329);
+            this.label9.Location = new System.Drawing.Point(516, 244);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(47, 29);
             this.label9.TabIndex = 137;
@@ -303,7 +301,7 @@
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.label10.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label10.Location = new System.Drawing.Point(510, 296);
+            this.label10.Location = new System.Drawing.Point(522, 211);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(41, 29);
             this.label10.TabIndex = 138;
@@ -314,7 +312,7 @@
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.label11.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label11.Location = new System.Drawing.Point(510, 262);
+            this.label11.Location = new System.Drawing.Point(509, 177);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(57, 29);
             this.label11.TabIndex = 139;
@@ -325,7 +323,7 @@
             this.label12.AutoSize = true;
             this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.label12.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label12.Location = new System.Drawing.Point(510, 227);
+            this.label12.Location = new System.Drawing.Point(509, 142);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(54, 29);
             this.label12.TabIndex = 140;
@@ -366,7 +364,7 @@
             this.button__Price_change.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button__Price_change.Font = new System.Drawing.Font("B Titr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.button__Price_change.ForeColor = System.Drawing.Color.Lime;
-            this.button__Price_change.Location = new System.Drawing.Point(443, 361);
+            this.button__Price_change.Location = new System.Drawing.Point(439, 350);
             this.button__Price_change.Name = "button__Price_change";
             this.button__Price_change.Size = new System.Drawing.Size(124, 40);
             this.button__Price_change.TabIndex = 147;
@@ -624,96 +622,74 @@
             this.sena_clear.UseVisualStyleBackColor = true;
             this.sena_clear.Click += new System.EventHandler(this.sena_clear_Click);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.label2.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label2.Location = new System.Drawing.Point(453, 105);
-            this.label2.Name = "label2";
-            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label2.Size = new System.Drawing.Size(81, 29);
-            this.label2.TabIndex = 172;
-            this.label2.Text = "رئیس صنف:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(515, 137);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(49, 20);
-            this.textBox1.TabIndex = 173;
-            // 
-            // button1
-            // 
-            this.button1.BackgroundImage = global::toudack1.Properties.Resources.barcod;
-            this.button1.Location = new System.Drawing.Point(477, 131);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(32, 32);
-            this.button1.TabIndex = 174;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.button2.Location = new System.Drawing.Point(439, 132);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(32, 32);
-            this.button2.TabIndex = 175;
-            this.button2.Text = "ok";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("B Titr", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label3.Location = new System.Drawing.Point(473, 172);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 20);
-            this.label3.TabIndex = 176;
-            this.label3.Text = "نام گروه پشمک";
-            // 
             // Change_service_price
             // 
-            this.Change_service_price.Location = new System.Drawing.Point(458, 236);
+            this.Change_service_price.Location = new System.Drawing.Point(443, 151);
             this.Change_service_price.Name = "Change_service_price";
             this.Change_service_price.Size = new System.Drawing.Size(51, 20);
             this.Change_service_price.TabIndex = 177;
             // 
             // Change_education_price
             // 
-            this.Change_education_price.Location = new System.Drawing.Point(458, 269);
+            this.Change_education_price.Location = new System.Drawing.Point(443, 184);
             this.Change_education_price.Name = "Change_education_price";
             this.Change_education_price.Size = new System.Drawing.Size(51, 20);
             this.Change_education_price.TabIndex = 178;
             // 
             // Change_weapon_price
             // 
-            this.Change_weapon_price.Location = new System.Drawing.Point(458, 303);
+            this.Change_weapon_price.Location = new System.Drawing.Point(443, 218);
             this.Change_weapon_price.Name = "Change_weapon_price";
             this.Change_weapon_price.Size = new System.Drawing.Size(51, 20);
             this.Change_weapon_price.TabIndex = 179;
             // 
             // Change_industry_price
             // 
-            this.Change_industry_price.Location = new System.Drawing.Point(458, 336);
+            this.Change_industry_price.Location = new System.Drawing.Point(443, 251);
             this.Change_industry_price.Name = "Change_industry_price";
             this.Change_industry_price.Size = new System.Drawing.Size(51, 20);
             this.Change_industry_price.TabIndex = 180;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.label2.Font = new System.Drawing.Font("Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label2.Location = new System.Drawing.Point(488, 286);
+            this.label2.Name = "label2";
+            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label2.Size = new System.Drawing.Size(88, 26);
+            this.label2.TabIndex = 181;
+            this.label2.Text = "کد رئیس سنا:";
+            // 
+            // sena_boss_changeprice_box
+            // 
+            this.sena_boss_changeprice_box.Location = new System.Drawing.Point(463, 315);
+            this.sena_boss_changeprice_box.Name = "sena_boss_changeprice_box";
+            this.sena_boss_changeprice_box.Size = new System.Drawing.Size(72, 20);
+            this.sena_boss_changeprice_box.TabIndex = 182;
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::toudack1.Properties.Resources.barcod;
+            this.button1.Location = new System.Drawing.Point(425, 308);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(32, 32);
+            this.button1.TabIndex = 183;
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // sena
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 416);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.sena_boss_changeprice_box);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.Change_industry_price);
             this.Controls.Add(this.Change_weapon_price);
             this.Controls.Add(this.Change_education_price);
             this.Controls.Add(this.Change_service_price);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.sena_clear);
             this.Controls.Add(this.button_Installation_code);
             this.Controls.Add(this.label23);
@@ -824,14 +800,12 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Button button_Installation_code;
         private System.Windows.Forms.Button sena_clear;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown Change_service_price;
         private System.Windows.Forms.NumericUpDown Change_education_price;
         private System.Windows.Forms.NumericUpDown Change_weapon_price;
         private System.Windows.Forms.NumericUpDown Change_industry_price;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox sena_boss_changeprice_box;
+        private System.Windows.Forms.Button button1;
     }
 }

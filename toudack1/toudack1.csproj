@@ -153,6 +153,12 @@
     <Compile Include="sena.Designer.cs">
       <DependentUpon>sena.cs</DependentUpon>
     </Compile>
+    <Compile Include="TIME.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TIME.Designer.cs">
+      <DependentUpon>TIME.cs</DependentUpon>
+    </Compile>
     <Compile Include="wisposh.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="sena.resx">
       <DependentUpon>sena.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TIME.resx">
+      <DependentUpon>TIME.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="wisposh.resx">
       <DependentUpon>wisposh.cs</DependentUpon>

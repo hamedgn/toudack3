@@ -272,25 +272,40 @@ namespace toudack1
 
         private void button__Price_change_Click(object sender, EventArgs e)
         {
-            if (Change_service_price.Text != "0")
+            if(sena_boss_changeprice_box.Text == "amin koni")
             {
-                dbconnect.setprice("services",Convert.ToInt32(Change_service_price.Text));
+
+                if (Change_service_price.Text != "0")
+                {
+                    dbconnect.setprice("services",Convert.ToInt32(Change_service_price.Text));
+                }
+                else
+                if(Change_education_price.Text !="0")
+                {
+                    dbconnect.setprice("education", Convert.ToInt32(Change_education_price.Text));
+                }
+                else
+                if(Change_weapon_price.Text != "0")
+                {
+                    dbconnect.setprice("weapons", Convert.ToInt32(Change_weapon_price.Text));
+                }
+                else
+                if(Change_industry_price.Text != "0")
+                {
+                    dbconnect.setprice("industry", Convert.ToInt32(Change_industry_price.Text));
+                }
+                else
+                {
+                    MessageBox.Show(".یکی از مقادیر را وارد کنید");
+                }
+
             }
-            
-            if(Change_education_price.Text !="0")
+            else
             {
-                dbconnect.setprice("education", Convert.ToInt32(Change_education_price.Text));
+                MessageBox.Show(".کد رئیس ثنا اشتباه است");
             }
-            if(Change_weapon_price.Text != "0")
-            {
-                dbconnect.setprice("weapons", Convert.ToInt32(Change_weapon_price.Text));
-            }
-            if(Change_industry_price.Text != "0")
-            {
-                dbconnect.setprice("industry", Convert.ToInt32(Change_industry_price.Text));
-            }
-           // dbconnect.getprice("dolati");
-            
+            // dbconnect.getprice("dolati");
+
         }
     }
 }
