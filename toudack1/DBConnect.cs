@@ -104,6 +104,9 @@ namespace toudack1
 
         #region TIME
          public string timenow;
+        public int s;
+        public int m;
+        public int h;
         #endregion
 
         #endregion
@@ -981,7 +984,7 @@ namespace toudack1
         #region TIME
         public void TIME_SET(string time)
         {
-            string query = "UPDATE time SET timenow=" + time + " WHERE 1";
+            string query = "UPDATE time SET timenow=" + time + " WHERE type='s'";
 
             //Open connection
             if (this.OpenConnection() == true)
@@ -1000,12 +1003,74 @@ namespace toudack1
                 this.CloseConnection();
             }
         }
+        public void TIME_SET_s(int time)
+        {
+            string query = "UPDATE time SET s=" + time + " WHERE type='n'";
 
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                //create mysql command
+                MySqlCommand cmd = new MySqlCommand();
+                //Assign the query using CommandText
+                cmd.CommandText = query;
+                //Assign the connection using Connection
+                cmd.Connection = connection;
+
+                //Execute query
+                cmd.ExecuteNonQuery();
+
+                //close connection
+                this.CloseConnection();
+            }
+        }
+        public void TIME_SET_m(int time)
+        {
+            string query = "UPDATE time SET m=" + time + " WHERE type='n'";
+
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                //create mysql command
+                MySqlCommand cmd = new MySqlCommand();
+                //Assign the query using CommandText
+                cmd.CommandText = query;
+                //Assign the connection using Connection
+                cmd.Connection = connection;
+
+                //Execute query
+                cmd.ExecuteNonQuery();
+
+                //close connection
+                this.CloseConnection();
+            }
+        }
+        public void TIME_SET_h(int time)
+        {
+            string query = "UPDATE time SET h=" + time + " WHERE type='n'";
+
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                //create mysql command
+                MySqlCommand cmd = new MySqlCommand();
+                //Assign the query using CommandText
+                cmd.CommandText = query;
+                //Assign the connection using Connection
+                cmd.Connection = connection;
+
+                //Execute query
+                cmd.ExecuteNonQuery();
+
+                //close connection
+                this.CloseConnection();
+            }
+        }
         //get price
         public void TIME_GET()
         {
 
-            string query = "SELECT * FROM time ";
+            string query = "SELECT * FROM time WHERE type='s'";
 
             if (this.OpenConnection() == true)
             {
@@ -1016,13 +1081,68 @@ namespace toudack1
                 while (myreader.Read())
                 {
                    timenow= myreader["timenow"].ToString();
-
+                    s = Convert.ToInt32(myreader["s"].ToString());
+                    m = Convert.ToInt32(myreader["m"].ToString());
+                    h = Convert.ToInt32(myreader["h"].ToString());
                 }
 
                 //close connection
                 this.CloseConnection();
 
             }
+
+        }
+        public void TIME_GET_n()
+        {
+
+            string query = "SELECT * FROM time WHERE type='n'";
+
+            if (this.OpenConnection() == true)
+            {
+
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader myreader = cmd.ExecuteReader();
+                while (myreader.Read())
+                {
+                    timenow = myreader["timenow"].ToString();
+                    s = Convert.ToInt32(myreader["s"].ToString());
+                    m = Convert.ToInt32(myreader["m"].ToString());
+                    h = Convert.ToInt32(myreader["h"].ToString());
+                }
+
+                //close connection
+                this.CloseConnection();
+
+            }
+
+        }
+        public void timespus()
+        {
+            TIME_GET_n();
+            s = s + 1;
+            if (s < 60 && s >= 0)
+            {
+                TIME_SET_s(s);
+            }
+            else 
+            if (s >= 60)
+            {
+                s = 0;
+                m = m + 1;
+                TIME_SET_s(s);
+                TIME_SET_m(m);
+                
+                if (m >= 60)
+                {
+                    m = 0;
+                    h = h + 1;
+                    TIME_SET_m(m);
+                    TIME_SET_h(h);
+                }
+            }
+            
+            
 
         }
         #endregion

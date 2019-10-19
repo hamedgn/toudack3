@@ -27,10 +27,10 @@ namespace toudack1
             dbconnect = new DBConnect();
 
             label2.Text = DateTime.Now.ToString("dd/MM/yyyy");//tarikh feli ro mide
-            label1.Text = DateTime.Now.ToString("HH:mm:ss tt");
-            timer.Tick += new EventHandler(timer1_Tick);
-            timer.Interval = 1000;
-            timer.Start();
+           // label1.Text = DateTime.Now.ToString("HH:mm:ss tt");
+            //timer.Tick += new EventHandler(timer1_Tick);
+            //timer.Interval = 1000;
+            //timer.Start();
             
         }
 
@@ -42,16 +42,20 @@ namespace toudack1
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            
             label1.Text = DateTime.Now.ToString("HH:mm:ss tt");//zaman ro mide
-            dbconnect.TIME_SET(DateTime.Now.ToString("HHmmss"));
+           // dbconnect.TIME_GET();
+            
+            dbconnect.timespus();
+            label2.Text = (dbconnect.h.ToString()+":"+ dbconnect.m.ToString()+":"+ dbconnect.s.ToString());
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             try
             {
-                dbconnect.TIME_GET();
-                MessageBox.Show(dbconnect.timenow);
+                dbconnect.TIME_SET(DateTime.Now.ToString("HHmmss"));
+                starttime.Enabled = false;
             }
             catch
             {
