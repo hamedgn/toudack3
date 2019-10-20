@@ -1425,6 +1425,31 @@ namespace toudack1
                 this.CloseConnection();
             }
         }
+
+        public void factory_box_code_check(string groupcode)
+        {
+            string query = "SELECT * FROM factory_box WHERE numbergroup=" + groupcode;
+            if (this.OpenConnection() == true)
+            {
+                //create command and assign the query and connection from the constructor seller
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                using (MySqlDataReader myreader = cmd.ExecuteReader())
+                {
+                    while (myreader.Read())
+                    {
+                        factory_box_Groupnumber = Convert.ToInt32(myreader["numbergroup"].ToString());
+                        factory_box_Industry = Convert.ToInt32(myreader["industry"].ToString());
+                        factory_box_Services = Convert.ToInt32(myreader["services"].ToString());
+                        factory_box_Education = Convert.ToInt32(myreader["education"].ToString());
+                        factory_box_Weapons = Convert.ToInt32(myreader["weapons"].ToString());
+                    }
+                }
+                //close connection
+                this.CloseConnection();
+
+
+            }
+        }
         #endregion
 
         #endregion
