@@ -48,6 +48,7 @@
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "label1";
+            this.label1.UseWaitCursor = true;
             // 
             // timer1
             // 
@@ -62,6 +63,7 @@
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "label2";
+            this.label2.UseWaitCursor = true;
             // 
             // starttime
             // 
@@ -71,6 +73,7 @@
             this.starttime.TabIndex = 2;
             this.starttime.Text = "start";
             this.starttime.UseVisualStyleBackColor = true;
+            this.starttime.UseWaitCursor = true;
             this.starttime.Click += new System.EventHandler(this.starttime_Click);
             // 
             // stoptime
@@ -82,6 +85,7 @@
             this.stoptime.TabIndex = 3;
             this.stoptime.Text = "stop";
             this.stoptime.UseVisualStyleBackColor = true;
+            this.stoptime.UseWaitCursor = true;
             this.stoptime.Click += new System.EventHandler(this.stoptime_Click);
             // 
             // timer2
@@ -98,6 +102,7 @@
             this.label3.Size = new System.Drawing.Size(62, 13);
             this.label3.TabIndex = 4;
             this.label3.Text = "زمان سیستم";
+            this.label3.UseWaitCursor = true;
             // 
             // label4
             // 
@@ -107,6 +112,7 @@
             this.label4.Size = new System.Drawing.Size(54, 13);
             this.label4.TabIndex = 5;
             this.label4.Text = "زمان بازی";
+            this.label4.UseWaitCursor = true;
             // 
             // textBox1
             // 
@@ -115,12 +121,14 @@
             this.textBox1.Size = new System.Drawing.Size(77, 20);
             this.textBox1.TabIndex = 6;
             this.textBox1.UseSystemPasswordChar = true;
+            this.textBox1.UseWaitCursor = true;
             // 
-            // TIME
+            // TIMEADMIN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(332, 115);
+            this.ControlBox = false;
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -131,11 +139,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "TIME";
+            this.Name = "TIMEADMIN";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "TIME";
             this.TopMost = true;
-            this.UseWaitCursor = true;
             this.Load += new System.EventHandler(this.TIME_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
