@@ -26,7 +26,7 @@ namespace toudack1
             InitializeComponent();
             dbconnect = new DBConnect();
 
-            label2.Text = DateTime.Now.ToString("dd/MM/yyyy");//tarikh feli ro mide
+            //label2.Text = DateTime.Now.ToString("dd/MM/yyyy");//tarikh feli ro mide
            // label1.Text = DateTime.Now.ToString("HH:mm:ss tt");
             //timer.Tick += new EventHandler(timer1_Tick);
             //timer.Interval = 1000;
@@ -36,36 +36,62 @@ namespace toudack1
 
         private void TIME_Load(object sender, EventArgs e)
         {
-
+            label2.Text = "0:0:0";
             
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             
-            label1.Text = DateTime.Now.ToString("HH:mm:ss tt");//zaman ro mide
            // dbconnect.TIME_GET();
             
             dbconnect.timespus();
             label2.Text = (dbconnect.h.ToString()+":"+ dbconnect.m.ToString()+":"+ dbconnect.s.ToString());
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void starttime_Click(object sender, EventArgs e)
         {
-            try
+            if (textBox1.Text == "1")
             {
-                dbconnect.TIME_SET(DateTime.Now.ToString("HHmmss"));
-                starttime.Enabled = false;
-            }
-            catch
-            {
+                try
+                {
+                    dbconnect.TIME_SET(DateTime.Now.ToString("HHmmss"));
+                    starttime.Enabled = false;
+                    timer1.Enabled = true;
+                    stoptime.Enabled = true;
+                    textBox1.Text = "";
+                }
+                catch
+                {
 
+                }
             }
-            
+            else
+            {
+                MessageBox.Show("رمز ادمین را وارد کنید");
+            }
         }
 
-        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void stoptime_Click(object sender, EventArgs e)
         {
+            if (textBox1.Text == "1")
+            {
+
+            
+            starttime.Enabled = true;
+            timer1.Enabled = false;
+            stoptime.Enabled = false;
+                textBox1.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("رمز ادمین را وارد کنید");
+            }
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            label1.Text = DateTime.Now.ToString("HH:mm:ss tt");//zaman ro mide
 
         }
     }
