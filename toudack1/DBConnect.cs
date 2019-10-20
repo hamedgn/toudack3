@@ -92,7 +92,13 @@ namespace toudack1
         public int natural_resources_Old_seller;
         public int natural_resources_Diamond_Buyer;
         public int natural_resources_Diamond_seller;
-
+        public int natural_resources_Oil;
+        public int natural_resources_Silk;
+        public int natural_resources_Diamond;
+        public int natural_resources_Gold;
+        public int natural_resources_numbergroup;
+        public int natural_resources_Buyer;
+        public int natural_resources_seller;
         #endregion
 
         #region price
@@ -1183,6 +1189,44 @@ namespace toudack1
 
             }
         }
+        //natural_resources code data base
+        public void public_natural_resources(string playercode1, string playercode2, string res)
+        {
+            string query_buyer = "SELECT " + res + ", numbergroup FROM natural_resources WHERE numbergroup=" + playercode1;
+            string query_seller = "SELECT " + res + ", numbergroup FROM natural_resources WHERE numbergroup=" + playercode2;
+            if (this.OpenConnection() == true)
+            {
+
+                //create command and assign the query and connection from the constructor seller
+                MySqlCommand cmd_seller = new MySqlCommand(query_seller, connection);
+                using (MySqlDataReader myreader_seller = cmd_seller.ExecuteReader())
+                {
+                    while (myreader_seller.Read())
+                    {
+
+                        natural_resources_Numbergroup_seller = Convert.ToInt32(myreader_seller["numbergroup"].ToString());
+                        natural_resources_seller = Convert.ToInt32(myreader_seller[res].ToString());
+
+                    }
+                }
+                //create command and assign the query and connection from the constructor buyer
+                MySqlCommand cmd_buyer = new MySqlCommand(query_buyer, connection);
+                MySqlDataReader myreader_buyer = cmd_buyer.ExecuteReader();
+                while (myreader_buyer.Read())
+                {
+                    natural_resources_Buyer = Convert.ToInt32(myreader_buyer[res].ToString());
+                    natural_resources_Numbergroup_Buyer = Convert.ToInt32(myreader_buyer["numbergroup"].ToString());
+
+                }
+
+                //MessageBox.Show(myreader[playercode].ToString());
+
+                //close connection
+                this.CloseConnection();
+
+
+            }
+        }
 
         //natural_resources code data base
         public void natural_resources_code_public(string playercode1, string playercode2, string res)
@@ -1380,6 +1424,32 @@ namespace toudack1
                 }
                 //MessageBox.Show(myreader[playercode].ToString());
 
+                //close connection
+                this.CloseConnection();
+
+
+            }
+        }
+        //natural_resources code check
+
+        public void References_box_code_check(string groupcode)
+        {
+            string query = "SELECT * FROM natural_resources WHERE numbergroup=" + groupcode;
+            if (this.OpenConnection() == true)
+            {
+                //create command and assign the query and connection from the constructor seller
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                using (MySqlDataReader myreader = cmd.ExecuteReader())
+                {
+                    while (myreader.Read())
+                    {
+                        natural_resources_numbergroup = Convert.ToInt32(myreader["numbergroup"].ToString());
+                        natural_resources_Oil = Convert.ToInt32(myreader["oil"].ToString());
+                        natural_resources_Diamond = Convert.ToInt32(myreader["diamond"].ToString());
+                        natural_resources_Gold = Convert.ToInt32(myreader["gold"].ToString());
+                        natural_resources_Silk = Convert.ToInt32(myreader["silk"].ToString());
+                    }
+                }
                 //close connection
                 this.CloseConnection();
 

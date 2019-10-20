@@ -63,5 +63,10 @@ namespace toudack1
             }
             
         }
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+
+        }
     }
 }
