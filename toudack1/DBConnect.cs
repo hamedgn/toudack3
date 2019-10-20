@@ -65,6 +65,11 @@ namespace toudack1
         public int factory_en_Weapons;
         public int factory_en_Education;
         public int factory_en_Industry;
+        public int factory_box_Industry;
+        public int factory_box_Services;
+        public int factory_box_Education;
+        public int factory_box_Weapons;
+        public int factory_box_Groupnumber;
         #endregion
 
         #region resourse
@@ -1379,6 +1384,45 @@ namespace toudack1
                 this.CloseConnection();
 
 
+            }
+        }
+        #endregion
+
+        #region factory_box
+        //factory_box_upadte
+        public void factory_box_plus(int res, int amount, string playercode, string type)
+        {
+            res = res + amount;
+            Transferfacmove(res, playercode, type);
+        }
+
+        //Funds factory_box_Negative
+        public void factory_box_Negative(int res, int amount, string playercode, string type)
+        {
+            res = res - amount;
+            Transferfacmove(res, playercode, type);
+        }
+
+        //Transfer Fund factory_box
+        public void Transferfacmove(int amount, string playercode, string type)
+        {
+            string query = "UPDATE factory_box SET `" + type + "`=" + amount + " WHERE numbergroup=" + playercode;
+
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                //create mysql command
+                MySqlCommand cmd = new MySqlCommand();
+                //Assign the query using CommandText
+                cmd.CommandText = query;
+                //Assign the connection using Connection
+                cmd.Connection = connection;
+
+                //Execute query
+                cmd.ExecuteNonQuery();
+
+                //close connection
+                this.CloseConnection();
             }
         }
         #endregion

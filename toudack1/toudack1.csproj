@@ -116,6 +116,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="black_market_factory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="black_market_factory.Designer.cs">
+      <DependentUpon>black_market_factory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="black_market_resources.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="black_market_resources.Designer.cs">
+      <DependentUpon>black_market_resources.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Board_Diamond.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Board_Diamond.Designer.cs">
+      <DependentUpon>Board_Diamond.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Board_gold.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Board_gold.Designer.cs">
+      <DependentUpon>Board_gold.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Board_oil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Board_oil.Designer.cs">
+      <DependentUpon>Board_oil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Board_Silk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Board_Silk.Designer.cs">
+      <DependentUpon>Board_Silk.cs</DependentUpon>
+    </Compile>
     <Compile Include="DBConnect.cs" />
     <Compile Include="factory.cs">
       <SubType>Form</SubType>
