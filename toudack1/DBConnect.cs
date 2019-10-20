@@ -1103,6 +1103,32 @@ namespace toudack1
             }
 
         }
+
+        public void TIME_GET_u()
+        {
+
+            string query = "SELECT * FROM time WHERE type='n'";
+
+            if (this.OpenConnection() == true)
+            {
+
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader myreader = cmd.ExecuteReader();
+                while (myreader.Read())
+                {
+                    timenow = myreader["timenow"].ToString();
+                    s = Convert.ToInt32(myreader["s"].ToString());
+                    m = Convert.ToInt32(myreader["m"].ToString());
+                    h = Convert.ToInt32(myreader["h"].ToString());
+                }
+
+                //close connection
+                this.CloseConnection();
+
+            }
+
+        }
         public void TIME_GET_n()
         {
 

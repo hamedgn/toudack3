@@ -17,11 +17,11 @@ using System.Text.RegularExpressions;
 
 namespace toudack1
 {
-    public partial class TIME : Form
+    public partial class TIMEADMIN : Form
     {
         private DBConnect dbconnect;
         Timer timer = new Timer();
-        public TIME()
+        public TIMEADMIN()
         {
             InitializeComponent();
             dbconnect = new DBConnect();

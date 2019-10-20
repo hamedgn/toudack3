@@ -1,6 +1,6 @@
 ﻿namespace toudack1
 {
-    partial class TIME
+    partial class TIMEADMIN
     {
         /// <summary>
         /// Required designer variable.
@@ -128,8 +128,14 @@
             this.Controls.Add(this.starttime);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "TIME";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "TIME";
+            this.TopMost = true;
+            this.UseWaitCursor = true;
             this.Load += new System.EventHandler(this.TIME_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
