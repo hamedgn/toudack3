@@ -1218,8 +1218,8 @@ namespace toudack1
         //natural_resources code data base
         public void public_natural_resources(string playercode1, string playercode2, string res)
         {
-            string query_buyer = "SELECT " + res + ", numbergroup FROM natural_resources WHERE numbergroup=" + playercode1;
-            string query_seller = "SELECT " + res + ", numbergroup FROM natural_resources WHERE numbergroup=" + playercode2;
+            string query_buyer = "SELECT " + res + ", numbergroup FROM resource WHERE numbergroup=" + playercode1;
+            string query_seller = "SELECT " + res + ", numbergroup FROM resource WHERE numbergroup=" + playercode2;
             if (this.OpenConnection() == true)
             {
 
@@ -1257,8 +1257,8 @@ namespace toudack1
         //natural_resources code data base
         public void natural_resources_code_public(string playercode1, string playercode2, string res)
         {
-            string query_buyer = "SELECT " + res + ", numbergroup FROM natural_resources WHERE numbergroup=" + playercode1;
-            string query_seller = "SELECT " + res + ", numbergroup FROM natural_resources WHERE numbergroup=" + playercode2;
+            string query_buyer = "SELECT " + res + ", numbergroup FROM resource WHERE numbergroup=" + playercode1;
+            string query_seller = "SELECT " + res + ", numbergroup FROM resource WHERE numbergroup=" + playercode2;
             if (this.OpenConnection() == true)
             {
 
@@ -1460,7 +1460,7 @@ namespace toudack1
 
         public void References_box_code_check(string groupcode)
         {
-            string query = "SELECT * FROM natural_resources WHERE numbergroup=" + groupcode;
+            string query = "SELECT * FROM resource WHERE numbergroup=" + groupcode;
             if (this.OpenConnection() == true)
             {
                 //create command and assign the query and connection from the constructor seller

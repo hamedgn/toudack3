@@ -33,10 +33,12 @@ namespace toudack1
             //timer.Start();
             
         }
-
+        TIMEUSER user = new TIMEUSER();
         private void TIME_Load(object sender, EventArgs e)
         {
             label2.Text = "0:0:0";
+            user.Show();
+
             
         }
 

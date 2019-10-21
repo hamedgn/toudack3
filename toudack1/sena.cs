@@ -45,6 +45,13 @@ namespace toudack1
             sena_number_mode = 1;
             if (sena_number_mode == 1)
             {
+                button12_investment.Enabled = true;
+                button13_investment.Enabled = true;
+                button14_investment.Enabled = true;
+                button11_investment.Enabled = true;
+                button10_investment.Enabled = true;
+                button9_investment.Enabled = true;
+
                 textBox9_investment.Enabled = true;
                 textBox10_investment.Enabled = true;
                 textBox11_investment.Enabled = true;
@@ -78,6 +85,12 @@ namespace toudack1
             else
             {
                 //able click 2
+                button12_investment.Enabled = false;
+                button13_investment.Enabled = false;
+                button14_investment.Enabled = false;
+                button11_investment.Enabled = false;
+                button10_investment.Enabled = false;
+                button9_investment.Enabled = false;
                 textBox9_investment.Enabled = false;
                 textBox10_investment.Enabled = false;
                 textBox11_investment.Enabled = false;
@@ -121,6 +134,12 @@ namespace toudack1
                 button__Price_change.Enabled = true;
                 ///////////////////////
                 //able click 2
+                button12_investment.Enabled = false;
+                button13_investment.Enabled = false;
+                button14_investment.Enabled = false;
+                button11_investment.Enabled = false;
+                button10_investment.Enabled = false;
+                button9_investment.Enabled = false;
                 textBox9_investment.Enabled = false;
                 textBox10_investment.Enabled = false;
                 textBox11_investment.Enabled = false;
@@ -167,6 +186,12 @@ namespace toudack1
                 button_Installation_code.Enabled = true;
                 //////////////////////
                 //able click 2
+                button12_investment.Enabled = false;
+                button13_investment.Enabled = false;
+                button14_investment.Enabled = false;
+                button11_investment.Enabled = false;
+                button10_investment.Enabled = false;
+                button9_investment.Enabled = false;
                 textBox9_investment.Enabled = false;
                 textBox10_investment.Enabled = false;
                 textBox11_investment.Enabled = false;
@@ -210,6 +235,12 @@ namespace toudack1
                     Approach_button.Enabled = true;
                 ////////////////////
                 //able click 2
+                button12_investment.Enabled = false;
+                button13_investment.Enabled = false;
+                button14_investment.Enabled = false;
+                button11_investment.Enabled = false;
+                button10_investment.Enabled = false;
+                button9_investment.Enabled = false;
                 textBox9_investment.Enabled = false;
                 textBox10_investment.Enabled = false;
                 textBox11_investment.Enabled = false;
@@ -242,7 +273,7 @@ namespace toudack1
             listBox_Installation_code.ResetText();
             Uninstall_code.ResetText();
             Installation_code.ResetText();
-      
+
             //////////////////////
             //able click 2
             textBox9_investment.ResetText();
@@ -305,6 +336,46 @@ namespace toudack1
                 MessageBox.Show(".کد رئیس ثنا اشتباه است");
             }
             // dbconnect.getprice("dolati");
+
+        }
+
+        private void textBox9_investment_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox14_investment_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox10_investment_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox11_investment_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox13_investment_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Uninstall_code_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Installation_code_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_investment_Click(object sender, EventArgs e)
+        {
 
         }
     }

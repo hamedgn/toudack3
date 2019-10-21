@@ -189,6 +189,12 @@
     <Compile Include="sena.Designer.cs">
       <DependentUpon>sena.cs</DependentUpon>
     </Compile>
+    <Compile Include="senfboss.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="senfboss.Designer.cs">
+      <DependentUpon>senfboss.cs</DependentUpon>
+    </Compile>
     <Compile Include="TIMEADMIN.cs">
       <SubType>Form</SubType>
     </Compile>

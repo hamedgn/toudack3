@@ -120,6 +120,7 @@ namespace toudack1
                         int old_value = Convert.ToInt32(number_Oil_Buyer.Value) * ali;
                         int silk_value = Convert.ToInt32(number_Silk_Buyer.Value) * ali;
                         int diamond_value = Convert.ToInt32(number_Diamond_Buyer.Value) * ali;
+                        int vahid = (gold_value + old_value + silk_value + diamond_value)*ali;
                         dbconnect.Fundscheck(textBox_Buyer.Text);
                         dbconnect.References_box_code_check(textBox_Buyer.Text);
                         if (dbconnect.funds >= gold_value + old_value + silk_value + diamond_value)                       
@@ -129,7 +130,7 @@ namespace toudack1
                             dbconnect.natural_resources_plus(dbconnect.natural_resources_Silk, Convert.ToInt32(number_Silk_Buyer.Value), textBox_Buyer.Text, "silk");
                             dbconnect.natural_resources_plus(dbconnect.natural_resources_Diamond, Convert.ToInt32(number_Diamond_Buyer.Value), textBox_Buyer.Text, "diamond");
                             dbconnect.Fundscheck(textBox_Buyer.Text);
-                            dbconnect.Fundsplus(dbconnect.funds, ali, textBox_Buyer.Text);
+                            dbconnect.Fundsplus(dbconnect.funds, vahid, textBox_Buyer.Text);
                             dbconnect.References_box_code_check(textBox_Buyer.Text);
                             label_Gold_Buyer.Text = (Convert.ToInt32(dbconnect.natural_resources_Gold)).ToString();
                             label_Oil_Buyer.Text = (Convert.ToInt32(dbconnect.natural_resources_Oil)).ToString();
