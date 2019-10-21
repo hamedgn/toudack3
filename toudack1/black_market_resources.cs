@@ -120,7 +120,7 @@ namespace toudack1
                         int old_value = Convert.ToInt32(number_Oil_Buyer.Value) * ali;
                         int silk_value = Convert.ToInt32(number_Silk_Buyer.Value) * ali;
                         int diamond_value = Convert.ToInt32(number_Diamond_Buyer.Value) * ali;
-                        int vahid = (gold_value + old_value + silk_value + diamond_value)*ali;
+                        int vahid = (gold_value + old_value + silk_value + diamond_value);
                         dbconnect.Fundscheck(textBox_Buyer.Text);
                         dbconnect.References_box_code_check(textBox_Buyer.Text);
                         if (dbconnect.funds >= gold_value + old_value + silk_value + diamond_value)                       
@@ -163,8 +163,9 @@ namespace toudack1
                             dbconnect.natural_resources_Negative(dbconnect.natural_resources_Gold, Convert.ToInt32(number_Gold_seller.Value), textBox_seller.Text, "gold");
                             dbconnect.natural_resources_Negative(dbconnect.natural_resources_Silk, Convert.ToInt32(number_Silk_seller.Value), textBox_seller.Text, "silk");
                             dbconnect.natural_resources_Negative(dbconnect.natural_resources_Diamond, Convert.ToInt32(number_Diamond_seller.Value), textBox_seller.Text, "diamond");
+                            int vahid =(Convert.ToInt32(number_Oil_seller.Value)+ Convert.ToInt32(number_Gold_seller.Value)+ Convert.ToInt32(number_Silk_seller.Value) + Convert.ToInt32(number_Diamond_seller.Value))*ali;
                             dbconnect.Fundscheck(textBox_seller.Text);
-                            dbconnect.Fundsplus(dbconnect.funds, ali, textBox_seller.Text);
+                            dbconnect.Fundsplus(dbconnect.funds, vahid, textBox_seller.Text);
                             dbconnect.References_box_code_check(textBox_seller.Text);
                             label_Gold_seller.Text = (Convert.ToInt32(dbconnect.natural_resources_Gold)).ToString();
                             label_Oil_seller.Text = (Convert.ToInt32(dbconnect.natural_resources_Oil)).ToString();

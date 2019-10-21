@@ -114,6 +114,7 @@ namespace toudack1
                         int Weapons_value = Convert.ToInt32(number_Weapons_buy.Value) * ali;
                         dbconnect.Fundscheck(textBox_Buyer.Text);
                         dbconnect.factory_box_code_check(textBox_Buyer.Text);
+                        int vahid = (Education_value + Industry_value + Services_value + Weapons_value);
                         if (dbconnect.funds >= Education_value+Industry_value+Services_value+Weapons_value)
                         {
                             dbconnect.factory_box_plus(dbconnect.factory_box_Education, Convert.ToInt32(number_Education_buy.Value), textBox_Buyer.Text, "education");
@@ -121,7 +122,7 @@ namespace toudack1
                             dbconnect.factory_box_plus(dbconnect.factory_box_Services, Convert.ToInt32(number_Services_buy.Value), textBox_Buyer.Text, "services");
                             dbconnect.factory_box_plus(dbconnect.factory_box_Weapons, Convert.ToInt32(number_Weapons_buy.Value), textBox_Buyer.Text, "weapons");
                             dbconnect.Fundscheck(textBox_Buyer.Text);
-                            dbconnect.FundsNegative(dbconnect.funds, ali, textBox_Buyer.Text);
+                            dbconnect.FundsNegative(dbconnect.funds,vahid, textBox_Buyer.Text);
                             label_Education_buy.Text = (Convert.ToInt32(dbconnect.factory_box_Education) + Convert.ToInt32(number_Education_buy.Value)).ToString();
                             label_Industry_buy.Text = (Convert.ToInt32(dbconnect.factory_box_Industry) + Convert.ToInt32(number_Industry_buy.Value)).ToString();
                             label_Services_buy.Text = (Convert.ToInt32(dbconnect.factory_box_Services) + Convert.ToInt32(number_Services_buy.Value)).ToString();
@@ -152,7 +153,8 @@ namespace toudack1
                             dbconnect.factory_box_Negative(dbconnect.factory_box_Services, Convert.ToInt32(number_Services_seller.Value), textBox_seller.Text, "services");
                             dbconnect.factory_box_Negative(dbconnect.factory_box_Weapons, Convert.ToInt32(number_Weapons_seller.Value), textBox_seller.Text, "weapons");
                             dbconnect.Fundscheck(textBox_seller.Text);
-                            dbconnect.Fundsplus(dbconnect.funds, ali, textBox_seller.Text);
+                            int vahid = (Convert.ToInt32(number_Education_seller.Value) + Convert.ToInt32(number_Industry_seller.Value) + Convert.ToInt32(number_Services_seller.Value) + Convert.ToInt32(number_Weapons_seller.Value)) * ali;
+                            dbconnect.Fundsplus(dbconnect.funds, vahid, textBox_seller.Text);
                             dbconnect.factory_box_code_check(textBox_seller.Text);
                             //نمایش لیبل فروش
                                label_Education_seller.Text = (Convert.ToInt32(dbconnect.factory_box_Education)).ToString();
