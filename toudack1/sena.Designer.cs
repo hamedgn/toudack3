@@ -88,16 +88,14 @@
             this.button9_investment = new System.Windows.Forms.Button();
             this.button10_investment = new System.Windows.Forms.Button();
             this.button11_investment = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
+            this.button_scan_Uninstall = new System.Windows.Forms.Button();
+            this.button_scan_Installation = new System.Windows.Forms.Button();
+            this.button_Approach = new System.Windows.Forms.Button();
+            this.button_Approach_price = new System.Windows.Forms.Button();
             this.checkBox1_investment = new System.Windows.Forms.RadioButton();
             this.checkBox2_investment = new System.Windows.Forms.RadioButton();
             this.checkBox3_investment = new System.Windows.Forms.RadioButton();
             this.checkBox4_investment = new System.Windows.Forms.RadioButton();
-            this.button_Coefficient = new System.Windows.Forms.Button();
-            this.textBox_Coefficient = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -119,11 +117,26 @@
             this.label30 = new System.Windows.Forms.Label();
             this.label_Gold_seller = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
+            this.button18_investment = new System.Windows.Forms.Button();
+            this.button16_investment = new System.Windows.Forms.Button();
+            this.button17_investment = new System.Windows.Forms.Button();
+            this.button15_investment = new System.Windows.Forms.Button();
+            this.textBox17_investment = new System.Windows.Forms.TextBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.textBox15_investment = new System.Windows.Forms.TextBox();
+            this.label33 = new System.Windows.Forms.Label();
+            this.textBox18_investment = new System.Windows.Forms.TextBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.textBox16_investment = new System.Windows.Forms.TextBox();
+            this.label35 = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label36 = new System.Windows.Forms.Label();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Change_service_price)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Change_education_price)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Change_weapon_price)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Change_industry_price)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -727,52 +740,52 @@
             this.button11_investment.TabIndex = 260;
             this.button11_investment.UseVisualStyleBackColor = true;
             // 
-            // button8
+            // button_scan_Uninstall
             // 
-            this.button8.Font = new System.Drawing.Font("B Titr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.button8.Image = global::toudack1.Properties.Resources.barcod;
-            this.button8.Location = new System.Drawing.Point(293, 136);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(32, 20);
-            this.button8.TabIndex = 261;
-            this.button8.UseVisualStyleBackColor = true;
+            this.button_scan_Uninstall.Font = new System.Drawing.Font("B Titr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.button_scan_Uninstall.Image = global::toudack1.Properties.Resources.barcod;
+            this.button_scan_Uninstall.Location = new System.Drawing.Point(293, 136);
+            this.button_scan_Uninstall.Name = "button_scan_Uninstall";
+            this.button_scan_Uninstall.Size = new System.Drawing.Size(32, 20);
+            this.button_scan_Uninstall.TabIndex = 261;
+            this.button_scan_Uninstall.UseVisualStyleBackColor = true;
             // 
-            // button9
+            // button_scan_Installation
             // 
-            this.button9.Font = new System.Drawing.Font("B Titr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.button9.Image = global::toudack1.Properties.Resources.barcod;
-            this.button9.Location = new System.Drawing.Point(154, 134);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(32, 20);
-            this.button9.TabIndex = 262;
-            this.button9.UseVisualStyleBackColor = true;
+            this.button_scan_Installation.Font = new System.Drawing.Font("B Titr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.button_scan_Installation.Image = global::toudack1.Properties.Resources.barcod;
+            this.button_scan_Installation.Location = new System.Drawing.Point(154, 134);
+            this.button_scan_Installation.Name = "button_scan_Installation";
+            this.button_scan_Installation.Size = new System.Drawing.Size(32, 20);
+            this.button_scan_Installation.TabIndex = 262;
+            this.button_scan_Installation.UseVisualStyleBackColor = true;
             // 
-            // button10
+            // button_Approach
             // 
-            this.button10.Font = new System.Drawing.Font("B Titr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.button10.Image = global::toudack1.Properties.Resources.barcod;
-            this.button10.Location = new System.Drawing.Point(22, 134);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(32, 20);
-            this.button10.TabIndex = 263;
-            this.button10.UseVisualStyleBackColor = true;
+            this.button_Approach.Font = new System.Drawing.Font("B Titr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.button_Approach.Image = global::toudack1.Properties.Resources.barcod;
+            this.button_Approach.Location = new System.Drawing.Point(22, 134);
+            this.button_Approach.Name = "button_Approach";
+            this.button_Approach.Size = new System.Drawing.Size(32, 20);
+            this.button_Approach.TabIndex = 263;
+            this.button_Approach.UseVisualStyleBackColor = true;
             // 
-            // button11
+            // button_Approach_price
             // 
-            this.button11.Font = new System.Drawing.Font("B Titr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.button11.Image = global::toudack1.Properties.Resources.barcod;
-            this.button11.Location = new System.Drawing.Point(22, 176);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(32, 20);
-            this.button11.TabIndex = 264;
-            this.button11.UseVisualStyleBackColor = true;
+            this.button_Approach_price.Font = new System.Drawing.Font("B Titr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.button_Approach_price.Image = global::toudack1.Properties.Resources.barcod;
+            this.button_Approach_price.Location = new System.Drawing.Point(22, 176);
+            this.button_Approach_price.Name = "button_Approach_price";
+            this.button_Approach_price.Size = new System.Drawing.Size(32, 20);
+            this.button_Approach_price.TabIndex = 264;
+            this.button_Approach_price.UseVisualStyleBackColor = true;
             // 
             // checkBox1_investment
             // 
             this.checkBox1_investment.AutoSize = true;
             this.checkBox1_investment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.checkBox1_investment.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold);
-            this.checkBox1_investment.Location = new System.Drawing.Point(711, 233);
+            this.checkBox1_investment.Location = new System.Drawing.Point(711, 266);
             this.checkBox1_investment.Name = "checkBox1_investment";
             this.checkBox1_investment.Size = new System.Drawing.Size(53, 33);
             this.checkBox1_investment.TabIndex = 265;
@@ -785,7 +798,7 @@
             this.checkBox2_investment.AutoSize = true;
             this.checkBox2_investment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.checkBox2_investment.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold);
-            this.checkBox2_investment.Location = new System.Drawing.Point(604, 233);
+            this.checkBox2_investment.Location = new System.Drawing.Point(604, 266);
             this.checkBox2_investment.Name = "checkBox2_investment";
             this.checkBox2_investment.Size = new System.Drawing.Size(51, 33);
             this.checkBox2_investment.TabIndex = 266;
@@ -798,7 +811,7 @@
             this.checkBox3_investment.AutoSize = true;
             this.checkBox3_investment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.checkBox3_investment.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold);
-            this.checkBox3_investment.Location = new System.Drawing.Point(604, 267);
+            this.checkBox3_investment.Location = new System.Drawing.Point(604, 300);
             this.checkBox3_investment.Name = "checkBox3_investment";
             this.checkBox3_investment.Size = new System.Drawing.Size(68, 33);
             this.checkBox3_investment.TabIndex = 267;
@@ -811,7 +824,7 @@
             this.checkBox4_investment.AutoSize = true;
             this.checkBox4_investment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.checkBox4_investment.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold);
-            this.checkBox4_investment.Location = new System.Drawing.Point(711, 267);
+            this.checkBox4_investment.Location = new System.Drawing.Point(711, 300);
             this.checkBox4_investment.Name = "checkBox4_investment";
             this.checkBox4_investment.Size = new System.Drawing.Size(67, 33);
             this.checkBox4_investment.TabIndex = 268;
@@ -819,30 +832,12 @@
             this.checkBox4_investment.Text = "الماس";
             this.checkBox4_investment.UseVisualStyleBackColor = false;
             // 
-            // button_Coefficient
-            // 
-            this.button_Coefficient.Font = new System.Drawing.Font("B Titr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.button_Coefficient.Image = global::toudack1.Properties.Resources.barcod;
-            this.button_Coefficient.Location = new System.Drawing.Point(640, 322);
-            this.button_Coefficient.Name = "button_Coefficient";
-            this.button_Coefficient.Size = new System.Drawing.Size(32, 20);
-            this.button_Coefficient.TabIndex = 271;
-            this.button_Coefficient.UseVisualStyleBackColor = true;
-            // 
-            // textBox_Coefficient
-            // 
-            this.textBox_Coefficient.Enabled = false;
-            this.textBox_Coefficient.Location = new System.Drawing.Point(676, 322);
-            this.textBox_Coefficient.Name = "textBox_Coefficient";
-            this.textBox_Coefficient.Size = new System.Drawing.Size(36, 20);
-            this.textBox_Coefficient.TabIndex = 270;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.label3.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label3.Location = new System.Drawing.Point(715, 317);
+            this.label3.Location = new System.Drawing.Point(735, 329);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 29);
             this.label3.TabIndex = 269;
@@ -984,7 +979,7 @@
             this.label_Diamond_seller.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.label_Diamond_seller.Enabled = false;
             this.label_Diamond_seller.Font = new System.Drawing.Font("B Titr", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label_Diamond_seller.Location = new System.Drawing.Point(15, 441);
+            this.label_Diamond_seller.Location = new System.Drawing.Point(15, 440);
             this.label_Diamond_seller.Name = "label_Diamond_seller";
             this.label_Diamond_seller.Size = new System.Drawing.Size(29, 42);
             this.label_Diamond_seller.TabIndex = 320;
@@ -1070,11 +1065,162 @@
             this.label31.TabIndex = 313;
             this.label31.Text = "طلا";
             // 
+            // button18_investment
+            // 
+            this.button18_investment.Font = new System.Drawing.Font("B Titr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.button18_investment.Image = global::toudack1.Properties.Resources.barcod;
+            this.button18_investment.Location = new System.Drawing.Point(596, 244);
+            this.button18_investment.Name = "button18_investment";
+            this.button18_investment.Size = new System.Drawing.Size(32, 20);
+            this.button18_investment.TabIndex = 332;
+            this.button18_investment.UseVisualStyleBackColor = true;
+            // 
+            // button16_investment
+            // 
+            this.button16_investment.Font = new System.Drawing.Font("B Titr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.button16_investment.Image = global::toudack1.Properties.Resources.barcod;
+            this.button16_investment.Location = new System.Drawing.Point(596, 218);
+            this.button16_investment.Name = "button16_investment";
+            this.button16_investment.Size = new System.Drawing.Size(32, 20);
+            this.button16_investment.TabIndex = 331;
+            this.button16_investment.UseVisualStyleBackColor = true;
+            // 
+            // button17_investment
+            // 
+            this.button17_investment.Font = new System.Drawing.Font("B Titr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.button17_investment.Image = global::toudack1.Properties.Resources.barcod;
+            this.button17_investment.Location = new System.Drawing.Point(694, 246);
+            this.button17_investment.Name = "button17_investment";
+            this.button17_investment.Size = new System.Drawing.Size(32, 20);
+            this.button17_investment.TabIndex = 330;
+            this.button17_investment.UseVisualStyleBackColor = true;
+            // 
+            // button15_investment
+            // 
+            this.button15_investment.Font = new System.Drawing.Font("B Titr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.button15_investment.Image = global::toudack1.Properties.Resources.barcod;
+            this.button15_investment.Location = new System.Drawing.Point(694, 220);
+            this.button15_investment.Name = "button15_investment";
+            this.button15_investment.Size = new System.Drawing.Size(32, 20);
+            this.button15_investment.TabIndex = 329;
+            this.button15_investment.UseVisualStyleBackColor = true;
+            // 
+            // textBox17_investment
+            // 
+            this.textBox17_investment.Enabled = false;
+            this.textBox17_investment.Location = new System.Drawing.Point(730, 246);
+            this.textBox17_investment.Name = "textBox17_investment";
+            this.textBox17_investment.Size = new System.Drawing.Size(36, 20);
+            this.textBox17_investment.TabIndex = 328;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.label32.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label32.Location = new System.Drawing.Point(769, 241);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(29, 29);
+            this.label32.TabIndex = 327;
+            this.label32.Text = "کد";
+            // 
+            // textBox15_investment
+            // 
+            this.textBox15_investment.Enabled = false;
+            this.textBox15_investment.Location = new System.Drawing.Point(730, 220);
+            this.textBox15_investment.Name = "textBox15_investment";
+            this.textBox15_investment.Size = new System.Drawing.Size(36, 20);
+            this.textBox15_investment.TabIndex = 326;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.label33.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label33.Location = new System.Drawing.Point(769, 215);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(29, 29);
+            this.label33.TabIndex = 325;
+            this.label33.Text = "کد";
+            // 
+            // textBox18_investment
+            // 
+            this.textBox18_investment.Enabled = false;
+            this.textBox18_investment.Location = new System.Drawing.Point(632, 243);
+            this.textBox18_investment.Name = "textBox18_investment";
+            this.textBox18_investment.Size = new System.Drawing.Size(36, 20);
+            this.textBox18_investment.TabIndex = 324;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.label34.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label34.Location = new System.Drawing.Point(671, 238);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(29, 29);
+            this.label34.TabIndex = 323;
+            this.label34.Text = "کد";
+            // 
+            // textBox16_investment
+            // 
+            this.textBox16_investment.Enabled = false;
+            this.textBox16_investment.Location = new System.Drawing.Point(632, 217);
+            this.textBox16_investment.Name = "textBox16_investment";
+            this.textBox16_investment.Size = new System.Drawing.Size(36, 20);
+            this.textBox16_investment.TabIndex = 322;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.label35.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label35.Location = new System.Drawing.Point(671, 212);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(29, 29);
+            this.label35.TabIndex = 321;
+            this.label35.Text = "کد";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Increment = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Location = new System.Drawing.Point(679, 336);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(50, 20);
+            this.numericUpDown1.TabIndex = 333;
+            // 
+            // label36
+            // 
+            this.label36.Location = new System.Drawing.Point(593, 336);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(72, 20);
+            this.label36.TabIndex = 334;
+            this.label36.Text = "12324";
+            this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // sena
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 496);
+            this.Controls.Add(this.label36);
+            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.button18_investment);
+            this.Controls.Add(this.button16_investment);
+            this.Controls.Add(this.button17_investment);
+            this.Controls.Add(this.button15_investment);
+            this.Controls.Add(this.textBox17_investment);
+            this.Controls.Add(this.label32);
+            this.Controls.Add(this.textBox15_investment);
+            this.Controls.Add(this.label33);
+            this.Controls.Add(this.textBox18_investment);
+            this.Controls.Add(this.label34);
+            this.Controls.Add(this.textBox16_investment);
+            this.Controls.Add(this.label35);
             this.Controls.Add(this.label_Diamond_seller);
             this.Controls.Add(this.label28);
             this.Controls.Add(this.label_Silk_seller);
@@ -1095,17 +1241,15 @@
             this.Controls.Add(this.label38);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.button_Coefficient);
-            this.Controls.Add(this.textBox_Coefficient);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.checkBox4_investment);
             this.Controls.Add(this.checkBox3_investment);
             this.Controls.Add(this.checkBox2_investment);
             this.Controls.Add(this.checkBox1_investment);
-            this.Controls.Add(this.button11);
-            this.Controls.Add(this.button10);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button8);
+            this.Controls.Add(this.button_Approach_price);
+            this.Controls.Add(this.button_Approach);
+            this.Controls.Add(this.button_scan_Installation);
+            this.Controls.Add(this.button_scan_Uninstall);
             this.Controls.Add(this.button11_investment);
             this.Controls.Add(this.button10_investment);
             this.Controls.Add(this.button9_investment);
@@ -1168,6 +1312,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Change_education_price)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Change_weapon_price)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Change_industry_price)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1234,16 +1379,14 @@
         private System.Windows.Forms.Button button9_investment;
         private System.Windows.Forms.Button button10_investment;
         private System.Windows.Forms.Button button11_investment;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button_scan_Uninstall;
+        private System.Windows.Forms.Button button_scan_Installation;
+        private System.Windows.Forms.Button button_Approach;
+        private System.Windows.Forms.Button button_Approach_price;
         private System.Windows.Forms.RadioButton checkBox1_investment;
         private System.Windows.Forms.RadioButton checkBox2_investment;
         private System.Windows.Forms.RadioButton checkBox3_investment;
         private System.Windows.Forms.RadioButton checkBox4_investment;
-        private System.Windows.Forms.Button button_Coefficient;
-        private System.Windows.Forms.TextBox textBox_Coefficient;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label7;
@@ -1265,5 +1408,19 @@
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label_Gold_seller;
         private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Button button18_investment;
+        private System.Windows.Forms.Button button16_investment;
+        private System.Windows.Forms.Button button17_investment;
+        private System.Windows.Forms.Button button15_investment;
+        private System.Windows.Forms.TextBox textBox17_investment;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.TextBox textBox15_investment;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.TextBox textBox18_investment;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.TextBox textBox16_investment;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label label36;
     }
 }
