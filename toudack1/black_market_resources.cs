@@ -181,12 +181,23 @@ namespace toudack1
                     {
                         MessageBox.Show("کد نامعتبر", "ERROR");
                     }
-                }
+                }               
+
             }
             else
             {
                 MessageBox.Show("کد شخص را وارد کنید", "ERROR");
             }
+            textBox_Buyer.ResetText();
+            textBox_seller.ResetText();
+            number_Gold_Buyer.Value = 0;
+            number_Oil_Buyer.Value = 0;
+            number_Silk_Buyer.Value = 0;
+            number_Diamond_Buyer.Value = 0;
+            number_Gold_seller.Value = 0;
+            number_Oil_seller.Value = 0;
+            number_Silk_seller.Value = 0;
+            number_Diamond_seller.Value = 0;
         }
 
         private void References_button_Services_Click(object sender, EventArgs e)
@@ -214,6 +225,17 @@ namespace toudack1
             label_Oil_Buyer.Enabled = false;
             label_Silk_Buyer.Enabled = false;
             label_Diamond_Buyer.Enabled = false;
+
+            textBox_Buyer.ResetText();
+            textBox_seller.ResetText();
+            number_Gold_Buyer.Value = 0;
+            number_Oil_Buyer.Value = 0;
+            number_Silk_Buyer.Value = 0;
+            number_Diamond_Buyer.Value = 0;
+            number_Gold_seller.Value = 0;
+            number_Oil_seller.Value = 0;
+            number_Silk_seller.Value = 0;
+            number_Diamond_seller.Value = 0;
         }
 
         private void References_button_Industry_Click(object sender, EventArgs e)
@@ -242,11 +264,30 @@ namespace toudack1
             label_Oil_Buyer.Enabled = true;
             label_Silk_Buyer.Enabled = true;
             label_Diamond_Buyer.Enabled = true;
+
+            textBox_Buyer.ResetText();
+            textBox_seller.ResetText();
+            number_Gold_Buyer.Value = 0;
+            number_Oil_Buyer.Value = 0;
+            number_Silk_Buyer.Value = 0;
+            number_Diamond_Buyer.Value = 0;
+            number_Gold_seller.Value = 0;
+            number_Oil_seller.Value = 0;
+            number_Silk_seller.Value = 0;
+            number_Diamond_seller.Value = 0;
         }
 
         private void label50_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void black_market_resources_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!((e.KeyChar >= '0' && e.KeyChar <= '9') || (e.KeyChar == Convert.ToChar(Keys.Back))))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

@@ -19,7 +19,7 @@ namespace toudack1
             // int groupnum;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new black_market_factory());
+            Application.Run(new black_market_resources());
         }
     }
 }

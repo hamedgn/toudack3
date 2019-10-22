@@ -307,6 +307,7 @@
             this.textBox_Buyer.Size = new System.Drawing.Size(148, 20);
             this.textBox_Buyer.TabIndex = 291;
             this.textBox_Buyer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox_Buyer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.black_market_resources_KeyPress);
             // 
             // number_Oil_seller
             // 
@@ -340,6 +341,7 @@
             this.textBox_seller.Size = new System.Drawing.Size(148, 20);
             this.textBox_seller.TabIndex = 288;
             this.textBox_seller.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox_seller.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.black_market_resources_KeyPress);
             // 
             // button_black_market_References
             // 
@@ -562,6 +564,7 @@
             this.Name = "black_market_resources";
             this.Text = "black_market_factory";
             this.Load += new System.EventHandler(this.black_market_factory_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.black_market_resources_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.number_Diamond_seller)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.number_Gold_seller)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.number_Silk_seller)).EndInit();
