@@ -239,6 +239,9 @@
     <EmbeddedResource Include="sena.resx">
       <DependentUpon>sena.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="senfboss.resx">
+      <DependentUpon>senfboss.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TIMEADMIN.resx">
       <DependentUpon>TIMEADMIN.cs</DependentUpon>
     </EmbeddedResource>

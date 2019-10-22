@@ -120,6 +120,16 @@ namespace toudack1
         public int h;
         #endregion
 
+        #region groupname
+        public int bossint;
+        public string groupname;
+        public string pr1;
+        public string pr2;
+        public string pr3;
+        public string pr4;
+        public string pr5;
+        #endregion
+
         #endregion
 
 
@@ -1184,6 +1194,35 @@ namespace toudack1
         }
         #endregion
 
+        #region groupname
+        public void groupname_GET(int groupcode)
+        {
+
+            string query = "SELECT * FROM groups WHERE groupcode ="+groupcode;
+
+            if (this.OpenConnection() == true)
+            {
+
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader myreader = cmd.ExecuteReader();
+                while (myreader.Read())
+                {
+                    bossint =Convert.ToInt32( myreader["senf"].ToString());
+                    groupname = myreader["groupname"].ToString();
+                    pr2 = myreader["pr2code"].ToString();
+                    pr3 = myreader["pr3code"].ToString();
+                    pr4 = myreader["pr4code"].ToString();
+                    pr5 = myreader["pr5code"].ToString();
+                }
+
+                //close connection
+                this.CloseConnection();
+
+            }
+
+        }
+        #endregion
         #endregion
 
         #region Vahid code
