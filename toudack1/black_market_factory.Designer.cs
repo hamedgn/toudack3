@@ -110,6 +110,7 @@
             this.textBox_Buyer.TabIndex = 232;
             this.textBox_Buyer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBox_Buyer.TextChanged += new System.EventHandler(this.textBox_Buyer_TextChanged);
+            this.textBox_Buyer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_seller_KeyPress);
             // 
             // number_Industry_seller
             // 
@@ -140,6 +141,7 @@
             this.textBox_seller.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBox_seller.TextChanged += new System.EventHandler(this.textBox_seller_TextChanged);
             this.textBox_seller.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_seller_KeyDown);
+            this.textBox_seller.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_seller_KeyPress);
             this.textBox_seller.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_seller_KeyUp);
             // 
             // button_black_market_factory

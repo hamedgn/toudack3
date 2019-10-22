@@ -53,6 +53,17 @@ namespace toudack1
             label_Industry_seller.Enabled = false;
             label_Services_seller.Enabled = false;
             label_Weapons_seller.Enabled = false;
+
+            number_Education_buy.Value = 0;
+            number_Industry_buy.Value = 0;
+            number_Weapons_buy.Value = 0;
+            number_Services_buy.Value = 0;
+            number_Education_seller.Value = 0;
+            number_Industry_seller.Value = 0;
+            number_Services_seller.Value = 0;
+            number_Weapons_seller.Value = 0;
+            textBox_Buyer.ResetText();
+            textBox_seller.ResetText();
         }
 
         private void factory_button_Services_Click(object sender, EventArgs e)
@@ -78,7 +89,18 @@ namespace toudack1
             label_Industry_buy.Enabled = false;
             label_Services_buy.Enabled = false;
             label_Weapons_buy.Enabled = false;
-         
+
+            number_Education_buy.Value = 0;
+            number_Industry_buy.Value = 0;
+            number_Weapons_buy.Value = 0;
+            number_Services_buy.Value = 0;
+            number_Education_seller.Value = 0;
+            number_Industry_seller.Value = 0;
+            number_Services_seller.Value = 0;
+            number_Weapons_seller.Value = 0;
+            textBox_Buyer.ResetText();
+            textBox_seller.ResetText();
+
         }
 
         private void label56_Click(object sender, EventArgs e)
@@ -178,7 +200,16 @@ namespace toudack1
             {
                 MessageBox.Show("کد شخص را وارد کنید","ERROR");
             }
-            
+            number_Education_buy.Value = 0;
+            number_Industry_buy.Value = 0;
+            number_Weapons_buy.Value = 0;
+            number_Services_buy.Value = 0;
+            number_Education_seller.Value = 0;
+            number_Industry_seller.Value = 0;
+            number_Services_seller.Value = 0;
+            number_Weapons_seller.Value = 0;
+            textBox_Buyer.ResetText();
+            textBox_seller.ResetText();
         }
 
         private void label27_Click(object sender, EventArgs e)
@@ -336,6 +367,12 @@ namespace toudack1
 
         }
 
-        
+        private void textBox_seller_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!((e.KeyChar >= '0' && e.KeyChar <= '9') || (e.KeyChar == Convert.ToChar(Keys.Back))))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
