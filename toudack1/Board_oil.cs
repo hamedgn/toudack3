@@ -47,17 +47,16 @@ namespace toudack1
                     //از وحید بپرس کد مشکل
                     dbconnect.References_box_code_check(textBox_seller.Text);
                     dbconnect.Fundscheck(textBox_Buyer.Text);
-                    if (
-                        Convert.ToInt32(dbconnect.natural_resources_Oil) >= Convert.ToInt32(domainUpDown_Board_oil_pcs.Text)
-                        &&
-                        Convert.ToInt32(dbconnect.funds) >= value
-                        ) {                       
+                    if (Convert.ToInt32(dbconnect.natural_resources_Oil) >= Convert.ToInt32(domainUpDown_Board_oil_pcs.Text)&& Convert.ToInt32(dbconnect.funds) >= value)
+                    {
+                        
                         dbconnect.natural_resources_plus(Convert.ToInt32(dbconnect.natural_resources_Buyer), Convert.ToInt32(domainUpDown_Board_oil_pcs.Text), DPNG1, "oil");
                         dbconnect.natural_resources_Negative(Convert.ToInt32(dbconnect.natural_resources_seller), Convert.ToInt32(domainUpDown_Board_oil_pcs.Text), DPNG2, "oil");
                         dbconnect.Fundscheck(DPNG1);
                         dbconnect.FundsNegative(dbconnect.funds, value, DPNG1);
                         dbconnect.Fundscheck(DPNG2);
                         dbconnect.Fundsplus(dbconnect.funds, value, DPNG2);
+                        dbconnect.setprice("oil", Convert.ToInt32(domainUpDown_Board_oil_seller.Value));
                     }
                     else
                     {
@@ -75,6 +74,30 @@ namespace toudack1
         private void label38_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button_Buyer_Click(object sender, EventArgs e)
+        {
+            timer1.Stop();
+        }
+
+        private void domainUpDown_Board_oil_seller_ValueChanged(object sender, EventArgs e)
+        {
+            allplus.Text = Convert.ToString(domainUpDown_Board_oil_seller.Value * domainUpDown_Board_oil_pcs.Value);
+        }
+
+        private void domainUpDown_Board_oil_pcs_ValueChanged(object sender, EventArgs e)
+        {
+            allplus.Text = Convert.ToString(domainUpDown_Board_oil_seller.Value * domainUpDown_Board_oil_pcs.Value);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            dbconnect.getprice("variable");
+            int i = dbconnect.price_oil;
+            domainUpDown_Board_oil_seller.Value = i;
+            domainUpDown_Board_oil_seller.Maximum = i + 5;
+            domainUpDown_Board_oil_seller.Minimum = i - 5;
         }
     }
 }

@@ -230,6 +230,15 @@
     <EmbeddedResource Include="black_market_resources.resx">
       <DependentUpon>black_market_resources.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Board_Diamond.resx">
+      <DependentUpon>Board_Diamond.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Board_gold.resx">
+      <DependentUpon>Board_gold.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Board_oil.resx">
+      <DependentUpon>Board_oil.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="factory.resx">
       <DependentUpon>factory.cs</DependentUpon>
     </EmbeddedResource>
