@@ -112,9 +112,8 @@
             this.pricenow_lb.Enabled = false;
             this.pricenow_lb.Location = new System.Drawing.Point(172, 97);
             this.pricenow_lb.Name = "pricenow_lb";
-            this.pricenow_lb.Size = new System.Drawing.Size(19, 13);
+            this.pricenow_lb.Size = new System.Drawing.Size(0, 13);
             this.pricenow_lb.TabIndex = 6;
-            this.pricenow_lb.Text = "10";
             // 
             // price_set
             // 
@@ -168,27 +167,27 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(178, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(29, 13);
             this.label1.TabIndex = 12;
-            this.label1.Text = "label1";
+            this.label1.Text = "سمت";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(116, 20);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(47, 13);
             this.label2.TabIndex = 13;
-            this.label2.Text = "label2";
+            this.label2.Text = "نام گروه";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(52, 20);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.Size = new System.Drawing.Size(50, 13);
             this.label3.TabIndex = 14;
-            this.label3.Text = "label3";
+            this.label3.Text = "نام شخص";
             // 
             // senfboss
             // 

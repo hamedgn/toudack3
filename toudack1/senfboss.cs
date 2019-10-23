@@ -127,7 +127,22 @@ namespace toudack1
                 }
                 if (dbconnect.bossint == 4)
                 {
+                    pricenow_lb.Enabled = true;
+                    price_set.Enabled = true;
+                    set_price_btn.Enabled = true;
+                    pricenow_lb.Text = dbconnect.price_services.ToString();
                     senf_services_btn.Enabled = true;
+                    price_set.Value = Convert.ToInt32(dbconnect.price_services);
+                    type = "services";
+                    if (Convert.ToInt32(dbconnect.price_services) >= 3)
+                    {
+                        price_set.Minimum = Convert.ToInt32(dbconnect.price_services) - 3;
+                    }
+                    else
+                    {
+                        price_set.Minimum = 0;
+                    }
+                    price_set.Maximum = Convert.ToInt32(dbconnect.price_services) + 3;
                 }
                 if(dbconnect.bossint == 0)
                 {
@@ -148,6 +163,20 @@ namespace toudack1
         private void set_price_btn_Click(object sender, EventArgs e)
         {
             dbconnect.setprice(type,Convert.ToInt32(price_set.Value));
+            pricenow_lb.Text = price_set.Value.ToString();
+            senf_education_btn.Enabled = false;
+            senf_industry_btn.Enabled = false;
+            senf_services_btn.Enabled = false;
+            senf_weapons_btn.Enabled = false;
+            price_set.Enabled = false;
+            prs_cod_box.ResetText();
+            label1.ResetText();
+            label2.ResetText();
+            label3.ResetText();
+            price_set.Minimum = 0;
+            price_set.Maximum = 1000;
+            MessageBox.Show("قیمت ثبت شد");
+
         }
     }
 }
