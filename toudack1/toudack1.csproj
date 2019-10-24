@@ -239,6 +239,9 @@
     <EmbeddedResource Include="Board_oil.resx">
       <DependentUpon>Board_oil.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Board_Silk.resx">
+      <DependentUpon>Board_Silk.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="factory.resx">
       <DependentUpon>factory.cs</DependentUpon>
     </EmbeddedResource>

@@ -38,7 +38,7 @@ namespace toudack1
                 string DPNG2 = dbconnect.natural_resources_Numbergroup_seller.ToString();
                 if (textBox_Buyer.Text == DPNG1 && textBox_seller.Text == DPNG2)
                 {
-                    int value = Convert.ToInt32(domainUpDown_Board_Silk_seller.Text) * Convert.ToInt32(domainUpDown_Board_Silk_pcs.Text);
+                    int value = Convert.ToInt32(allplus.Text);
                     //از وحید بپرس کد مشکل
                     dbconnect.References_box_code_check(textBox_seller.Text);
                     dbconnect.Fundscheck(textBox_Buyer.Text);
@@ -54,6 +54,9 @@ namespace toudack1
                         dbconnect.FundsNegative(dbconnect.funds, value, DPNG1);
                         dbconnect.Fundscheck(DPNG2);
                         dbconnect.Fundsplus(dbconnect.funds, value, DPNG2);
+                        dbconnect.setprice("silk", Convert.ToInt32(domainUpDown_Board_Silk_seller.Value));
+                        MessageBox.Show("انجام شد");
+                        timer1.Start();
                     }
                     else
                     {
@@ -66,6 +69,32 @@ namespace toudack1
                 }
             }
 
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            dbconnect.getprice("variable");
+            int i = dbconnect.price_silk;
+            domainUpDown_Board_Silk_seller.Value = i;
+            domainUpDown_Board_Silk_seller.Maximum = i + 5;
+            domainUpDown_Board_Silk_seller.Minimum = i - 5;
+        }
+
+        private void domainUpDown_Board_Silk_seller_ValueChanged(object sender, EventArgs e)
+        {
+            allplus.Text = Convert.ToString(domainUpDown_Board_Silk_seller.Value * domainUpDown_Board_Silk_pcs.Value);
+
+        }
+
+        private void domainUpDown_Board_Silk_pcs_ValueChanged(object sender, EventArgs e)
+        {
+            allplus.Text = Convert.ToString(domainUpDown_Board_Silk_seller.Value * domainUpDown_Board_Silk_pcs.Value);
+
+        }
+
+        private void button_Buyer_Click(object sender, EventArgs e)
+        {
+            timer1.Stop();
         }
     }
 }

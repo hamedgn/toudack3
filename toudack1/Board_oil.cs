@@ -43,7 +43,7 @@ namespace toudack1
                 string DPNG2 = dbconnect.natural_resources_Numbergroup_seller.ToString();
                 if (textBox_Buyer.Text == DPNG1 && textBox_seller.Text == DPNG2)
                 {
-                    int value = Convert.ToInt32(domainUpDown_Board_oil_seller.Text) * Convert.ToInt32(domainUpDown_Board_oil_pcs.Text);
+                    int value = Convert.ToInt32(allplus.Text);
                     //از وحید بپرس کد مشکل
                     dbconnect.References_box_code_check(textBox_seller.Text);
                     dbconnect.Fundscheck(textBox_Buyer.Text);
@@ -57,6 +57,8 @@ namespace toudack1
                         dbconnect.Fundscheck(DPNG2);
                         dbconnect.Fundsplus(dbconnect.funds, value, DPNG2);
                         dbconnect.setprice("oil", Convert.ToInt32(domainUpDown_Board_oil_seller.Value));
+                        MessageBox.Show("انجام شد");
+                        timer1.Start();
                     }
                     else
                     {

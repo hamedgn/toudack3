@@ -33,15 +33,11 @@ namespace toudack1
                 string DPNG2 = dbconnect.natural_resources_Numbergroup_seller.ToString();
                 if (textBox_Buyer.Text == DPNG1 && textBox_seller.Text == DPNG2)
                 {
-                    int value = (Convert.ToInt32(domainUpDown_Board_Diamond_seller.Text) * Convert.ToInt32(domainUpDown_Board_Diamond_pcs.Text)) / 2;
+                    int value = Convert.ToInt32(allplus.Text) ;
                     //از وحید بپرس کد مشکل
                     dbconnect.References_box_code_check(textBox_seller.Text);
                     dbconnect.Fundscheck(textBox_Buyer.Text);
-                    if (
-                        Convert.ToInt32(dbconnect.natural_resources_Diamond) >= Convert.ToInt32(domainUpDown_Board_Diamond_pcs.Text)
-                        &&
-                        Convert.ToInt32(dbconnect.funds) >= value
-                        )
+                    if (Convert.ToInt32(dbconnect.natural_resources_Diamond) >= Convert.ToInt32(domainUpDown_Board_Diamond_pcs.Text)&&Convert.ToInt32(dbconnect.funds) >= value)
                     {
                         dbconnect.natural_resources_plus(Convert.ToInt32(dbconnect.natural_resources_Buyer), Convert.ToInt32(domainUpDown_Board_Diamond_pcs.Text), DPNG1, "diamond");
                         dbconnect.natural_resources_Negative(Convert.ToInt32(dbconnect.natural_resources_seller), Convert.ToInt32(domainUpDown_Board_Diamond_pcs.Text), DPNG2, "diamond");
@@ -49,7 +45,10 @@ namespace toudack1
                         dbconnect.FundsNegative(dbconnect.funds, value, DPNG1);
                         dbconnect.Fundscheck(DPNG2);
                         dbconnect.Fundsplus(dbconnect.funds, value, DPNG2);
-                        MessageBox.Show("عملیات با موفقیت انجام شد", "ERROR");
+                        dbconnect.setprice("diamond", Convert.ToInt32(domainUpDown_Board_Diamond_seller.Value));
+                        MessageBox.Show("انجام شد");
+                        timer1.Start();
+                        
                     }
                     else
                     {
@@ -61,6 +60,32 @@ namespace toudack1
                     MessageBox.Show("کد نامعتبر", "ERROR");
                 }
             }
+        }
+
+        private void domainUpDown_Board_Diamond_seller_ValueChanged(object sender, EventArgs e)
+        {
+            allplus.Text = Convert.ToString(domainUpDown_Board_Diamond_seller.Value * domainUpDown_Board_Diamond_pcs.Value);
+
+        }
+
+        private void domainUpDown_Board_Diamond_pcs_ValueChanged(object sender, EventArgs e)
+        {
+            allplus.Text = Convert.ToString(domainUpDown_Board_Diamond_seller.Value * domainUpDown_Board_Diamond_pcs.Value);
+
+        }
+
+        private void button_Buyer_Click(object sender, EventArgs e)
+        {
+            timer1.Stop();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            dbconnect.getprice("variable");
+            int i = dbconnect.price_diamond;
+            domainUpDown_Board_Diamond_seller.Value = i;
+            domainUpDown_Board_Diamond_seller.Maximum = i + 5;
+            domainUpDown_Board_Diamond_seller.Minimum = i - 5;
         }
     }
 }

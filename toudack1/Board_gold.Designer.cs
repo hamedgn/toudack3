@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label_seller = new System.Windows.Forms.Label();
             this.textBox_seller = new System.Windows.Forms.TextBox();
             this.label__Buyer = new System.Windows.Forms.Label();
@@ -41,9 +42,13 @@
             this.button_Buyer = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.domainUpDown_Board_gold_pcs = new System.Windows.Forms.DomainUpDown();
-            this.domainUpDown_Board_gold_seller = new System.Windows.Forms.DomainUpDown();
-            this.label3 = new System.Windows.Forms.Label();
+            this.allplus = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.domainUpDown_Board_gold_seller = new System.Windows.Forms.NumericUpDown();
+            this.domainUpDown_Board_gold_pcs = new System.Windows.Forms.NumericUpDown();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.domainUpDown_Board_gold_seller)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.domainUpDown_Board_gold_pcs)).BeginInit();
             this.SuspendLayout();
             // 
             // label_seller
@@ -157,6 +162,7 @@
             this.button_Buyer.Size = new System.Drawing.Size(60, 31);
             this.button_Buyer.TabIndex = 263;
             this.button_Buyer.UseVisualStyleBackColor = true;
+            this.button_Buyer.Click += new System.EventHandler(this.button_Buyer_Click);
             // 
             // label1
             // 
@@ -180,40 +186,59 @@
             this.label2.TabIndex = 269;
             this.label2.Text = "قیمت";
             // 
-            // domainUpDown_Board_gold_pcs
+            // allplus
             // 
-            this.domainUpDown_Board_gold_pcs.Location = new System.Drawing.Point(150, 193);
-            this.domainUpDown_Board_gold_pcs.Name = "domainUpDown_Board_gold_pcs";
-            this.domainUpDown_Board_gold_pcs.Size = new System.Drawing.Size(100, 20);
-            this.domainUpDown_Board_gold_pcs.TabIndex = 268;
+            this.allplus.AutoSize = true;
+            this.allplus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.allplus.Location = new System.Drawing.Point(24, 253);
+            this.allplus.Name = "allplus";
+            this.allplus.Size = new System.Drawing.Size(13, 13);
+            this.allplus.TabIndex = 271;
+            this.allplus.Text = "0";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.label4.Location = new System.Drawing.Point(67, 253);
+            this.label4.Name = "label4";
+            this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label4.Size = new System.Drawing.Size(46, 13);
+            this.label4.TabIndex = 272;
+            this.label4.Text = "جمع کل:";
             // 
             // domainUpDown_Board_gold_seller
             // 
-            this.domainUpDown_Board_gold_seller.Location = new System.Drawing.Point(545, 188);
+            this.domainUpDown_Board_gold_seller.Location = new System.Drawing.Point(525, 193);
             this.domainUpDown_Board_gold_seller.Name = "domainUpDown_Board_gold_seller";
-            this.domainUpDown_Board_gold_seller.Size = new System.Drawing.Size(100, 20);
-            this.domainUpDown_Board_gold_seller.TabIndex = 267;
+            this.domainUpDown_Board_gold_seller.Size = new System.Drawing.Size(120, 20);
+            this.domainUpDown_Board_gold_seller.TabIndex = 273;
             // 
-            // label3
+            // domainUpDown_Board_gold_pcs
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.label3.Location = new System.Drawing.Point(470, 195);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 271;
-            this.label3.Text = "label3";
+            this.domainUpDown_Board_gold_pcs.Location = new System.Drawing.Point(128, 193);
+            this.domainUpDown_Board_gold_pcs.Name = "domainUpDown_Board_gold_pcs";
+            this.domainUpDown_Board_gold_pcs.Size = new System.Drawing.Size(120, 20);
+            this.domainUpDown_Board_gold_pcs.TabIndex = 274;
+            this.domainUpDown_Board_gold_pcs.ValueChanged += new System.EventHandler(this.domainUpDown_Board_gold_pcs_ValueChanged_1);
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
             // 
             // Board_gold
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.domainUpDown_Board_gold_pcs);
             this.Controls.Add(this.domainUpDown_Board_gold_seller);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.allplus);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.button_seller);
             this.Controls.Add(this.label_seller);
             this.Controls.Add(this.textBox_seller);
@@ -227,6 +252,8 @@
             this.Controls.Add(this.label38);
             this.Name = "Board_gold";
             this.Text = "ss";
+            ((System.ComponentModel.ISupportInitialize)(this.domainUpDown_Board_gold_seller)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.domainUpDown_Board_gold_pcs)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,8 +274,10 @@
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DomainUpDown domainUpDown_Board_gold_pcs;
-        private System.Windows.Forms.DomainUpDown domainUpDown_Board_gold_seller;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label allplus;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.NumericUpDown domainUpDown_Board_gold_seller;
+        private System.Windows.Forms.NumericUpDown domainUpDown_Board_gold_pcs;
+        private System.Windows.Forms.Timer timer1;
     }
 }
