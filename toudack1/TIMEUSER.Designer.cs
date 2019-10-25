@@ -32,6 +32,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // timer1
@@ -49,6 +50,7 @@
             this.label2.Size = new System.Drawing.Size(390, 169);
             this.label2.TabIndex = 1;
             this.label2.Text = "00:00:00";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label4
             // 
@@ -59,6 +61,12 @@
             this.label4.Size = new System.Drawing.Size(69, 16);
             this.label4.TabIndex = 5;
             this.label4.Text = "زمان بازی";
+            // 
+            // timer2
+            // 
+            this.timer2.Enabled = true;
+            this.timer2.Interval = 5000;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // TIMEUSER
             // 
@@ -85,5 +93,6 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Timer timer2;
     }
 }
