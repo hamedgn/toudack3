@@ -44,6 +44,10 @@
             this.qus_answer_radio_4 = new System.Windows.Forms.RadioButton();
             this.qus_anwser_panel = new System.Windows.Forms.Panel();
             this.qus_barcode_btn = new System.Windows.Forms.Button();
+            this.mahak_btn = new System.Windows.Forms.Button();
+            this.yes_btn = new System.Windows.Forms.Button();
+            this.mahak_pass = new System.Windows.Forms.TextBox();
+            this.mahak_pass_lb = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // qus_buy_btn
@@ -139,7 +143,7 @@
             this.qus_sell_btn_final.Name = "qus_sell_btn_final";
             this.qus_sell_btn_final.Size = new System.Drawing.Size(115, 23);
             this.qus_sell_btn_final.TabIndex = 9;
-            this.qus_sell_btn_final.Text = "نهایی کردن فروش";
+            this.qus_sell_btn_final.Text = " نهایی کردن فروش";
             this.qus_sell_btn_final.UseVisualStyleBackColor = true;
             this.qus_sell_btn_final.Visible = false;
             this.qus_sell_btn_final.Click += new System.EventHandler(this.qus_sell_btn_final_Click);
@@ -235,11 +239,56 @@
             this.qus_barcode_btn.Visible = false;
             this.qus_barcode_btn.Click += new System.EventHandler(this.qus_barcode_btn_Click);
             // 
+            // mahak_btn
+            // 
+            this.mahak_btn.Location = new System.Drawing.Point(12, 79);
+            this.mahak_btn.Name = "mahak_btn";
+            this.mahak_btn.Size = new System.Drawing.Size(95, 23);
+            this.mahak_btn.TabIndex = 16;
+            this.mahak_btn.Text = "سوال محک";
+            this.mahak_btn.UseVisualStyleBackColor = true;
+            this.mahak_btn.Visible = false;
+            this.mahak_btn.Click += new System.EventHandler(this.mahak_btn_Click);
+            // 
+            // yes_btn
+            // 
+            this.yes_btn.Location = new System.Drawing.Point(12, 136);
+            this.yes_btn.Name = "yes_btn";
+            this.yes_btn.Size = new System.Drawing.Size(95, 23);
+            this.yes_btn.TabIndex = 17;
+            this.yes_btn.Text = "درست";
+            this.yes_btn.UseVisualStyleBackColor = true;
+            this.yes_btn.Visible = false;
+            this.yes_btn.Click += new System.EventHandler(this.yes_btn_Click);
+            // 
+            // mahak_pass
+            // 
+            this.mahak_pass.Location = new System.Drawing.Point(12, 108);
+            this.mahak_pass.Name = "mahak_pass";
+            this.mahak_pass.Size = new System.Drawing.Size(61, 20);
+            this.mahak_pass.TabIndex = 19;
+            this.mahak_pass.Visible = false;
+            // 
+            // mahak_pass_lb
+            // 
+            this.mahak_pass_lb.AutoSize = true;
+            this.mahak_pass_lb.Location = new System.Drawing.Point(79, 111);
+            this.mahak_pass_lb.Name = "mahak_pass_lb";
+            this.mahak_pass_lb.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.mahak_pass_lb.Size = new System.Drawing.Size(25, 13);
+            this.mahak_pass_lb.TabIndex = 20;
+            this.mahak_pass_lb.Text = "رمز:";
+            this.mahak_pass_lb.Visible = false;
+            // 
             // wisposh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(517, 332);
+            this.Controls.Add(this.mahak_pass_lb);
+            this.Controls.Add(this.mahak_pass);
+            this.Controls.Add(this.yes_btn);
+            this.Controls.Add(this.mahak_btn);
             this.Controls.Add(this.qus_anwser_panel);
             this.Controls.Add(this.qus_answer_radio_4);
             this.Controls.Add(this.qus_answer_radio_3);
@@ -284,5 +333,9 @@
         private System.Windows.Forms.RadioButton qus_answer_radio_4;
         private System.Windows.Forms.Panel qus_anwser_panel;
         private System.Windows.Forms.Button qus_barcode_btn;
+        private System.Windows.Forms.Button mahak_btn;
+        private System.Windows.Forms.Button yes_btn;
+        private System.Windows.Forms.TextBox mahak_pass;
+        private System.Windows.Forms.Label mahak_pass_lb;
     }
 }

@@ -74,6 +74,7 @@ namespace toudack1
             abort_clear_from.Visible = true;
             abort_clear_from.Enabled = true;
             qus_buy_btn.Enabled = false;
+            mahak_btn.Visible = true;
         }
 
         private void abort_clear_from_Click(object sender, EventArgs e)
@@ -130,7 +131,12 @@ namespace toudack1
                 qus_answer_radio_4.Checked = false;
             }
             qus_anwser_panel.BackColor = Color.Transparent;
-
+            mahak_btn.Visible = false;
+            
+            yes_btn.Visible = false;
+            mahak_pass.Visible = false;
+            mahak_pass.Text = "";
+            mahak_pass_lb.Visible = false;
         }
 
         private void prs_barcode_btn_Click(object sender, EventArgs e)
@@ -325,6 +331,61 @@ namespace toudack1
             {
                 MessageBox.Show(".این گروه این سوال نخریده است");
 
+            }
+        }
+
+        private void mahak_btn_Click(object sender, EventArgs e)
+        {
+            dbConnect.TIME_GET_n();
+            qus_code_lable.Enabled = false;
+            qus_code_box.Enabled = false;
+            qus_barcode_btn.Enabled = false;
+            qus_answer_radio_1.Enabled = false;
+            qus_answer_radio_2.Enabled = false;
+            qus_answer_radio_3.Enabled = false;
+            qus_answer_radio_4.Enabled = false;
+            qus_sell_btn_final.Enabled = false;
+            
+            yes_btn.Visible = true;
+            mahak_pass.Visible = true;
+            mahak_pass_lb.Visible = true;
+        }
+
+        private void yes_btn_Click(object sender, EventArgs e)
+        {
+            dbConnect.gnum = 0;
+            if (prs_code_box.Text != "")
+            {
+                if (mahak_pass.Text == "0" || mahak_pass.Text == "1" || mahak_pass.Text == "2" || mahak_pass.Text == "3" || mahak_pass.Text == "4" || mahak_pass.Text == "5" || mahak_pass.Text == "6" || mahak_pass.Text == "7" || mahak_pass.Text == "8" || mahak_pass.Text == "9" || mahak_pass.Text == "10" || mahak_pass.Text == "11" || mahak_pass.Text == "12" )
+                {
+                    if (mahak_pass.Text == dbConnect.h.ToString())
+                    {
+                        dbConnect.mahakcheck(dbConnect.h);
+                        if (dbConnect.gnum ==0)
+                        {
+                                dbConnect.mahakset(Convert.ToInt32(prs_code_box.Text), dbConnect.h);
+                                dbConnect.Fundscheck(prs_code_box.Text);
+                                dbConnect.Fundsplus(dbConnect.funds, 200, prs_code_box.Text);
+                                MessageBox.Show("جواب ثبت و 200 لارین جایزه افزوده شد");
+                        }
+                        else
+                        {
+                            MessageBox.Show("قبلا یک گروه سوال را جواب داده");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("رمز این ساعت را وارد کنید");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("رمز محک اشتباه است");
+                }
+            }
+            else
+            {
+                MessageBox.Show("ابتدا کد شخص را وارد کنید");
             }
         }
     }

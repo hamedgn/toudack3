@@ -34,6 +34,7 @@ namespace toudack1
         public bool playerusedqus;
         public int numused;
         public int qustypnumamswer;
+        public int gnum;
         #endregion
 
         #region Bank
@@ -672,6 +673,56 @@ namespace toudack1
                 this.CloseConnection();
             }
         }
+
+        //Mahak check
+        public void mahakcheck( int time)
+        {
+            string query = "SELECT `groupnum` FROM `numqustrueansw` WHERE `mahak`=" + time;
+            if (this.OpenConnection() == true)
+            {
+
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader myreader = cmd.ExecuteReader();
+                while (myreader.Read())
+                {
+                    gnum =Convert.ToInt32(myreader["groupnum"].ToString());
+
+                }
+                   
+
+
+
+                //close connection
+                this.CloseConnection();
+
+
+            }
+        }
+
+        //mahak set
+        public void mahakset(int groupnum, int time_h)
+        {
+            string query = "UPDATE `numqustrueansw` SET`mahak`="+time_h+" WHERE `groupnum`=" + groupnum;
+
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                //create mysql command
+                MySqlCommand cmd = new MySqlCommand();
+                //Assign the query using CommandText
+                cmd.CommandText = query;
+                //Assign the connection using Connection
+                cmd.Connection = connection;
+
+                //Execute query
+                cmd.ExecuteNonQuery();
+
+                //close connection
+                this.CloseConnection();
+            }
+        }
+
         #endregion
 
         #region Test code
