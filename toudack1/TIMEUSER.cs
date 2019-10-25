@@ -35,8 +35,7 @@ namespace toudack1
             
         }
         int i;
-        int j;
-        
+         
         private void timer1_Tick(object sender, EventArgs e)
         {
             
@@ -44,8 +43,7 @@ namespace toudack1
             dbconnect.TIME_GET_u();
             label2.Text = (dbconnect.h.ToString()+":"+ dbconnect.m.ToString()+":"+ dbconnect.s.ToString());
              
-            // j = dbconnect.s;
-             
+           
 
         }
 

@@ -38,7 +38,7 @@ namespace toudack1
 
         const int WH_KEYBOARD_LL = 13;
         private int intLLKey;
-        private KBDLLHOOKSTRUCT lParam;
+        
 
         private struct KBDLLHOOKSTRUCT
         {

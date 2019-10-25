@@ -1210,6 +1210,7 @@ namespace toudack1
                 {
                     bossint =Convert.ToInt32( myreader["senf"].ToString());
                     groupname = myreader["groupname"].ToString();
+                    pr1 = myreader["pr1code"].ToString();
                     pr2 = myreader["pr2code"].ToString();
                     pr3 = myreader["pr3code"].ToString();
                     pr4 = myreader["pr4code"].ToString();
