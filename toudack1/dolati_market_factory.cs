@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace toudack1
 {
-    public partial class black_market_factory : Form
+    public partial class dolati_market_factory : Form
     {
         public int ali = 12;
         private DBConnect dbconnect;
-        public black_market_factory()
+        public dolati_market_factory()
         {
             InitializeComponent();
             dbconnect = new DBConnect();

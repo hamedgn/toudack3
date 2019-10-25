@@ -177,6 +177,12 @@
     <Compile Include="LOCKSCEREEN.Designer.cs">
       <DependentUpon>LOCKSCEREEN.cs</DependentUpon>
     </Compile>
+    <Compile Include="market_factury.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="market_factury.Designer.cs">
+      <DependentUpon>market_factury.cs</DependentUpon>
+    </Compile>
     <Compile Include="population.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -261,6 +267,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LOCKSCEREEN.resx">
       <DependentUpon>LOCKSCEREEN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="market_factury.resx">
+      <DependentUpon>market_factury.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="sena.resx">
       <DependentUpon>sena.cs</DependentUpon>

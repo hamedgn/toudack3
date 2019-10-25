@@ -70,6 +70,10 @@ namespace toudack1
         public int factory_box_Services;
         public int factory_box_Education;
         public int factory_box_Weapons;
+        public int factory_box_Industry_out;
+        public int factory_box_Services_out;
+        public int factory_box_Education_out;
+        public int factory_box_Weapons_out;
         public int factory_box_Groupnumber;
         #endregion
 
@@ -129,6 +133,14 @@ namespace toudack1
         public string pr3;
         public string pr4;
         public string pr5;
+        #endregion
+
+        #region factory_box
+        //*****factory_box
+        public int factory_market_code_seller;
+        public int factory_market_box_seller;
+        public int factory_market_code_Buyer;
+        public int factory_market_box_Buyer;
         #endregion
 
         #endregion
@@ -1275,6 +1287,8 @@ namespace toudack1
 
         }
         #endregion
+
+        
         #endregion
 
         #region Vahid code
@@ -1576,6 +1590,46 @@ namespace toudack1
         #endregion
 
         #region factory_box
+        //natural_resources code data base
+        public void factory_market_public(string playercode1, string playercode2, string res)
+        {
+            string query_buyer = "SELECT " + res + ", numbergroup FROM factory_box WHERE numbergroup=" + playercode1;
+            string query_seller = "SELECT " + res + ", numbergroup FROM factory_box WHERE numbergroup=" + playercode2;
+            if (this.OpenConnection() == true)
+            {
+
+                //create command and assign the query and connection from the constructor seller
+                MySqlCommand cmd_seller = new MySqlCommand(query_seller, connection);
+                using (MySqlDataReader myreader_seller = cmd_seller.ExecuteReader())
+                {
+                    while (myreader_seller.Read())
+                    {
+
+                        factory_market_code_seller = Convert.ToInt32(myreader_seller["numbergroup"].ToString());
+
+                        factory_market_box_seller = Convert.ToInt32(myreader_seller[res].ToString());
+
+                    }
+                }
+                //create command and assign the query and connection from the constructor buyer
+                MySqlCommand cmd_buyer = new MySqlCommand(query_buyer, connection);
+                MySqlDataReader myreader_buyer = cmd_buyer.ExecuteReader();
+                while (myreader_buyer.Read())
+                {
+                    factory_market_box_Buyer = Convert.ToInt32(myreader_buyer[res].ToString());
+                    factory_market_code_Buyer = Convert.ToInt32(myreader_buyer["numbergroup"].ToString());
+
+                }
+
+                //MessageBox.Show(myreader[playercode].ToString());
+
+                //close connection
+                this.CloseConnection();
+
+
+            }
+        }
+
         //factory_box_upadte
         public void factory_box_plus(int res, int amount, string playercode, string type)
         {
@@ -1629,6 +1683,10 @@ namespace toudack1
                         factory_box_Services = Convert.ToInt32(myreader["services"].ToString());
                         factory_box_Education = Convert.ToInt32(myreader["education"].ToString());
                         factory_box_Weapons = Convert.ToInt32(myreader["weapons"].ToString());
+                        factory_box_Industry_out = Convert.ToInt32(myreader["industry_out"].ToString());
+                        factory_box_Services_out = Convert.ToInt32(myreader["services_out"].ToString());
+                        factory_box_Education_out = Convert.ToInt32(myreader["education_out"].ToString());
+                        factory_box_Weapons_out = Convert.ToInt32(myreader["weapons_out"].ToString());
                     }
                 }
                 //close connection
