@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace toudack1
 {
-    public partial class market_factury : Form
+    public partial class dolaty_market_factory : Form
     {
         private DBConnect dbconnect;
-        public market_factury()
+        public dolaty_market_factory()
         {
             InitializeComponent();
             dbconnect = new DBConnect();

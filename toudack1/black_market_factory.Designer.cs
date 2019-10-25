@@ -1,6 +1,6 @@
 ﻿namespace toudack1
 {
-    partial class dolati_market_factory
+    partial class black_market_factory
     {
         /// <summary>
         /// Required designer variable.
