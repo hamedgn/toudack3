@@ -71,6 +71,7 @@
             this.textBox_seller.TabIndex = 264;
             this.textBox_seller.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBox_seller.TextChanged += new System.EventHandler(this.textBox_seller_TextChanged);
+            this.textBox_seller.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_seller_KeyPress);
             // 
             // label__Buyer
             // 
@@ -91,6 +92,7 @@
             this.textBox_Buyer.Size = new System.Drawing.Size(148, 20);
             this.textBox_Buyer.TabIndex = 261;
             this.textBox_Buyer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox_Buyer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_seller_KeyPress);
             // 
             // label40
             // 

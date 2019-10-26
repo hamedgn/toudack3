@@ -13,6 +13,7 @@ namespace toudack1
     public partial class black_market_factory : Form
     {
         public int ali = 12;
+
         private DBConnect dbconnect;
         public black_market_factory()
         {
@@ -120,20 +121,21 @@ namespace toudack1
 
         private void button_black_market_factory_Click(object sender, EventArgs e)
         {
-            if (textBox_Buyer.Text != "" || textBox_seller.Text != "")
+                if (textBox_Buyer.Text != "" || textBox_seller.Text != "")
             {
                 if (textBox_Buyer.Text != "")
                 {
+                    dbconnect.getprice("variable");
                     dbconnect.factory_box_code_check(textBox_Buyer.Text);
                     string ss = dbconnect.factory_box_Groupnumber.ToString();
                     if (textBox_Buyer.Text == ss)
                     {
                         dbconnect.Fundscheck(textBox_Buyer.Text);
                         dbconnect.factory_box_code_check(textBox_Buyer.Text);
-                        int Education_value = Convert.ToInt32(number_Education_buy.Value) * ali;
-                        int Industry_value = Convert.ToInt32(number_Industry_buy.Value) * ali;
-                        int Services_value = Convert.ToInt32(number_Services_buy.Value) * ali;
-                        int Weapons_value = Convert.ToInt32(number_Weapons_buy.Value) * ali;
+                        int Education_value = Convert.ToInt32(number_Education_buy.Value) *( dbconnect.price_education+6) ;
+                        int Industry_value = Convert.ToInt32(number_Industry_buy.Value) * (dbconnect.price_industry+6);
+                        int Services_value = Convert.ToInt32(number_Services_buy.Value) * (dbconnect.price_services+6);
+                        int Weapons_value = Convert.ToInt32(number_Weapons_buy.Value) * (dbconnect.price_weapons+6);
                         dbconnect.Fundscheck(textBox_Buyer.Text);
                         dbconnect.factory_box_code_check(textBox_Buyer.Text);
                         int vahid = (Education_value + Industry_value + Services_value + Weapons_value);
@@ -145,6 +147,7 @@ namespace toudack1
                             dbconnect.factory_box_plus(dbconnect.factory_box_Weapons, Convert.ToInt32(number_Weapons_buy.Value), textBox_Buyer.Text, "weapons");
                             dbconnect.Fundscheck(textBox_Buyer.Text);
                             dbconnect.FundsNegative(dbconnect.funds,vahid, textBox_Buyer.Text);
+                            all_price.Text = vahid.ToString();
                             label_Education_buy.Text = (Convert.ToInt32(dbconnect.factory_box_Education) + Convert.ToInt32(number_Education_buy.Value)).ToString();
                             label_Industry_buy.Text = (Convert.ToInt32(dbconnect.factory_box_Industry) + Convert.ToInt32(number_Industry_buy.Value)).ToString();
                             label_Services_buy.Text = (Convert.ToInt32(dbconnect.factory_box_Services) + Convert.ToInt32(number_Services_buy.Value)).ToString();
@@ -158,6 +161,7 @@ namespace toudack1
                 }
               if(textBox_seller.Text!="")
                 {
+                    dbconnect.getprice("variable");
                     dbconnect.factory_box_code_check(textBox_seller.Text);
                     string ss = dbconnect.factory_box_Groupnumber.ToString();
                     if (textBox_seller.Text == ss)
@@ -174,11 +178,31 @@ namespace toudack1
                             dbconnect.factory_box_Negative(dbconnect.factory_box_Industry, Convert.ToInt32(number_Industry_seller.Value), textBox_seller.Text, "industry");
                             dbconnect.factory_box_Negative(dbconnect.factory_box_Services, Convert.ToInt32(number_Services_seller.Value), textBox_seller.Text, "services");
                             dbconnect.factory_box_Negative(dbconnect.factory_box_Weapons, Convert.ToInt32(number_Weapons_seller.Value), textBox_seller.Text, "weapons");
+                            //مقایسه ای برای تست این که مقدار فروش زیر صفر نیاید
+                            int r1, r3, r2, r4;
+                            if ((dbconnect.price_education - 6) <= 0)
+                                r1 = 1;
+                            else
+                                r1 = dbconnect.price_education - 6;
+                            if ((dbconnect.price_industry - 6) <= 0)
+                                r2 = 1;
+                            else
+                                r2 = dbconnect.price_industry - 6;
+                            if ((dbconnect.price_services - 6) <= 0)
+                                r3 = 1;
+                            else
+                                r3 = dbconnect.price_services - 6;
+                            if ((dbconnect.price_weapons - 6) <= 0)
+                                r4 = 1;
+                            else
+                                r4 = dbconnect.price_weapons - 6;
+                            /**end**/
                             dbconnect.Fundscheck(textBox_seller.Text);
-                            int vahid = (Convert.ToInt32(number_Education_seller.Value) + Convert.ToInt32(number_Industry_seller.Value) + Convert.ToInt32(number_Services_seller.Value) + Convert.ToInt32(number_Weapons_seller.Value)) * ali;
+                            int vahid = (Convert.ToInt32((number_Education_seller.Value)* r1) + (Convert.ToInt32(number_Industry_seller.Value)* r2) + (Convert.ToInt32(number_Services_seller.Value)* r3) + (Convert.ToInt32(number_Weapons_seller.Value)* r4));
                             dbconnect.Fundsplus(dbconnect.funds, vahid, textBox_seller.Text);
                             dbconnect.factory_box_code_check(textBox_seller.Text);
                             //نمایش لیبل فروش
+                            all_price.Text = vahid.ToString();
                                label_Education_seller.Text = (Convert.ToInt32(dbconnect.factory_box_Education)).ToString();
                                 label_Industry_seller.Text = (Convert.ToInt32(dbconnect.factory_box_Industry)).ToString() ;
                                 label_Services_seller.Text = (Convert.ToInt32(dbconnect.factory_box_Services)).ToString();
@@ -373,6 +397,15 @@ namespace toudack1
             {
                 e.Handled = true;
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            dbconnect.getprice("variable");
+            db_price_Education.Text = dbconnect.price_education.ToString();
+            db_price_industry.Text = dbconnect.price_industry.ToString();
+            db_price_Services.Text = dbconnect.price_services.ToString();
+            db_price_Weapons.Text = dbconnect.price_weapons.ToString();
         }
     }
 }

@@ -31,7 +31,7 @@ namespace toudack1
 
         private void button_Board_oil_Click(object sender, EventArgs e)
         {
-            if (textBox_Buyer.Text == "" && textBox_seller.Text == "")
+            if (textBox_Buyer.Text == "" || textBox_seller.Text == "")
             {
                 MessageBox.Show("کد را وارد کنید", "ERROR");
             }
@@ -41,7 +41,13 @@ namespace toudack1
                 dbconnect.public_natural_resources(textBox_Buyer.Text, textBox_seller.Text, "oil");
                 string DPNG1 = dbconnect.natural_resources_Numbergroup_Buyer.ToString();
                 string DPNG2 = dbconnect.natural_resources_Numbergroup_seller.ToString();
-                if (textBox_Buyer.Text == DPNG1 && textBox_seller.Text == DPNG2)
+                dbconnect.factory_code_public(DPNG1);
+                int a = dbconnect.factory_Bank;
+                dbconnect.factory_code_public(DPNG2);
+                int b = dbconnect.factory_Bank;
+                if (a == 1 && b == 1)
+                {
+                    if (textBox_Buyer.Text == DPNG1 && textBox_seller.Text == DPNG2)
                 {
                     int value = Convert.ToInt32(allplus.Text);
                     //از وحید بپرس کد مشکل
@@ -58,16 +64,33 @@ namespace toudack1
                         dbconnect.Fundsplus(dbconnect.funds, value, DPNG2);
                         dbconnect.setprice("oil", Convert.ToInt32(domainUpDown_Board_oil_seller.Value));
                         MessageBox.Show("انجام شد");
-                        timer1.Start();
+                            textBox_seller.Text = "";
+                            textBox_Buyer.Text = "";
+                            domainUpDown_Board_oil_pcs.Value = 0;
+                            timer1.Start();
                     }
                     else
                     {
                         MessageBox.Show("مقدار منابع هایتان یا پولتان کمتر از حد برداشت است","ERROR");
-                    }
+                            textBox_seller.Text = "";
+                            textBox_Buyer.Text = "";
+                            domainUpDown_Board_oil_pcs.Value = 0;
+                        }
                 }
                 else
                 {
                     MessageBox.Show("کد نامعتبر", "ERROR");
+                        textBox_seller.Text = "";
+                        textBox_Buyer.Text = "";
+                        domainUpDown_Board_oil_pcs.Value = 0;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("مشکل در اتصال به بانک", "ERROR");
+                    textBox_seller.Text = "";
+                    textBox_Buyer.Text = "";
+                    domainUpDown_Board_oil_pcs.Value = 0;
                 }
             }
 

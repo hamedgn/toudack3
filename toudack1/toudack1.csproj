@@ -153,6 +153,12 @@
       <DependentUpon>Board_Silk.cs</DependentUpon>
     </Compile>
     <Compile Include="DBConnect.cs" />
+    <Compile Include="dolaty_market_factory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dolaty_market_factory.Designer.cs">
+      <DependentUpon>dolaty_market_factory.cs</DependentUpon>
+    </Compile>
     <Compile Include="factory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,12 +182,6 @@
     </Compile>
     <Compile Include="LOCKSCEREEN.Designer.cs">
       <DependentUpon>LOCKSCEREEN.cs</DependentUpon>
-    </Compile>
-    <Compile Include="market_factury.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="market_factury.Designer.cs">
-      <DependentUpon>market_factury.cs</DependentUpon>
     </Compile>
     <Compile Include="population.cs">
       <SubType>Form</SubType>
@@ -259,6 +259,9 @@
     <EmbeddedResource Include="Board_Silk.resx">
       <DependentUpon>Board_Silk.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="dolaty_market_factory.resx">
+      <DependentUpon>dolaty_market_factory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="factory.resx">
       <DependentUpon>factory.cs</DependentUpon>
     </EmbeddedResource>
@@ -267,9 +270,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LOCKSCEREEN.resx">
       <DependentUpon>LOCKSCEREEN.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="market_factury.resx">
-      <DependentUpon>market_factury.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="sena.resx">
       <DependentUpon>sena.cs</DependentUpon>

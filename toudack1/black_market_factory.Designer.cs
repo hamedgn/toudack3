@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.textBox_Buyer = new System.Windows.Forms.TextBox();
@@ -66,6 +67,18 @@
             this.number_Services_buy = new System.Windows.Forms.NumericUpDown();
             this.number_Weapons_buy = new System.Windows.Forms.NumericUpDown();
             this.number_Industry_buy = new System.Windows.Forms.NumericUpDown();
+            this.all_price = new System.Windows.Forms.Label();
+            this.db_price_industry = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.db_price_Education = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.db_price_Weapons = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.db_price_Services = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.number_Industry_seller)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.number_Weapons_seller)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.number_Services_seller)).BeginInit();
@@ -186,7 +199,7 @@
             this.label50.AutoSize = true;
             this.label50.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.label50.Font = new System.Drawing.Font("B Titr", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label50.Location = new System.Drawing.Point(377, 41);
+            this.label50.Location = new System.Drawing.Point(766, 33);
             this.label50.Name = "label50";
             this.label50.Size = new System.Drawing.Size(177, 42);
             this.label50.TabIndex = 208;
@@ -593,11 +606,149 @@
             this.number_Industry_buy.Size = new System.Drawing.Size(42, 20);
             this.number_Industry_buy.TabIndex = 278;
             // 
+            // all_price
+            // 
+            this.all_price.AutoSize = true;
+            this.all_price.Location = new System.Drawing.Point(456, 200);
+            this.all_price.Name = "all_price";
+            this.all_price.Size = new System.Drawing.Size(23, 13);
+            this.all_price.TabIndex = 329;
+            this.all_price.Text = "****";
+            this.all_price.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // db_price_industry
+            // 
+            this.db_price_industry.AutoSize = true;
+            this.db_price_industry.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.db_price_industry.Enabled = false;
+            this.db_price_industry.Font = new System.Drawing.Font("B Titr", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.db_price_industry.Location = new System.Drawing.Point(294, 42);
+            this.db_price_industry.Name = "db_price_industry";
+            this.db_price_industry.Size = new System.Drawing.Size(29, 42);
+            this.db_price_industry.TabIndex = 334;
+            this.db_price_industry.Text = "0";
+            // 
+            // label6
+            // 
+            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.label6.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label6.Location = new System.Drawing.Point(329, 10);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(103, 74);
+            this.label6.TabIndex = 339;
+            this.label6.Text = "قیمت بسته های صادراتی";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // db_price_Education
+            // 
+            this.db_price_Education.AutoSize = true;
+            this.db_price_Education.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.db_price_Education.Enabled = false;
+            this.db_price_Education.Font = new System.Drawing.Font("B Titr", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.db_price_Education.Location = new System.Drawing.Point(37, 39);
+            this.db_price_Education.Name = "db_price_Education";
+            this.db_price_Education.Size = new System.Drawing.Size(29, 42);
+            this.db_price_Education.TabIndex = 338;
+            this.db_price_Education.Text = "0";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.label10.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label10.Location = new System.Drawing.Point(26, 14);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(57, 29);
+            this.label10.TabIndex = 337;
+            this.label10.Text = "آموزش";
+            // 
+            // db_price_Weapons
+            // 
+            this.db_price_Weapons.AutoSize = true;
+            this.db_price_Weapons.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.db_price_Weapons.Enabled = false;
+            this.db_price_Weapons.Font = new System.Drawing.Font("B Titr", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.db_price_Weapons.Location = new System.Drawing.Point(205, 42);
+            this.db_price_Weapons.Name = "db_price_Weapons";
+            this.db_price_Weapons.Size = new System.Drawing.Size(29, 42);
+            this.db_price_Weapons.TabIndex = 336;
+            this.db_price_Weapons.Text = "0";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.label24.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label24.Location = new System.Drawing.Point(204, 13);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(41, 29);
+            this.label24.TabIndex = 335;
+            this.label24.Text = "سلاح";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.label25.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label25.Location = new System.Drawing.Point(284, 13);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(47, 29);
+            this.label25.TabIndex = 333;
+            this.label25.Text = "صنعت";
+            // 
+            // db_price_Services
+            // 
+            this.db_price_Services.AutoSize = true;
+            this.db_price_Services.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.db_price_Services.Enabled = false;
+            this.db_price_Services.Font = new System.Drawing.Font("B Titr", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.db_price_Services.Location = new System.Drawing.Point(124, 39);
+            this.db_price_Services.Name = "db_price_Services";
+            this.db_price_Services.Size = new System.Drawing.Size(29, 42);
+            this.db_price_Services.TabIndex = 332;
+            this.db_price_Services.Text = "0";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.label15.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label15.Location = new System.Drawing.Point(113, 14);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(54, 29);
+            this.label15.TabIndex = 331;
+            this.label15.Text = "خدمات";
+            // 
+            // label16
+            // 
+            this.label16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.label16.Location = new System.Drawing.Point(12, 9);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(420, 75);
+            this.label16.TabIndex = 330;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // black_market_factory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(955, 401);
+            this.Controls.Add(this.db_price_industry);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.db_price_Education);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.db_price_Weapons);
+            this.Controls.Add(this.label24);
+            this.Controls.Add(this.label25);
+            this.Controls.Add(this.db_price_Services);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.all_price);
             this.Controls.Add(this.number_Education_buy);
             this.Controls.Add(this.number_Services_buy);
             this.Controls.Add(this.number_Weapons_buy);
@@ -690,5 +841,17 @@
         private System.Windows.Forms.NumericUpDown number_Services_buy;
         private System.Windows.Forms.NumericUpDown number_Weapons_buy;
         private System.Windows.Forms.NumericUpDown number_Industry_buy;
+        private System.Windows.Forms.Label all_price;
+        private System.Windows.Forms.Label db_price_industry;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label db_price_Education;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label db_price_Weapons;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label db_price_Services;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Timer timer1;
     }
 }

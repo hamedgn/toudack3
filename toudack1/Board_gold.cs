@@ -67,7 +67,7 @@ namespace toudack1
                 }
             }
             */
-            if (textBox_Buyer.Text == "" && textBox_seller.Text == "")
+            if (textBox_Buyer.Text == "" || textBox_seller.Text == "")
             {
                 MessageBox.Show("کد را وارد کنید", "ERROR");
             }
@@ -77,7 +77,13 @@ namespace toudack1
                 dbconnect.public_natural_resources(textBox_Buyer.Text, textBox_seller.Text, "gold");
                 string DPNG1 = dbconnect.natural_resources_Numbergroup_Buyer.ToString();
                 string DPNG2 = dbconnect.natural_resources_Numbergroup_seller.ToString();
-                if (textBox_Buyer.Text == DPNG1 && textBox_seller.Text == DPNG2)
+                dbconnect.factory_code_public(DPNG1);
+                int a = dbconnect.factory_Bank;
+                dbconnect.factory_code_public(DPNG2);
+                int b = dbconnect.factory_Bank;
+                if (a == 1 && b == 1)
+                {
+                    if (textBox_Buyer.Text == DPNG1 && textBox_seller.Text == DPNG2)
                 {
                     int value = Convert.ToInt32(allplus.Text);
                     //از وحید بپرس کد مشکل
@@ -98,11 +104,25 @@ namespace toudack1
                     else
                     {
                         MessageBox.Show("مقدار منابع هایتان یا پولتان کمتر از حد برداشت است", "ERROR");
-                    }
+                            textBox_seller.Text = "";
+                            textBox_Buyer.Text = "";
+                            domainUpDown_Board_gold_pcs.Value = 0;
+                        }
                 }
                 else
                 {
                     MessageBox.Show("کد نامعتبر", "ERROR");
+                        textBox_seller.Text = "";
+                        textBox_Buyer.Text = "";
+                        domainUpDown_Board_gold_pcs.Value = 0;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("مشکل در اتصال به بانک", "ERROR");
+                    textBox_seller.Text = "";
+                    textBox_Buyer.Text = "";
+                    domainUpDown_Board_gold_pcs.Value = 0;
                 }
             }
 
@@ -132,6 +152,12 @@ namespace toudack1
             timer1.Stop();
         }
 
-        
+        private void textBox_seller_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!((e.KeyChar >= '0' && e.KeyChar <= '9') || (e.KeyChar == Convert.ToChar(Keys.Back))))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

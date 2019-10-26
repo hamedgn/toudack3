@@ -20,7 +20,6 @@ namespace toudack1
             dbconnect = new DBConnect();
 
         }
-
         private void black_market_factory_Load(object sender, EventArgs e)
         {
 
@@ -112,18 +111,20 @@ namespace toudack1
             {
                 if (textBox_Buyer.Text != "")
                 {
+                    dbconnect.getprice("variable");
                     dbconnect.References_box_code_check(textBox_Buyer.Text);
                     string ss = dbconnect.natural_resources_numbergroup.ToString();
                     if (textBox_Buyer.Text == ss)
                     {
-                        int gold_value = Convert.ToInt32(number_Gold_Buyer.Value) * ali;
-                        int old_value = Convert.ToInt32(number_Oil_Buyer.Value) * ali;
-                        int silk_value = Convert.ToInt32(number_Silk_Buyer.Value) * ali;
-                        int diamond_value = Convert.ToInt32(number_Diamond_Buyer.Value) * ali;
-                        int vahid = (gold_value + old_value + silk_value + diamond_value);
+                        int gold_value = Convert.ToInt32(number_Gold_Buyer.Value) * (dbconnect.price_gold+6);
+                        int oil_value = Convert.ToInt32(number_Oil_Buyer.Value) * (dbconnect.price_oil+6);
+                        int silk_value = Convert.ToInt32(number_Silk_Buyer.Value) * (dbconnect.price_silk+6);
+                        int diamond_value = Convert.ToInt32(number_Diamond_Buyer.Value) * (dbconnect.price_diamond+6);
+                        int vahid = (gold_value + oil_value + silk_value + diamond_value);
+                      
                         dbconnect.Fundscheck(textBox_Buyer.Text);
                         dbconnect.References_box_code_check(textBox_Buyer.Text);
-                        if (dbconnect.funds >= gold_value + old_value + silk_value + diamond_value)                       
+                        if (dbconnect.funds >= gold_value + oil_value + silk_value + diamond_value)                       
                             {
                             dbconnect.natural_resources_plus(dbconnect.natural_resources_Oil, Convert.ToInt32(number_Oil_Buyer.Value), textBox_Buyer.Text, "oil");
                             dbconnect.natural_resources_plus(dbconnect.natural_resources_Gold, Convert.ToInt32(number_Gold_Buyer.Value), textBox_Buyer.Text, "gold");
@@ -131,6 +132,7 @@ namespace toudack1
                             dbconnect.natural_resources_plus(dbconnect.natural_resources_Diamond, Convert.ToInt32(number_Diamond_Buyer.Value), textBox_Buyer.Text, "diamond");
                             dbconnect.Fundscheck(textBox_Buyer.Text);
                             dbconnect.Fundsplus(dbconnect.funds, vahid, textBox_Buyer.Text);
+                            all_price.Text = vahid.ToString();
                             dbconnect.References_box_code_check(textBox_Buyer.Text);
                             label_Gold_Buyer.Text = (Convert.ToInt32(dbconnect.natural_resources_Gold)).ToString();
                             label_Oil_Buyer.Text = (Convert.ToInt32(dbconnect.natural_resources_Oil)).ToString();
@@ -147,6 +149,7 @@ namespace toudack1
                 {
                     dbconnect.References_box_code_check(textBox_seller.Text);
                     string ss = dbconnect.natural_resources_numbergroup.ToString();
+                    dbconnect.getprice("variable");
                     if (textBox_seller.Text == ss)
                     {
                         dbconnect.Fundscheck(textBox_seller.Text);
@@ -163,8 +166,28 @@ namespace toudack1
                             dbconnect.natural_resources_Negative(dbconnect.natural_resources_Gold, Convert.ToInt32(number_Gold_seller.Value), textBox_seller.Text, "gold");
                             dbconnect.natural_resources_Negative(dbconnect.natural_resources_Silk, Convert.ToInt32(number_Silk_seller.Value), textBox_seller.Text, "silk");
                             dbconnect.natural_resources_Negative(dbconnect.natural_resources_Diamond, Convert.ToInt32(number_Diamond_seller.Value), textBox_seller.Text, "diamond");
-                            int vahid =(Convert.ToInt32(number_Oil_seller.Value)+ Convert.ToInt32(number_Gold_seller.Value)+ Convert.ToInt32(number_Silk_seller.Value) + Convert.ToInt32(number_Diamond_seller.Value))*ali;
+                            //مقایسه ای برای تست این که مقدار فروش زیر صفر نیاید
+                            int r1, r3, r2,r4;
+                            if ((dbconnect.price_gold - 6) <= 0)
+                                r1 = 1;
+                            else
+                                r1 = dbconnect.price_gold - 6;
+                            if ((dbconnect.price_oil - 6) <= 0)
+                                r2 = 1;
+                            else
+                                r2 = dbconnect.price_oil - 6;
+                            if ((dbconnect.price_silk - 6) <= 0)
+                                r3 = 1;
+                            else
+                                r3 = dbconnect.price_silk - 6;
+                            if ((dbconnect.price_diamond - 6) <= 0)
+                                r4 = 1;
+                            else
+                                r4 = dbconnect.price_diamond - 6;
+                            /**end**/
+                            int vahid =(Convert.ToInt32((number_Oil_seller.Value)*r2)+ (Convert.ToInt32(number_Gold_seller.Value)*r1)+ (Convert.ToInt32(number_Silk_seller.Value)*r3) + (Convert.ToInt32(number_Diamond_seller.Value)*r4));
                             dbconnect.Fundscheck(textBox_seller.Text);
+                            all_price.Text = vahid.ToString();
                             dbconnect.Fundsplus(dbconnect.funds, vahid, textBox_seller.Text);
                             dbconnect.References_box_code_check(textBox_seller.Text);
                             label_Gold_seller.Text = (Convert.ToInt32(dbconnect.natural_resources_Gold)).ToString();
@@ -202,6 +225,7 @@ namespace toudack1
 
         private void References_button_Services_Click(object sender, EventArgs e)
         {
+            button_Buyer.Enabled = false;
             textBox_Buyer.Text = "";
             textBox_seller.Text = "";
             textBox_seller.Enabled = true;
@@ -240,6 +264,7 @@ namespace toudack1
 
         private void References_button_Industry_Click(object sender, EventArgs e)
         {
+            button_seller.Enabled = false;
             textBox_Buyer.Text="";
             textBox_seller.Text="";
             textBox_seller.Enabled=false;
@@ -288,6 +313,15 @@ namespace toudack1
             {
                 e.Handled = true;
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            dbconnect.getprice("variable");
+            db_price_diamon.Text = dbconnect.price_diamond.ToString();
+            db_price_gold.Text = dbconnect.price_gold.ToString();
+            db_price_oil.Text = dbconnect.price_oil.ToString();
+            db_price_silk.Text = dbconnect.price_silk.ToString();
         }
     }
 }

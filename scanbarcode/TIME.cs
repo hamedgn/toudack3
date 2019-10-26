@@ -29,6 +29,10 @@ namespace scanbarcode
 
         private void TIME_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'testDataSet1.factory_box' table. You can move, or remove it, as needed.
+            this.factory_boxTableAdapter.Fill(this.testDataSet1.factory_box);
+            // TODO: This line of code loads data into the 'testDataSet.resource' table. You can move, or remove it, as needed.
+            this.resourceTableAdapter.Fill(this.testDataSet.resource);
 
 
         }

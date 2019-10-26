@@ -143,6 +143,10 @@ namespace toudack1
         public int factory_market_box_Buyer;
         #endregion
 
+        #region senfboss
+        public int group_code;
+        public int senf_code;
+        #endregion
         #endregion
 
 
@@ -1288,7 +1292,75 @@ namespace toudack1
         }
         #endregion
 
-        
+        #region senfboss
+
+        public void bosscheck2(int code)
+        {
+            string query = "SELECT * FROM groups WHERE senf =" + code;
+
+            if (this.OpenConnection() == true)
+            {
+
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader myreader = cmd.ExecuteReader();
+                while (myreader.Read())
+                {
+                    group_code = Convert.ToInt32(myreader["groupcode"]);
+                    senf_code = Convert.ToInt32(myreader["senf"]);
+                }
+
+                //close connection
+                this.CloseConnection();
+
+            }
+
+        }
+        public void bosscheck(string code)
+        {
+            string query = "SELECT * FROM groups WHERE groupcode =" + code;
+
+            if (this.OpenConnection() == true)
+            {
+
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader myreader = cmd.ExecuteReader();
+                while (myreader.Read())
+                {
+                    group_code = Convert.ToInt32(myreader["groupcode"]);
+                    senf_code = Convert.ToInt32(myreader["senf"]);
+                }
+
+                //close connection
+                this.CloseConnection();
+
+            }
+
+        }
+        public void bossupdate(string code, int senf)
+        {
+            string query = " UPDATE groups SET `senf`= " + senf + " WHERE groupcode = " + code;
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                //create mysql command
+                MySqlCommand cmd = new MySqlCommand();
+                //Assign the query using CommandText
+                cmd.CommandText = query;
+                //Assign the connection using Connection
+                cmd.Connection = connection;
+
+                //Execute query
+                cmd.ExecuteNonQuery();
+
+                //close connection
+                this.CloseConnection();
+            }
+
+        }
+        #endregion
+
         #endregion
 
         #region Vahid code

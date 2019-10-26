@@ -178,5 +178,18 @@ namespace toudack1
             MessageBox.Show("قیمت ثبت شد");
 
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            dbconnect.TIME_GET_n();
+            if (dbconnect.m < 5)
+            {
+                button5.Enabled = true;
+            }
+            else
+            {
+                button5.Enabled = false;
+            }
+        }
     }
 }
