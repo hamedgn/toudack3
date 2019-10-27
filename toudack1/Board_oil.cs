@@ -123,6 +123,17 @@ namespace toudack1
             domainUpDown_Board_oil_seller.Value = i;
             domainUpDown_Board_oil_seller.Maximum = i + 5;
             domainUpDown_Board_oil_seller.Minimum = i - 5;
+            dbconnect.TIME_GET_n();
+            if (dbconnect.m >= 5)
+            {
+                button_Buyer.Enabled = true;
+                button_seller.Enabled = true;
+            }
+            else
+            {
+                button_Buyer.Enabled = false;
+                button_seller.Enabled = false;
+            }
         }
     }
 }

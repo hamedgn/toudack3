@@ -228,6 +228,17 @@ namespace toudack1
             db_price_Weapons.Text = dbconnect.price_weapons.ToString();
             db_price_Education.Text = dbconnect.price_education.ToString();
             db_price_Services.Text = dbconnect.price_services.ToString();
+            dbconnect.TIME_GET_n();
+            if (dbconnect.m >= 5)
+            {
+                button_Buyer.Enabled = true;
+                button_seller.Enabled = true;
+            }
+            else
+            {
+                button_Buyer.Enabled = false;
+                button_seller.Enabled = false;
+            }
         }
 
         private void Price_Industry_seller_ValueChanged(object sender, EventArgs e)

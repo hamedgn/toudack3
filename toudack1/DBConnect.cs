@@ -1,11 +1,10 @@
-﻿using System;
+﻿//Add MySql Library
+using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Windows.Forms;
 using System.Diagnostics;
 using System.IO;
-//Add MySql Library
-using MySql.Data.MySqlClient;
+using System.Windows.Forms;
 
 namespace toudack1
 {
@@ -119,7 +118,7 @@ namespace toudack1
         #endregion
 
         #region TIME
-         public string timenow;
+        public string timenow;
         public int s;
         public int m;
         public int h;
@@ -147,8 +146,8 @@ namespace toudack1
         public int group_code;
         public int senf_code;
         #endregion
-        #endregion
 
+        #endregion
 
         #region Hamed code
         //Hamed code start
@@ -159,7 +158,7 @@ namespace toudack1
         {
             Initialize();
         }
-        
+
         //Initialize values
         private void Initialize()
         {
@@ -222,9 +221,9 @@ namespace toudack1
 
         #region Login
         //Login Check
-        public void Logincheck(string buser , string bpass)
+        public void Logincheck(string buser, string bpass)
         {
-            
+
             string query = "SELECT pass FROM admin WHERE user=" + buser;
 
             if (this.OpenConnection() == true)
@@ -238,16 +237,16 @@ namespace toudack1
 
                     //check pass with user
                     if (myreader["pass"].ToString() == bpass)
-                    { 
-                      qpass = true;
+                    {
+                        qpass = true;
                     }
                     else
                     {
-                      qpass = false;
+                        qpass = false;
                     }
-                
-                
-                
+
+
+
                 //close connection
                 this.CloseConnection();
 
@@ -257,21 +256,21 @@ namespace toudack1
                 {
                     MessageBox.Show("Correct");
                 }
-                else 
+                else
                 {
-                    MessageBox.Show("wrong user pass"); 
+                    MessageBox.Show("wrong user pass");
                 }
 
             }
-           
+
         }
         #endregion
 
         #region Bank
         //Loans get
-        public void loansget(string playercode, int amount,int mounth)
+        public void loansget(string playercode, int amount, int mounth)
         {
-            string query = "UPDATE bank SET `loans`=" + amount + ", `month`=" +mounth+ " WHERE numbergroup=" + playercode;
+            string query = "UPDATE bank SET `loans`=" + amount + ", `month`=" + mounth + " WHERE numbergroup=" + playercode;
 
             //Open connection
             if (this.OpenConnection() == true)
@@ -308,7 +307,7 @@ namespace toudack1
 
                     //check loans and month for user
                     loans = Convert.ToInt32(myreader["loans"].ToString());
-                    month = Convert.ToInt32(myreader["month"].ToString());
+                month = Convert.ToInt32(myreader["month"].ToString());
 
                 //close connection
                 this.CloseConnection();
@@ -318,7 +317,7 @@ namespace toudack1
         }
 
         //Funds plus
-        public void Fundsplus (int fund,int amount,string playercode)
+        public void Fundsplus(int fund, int amount, string playercode)
         {
             fund = fund + amount;
             Transferfundsmove(fund, playercode);
@@ -339,7 +338,7 @@ namespace toudack1
 
             if (this.OpenConnection() == true)
             {
-               
+
                 //create command and assign the query and connection from the constructor
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 MySqlDataReader myreader = cmd.ExecuteReader();
@@ -347,7 +346,7 @@ namespace toudack1
 
 
                     //check funds for user
-                    funds =Convert.ToInt32(myreader["fund"].ToString());
+                    funds = Convert.ToInt32(myreader["fund"].ToString());
 
 
                 //close connection
@@ -358,7 +357,7 @@ namespace toudack1
         }
 
         //transaction funds
-        public void Transactionfunds(string player1cod,string player2cod,int amount)
+        public void Transactionfunds(string player1cod, string player2cod, int amount)
         {
             Fundscheck(player1cod);
             int player1funds = funds;
@@ -374,7 +373,7 @@ namespace toudack1
         }
 
         //Transfer Fund
-        public void Transferfundsmove(int amount,string playercode)
+        public void Transferfundsmove(int amount, string playercode)
         {
             string query = "UPDATE bank SET `fund`=" + amount + " WHERE numbergroup=" + playercode;
 
@@ -418,7 +417,7 @@ namespace toudack1
                         playerusedqus = false;
                     }
                     else
-                    if (Convert.ToInt32(myreader[playercode].ToString()) <= 5 && Convert.ToInt32(myreader[playercode].ToString()) >=1)
+                    if (Convert.ToInt32(myreader[playercode].ToString()) <= 5 && Convert.ToInt32(myreader[playercode].ToString()) >= 1)
                     {
 
                         playerusedqus = true;
@@ -485,23 +484,23 @@ namespace toudack1
             string query = "SELECT * FROM question WHERE code=" + qusnum;
             if (this.OpenConnection() == true)
             {
-                
+
                 //create command and assign the query and connection from the constructor
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 MySqlDataReader myreader = cmd.ExecuteReader();
                 while (myreader.Read())
-                   // MessageBox.Show(myreader["nowused"].ToString());
+                    // MessageBox.Show(myreader["nowused"].ToString());
 
                     //check qusetion used
                     if (myreader["nowused"].ToString() == "0")
                     {
-                        
+
                         qusused = false;
                     }
                     else
-                    if(myreader["nowused"].ToString() == "1")
+                    if (myreader["nowused"].ToString() == "1")
                     {
-                        
+
                         qusused = true;
                     }
 
@@ -513,9 +512,9 @@ namespace toudack1
 
             }
         }
-        
+
         //answer of Question check
-        public void AnswerOfQuestioncheck(string qusnum,string plyeranswer)
+        public void AnswerOfQuestioncheck(string qusnum, string plyeranswer)
         {
             string query = "SELECT * FROM question WHERE code=" + qusnum;
             if (this.OpenConnection() == true)
@@ -525,19 +524,19 @@ namespace toudack1
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 MySqlDataReader myreader = cmd.ExecuteReader();
                 while (myreader.Read())
-                    
 
-                //check qusetion used
-                if (myreader["answer"].ToString() == plyeranswer)
-                {
 
-                    qusansw = true;
-                }
-                else
-                { 
+                    //check qusetion used
+                    if (myreader["answer"].ToString() == plyeranswer)
+                    {
 
-                    qusansw = false;
-                }
+                        qusansw = true;
+                    }
+                    else
+                    {
+
+                        qusansw = false;
+                    }
 
 
 
@@ -549,9 +548,9 @@ namespace toudack1
         }
 
         //Questin use
-        public void Questionuse(string qusnum,string playercode)
+        public void Questionuse(string qusnum, string playercode)
         {
-            string query = "UPDATE question SET `nowused`=1 , `groupused`="+playercode+" WHERE code=" + qusnum;
+            string query = "UPDATE question SET `nowused`=1 , `groupused`=" + playercode + " WHERE code=" + qusnum;
 
             //Open connection
             if (this.OpenConnection() == true)
@@ -622,7 +621,7 @@ namespace toudack1
         //Numused Plus
         public void Numusedplus(string qusnum, int finalnum)
         {
-            string query = "UPDATE question SET `numused`="+finalnum+" WHERE code=" + qusnum;
+            string query = "UPDATE question SET `numused`=" + finalnum + " WHERE code=" + qusnum;
 
             //Open connection
             if (this.OpenConnection() == true)
@@ -643,7 +642,7 @@ namespace toudack1
         }
 
         //Qustion Type Num check
-        public void QusTypNumcheck(string groupnum,string qustyp)
+        public void QusTypNumcheck(string groupnum, string qustyp)
         {
             string query = "SELECT * FROM numqustrueansw WHERE groupnum=" + groupnum;
             if (this.OpenConnection() == true)
@@ -654,7 +653,7 @@ namespace toudack1
                 MySqlDataReader myreader = cmd.ExecuteReader();
                 while (myreader.Read())
 
-                    
+
                     //chack numused
                     qustypnumamswer = Convert.ToInt32(myreader[qustyp].ToString());
 
@@ -668,9 +667,9 @@ namespace toudack1
         }
 
         //Qustion Type Plus
-        public void Qustypplus(string groupnum,string qustyp, int finalnum)
+        public void Qustypplus(string groupnum, string qustyp, int finalnum)
         {
-            string query = "UPDATE numqustrueansw SET `"+ qustyp+ "`=" + finalnum + " WHERE groupnum=" + groupnum;
+            string query = "UPDATE numqustrueansw SET `" + qustyp + "`=" + finalnum + " WHERE groupnum=" + groupnum;
 
             //Open connection
             if (this.OpenConnection() == true)
@@ -691,7 +690,7 @@ namespace toudack1
         }
 
         //Mahak check
-        public void mahakcheck( int time)
+        public void mahakcheck(int time)
         {
             string query = "SELECT `groupnum` FROM `numqustrueansw` WHERE `mahak`=" + time;
             if (this.OpenConnection() == true)
@@ -702,10 +701,10 @@ namespace toudack1
                 MySqlDataReader myreader = cmd.ExecuteReader();
                 while (myreader.Read())
                 {
-                    gnum =Convert.ToInt32(myreader["groupnum"].ToString());
+                    gnum = Convert.ToInt32(myreader["groupnum"].ToString());
 
                 }
-                   
+
 
 
 
@@ -719,7 +718,7 @@ namespace toudack1
         //mahak set
         public void mahakset(int groupnum, int time_h)
         {
-            string query = "UPDATE `numqustrueansw` SET`mahak`="+time_h+" WHERE `groupnum`=" + groupnum;
+            string query = "UPDATE `numqustrueansw` SET`mahak`=" + time_h + " WHERE `groupnum`=" + groupnum;
 
             //Open connection
             if (this.OpenConnection() == true)
@@ -752,7 +751,7 @@ namespace toudack1
             {
                 //create command and assign the query and connection from the constructor
                 MySqlCommand cmd = new MySqlCommand(query, connection);
-                
+
                 //Execute command
                 cmd.ExecuteNonQuery();
 
@@ -815,7 +814,7 @@ namespace toudack1
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 //Create a data reader and Execute the command
                 MySqlDataReader dataReader = cmd.ExecuteReader();
-                
+
                 //Read the data and store them in the list
                 while (dataReader.Read())
                 {
@@ -852,8 +851,8 @@ namespace toudack1
                 MySqlCommand cmd = new MySqlCommand(query, connection);
 
                 //ExecuteScalar will return one value
-                Count = int.Parse(cmd.ExecuteScalar()+"");
-                
+                Count = int.Parse(cmd.ExecuteScalar() + "");
+
                 //close Connection
                 this.CloseConnection();
 
@@ -884,7 +883,7 @@ namespace toudack1
                 path = "C:\\" + year + "-" + month + "-" + day + "-" + hour + "-" + minute + "-" + second + "-" + millisecond + ".sql";
                 StreamWriter file = new StreamWriter(path);
 
-                
+
                 ProcessStartInfo psi = new ProcessStartInfo();
                 psi.FileName = "mysqldump";
                 psi.RedirectStandardInput = false;
@@ -901,7 +900,7 @@ namespace toudack1
                 file.Close();
                 process.Close();
             }
-            catch (IOException  ex)
+            catch (IOException ex)
             {
                 MessageBox.Show("Error , unable to backup!");
             }
@@ -927,7 +926,7 @@ namespace toudack1
                 psi.Arguments = string.Format(@"-u{0} -p{1} -h{2} {3}", uid, password, server, database);
                 psi.UseShellExecute = false;
 
-                
+
                 Process process = Process.Start(psi);
                 process.StandardInput.WriteLine(input);
                 process.StandardInput.Close();
@@ -954,12 +953,12 @@ namespace toudack1
                 MySqlDataReader myreader = cmd.ExecuteReader();
                 while (myreader.Read())
                 {
-                   // factory_Number_group = Convert.ToInt32(myreader["numbergroup"].ToString());
+                    // factory_Number_group = Convert.ToInt32(myreader["numbergroup"].ToString());
                     factory_en_Services = Convert.ToInt32(myreader["services"].ToString());
                     factory_en_Industry = Convert.ToInt32(myreader["industry"].ToString());
                     factory_en_Education = Convert.ToInt32(myreader["education"].ToString());
                     factory_en_Weapons = Convert.ToInt32(myreader["weapons"].ToString());
-                   // factory_Bank = Convert.ToInt32(myreader["Bank"].ToString());
+                    // factory_Bank = Convert.ToInt32(myreader["Bank"].ToString());
                 }
                 //MessageBox.Show(myreader[playercode].ToString());
 
@@ -970,7 +969,7 @@ namespace toudack1
             }
         }
         //factory en updown
-        public void factory_en_updown(string type,int number,string groupnum)
+        public void factory_en_updown(string type, int number, string groupnum)
         {
             string query = "UPDATE factory_en SET `" + type + "`=" + number + " WHERE numbergroup=" + groupnum;
 
@@ -992,7 +991,7 @@ namespace toudack1
             }
         }
         //factory en plus
-        public void factory_en_plus(int amount , int factory_en ,string groupnum,string type)
+        public void factory_en_plus(int amount, int factory_en, string groupnum, string type)
         {
             factory_en = factory_en + amount;
             factory_en_updown(type, factory_en, groupnum);
@@ -1012,7 +1011,7 @@ namespace toudack1
         public void getprice(string type)
         {
 
-            string query = "SELECT * FROM recource_price WHERE type='"+type+"'";
+            string query = "SELECT * FROM recource_price WHERE type='" + type + "'";
 
             if (this.OpenConnection() == true)
             {
@@ -1030,7 +1029,7 @@ namespace toudack1
                     price_services = Convert.ToInt32(myreader["services"]);
                     price_silk = Convert.ToInt32(myreader["silk"]);
                     price_weapons = Convert.ToInt32(myreader["weapons"]);
-                  
+
 
 
                 }
@@ -1168,7 +1167,7 @@ namespace toudack1
                 MySqlDataReader myreader = cmd.ExecuteReader();
                 while (myreader.Read())
                 {
-                   timenow= myreader["timenow"].ToString();
+                    timenow = myreader["timenow"].ToString();
                     s = Convert.ToInt32(myreader["s"].ToString());
                     m = Convert.ToInt32(myreader["m"].ToString());
                     h = Convert.ToInt32(myreader["h"].ToString());
@@ -1239,14 +1238,14 @@ namespace toudack1
             {
                 TIME_SET_s(s);
             }
-            else 
+            else
             if (s >= 60)
             {
                 s = 0;
                 m = m + 1;
                 TIME_SET_s(s);
                 TIME_SET_m(m);
-                
+
                 if (m >= 60)
                 {
                     m = 0;
@@ -1255,8 +1254,8 @@ namespace toudack1
                     TIME_SET_h(h);
                 }
             }
-            
-            
+
+
 
         }
         #endregion
@@ -1265,7 +1264,7 @@ namespace toudack1
         public void groupname_GET(int groupcode)
         {
 
-            string query = "SELECT * FROM groups WHERE groupcode ="+groupcode;
+            string query = "SELECT * FROM groups WHERE groupcode =" + groupcode;
 
             if (this.OpenConnection() == true)
             {
@@ -1275,7 +1274,7 @@ namespace toudack1
                 MySqlDataReader myreader = cmd.ExecuteReader();
                 while (myreader.Read())
                 {
-                    bossint =Convert.ToInt32( myreader["senf"].ToString());
+                    bossint = Convert.ToInt32(myreader["senf"].ToString());
                     groupname = myreader["groupname"].ToString();
                     pr1 = myreader["pr1code"].ToString();
                     pr2 = myreader["pr2code"].ToString();
@@ -1533,7 +1532,7 @@ namespace toudack1
                 this.CloseConnection();
             }
         }
-        
+
 
         //Population_upadte
         public void Population_upadte(string groupnum, string type, int number)
@@ -1612,9 +1611,9 @@ namespace toudack1
             }
         }
         //factory qus check
-        public void Factoryquscheck(string groupcode,string lesson)
+        public void Factoryquscheck(string groupcode, string lesson)
         {
-            string query = "SELECT `"+lesson+"` FROM `numqustrueansw` WHERE `groupnum`="+groupcode;
+            string query = "SELECT `" + lesson + "` FROM `numqustrueansw` WHERE `groupnum`=" + groupcode;
             if (this.OpenConnection() == true)
             {
 
@@ -1623,7 +1622,7 @@ namespace toudack1
                 MySqlDataReader myreader = cmd.ExecuteReader();
                 while (myreader.Read())
                 {
-                     qsanswerd = Convert.ToInt32(myreader[lesson].ToString());
+                    qsanswerd = Convert.ToInt32(myreader[lesson].ToString());
                 }
                 //MessageBox.Show(myreader[playercode].ToString());
 

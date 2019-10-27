@@ -101,6 +101,17 @@ namespace toudack1
             domainUpDown_Board_Silk_seller.Value = i;
             domainUpDown_Board_Silk_seller.Maximum = i + 5;
             domainUpDown_Board_Silk_seller.Minimum = i - 5;
+            dbconnect.TIME_GET_n();
+            if (dbconnect.m >= 5)
+            {
+                button_Buyer.Enabled = true;
+                button_seller.Enabled = true;
+            }
+            else
+            {
+                button_Buyer.Enabled = false;
+                button_seller.Enabled = false;
+            }
         }
 
         private void domainUpDown_Board_Silk_seller_ValueChanged(object sender, EventArgs e)

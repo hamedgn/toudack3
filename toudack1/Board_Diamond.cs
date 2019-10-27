@@ -104,11 +104,23 @@ namespace toudack1
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+
             dbconnect.getprice("variable");
             int i = dbconnect.price_diamond;
             domainUpDown_Board_Diamond_seller.Value = i;
             domainUpDown_Board_Diamond_seller.Maximum = i + 5;
             domainUpDown_Board_Diamond_seller.Minimum = i - 5;
+            dbconnect.TIME_GET_n();
+            if (dbconnect.m >= 5)
+            {
+                button_Buyer.Enabled = true;
+                button_seller.Enabled = true;
+            }
+            else
+            {
+                button_Buyer.Enabled = false;
+                button_seller.Enabled = false;
+            }
         }
 
         private void textBox_seller_KeyPress(object sender, KeyPressEventArgs e)

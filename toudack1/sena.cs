@@ -20,31 +20,13 @@ namespace toudack1
             dbconnect = new DBConnect();
         }
 
-        private void label16_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox12_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void sena_Load(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-           
-        }
 
         private void label2_Click_1(object sender, EventArgs e)
         {
             sena_number_mode = 1;
             if (sena_number_mode == 1)
             {
+                sena_clear_Click();
                 textBox9_investment.Enabled = true;
                 textBox10_investment.Enabled = true;
                 textBox11_investment.Enabled = true;
@@ -82,6 +64,7 @@ namespace toudack1
                 button18_investment.Enabled = true;
                 ///////////////////////////////
                 //lable click 5
+                /*
                 Approach_code.ResetText();
                 Approach_price.ResetText();
                 button_Approach.Enabled = false;
@@ -110,9 +93,12 @@ namespace toudack1
                 button_Installation_code.Enabled = false;
                 button_scan_Uninstall.Enabled = false;
                 button_scan_Installation.Enabled = false;
+                */
             }
             else
             {
+                sena_clear_Click();
+                /*
                 //able click 2
                 button12_investment.Enabled = false;
                 button13_investment.Enabled = false;
@@ -150,6 +136,7 @@ namespace toudack1
                 button_Installation_code.Enabled = false;
                 button_scan_Uninstall.Enabled = false;
                 button_scan_Installation.Enabled = false;
+                */
             }
             
         }
@@ -159,6 +146,7 @@ namespace toudack1
             sena_number_mode = 2;
             if (sena_number_mode == 2)
             {
+                sena_clear_Click();
                 Change_service_price.Enabled = true;
                 Change_education_price.Enabled = true;
                 Change_weapon_price.Enabled = true;
@@ -166,6 +154,7 @@ namespace toudack1
                 button__Price_change.Enabled = true;
                 ///////////////////////
                 //able click 2
+                /*
                 textBox9_investment.Enabled = false;
                 textBox10_investment.Enabled = false;
                 textBox11_investment.Enabled = false;
@@ -214,16 +203,19 @@ namespace toudack1
                 button_Uninstall_code.Enabled = false;
                 button_Installation_code.Enabled = false;
                 button_scan_Uninstall.Enabled = false;
-                button_scan_Installation.Enabled = false;
+                button_scan_Installation.Enabled = false;*/
             }
             else
             {
+                sena_clear_Click();
+                /*
                 Change_service_price.Enabled = false;
                 Change_education_price.Enabled = false;
                 Change_weapon_price.Enabled = false;
                 Change_industry_price.Enabled = false;
                 button__Price_change.Enabled = false;
                 listBox_Installation_code.Enabled =true;
+                */
             }
             
         }
@@ -233,6 +225,7 @@ namespace toudack1
             sena_number_mode = 3;
             if (sena_number_mode == 3)
             {
+                sena_clear_Click();
                 listBox_Uninstall_code.Enabled = true;
                 listBox_Installation_code.Enabled = true;              
                 Uninstall_code.Enabled = true;
@@ -241,6 +234,7 @@ namespace toudack1
                 button_Installation_code.Enabled = true;
                 //////////////////////
                 //able click 2
+                /*
                 button12_investment.Enabled = false;
                 button13_investment.Enabled = false;
                 button14_investment.Enabled = false;
@@ -276,15 +270,17 @@ namespace toudack1
                 Change_education_price.Enabled = false;
                 Change_weapon_price.Enabled = false;
                 Change_industry_price.Enabled = false;
-                button__Price_change.Enabled = false;
+                button__Price_change.Enabled = false;*/
             }
-            else { 
+            else {
+                sena_clear_Click();
+                /*
                 listBox_Uninstall_code.Enabled = false;
                
                 Uninstall_code.Enabled = false;
                 Installation_code.Enabled = false;
                 button_Uninstall_code.Enabled = false;
-                button_Installation_code.Enabled = false;
+                button_Installation_code.Enabled = false;*/
             }
             
         }
@@ -294,14 +290,19 @@ namespace toudack1
                 sena_number_mode = 2;
                 if (sena_number_mode == 2)
                 {
-                listBox_Uninstall_code.Enabled = true;
-                listBox_Installation_code.Enabled = false;
-                Uninstall_code.Enabled = true;
-                Installation_code.Enabled = true;
-                button_Uninstall_code.Enabled = true;
-                button_Installation_code.Enabled = true;
+                sena_clear_Click();
+                
+                
+                Approach_code.ResetText();
+                Approach_price.ResetText();
+                button_Approach.Enabled = true;
+                button_Approach_price.Enabled = true;
+                Approach_button.Enabled = true;
+                Approach_code.Enabled = true;
+                Approach_price.Enabled = true;
                 //////////////////////
                 //able click 2
+                /*
                 button12_investment.Enabled = false;
                 button13_investment.Enabled = false;
                 button14_investment.Enabled = false;
@@ -321,6 +322,7 @@ namespace toudack1
                 button_investment.Enabled = false;
                
                 //lable click 3
+                
                 Change_service_price.Value=0;
                 Change_education_price.Value = 0;
                 Change_weapon_price.Value=0;
@@ -330,16 +332,11 @@ namespace toudack1
                 Change_weapon_price.Enabled = false;
                 Change_industry_price.Enabled = false;
                 button__Price_change.Enabled = false;
-                listBox_Installation_code.Enabled = false;
+                listBox_Installation_code.Enabled = false;*/
                 //lable click 5
-                Approach_code.ResetText();
-                Approach_price.ResetText();
-                button_Approach.Enabled = true;
-                button_Approach_price.Enabled = true;
-                Approach_button.Enabled = true;
-                Approach_code.Enabled = true;
-                Approach_price.Enabled = true;
+
                 //lable click 4
+                /*
                 listBox_Uninstall_code.ResetText();
                 listBox_Installation_code.ResetText();
                 Uninstall_code.ResetText();
@@ -349,13 +346,14 @@ namespace toudack1
                 button_Uninstall_code.Enabled = false;
                 button_Installation_code.Enabled = false;
                 button_scan_Uninstall.Enabled = false;
-                button_scan_Installation.Enabled = false;
+                button_scan_Installation.Enabled = false;*/
             }
                 else
                 {
+                sena_clear_Click();/*
                     Approach_code.Enabled = false;
                     Approach_price.Enabled = false;
-                    button_Uninstall_code.Enabled = false;
+                    button_Uninstall_code.Enabled = false;*/
                 }
             
         }
@@ -366,14 +364,7 @@ namespace toudack1
 
             //
             //able click 2
-            textBox15_investment.ResetText();
-            textBox16_investment.ResetText();
-            textBox17_investment.ResetText();
-            textBox18_investment.ResetText();
-            button15_investment.Enabled = false;
-            button16_investment.Enabled = false;
-            button17_investment.Enabled = false;
-            button18_investment.Enabled = false;
+            
             investment_Coefficient.Enabled = false;
             investment_Coefficient.Value=0;
             textBox9_investment.ResetText();
@@ -386,16 +377,27 @@ namespace toudack1
             textBox16_investment.ResetText();
             textBox17_investment.ResetText();
             textBox18_investment.ResetText();
-            button15_investment.Enabled = false;
-            button16_investment.Enabled = false;
-            button17_investment.Enabled = false;
-            button18_investment.Enabled = false;
-            button10_investment.Enabled=false;
+            button9_investment.Enabled = false;
+            button10_investment.Enabled = false;
             button11_investment.Enabled = false;
             button12_investment.Enabled = false;
             button13_investment.Enabled = false;
             button14_investment.Enabled = false;
-     
+            button15_investment.Enabled = false;
+            button16_investment.Enabled = false;
+            button17_investment.Enabled = false;
+            button18_investment.Enabled = false;
+            textBox9_investment.Enabled = false;
+            textBox10_investment.Enabled = false;
+            textBox11_investment.Enabled = false;
+            textBox12_investment.Enabled = false;
+            textBox13_investment.Enabled = false;
+            textBox14_investment.Enabled = false;
+            textBox15_investment.Enabled = false;
+            textBox16_investment.Enabled = false;
+            textBox17_investment.Enabled = false;
+            textBox18_investment.Enabled = false;
+
             radioButton_oil.Enabled = false;
             radioButton_gold.Enabled = false;
             radioButton_silk.Enabled = false;
@@ -433,6 +435,12 @@ namespace toudack1
             button_Installation_code.Enabled = false;
             button_scan_Uninstall.Enabled = false;
             button_scan_Installation.Enabled = false;
+
+            text_sanction.Enabled = false;
+            button_prs_code_box.Enabled = false;
+            Sanctions.Enabled = false;
+            R_Sanctions.Enabled = false;
+            R_not_Sanctions.Enabled = false;
         }
 
         private void button__Price_change_Click(object sender, EventArgs e)
@@ -474,41 +482,6 @@ namespace toudack1
 
         }
 
-        private void textBox9_investment_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox14_investment_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox10_investment_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox11_investment_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox13_investment_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Uninstall_code_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Installation_code_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button_investment_Click(object sender, EventArgs e)
         {
             sena_clear_Click();
@@ -542,6 +515,20 @@ namespace toudack1
             label_Industry_seller.Text = dbconnect.price_industry.ToString();
             label_Services_seller.Text = dbconnect.price_services.ToString();
             label_Weapons_seller.Text = dbconnect.price_weapons.ToString();
+            dbconnect.TIME_GET_n();
+            if (dbconnect.m >= 5 && dbconnect.m < 30)
+            {
+                label_Price_change.Enabled = true;
+                label_senf.Enabled = false;
+                label_tahrim.Enabled = false;
+            }
+            else
+            if(dbconnect.m >= 30 && dbconnect.m < 59)
+            {
+                label_Price_change.Enabled = false;
+                label_senf.Enabled = true;
+                label_tahrim.Enabled = true;
+            }
         }
 
         private void button_Uninstall_code_Click(object sender, EventArgs e)
@@ -659,20 +646,6 @@ namespace toudack1
 
         }
 
-        private void Change_service_price_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Change_education_price_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox17_investment_KeyPress(object sender, KeyPressEventArgs e)
-        {
-        
-        }
 
         private void button2_Click_1(object sender, EventArgs e)
         {
@@ -717,6 +690,16 @@ namespace toudack1
             {
                 e.Handled = true;
             }
+        }
+
+        private void label_tahrim_Click(object sender, EventArgs e)
+        {
+            sena_clear_Click();
+            text_sanction.Enabled = true;
+            button_prs_code_box.Enabled = true;
+            Sanctions.Enabled = true;
+            R_Sanctions.Enabled = true;
+            R_not_Sanctions.Enabled = true;
         }
     }
 }

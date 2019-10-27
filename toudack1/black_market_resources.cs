@@ -322,6 +322,17 @@ namespace toudack1
             db_price_gold.Text = dbconnect.price_gold.ToString();
             db_price_oil.Text = dbconnect.price_oil.ToString();
             db_price_silk.Text = dbconnect.price_silk.ToString();
+            dbconnect.TIME_GET_n();
+            if (dbconnect.m >= 5)
+            {
+                button_Buyer.Enabled = true;
+                button_seller.Enabled = true;
+            }
+            else
+            {
+                button_Buyer.Enabled = false;
+                button_seller.Enabled = false;
+            }
         }
     }
 }

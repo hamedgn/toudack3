@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.label5 = new System.Windows.Forms.Label();
-            this.Class = new System.Windows.Forms.Label();
+            this.label_senf = new System.Windows.Forms.Label();
             this.label_Price_change = new System.Windows.Forms.Label();
             this.label_investment = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -135,7 +135,7 @@
             this.button_prs_code_box = new System.Windows.Forms.Button();
             this.text_sanction = new System.Windows.Forms.TextBox();
             this.prs_code_lable = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
+            this.label_tahrim = new System.Windows.Forms.Label();
             this.R_Sanctions = new System.Windows.Forms.RadioButton();
             this.R_not_Sanctions = new System.Windows.Forms.RadioButton();
             this.label37 = new System.Windows.Forms.Label();
@@ -159,17 +159,17 @@
             this.label5.Text = "راهکار";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
-            // Class
+            // label_senf
             // 
-            this.Class.AutoSize = true;
-            this.Class.BackColor = System.Drawing.Color.Yellow;
-            this.Class.Font = new System.Drawing.Font("B Titr", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.Class.Location = new System.Drawing.Point(259, 53);
-            this.Class.Name = "Class";
-            this.Class.Size = new System.Drawing.Size(60, 42);
-            this.Class.TabIndex = 51;
-            this.Class.Text = "صنف";
-            this.Class.Click += new System.EventHandler(this.label4_Click);
+            this.label_senf.AutoSize = true;
+            this.label_senf.BackColor = System.Drawing.Color.Yellow;
+            this.label_senf.Font = new System.Drawing.Font("B Titr", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label_senf.Location = new System.Drawing.Point(259, 53);
+            this.label_senf.Name = "label_senf";
+            this.label_senf.Size = new System.Drawing.Size(60, 42);
+            this.label_senf.TabIndex = 51;
+            this.label_senf.Text = "صنف";
+            this.label_senf.Click += new System.EventHandler(this.label4_Click);
             // 
             // label_Price_change
             // 
@@ -224,7 +224,6 @@
             this.Approach_code.Name = "Approach_code";
             this.Approach_code.Size = new System.Drawing.Size(36, 20);
             this.Approach_code.TabIndex = 55;
-            this.Approach_code.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox17_investment_KeyPress);
             // 
             // Approach_price
             // 
@@ -233,7 +232,6 @@
             this.Approach_price.Name = "Approach_price";
             this.Approach_price.Size = new System.Drawing.Size(36, 20);
             this.Approach_price.TabIndex = 56;
-            this.Approach_price.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox17_investment_KeyPress);
             // 
             // Installation_code
             // 
@@ -242,8 +240,6 @@
             this.Installation_code.Name = "Installation_code";
             this.Installation_code.Size = new System.Drawing.Size(30, 20);
             this.Installation_code.TabIndex = 58;
-            this.Installation_code.TextChanged += new System.EventHandler(this.Installation_code_TextChanged);
-            this.Installation_code.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox17_investment_KeyPress);
             // 
             // label_Installation_code
             // 
@@ -263,8 +259,6 @@
             this.Uninstall_code.Name = "Uninstall_code";
             this.Uninstall_code.Size = new System.Drawing.Size(30, 20);
             this.Uninstall_code.TabIndex = 60;
-            this.Uninstall_code.TextChanged += new System.EventHandler(this.Uninstall_code_TextChanged);
-            this.Uninstall_code.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox17_investment_KeyPress);
             // 
             // label_Uninstall_code
             // 
@@ -285,30 +279,30 @@
             this.سلاحToolStripMenuItem,
             this.آموزشToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(109, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(104, 92);
             // 
             // خدماتToolStripMenuItem
             // 
             this.خدماتToolStripMenuItem.Name = "خدماتToolStripMenuItem";
-            this.خدماتToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.خدماتToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.خدماتToolStripMenuItem.Text = "خدمات";
             // 
             // صنعتToolStripMenuItem
             // 
             this.صنعتToolStripMenuItem.Name = "صنعتToolStripMenuItem";
-            this.صنعتToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.صنعتToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.صنعتToolStripMenuItem.Text = "صنعت";
             // 
             // سلاحToolStripMenuItem
             // 
             this.سلاحToolStripMenuItem.Name = "سلاحToolStripMenuItem";
-            this.سلاحToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.سلاحToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.سلاحToolStripMenuItem.Text = "سلاح";
             // 
             // آموزشToolStripMenuItem
             // 
             this.آموزشToolStripMenuItem.Name = "آموزشToolStripMenuItem";
-            this.آموزشToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.آموزشToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.آموزشToolStripMenuItem.Text = "آموزش";
             // 
             // listBox_Installation_code
@@ -316,7 +310,7 @@
             this.listBox_Installation_code.Enabled = false;
             this.listBox_Installation_code.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.listBox_Installation_code.FormattingEnabled = true;
-            this.listBox_Installation_code.ItemHeight = 23;
+            this.listBox_Installation_code.ItemHeight = 24;
             this.listBox_Installation_code.Items.AddRange(new object[] {
             "خدمات",
             "صنعت",
@@ -325,7 +319,7 @@
             this.listBox_Installation_code.Location = new System.Drawing.Point(198, 162);
             this.listBox_Installation_code.Name = "listBox_Installation_code";
             this.listBox_Installation_code.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.listBox_Installation_code.Size = new System.Drawing.Size(64, 73);
+            this.listBox_Installation_code.Size = new System.Drawing.Size(64, 52);
             this.listBox_Installation_code.TabIndex = 61;
             // 
             // label9
@@ -424,8 +418,6 @@
             this.textBox9_investment.Name = "textBox9_investment";
             this.textBox9_investment.Size = new System.Drawing.Size(36, 20);
             this.textBox9_investment.TabIndex = 149;
-            this.textBox9_investment.TextChanged += new System.EventHandler(this.textBox9_investment_TextChanged);
-            this.textBox9_investment.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox17_investment_KeyPress);
             // 
             // label13
             // 
@@ -445,8 +437,6 @@
             this.textBox10_investment.Name = "textBox10_investment";
             this.textBox10_investment.Size = new System.Drawing.Size(36, 20);
             this.textBox10_investment.TabIndex = 151;
-            this.textBox10_investment.TextChanged += new System.EventHandler(this.textBox10_investment_TextChanged);
-            this.textBox10_investment.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox17_investment_KeyPress);
             // 
             // label14
             // 
@@ -466,8 +456,6 @@
             this.textBox11_investment.Name = "textBox11_investment";
             this.textBox11_investment.Size = new System.Drawing.Size(36, 20);
             this.textBox11_investment.TabIndex = 153;
-            this.textBox11_investment.TextChanged += new System.EventHandler(this.textBox11_investment_TextChanged);
-            this.textBox11_investment.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox17_investment_KeyPress);
             // 
             // label15
             // 
@@ -487,8 +475,6 @@
             this.textBox12_investment.Name = "textBox12_investment";
             this.textBox12_investment.Size = new System.Drawing.Size(36, 20);
             this.textBox12_investment.TabIndex = 155;
-            this.textBox12_investment.TextChanged += new System.EventHandler(this.textBox12_TextChanged);
-            this.textBox12_investment.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox17_investment_KeyPress);
             // 
             // label16
             // 
@@ -500,7 +486,6 @@
             this.label16.Size = new System.Drawing.Size(29, 29);
             this.label16.TabIndex = 154;
             this.label16.Text = "کد";
-            this.label16.Click += new System.EventHandler(this.label16_Click);
             // 
             // label17
             // 
@@ -541,8 +526,6 @@
             this.textBox13_investment.Name = "textBox13_investment";
             this.textBox13_investment.Size = new System.Drawing.Size(36, 20);
             this.textBox13_investment.TabIndex = 163;
-            this.textBox13_investment.TextChanged += new System.EventHandler(this.textBox13_investment_TextChanged);
-            this.textBox13_investment.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox17_investment_KeyPress);
             // 
             // label21
             // 
@@ -562,8 +545,6 @@
             this.textBox14_investment.Name = "textBox14_investment";
             this.textBox14_investment.Size = new System.Drawing.Size(36, 20);
             this.textBox14_investment.TabIndex = 161;
-            this.textBox14_investment.TextChanged += new System.EventHandler(this.textBox14_investment_TextChanged);
-            this.textBox14_investment.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox17_investment_KeyPress);
             // 
             // label22
             // 
@@ -624,7 +605,6 @@
             this.Change_service_price.Name = "Change_service_price";
             this.Change_service_price.Size = new System.Drawing.Size(51, 20);
             this.Change_service_price.TabIndex = 177;
-            this.Change_service_price.ValueChanged += new System.EventHandler(this.Change_service_price_ValueChanged);
             // 
             // Change_education_price
             // 
@@ -633,7 +613,6 @@
             this.Change_education_price.Name = "Change_education_price";
             this.Change_education_price.Size = new System.Drawing.Size(51, 20);
             this.Change_education_price.TabIndex = 178;
-            this.Change_education_price.ValueChanged += new System.EventHandler(this.Change_education_price_ValueChanged);
             // 
             // Change_weapon_price
             // 
@@ -669,7 +648,6 @@
             this.sena_boss_changeprice_box.Name = "sena_boss_changeprice_box";
             this.sena_boss_changeprice_box.Size = new System.Drawing.Size(72, 20);
             this.sena_boss_changeprice_box.TabIndex = 182;
-            this.sena_boss_changeprice_box.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox17_investment_KeyPress);
             // 
             // button1
             // 
@@ -748,6 +726,7 @@
             // 
             // button_scan_Uninstall
             // 
+            this.button_scan_Uninstall.Enabled = false;
             this.button_scan_Uninstall.Font = new System.Drawing.Font("B Titr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.button_scan_Uninstall.Image = global::toudack1.Properties.Resources.barcod;
             this.button_scan_Uninstall.Location = new System.Drawing.Point(293, 136);
@@ -758,6 +737,7 @@
             // 
             // button_scan_Installation
             // 
+            this.button_scan_Installation.Enabled = false;
             this.button_scan_Installation.Font = new System.Drawing.Font("B Titr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.button_scan_Installation.Image = global::toudack1.Properties.Resources.barcod;
             this.button_scan_Installation.Location = new System.Drawing.Point(154, 134);
@@ -768,6 +748,7 @@
             // 
             // button_Approach
             // 
+            this.button_Approach.Enabled = false;
             this.button_Approach.Font = new System.Drawing.Font("B Titr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.button_Approach.Image = global::toudack1.Properties.Resources.barcod;
             this.button_Approach.Location = new System.Drawing.Point(22, 134);
@@ -778,6 +759,7 @@
             // 
             // button_Approach_price
             // 
+            this.button_Approach_price.Enabled = false;
             this.button_Approach_price.Font = new System.Drawing.Font("B Titr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.button_Approach_price.Image = global::toudack1.Properties.Resources.barcod;
             this.button_Approach_price.Location = new System.Drawing.Point(22, 176);
@@ -1126,7 +1108,6 @@
             this.textBox17_investment.Name = "textBox17_investment";
             this.textBox17_investment.Size = new System.Drawing.Size(36, 20);
             this.textBox17_investment.TabIndex = 328;
-            this.textBox17_investment.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox17_investment_KeyPress);
             // 
             // label32
             // 
@@ -1146,7 +1127,6 @@
             this.textBox15_investment.Name = "textBox15_investment";
             this.textBox15_investment.Size = new System.Drawing.Size(36, 20);
             this.textBox15_investment.TabIndex = 326;
-            this.textBox15_investment.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox17_investment_KeyPress);
             // 
             // label33
             // 
@@ -1166,7 +1146,6 @@
             this.textBox18_investment.Name = "textBox18_investment";
             this.textBox18_investment.Size = new System.Drawing.Size(36, 20);
             this.textBox18_investment.TabIndex = 324;
-            this.textBox18_investment.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox17_investment_KeyPress);
             // 
             // label34
             // 
@@ -1186,7 +1165,6 @@
             this.textBox16_investment.Name = "textBox16_investment";
             this.textBox16_investment.Size = new System.Drawing.Size(36, 20);
             this.textBox16_investment.TabIndex = 322;
-            this.textBox16_investment.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox17_investment_KeyPress);
             // 
             // label35
             // 
@@ -1232,7 +1210,7 @@
             this.listBox_Uninstall_code.Enabled = false;
             this.listBox_Uninstall_code.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.listBox_Uninstall_code.FormattingEnabled = true;
-            this.listBox_Uninstall_code.ItemHeight = 23;
+            this.listBox_Uninstall_code.ItemHeight = 24;
             this.listBox_Uninstall_code.Items.AddRange(new object[] {
             "خدمات",
             "صنعت",
@@ -1241,12 +1219,13 @@
             this.listBox_Uninstall_code.Location = new System.Drawing.Point(305, 162);
             this.listBox_Uninstall_code.Name = "listBox_Uninstall_code";
             this.listBox_Uninstall_code.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.listBox_Uninstall_code.Size = new System.Drawing.Size(64, 73);
+            this.listBox_Uninstall_code.Size = new System.Drawing.Size(64, 52);
             this.listBox_Uninstall_code.TabIndex = 62;
             this.listBox_Uninstall_code.Visible = false;
             // 
             // Sanctions
             // 
+            this.Sanctions.Enabled = false;
             this.Sanctions.Font = new System.Drawing.Font("B Titr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.Sanctions.Location = new System.Drawing.Point(656, 471);
             this.Sanctions.Name = "Sanctions";
@@ -1259,6 +1238,7 @@
             // button_prs_code_box
             // 
             this.button_prs_code_box.BackgroundImage = global::toudack1.Properties.Resources.barcod;
+            this.button_prs_code_box.Enabled = false;
             this.button_prs_code_box.Location = new System.Drawing.Point(586, 440);
             this.button_prs_code_box.Name = "button_prs_code_box";
             this.button_prs_code_box.Size = new System.Drawing.Size(32, 32);
@@ -1267,6 +1247,7 @@
             // 
             // text_sanction
             // 
+            this.text_sanction.Enabled = false;
             this.text_sanction.Location = new System.Drawing.Point(626, 449);
             this.text_sanction.Name = "text_sanction";
             this.text_sanction.Size = new System.Drawing.Size(110, 20);
@@ -1285,21 +1266,23 @@
             this.prs_code_lable.Text = "کد شخص:";
             this.prs_code_lable.Visible = false;
             // 
-            // label36
+            // label_tahrim
             // 
-            this.label36.AutoSize = true;
-            this.label36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label36.Location = new System.Drawing.Point(656, 422);
-            this.label36.Name = "label36";
-            this.label36.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label36.Size = new System.Drawing.Size(48, 20);
-            this.label36.TabIndex = 339;
-            this.label36.Text = "تحریم:";
+            this.label_tahrim.AutoSize = true;
+            this.label_tahrim.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.label_tahrim.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label_tahrim.Location = new System.Drawing.Point(656, 422);
+            this.label_tahrim.Name = "label_tahrim";
+            this.label_tahrim.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label_tahrim.Size = new System.Drawing.Size(48, 20);
+            this.label_tahrim.TabIndex = 339;
+            this.label_tahrim.Text = "تحریم:";
+            this.label_tahrim.Click += new System.EventHandler(this.label_tahrim_Click);
             // 
             // R_Sanctions
             // 
             this.R_Sanctions.AutoSize = true;
+            this.R_Sanctions.Enabled = false;
             this.R_Sanctions.Location = new System.Drawing.Point(596, 475);
             this.R_Sanctions.Name = "R_Sanctions";
             this.R_Sanctions.Size = new System.Drawing.Size(50, 17);
@@ -1311,6 +1294,7 @@
             // R_not_Sanctions
             // 
             this.R_not_Sanctions.AutoSize = true;
+            this.R_not_Sanctions.Enabled = false;
             this.R_not_Sanctions.Location = new System.Drawing.Point(586, 498);
             this.R_not_Sanctions.Name = "R_not_Sanctions";
             this.R_not_Sanctions.Size = new System.Drawing.Size(68, 17);
@@ -1334,7 +1318,7 @@
             this.ClientSize = new System.Drawing.Size(800, 518);
             this.Controls.Add(this.R_not_Sanctions);
             this.Controls.Add(this.R_Sanctions);
-            this.Controls.Add(this.label36);
+            this.Controls.Add(this.label_tahrim);
             this.Controls.Add(this.Sanctions);
             this.Controls.Add(this.button_prs_code_box);
             this.Controls.Add(this.text_sanction);
@@ -1428,7 +1412,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.Class);
+            this.Controls.Add(this.label_senf);
             this.Controls.Add(this.label_Price_change);
             this.Controls.Add(this.label_investment);
             this.Controls.Add(this.label17);
@@ -1438,7 +1422,6 @@
             this.Controls.Add(this.label37);
             this.Name = "sena";
             this.Text = "Form2";
-            this.Load += new System.EventHandler(this.sena_Load);
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Change_service_price)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Change_education_price)).EndInit();
@@ -1453,7 +1436,7 @@
         #endregion
 
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label Class;
+        private System.Windows.Forms.Label label_senf;
         private System.Windows.Forms.Label label_Price_change;
         private System.Windows.Forms.Label label_investment;
         private System.Windows.Forms.Label label1;
@@ -1558,7 +1541,7 @@
         private System.Windows.Forms.Button button_prs_code_box;
         private System.Windows.Forms.TextBox text_sanction;
         private System.Windows.Forms.Label prs_code_lable;
-        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label label_tahrim;
         private System.Windows.Forms.RadioButton R_Sanctions;
         private System.Windows.Forms.RadioButton R_not_Sanctions;
         private System.Windows.Forms.Label label37;
