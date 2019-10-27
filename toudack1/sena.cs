@@ -247,7 +247,41 @@ namespace toudack1
 
         private void button_investment_Click(object sender, EventArgs e)
         {
-            sena_clear_Click();
+            // sena_clear_Click();
+            int j = 0;
+            int i = 0;
+            if (radioButton_oil.Checked)
+            {
+                i = 1;
+                j =Convert.ToInt32 (label_Oil_seller.Text);
+            }
+            else
+            if (radioButton_silk.Checked)
+            {
+                i = 2;
+                j = Convert.ToInt32(label_Silk_seller.Text);
+            }
+            else
+            if (radioButton_gold.Checked)
+            {
+                i = 3;
+                j = Convert.ToInt32(label_Gold_seller.Text);
+            }
+            else
+            if (radioButton_diamond.Checked)
+            {
+                i = 4;
+                j = Convert.ToInt32(label_Diamond_seller.Text);
+            }
+            dbconnect.TIME_GET_n();
+            dbconnect.opec_in(i,Convert.ToInt32(investment_Coefficient.Value), dbconnect.h, Convert.ToInt32(textBox9_investment.Text), Convert.ToInt32(textBox10_investment.Text), Convert.ToInt32(textBox11_investment.Text), Convert.ToInt32(textBox12_investment.Text), Convert.ToInt32(textBox13_investment.Text), Convert.ToInt32(textBox14_investment.Text), Convert.ToInt32(textBox15_investment.Text), Convert.ToInt32(textBox16_investment.Text), Convert.ToInt32(textBox17_investment.Text), Convert.ToInt32(textBox18_investment.Text));
+            label_investment_Coefficient.Text = Convert.ToString(investment_Coefficient.Value*j);
+            MessageBox.Show("Test");
+
+
+
+
+
         }
 
         private void Approach_button_Click(object sender, EventArgs e)

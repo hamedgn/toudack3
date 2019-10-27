@@ -1364,6 +1364,27 @@ namespace toudack1
         }
         #endregion
 
+        #region opec
+        //opec Insert
+        public void opec_in(int type,int number ,int houer, int pr1, int pr2, int pr3, int pr4, int pr5, int pr6, int pr7, int pr8, int pr9, int pr10)
+        {
+            string query = "INSERT INTO `opec`(`type`, `n`, `h`, `pr1`, `pr2`, `pr3`, `pr4`, `pr5`, `pr6`, `pr7`, `pr8`, `pr9`, `pr10`) VALUES (" + type + "," + number + "," + houer + "," + pr1 + "," + pr2 + "," + pr3 + "," + pr4 + "," + pr5 + "," + pr6 + "," + pr7 + "," + pr8 + "," + pr9 + "," + pr10 + ")";
+
+            //open connection
+            if (this.OpenConnection() == true)
+            {
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                //Execute command
+                cmd.ExecuteNonQuery();
+
+                //close connection
+                this.CloseConnection();
+            }
+        }
+        #endregion
+
         #endregion
 
         #region Vahid code
