@@ -132,10 +132,10 @@ namespace toudack1
                     {
                         dbconnect.Fundscheck(textBox_Buyer.Text);
                         dbconnect.factory_box_code_check(textBox_Buyer.Text);
-                        int Education_value = Convert.ToInt32(number_Education_buy.Value) *( dbconnect.price_education+6) ;
-                        int Industry_value = Convert.ToInt32(number_Industry_buy.Value) * (dbconnect.price_industry+6);
-                        int Services_value = Convert.ToInt32(number_Services_buy.Value) * (dbconnect.price_services+6);
-                        int Weapons_value = Convert.ToInt32(number_Weapons_buy.Value) * (dbconnect.price_weapons+6);
+                        int Education_value = Convert.ToInt32(number_Education_buy.Value) *( dbconnect.price_education+2) ;
+                        int Industry_value = Convert.ToInt32(number_Industry_buy.Value) * (dbconnect.price_industry+2);
+                        int Services_value = Convert.ToInt32(number_Services_buy.Value) * (dbconnect.price_services+2);
+                        int Weapons_value = Convert.ToInt32(number_Weapons_buy.Value) * (dbconnect.price_weapons+2);
                         dbconnect.Fundscheck(textBox_Buyer.Text);
                         dbconnect.factory_box_code_check(textBox_Buyer.Text);
                         int vahid = (Education_value + Industry_value + Services_value + Weapons_value);
