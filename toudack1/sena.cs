@@ -279,18 +279,28 @@ namespace toudack1
             label_Services_seller.Text = dbconnect.price_services.ToString();
             label_Weapons_seller.Text = dbconnect.price_weapons.ToString();
             dbconnect.TIME_GET_n();
-            if (dbconnect.m >= 5 && dbconnect.m < 30)
+            if (dbconnect.m >= 5 && dbconnect.m < 25)
             {
+                label_investment.Enabled = false;
                 label_Price_change.Enabled = true;
                 label_senf.Enabled = false;
                 label_tahrim.Enabled = false;
             }
             else
-            if (dbconnect.m >= 30 && dbconnect.m < 59)
+            if (dbconnect.m >= 25 && dbconnect.m < 40)
             {
+                label_investment.Enabled = false;
                 label_Price_change.Enabled = false;
                 label_senf.Enabled = true;
                 label_tahrim.Enabled = true;
+            }
+            else
+            if (dbconnect.m >= 40 && dbconnect.m < 59)
+            {
+                label_investment.Enabled = true;
+                label_Price_change.Enabled = false;
+                label_senf.Enabled = false;
+                label_tahrim.Enabled = false;
             }
         }
 
