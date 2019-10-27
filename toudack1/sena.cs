@@ -298,9 +298,35 @@ namespace toudack1
         {
             if (sena_boss_changeprice_box.Text == "amin koni")
             {
+                
                 dbconnect.bosscheck(Uninstall_code.Text);
                 dbconnect.bossupdate(Uninstall_code.Text, 5);
-                MessageBox.Show("انجام شد", "ERROR");
+                dbconnect.getprice("dolati");
+                if (dbconnect.senf_code == 1)
+                {
+                    dbconnect.setprice("industry", dbconnect.price_industry);
+                    MessageBox.Show("قیمت صنعت دولتی شد");
+                }
+                else
+                if (dbconnect.senf_code == 2)
+                {
+                    dbconnect.setprice("education", dbconnect.price_education);
+                    MessageBox.Show("قیمت آموزش دولتی شد");
+                }
+                else
+                if (dbconnect.senf_code == 3)
+                {
+                    dbconnect.setprice("weapons", dbconnect.price_weapons);
+                    MessageBox.Show("قیمت سلاح دولتی شد");
+                }
+                else
+                if (dbconnect.senf_code == 4)
+                {
+                    dbconnect.setprice("services", dbconnect.price_services);
+                    MessageBox.Show("قیمت خدمات دولتی شد");
+                }
+                
+                MessageBox.Show("عزل انجام شد", "ERROR");
             }
             else
             {
