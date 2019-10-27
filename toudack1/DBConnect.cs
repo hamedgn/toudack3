@@ -41,6 +41,7 @@ namespace toudack1
         public int funds;
         public int loans;
         public int month;
+        public int loantime;
         #endregion
 
         #region Pupulation
@@ -268,9 +269,9 @@ namespace toudack1
 
         #region Bank
         //Loans get
-        public void loansget(string playercode, int amount, int mounth)
+        public void loansget(string playercode, int amount, int mounth,int hoers)
         {
-            string query = "UPDATE bank SET `loans`=" + amount + ", `month`=" + mounth + " WHERE numbergroup=" + playercode;
+            string query = "UPDATE bank SET `loans`=" + amount + ", `month`=" + mounth + " , `h`="+hoers+" WHERE numbergroup=" + playercode;
 
             //Open connection
             if (this.OpenConnection() == true)
@@ -304,10 +305,13 @@ namespace toudack1
                 MySqlDataReader myreader = cmd.ExecuteReader();
                 while (myreader.Read())
 
-
+                {
                     //check loans and month for user
                     loans = Convert.ToInt32(myreader["loans"].ToString());
-                month = Convert.ToInt32(myreader["month"].ToString());
+                    month = Convert.ToInt32(myreader["month"].ToString());
+                    loantime = Convert.ToInt32(myreader["h"].ToString());
+
+                }
 
                 //close connection
                 this.CloseConnection();

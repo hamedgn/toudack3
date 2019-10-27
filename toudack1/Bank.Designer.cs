@@ -60,6 +60,8 @@
             this.loans_pay_Final_amount_lable = new System.Windows.Forms.Label();
             this.loans_pay_ok_btn = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.loans_extra_time_lb = new System.Windows.Forms.Label();
+            this.loans_extra_time_box = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.loans_get_num_Installments_numeric)).BeginInit();
             this.SuspendLayout();
             // 
@@ -338,7 +340,7 @@
             // loans_pay_num_Installments_box
             // 
             this.loans_pay_num_Installments_box.Enabled = false;
-            this.loans_pay_num_Installments_box.Location = new System.Drawing.Point(12, 165);
+            this.loans_pay_num_Installments_box.Location = new System.Drawing.Point(12, 158);
             this.loans_pay_num_Installments_box.Name = "loans_pay_num_Installments_box";
             this.loans_pay_num_Installments_box.ReadOnly = true;
             this.loans_pay_num_Installments_box.Size = new System.Drawing.Size(74, 20);
@@ -348,7 +350,7 @@
             // loans_pay_Final_amount_box
             // 
             this.loans_pay_Final_amount_box.Enabled = false;
-            this.loans_pay_Final_amount_box.Location = new System.Drawing.Point(13, 190);
+            this.loans_pay_Final_amount_box.Location = new System.Drawing.Point(11, 208);
             this.loans_pay_Final_amount_box.Name = "loans_pay_Final_amount_box";
             this.loans_pay_Final_amount_box.ReadOnly = true;
             this.loans_pay_Final_amount_box.Size = new System.Drawing.Size(75, 20);
@@ -371,7 +373,7 @@
             // 
             this.loans_pay_num_Installments_lable.AutoSize = true;
             this.loans_pay_num_Installments_lable.Enabled = false;
-            this.loans_pay_num_Installments_lable.Location = new System.Drawing.Point(93, 171);
+            this.loans_pay_num_Installments_lable.Location = new System.Drawing.Point(93, 164);
             this.loans_pay_num_Installments_lable.Name = "loans_pay_num_Installments_lable";
             this.loans_pay_num_Installments_lable.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.loans_pay_num_Installments_lable.Size = new System.Drawing.Size(65, 13);
@@ -383,7 +385,7 @@
             // 
             this.loans_pay_Final_amount_lable.AutoSize = true;
             this.loans_pay_Final_amount_lable.Enabled = false;
-            this.loans_pay_Final_amount_lable.Location = new System.Drawing.Point(94, 193);
+            this.loans_pay_Final_amount_lable.Location = new System.Drawing.Point(85, 211);
             this.loans_pay_Final_amount_lable.Name = "loans_pay_Final_amount_lable";
             this.loans_pay_Final_amount_lable.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.loans_pay_Final_amount_lable.Size = new System.Drawing.Size(80, 13);
@@ -408,11 +410,33 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // loans_extra_time_lb
+            // 
+            this.loans_extra_time_lb.AutoSize = true;
+            this.loans_extra_time_lb.Location = new System.Drawing.Point(90, 188);
+            this.loans_extra_time_lb.Name = "loans_extra_time_lb";
+            this.loans_extra_time_lb.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.loans_extra_time_lb.Size = new System.Drawing.Size(68, 13);
+            this.loans_extra_time_lb.TabIndex = 38;
+            this.loans_extra_time_lb.Text = "ساعت اضافه:";
+            this.loans_extra_time_lb.Visible = false;
+            // 
+            // loans_extra_time_box
+            // 
+            this.loans_extra_time_box.Location = new System.Drawing.Point(11, 182);
+            this.loans_extra_time_box.Name = "loans_extra_time_box";
+            this.loans_extra_time_box.ReadOnly = true;
+            this.loans_extra_time_box.Size = new System.Drawing.Size(75, 20);
+            this.loans_extra_time_box.TabIndex = 39;
+            this.loans_extra_time_box.Visible = false;
+            // 
             // Bank
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(563, 359);
+            this.Controls.Add(this.loans_extra_time_box);
+            this.Controls.Add(this.loans_extra_time_lb);
             this.Controls.Add(this.loans_pay_ok_btn);
             this.Controls.Add(this.loans_pay_Final_amount_lable);
             this.Controls.Add(this.loans_pay_num_Installments_lable);
@@ -485,5 +509,7 @@
         private System.Windows.Forms.Label loans_pay_Final_amount_lable;
         private System.Windows.Forms.Button loans_pay_ok_btn;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label loans_extra_time_lb;
+        private System.Windows.Forms.TextBox loans_extra_time_box;
     }
 }

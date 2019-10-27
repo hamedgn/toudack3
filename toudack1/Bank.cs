@@ -110,7 +110,8 @@ namespace toudack1
                     else
                     if (dbConnect.loans == 0)
                     {
-                        dbConnect.loansget(prs_code_box.Text, Convert.ToInt32(loans_get_Final_amount_box.Text), Convert.ToInt32(loans_get_num_Installments_numeric.Value));
+                        dbConnect.TIME_GET_n();
+                        dbConnect.loansget(prs_code_box.Text, Convert.ToInt32(loans_get_Final_amount_box.Text), Convert.ToInt32(loans_get_num_Installments_numeric.Value),dbConnect.h);
                         dbConnect.Fundscheck(prs_code_box.Text);
                         dbConnect.Fundsplus(Convert.ToInt32(dbConnect.funds), Convert.ToInt32(loans_get_amount_box.Text), prs_code_box.Text);
                         MessageBox.Show(".وام ثبت و به موجودی اضافه شد");
@@ -190,7 +191,7 @@ namespace toudack1
             if (prs_code_box.Text != "")
             {
 
-
+                dbConnect.TIME_GET_n();
                 transaction_btn.Enabled = false;
                 funds_btn.Enabled = true;
                 loans_get_btn.Enabled = false;
@@ -210,14 +211,26 @@ namespace toudack1
                 loans_pay_num_Installments_lable.Enabled = true;
                 loans_pay_ok_btn.Enabled = true;
 
+                loans_extra_time_box.Visible = true;
+                loans_extra_time_lb.Visible = true;
 
                 dbConnect.Loanscheck(prs_code_box.Text);
                 dbConnect.Fundscheck(prs_code_box.Text);
-                int a = dbConnect.funds - dbConnect.loans;
+                
+                int i = dbConnect.h - dbConnect.loantime - dbConnect.month;
+                if (i <= 0 || dbConnect.month==0) { i = 0; }
+                loans_extra_time_box.Text = Convert.ToString(i);
+                double w = 1; 
+                for (int z = 0; z < i; z++)
+                {
+                    w = w * 1.02;
+                }
                 loans_pay_loans_left_box.Text = Convert.ToString(dbConnect.loans);
                 loans_pay_num_Installments_box.Text = Convert.ToString(dbConnect.month);
+                
+                int a = dbConnect.funds - (Convert.ToInt32(dbConnect.loans*w));
                 loans_pay_Final_amount_box.Text = Convert.ToString(a);
-
+                
             }
             else
             {
@@ -230,7 +243,7 @@ namespace toudack1
             if (Convert.ToInt32(loans_pay_Final_amount_box.Text) > 0)
             {
                 dbConnect.Transferfundsmove(Convert.ToInt32(loans_pay_Final_amount_box.Text), prs_code_box.Text);
-                dbConnect.loansget(prs_code_box.Text, 0, 0);
+                dbConnect.loansget(prs_code_box.Text, 0, 0, 0);
                 MessageBox.Show(".وام تصویه شد");
             }
             else
@@ -280,10 +293,11 @@ namespace toudack1
             funds_box.Enabled = false;
             funds_larin_lable.Visible = false;
             funds_larin_lable.Enabled = false;
-            
-            
-            
-            
+
+            loans_extra_time_box.Visible = false;
+            loans_extra_time_lb.Visible = false;
+
+
             transaction_cash_lable.Visible = false;
             transaction_cash_box.Visible = false;
             transaction_prs2_barcod_btn.Visible = false;
@@ -412,5 +426,7 @@ namespace toudack1
                 
             }
         }
+
+        
     }
 }
