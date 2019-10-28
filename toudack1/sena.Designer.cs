@@ -781,6 +781,7 @@
             this.radioButton_oil.TabStop = true;
             this.radioButton_oil.Text = "نفت";
             this.radioButton_oil.UseVisualStyleBackColor = false;
+            this.radioButton_oil.CheckedChanged += new System.EventHandler(this.radioButton_oil_CheckedChanged);
             // 
             // radioButton_gold
             // 
@@ -795,6 +796,7 @@
             this.radioButton_gold.TabStop = true;
             this.radioButton_gold.Text = "طلا";
             this.radioButton_gold.UseVisualStyleBackColor = false;
+            this.radioButton_gold.CheckedChanged += new System.EventHandler(this.radioButton_gold_CheckedChanged);
             // 
             // radioButton_silk
             // 
@@ -809,6 +811,7 @@
             this.radioButton_silk.TabStop = true;
             this.radioButton_silk.Text = "ابریشم";
             this.radioButton_silk.UseVisualStyleBackColor = false;
+            this.radioButton_silk.CheckedChanged += new System.EventHandler(this.radioButton_silk_CheckedChanged);
             // 
             // radioButton_diamond
             // 
@@ -823,6 +826,7 @@
             this.radioButton_diamond.TabStop = true;
             this.radioButton_diamond.Text = "الماس";
             this.radioButton_diamond.UseVisualStyleBackColor = false;
+            this.radioButton_diamond.CheckedChanged += new System.EventHandler(this.radioButton_diamond_CheckedChanged);
             // 
             // label3
             // 
@@ -1189,6 +1193,7 @@
             this.investment_Coefficient.Name = "investment_Coefficient";
             this.investment_Coefficient.Size = new System.Drawing.Size(50, 20);
             this.investment_Coefficient.TabIndex = 333;
+            this.investment_Coefficient.ValueChanged += new System.EventHandler(this.investment_Coefficient_ValueChanged);
             // 
             // label_investment_Coefficient
             // 
@@ -1196,7 +1201,7 @@
             this.label_investment_Coefficient.Name = "label_investment_Coefficient";
             this.label_investment_Coefficient.Size = new System.Drawing.Size(72, 20);
             this.label_investment_Coefficient.TabIndex = 334;
-            this.label_investment_Coefficient.Text = "12324";
+            this.label_investment_Coefficient.Text = "0";
             this.label_investment_Coefficient.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // timer1

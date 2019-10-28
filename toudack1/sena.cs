@@ -7,6 +7,7 @@ namespace toudack1
     {
         private DBConnect dbconnect;
         int sena_number_mode = 0;
+        int i = 0;
         public sena()
         {
             InitializeComponent();
@@ -248,34 +249,9 @@ namespace toudack1
         private void button_investment_Click(object sender, EventArgs e)
         {
             // sena_clear_Click();
-            int j = 0;
-            int i = 0;
-            if (radioButton_oil.Checked)
-            {
-                i = 1;
-                j =Convert.ToInt32 (label_Oil_seller.Text);
-            }
-            else
-            if (radioButton_silk.Checked)
-            {
-                i = 2;
-                j = Convert.ToInt32(label_Silk_seller.Text);
-            }
-            else
-            if (radioButton_gold.Checked)
-            {
-                i = 3;
-                j = Convert.ToInt32(label_Gold_seller.Text);
-            }
-            else
-            if (radioButton_diamond.Checked)
-            {
-                i = 4;
-                j = Convert.ToInt32(label_Diamond_seller.Text);
-            }
+           
             dbconnect.TIME_GET_n();
             dbconnect.opec_in(i,Convert.ToInt32(investment_Coefficient.Value), dbconnect.h, Convert.ToInt32(textBox9_investment.Text), Convert.ToInt32(textBox10_investment.Text), Convert.ToInt32(textBox11_investment.Text), Convert.ToInt32(textBox12_investment.Text), Convert.ToInt32(textBox13_investment.Text), Convert.ToInt32(textBox14_investment.Text), Convert.ToInt32(textBox15_investment.Text), Convert.ToInt32(textBox16_investment.Text), Convert.ToInt32(textBox17_investment.Text), Convert.ToInt32(textBox18_investment.Text));
-            label_investment_Coefficient.Text = Convert.ToString(investment_Coefficient.Value*j);
             MessageBox.Show("Test");
 
 
@@ -342,8 +318,12 @@ namespace toudack1
         {
             if (sena_boss_changeprice_box.Text == "amin koni")
             {
-                
+
                 dbconnect.bosscheck(Uninstall_code.Text);
+                if (dbconnect.senf_code != 0 && dbconnect.senf_code != 5)
+                {
+
+                
                 dbconnect.bossupdate(Uninstall_code.Text, 5);
                 dbconnect.getprice("dolati");
                 if (dbconnect.senf_code == 1)
@@ -367,10 +347,25 @@ namespace toudack1
                 if (dbconnect.senf_code == 4)
                 {
                     dbconnect.setprice("services", dbconnect.price_services);
-                    MessageBox.Show("قیمت خدمات دولتی شد");
+                      
+                        MessageBox.Show("قیمت خدمات دولتی شد");
                 }
-                
-                MessageBox.Show("عزل انجام شد", "ERROR");
+                    dbconnect.senf_code = 0;
+                    MessageBox.Show("عزل انجام شد", "ERROR");
+
+                }
+                else
+                if(dbconnect.senf_code==0)
+                {
+                    dbconnect.senf_code = 0;
+                    MessageBox.Show("رئیس هیچ صنفی نیست");
+                }
+                else
+                if(dbconnect.senf_code==5)
+                {
+                    dbconnect.senf_code = 0;
+                    MessageBox.Show("قبلا استیضاح شده");
+                }
             }
             else
             {
@@ -533,6 +528,65 @@ namespace toudack1
             Sanctions.Enabled = true;
             R_Sanctions.Enabled = true;
             R_not_Sanctions.Enabled = true;
+        }
+
+        private void investment_Coefficient_ValueChanged(object sender, EventArgs e)
+        {
+            opecchange();
+        }
+
+        public void opecchange()
+        {
+            int j = 0;
+
+            if (radioButton_oil.Checked)
+            {
+                i = 1;
+                j = Convert.ToInt32(label_Oil_seller.Text);
+            }
+            else
+            if (radioButton_silk.Checked)
+            {
+                i = 2;
+                j = Convert.ToInt32(label_Silk_seller.Text);
+            }
+            else
+            if (radioButton_gold.Checked)
+            {
+                i = 3;
+                j = Convert.ToInt32(label_Gold_seller.Text);
+            }
+            else
+            if (radioButton_diamond.Checked)
+            {
+                i = 4;
+                j = Convert.ToInt32(label_Diamond_seller.Text);
+            }
+            label_investment_Coefficient.Text = Convert.ToString(investment_Coefficient.Value * j);
+
+        }
+
+        private void radioButton_oil_CheckedChanged(object sender, EventArgs e)
+        {
+            opecchange();
+        }
+
+        private void radioButton_gold_CheckedChanged(object sender, EventArgs e)
+        {
+            opecchange();
+
+        }
+
+        private void radioButton_diamond_CheckedChanged(object sender, EventArgs e)
+        {
+            opecchange();
+
+        }
+
+        private void radioButton_silk_CheckedChanged(object sender, EventArgs e)
+        {
+            opecchange();
+
         }
     }
 }
