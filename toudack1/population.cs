@@ -20,10 +20,10 @@ namespace toudack1
             InitializeComponent();
             dbconnect = new DBConnect();
         }
-
+        TIMEUSER user = new TIMEUSER();
         private void population_Load(object sender, EventArgs e)
         {
-
+            user.Show();
         }
 
         private void button_population_Click(object sender, EventArgs e)
@@ -221,6 +221,11 @@ namespace toudack1
             {
                 string content = File.ReadAllText("demo");
                 population_textBox_code.Text = content.Remove(content.Length - 2);
+                
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer1.Enabled = false;
                 int content1 = Convert.ToInt32(content.Substring(4, 1));
                 dbconnect.groupname_GET(Convert.ToInt32(content.Remove(3)));
 
@@ -229,6 +234,7 @@ namespace toudack1
                     label7.Text = "شهریار";
                     label8.Text = dbconnect.groupname;
                     label9.Text = dbconnect.pr1;
+                    
 
                 }
                 else
@@ -237,6 +243,8 @@ namespace toudack1
                     label7.Text = "امور خارجی";
                     label8.Text = dbconnect.groupname;
                     label9.Text = dbconnect.pr2;
+                    population_textBox_code.Text = "";
+                    MessageBox.Show("شهریار مراجعه کند");
                 }
                 else
                 if (content1 == 3)
@@ -244,6 +252,8 @@ namespace toudack1
                     label7.Text = "امور داخلی";
                     label8.Text = dbconnect.groupname;
                     label9.Text = dbconnect.pr3;
+                    population_textBox_code.Text = "";
+                    MessageBox.Show("شهریار مراجعه کند");
                 }
                 else
                 if (content1 == 4)
@@ -251,6 +261,8 @@ namespace toudack1
                     label7.Text = "وزیر علوم";
                     label8.Text = dbconnect.groupname;
                     label9.Text = dbconnect.pr4;
+                    population_textBox_code.Text = "";
+                    MessageBox.Show("شهریار مراجعه کند");
                 }
                 else
                 if (content1 == 5)
@@ -258,11 +270,9 @@ namespace toudack1
                     label7.Text = "سخنگو دولت";
                     label8.Text = dbconnect.groupname;
                     label9.Text = dbconnect.pr5;
+                    population_textBox_code.Text = "";
+                    MessageBox.Show("شهریار مراجعه کند");
                 }
-                TextWriter txt = new StreamWriter("demo");
-                txt.Write("");
-                txt.Close();
-                timer1.Enabled = false;
             }
             catch
             {

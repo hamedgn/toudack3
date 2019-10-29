@@ -395,10 +395,10 @@ namespace toudack1
             
             
         }
-
+        TIMEUSER user = new TIMEUSER();
         private void Bank_Load(object sender, EventArgs e)
         {
-            
+            user.Show();
             //prs_code_box.Text = Test.Remove(Test.Length - 2);
             
         }
@@ -416,6 +416,12 @@ namespace toudack1
             {
                 string content = File.ReadAllText("demo");
                 prs_code_box.Text = content.Remove(content.Length - 2);
+                
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer1.Enabled = false;
+
                 int content1 = Convert.ToInt32(content.Substring(4, 1));
                 dbConnect.groupname_GET(Convert.ToInt32(content.Remove(3)));
 
@@ -424,7 +430,8 @@ namespace toudack1
                     label1.Text = "شهریار";
                     label2.Text = dbConnect.groupname;
                     label3.Text = dbConnect.pr1;
-
+                    prs_code_box.Text = "";
+                    MessageBox.Show("امور داخلی مراجعه کند");
                 }
                 else
                 if (content1 == 2)
@@ -432,6 +439,8 @@ namespace toudack1
                     label1.Text = "امور خارجی";
                     label2.Text = dbConnect.groupname;
                     label3.Text = dbConnect.pr2;
+                    prs_code_box.Text = "";
+                    MessageBox.Show("امور داخلی مراجعه کند");
                 }
                 else
                 if (content1 == 3)
@@ -446,6 +455,8 @@ namespace toudack1
                     label1.Text = "وزیر علوم";
                     label2.Text = dbConnect.groupname;
                     label3.Text = dbConnect.pr4;
+                    prs_code_box.Text = "";
+                    MessageBox.Show("امور داخلی مراجعه کند");
                 }
                 else
                 if (content1 == 5)
@@ -453,11 +464,9 @@ namespace toudack1
                     label1.Text = "سخنگو دولت";
                     label2.Text = dbConnect.groupname;
                     label3.Text = dbConnect.pr5;
+                    prs_code_box.Text = "";
+                    MessageBox.Show("امور داخلی مراجعه کند");
                 }
-                TextWriter txt = new StreamWriter("demo");
-                txt.Write("");
-                txt.Close();
-                timer1.Enabled = false;
             }
             catch
             {

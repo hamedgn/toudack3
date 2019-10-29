@@ -20,10 +20,10 @@ namespace toudack1
             InitializeComponent();
             dbconnect = new DBConnect();
         }
-
+        TIMEUSER user = new TIMEUSER();
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            user.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -607,6 +607,11 @@ namespace toudack1
             {
                 string content = File.ReadAllText("demo");
                 factory_code_box.Text = content.Remove(content.Length - 2);
+                
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer1.Enabled = false;
                 int content1 = Convert.ToInt32(content.Substring(4, 1));
                 dbconnect.groupname_GET(Convert.ToInt32(content.Remove(3)));
 
@@ -615,7 +620,8 @@ namespace toudack1
                     label2.Text = "شهریار";
                     label3.Text = dbconnect.groupname;
                     label4.Text = dbconnect.pr1;
-
+                    factory_code_box.Text = "";
+                    MessageBox.Show("امور داخلی مراجعه کند");
                 }
                 else
                 if (content1 == 2)
@@ -623,6 +629,8 @@ namespace toudack1
                     label2.Text = "امور خارجی";
                     label3.Text = dbconnect.groupname;
                     label4.Text = dbconnect.pr2;
+                    factory_code_box.Text = "";
+                    MessageBox.Show("امور داخلی مراجعه کند");
                 }
                 else
                 if (content1 == 3)
@@ -637,6 +645,8 @@ namespace toudack1
                     label2.Text = "وزیر علوم";
                     label3.Text = dbconnect.groupname;
                     label4.Text = dbconnect.pr4;
+                    factory_code_box.Text = "";
+                    MessageBox.Show("امور داخلی مراجعه کند");
                 }
                 else
                 if (content1 == 5)
@@ -644,11 +654,9 @@ namespace toudack1
                     label2.Text = "سخنگو دولت";
                     label3.Text = dbconnect.groupname;
                     label4.Text = dbconnect.pr5;
+                    factory_code_box.Text = "";
+                    MessageBox.Show("امور داخلی مراجعه کند");
                 }
-                TextWriter txt = new StreamWriter("demo");
-                txt.Write("");
-                txt.Close();
-                timer1.Enabled = false;
             }
             catch
             {
