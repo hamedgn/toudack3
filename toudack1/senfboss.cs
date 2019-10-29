@@ -37,28 +37,28 @@ namespace toudack1
             else
             if(content1 == 2)
             {
-                label1.Text = "امور داخلی";
+                label1.Text = "امور خارجی";
                 label2.Text = dbconnect.groupname;
                 label3.Text = dbconnect.pr2;
             }
             else
             if (content1 == 3)
             {
-                label1.Text = "امور خارجی";
+                label1.Text = "امور داخلی";
                 label2.Text = dbconnect.groupname;
                 label3.Text = dbconnect.pr3;
             }
             else
             if (content1 == 4)
             {
-                label1.Text = "جقو";
+                label1.Text = "وزیر علوم";
                 label2.Text = dbconnect.groupname;
                 label3.Text = dbconnect.pr4;
             }
             else
             if (content1 == 5)
             {
-                label1.Text = "کونی";
+                label1.Text = "سخنگو دولت";
                 label2.Text = dbconnect.groupname;
                 label3.Text = dbconnect.pr5;
             }

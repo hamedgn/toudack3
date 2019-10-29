@@ -99,9 +99,10 @@ namespace toudack1
         {
 
         }
-
+        TIMEUSER user = new TIMEUSER();
         private void resources_Load(object sender, EventArgs e)
         {
+            user.Show();
             resources_label_Diamond.Text = "0";
             resources_label_gold.Text = "0";
             resources_label_petroleum.Text = "0";
@@ -126,6 +127,7 @@ namespace toudack1
 
         private void button2_Click(object sender, EventArgs e)
         {
+
             try
             {
                 dbconnect.ResourceDEDcheck(resources_textBox_code.Text);
@@ -381,6 +383,11 @@ namespace toudack1
 
                 }
 
+                if (dbconnect.playerreslevel == 1)
+                {
+                    resources_textBox_code.Text = "";
+                    MessageBox.Show(".سطح شما قبلا ارتقا یافته است", "خطا");
+                }
             }
            catch
             {
@@ -446,6 +453,7 @@ namespace toudack1
                 resources_label_petroleum.Text = "0";
                 resources_label_silk.Text = "0";
             }
+            resources_textBox_code.Text = "";
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -505,6 +513,7 @@ namespace toudack1
                 resources_label_petroleum.Text = "0";
                 resources_label_silk.Text = "0";
             }
+            resources_textBox_code.Text = "";
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -564,6 +573,7 @@ namespace toudack1
                 resources_label_petroleum.Text = "0";
                 resources_label_silk.Text = "0";
             }
+            resources_textBox_code.Text = "";
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -623,6 +633,7 @@ namespace toudack1
                 resources_label_petroleum.Text = "0";
                 resources_label_silk.Text = "0";
             }
+            resources_textBox_code.Text = "";
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -631,10 +642,58 @@ namespace toudack1
             {
                 string content = File.ReadAllText("demo");
                 resources_textBox_code.Text = content.Remove(content.Length - 2);
+                
                 TextWriter txt = new StreamWriter("demo");
                 txt.Write("");
                 txt.Close();
                 timer1.Enabled = false;
+                int content1 = Convert.ToInt32(content.Substring(4, 1));
+                dbconnect.groupname_GET(Convert.ToInt32(content.Remove(3)));
+
+                if (content1 == 1)
+                {
+                    label5.Text = "شهریار";
+                    label8.Text = dbconnect.groupname;
+                    label9.Text = dbconnect.pr1;
+                    
+
+                }
+                else
+                if (content1 == 2)
+                {
+                    label5.Text = "امور خارجی";
+                    label8.Text = dbconnect.groupname;
+                    label9.Text = dbconnect.pr2;
+                    button2.Enabled = false;
+                    MessageBox.Show("شهریار مراجعه کند ");
+                }
+                else
+                if (content1 == 3)
+                {
+                    label5.Text = "امور داخلی";
+                    label8.Text = dbconnect.groupname;
+                    label9.Text = dbconnect.pr3;
+                    button2.Enabled = false;
+                    MessageBox.Show("شهریار مراجعه کند ");
+                }
+                else
+                if (content1 == 4)
+                {
+                    label5.Text = "وزیر علوم";
+                    label8.Text = dbconnect.groupname;
+                    label9.Text = dbconnect.pr4;
+                    button2.Enabled = false;
+                    MessageBox.Show("شهریار مراجعه کند ");
+                }
+                else
+                if (content1 == 5)
+                {
+                    label5.Text = "سخنگو دولت";
+                    label8.Text = dbconnect.groupname;
+                    label9.Text = dbconnect.pr5;
+                    button2.Enabled = false;
+                    MessageBox.Show("شهریار مراجعه کند ");
+                }
             }
             catch
             {

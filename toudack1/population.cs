@@ -221,6 +221,44 @@ namespace toudack1
             {
                 string content = File.ReadAllText("demo");
                 population_textBox_code.Text = content.Remove(content.Length - 2);
+                int content1 = Convert.ToInt32(content.Substring(4, 1));
+                dbconnect.groupname_GET(Convert.ToInt32(content.Remove(3)));
+
+                if (content1 == 1)
+                {
+                    label7.Text = "شهریار";
+                    label8.Text = dbconnect.groupname;
+                    label9.Text = dbconnect.pr1;
+
+                }
+                else
+                if (content1 == 2)
+                {
+                    label7.Text = "امور خارجی";
+                    label8.Text = dbconnect.groupname;
+                    label9.Text = dbconnect.pr2;
+                }
+                else
+                if (content1 == 3)
+                {
+                    label7.Text = "امور داخلی";
+                    label8.Text = dbconnect.groupname;
+                    label9.Text = dbconnect.pr3;
+                }
+                else
+                if (content1 == 4)
+                {
+                    label7.Text = "وزیر علوم";
+                    label8.Text = dbconnect.groupname;
+                    label9.Text = dbconnect.pr4;
+                }
+                else
+                if (content1 == 5)
+                {
+                    label7.Text = "سخنگو دولت";
+                    label8.Text = dbconnect.groupname;
+                    label9.Text = dbconnect.pr5;
+                }
                 TextWriter txt = new StreamWriter("demo");
                 txt.Write("");
                 txt.Close();

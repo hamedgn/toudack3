@@ -62,6 +62,9 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.loans_extra_time_lb = new System.Windows.Forms.Label();
             this.loans_extra_time_box = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.loans_get_num_Installments_numeric)).BeginInit();
             this.SuspendLayout();
             // 
@@ -430,11 +433,41 @@
             this.loans_extra_time_box.TabIndex = 39;
             this.loans_extra_time_box.Visible = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(342, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 40;
+            this.label1.Text = "label1";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(286, 12);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 41;
+            this.label2.Text = "label2";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(241, 11);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 42;
+            this.label3.Text = "label3";
+            // 
             // Bank
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(563, 359);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.loans_extra_time_box);
             this.Controls.Add(this.loans_extra_time_lb);
             this.Controls.Add(this.loans_pay_ok_btn);
@@ -511,5 +544,8 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label loans_extra_time_lb;
         private System.Windows.Forms.TextBox loans_extra_time_box;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

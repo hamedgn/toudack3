@@ -1881,7 +1881,7 @@ namespace toudack1
                     {
 
                         playerreslevel = 1;
-                        MessageBox.Show(".سطح شما قبلا ارتقا یافته است", "خطا");
+                       
 
                     }
 

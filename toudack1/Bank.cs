@@ -416,6 +416,44 @@ namespace toudack1
             {
                 string content = File.ReadAllText("demo");
                 prs_code_box.Text = content.Remove(content.Length - 2);
+                int content1 = Convert.ToInt32(content.Substring(4, 1));
+                dbConnect.groupname_GET(Convert.ToInt32(content.Remove(3)));
+
+                if (content1 == 1)
+                {
+                    label1.Text = "شهریار";
+                    label2.Text = dbConnect.groupname;
+                    label3.Text = dbConnect.pr1;
+
+                }
+                else
+                if (content1 == 2)
+                {
+                    label1.Text = "امور خارجی";
+                    label2.Text = dbConnect.groupname;
+                    label3.Text = dbConnect.pr2;
+                }
+                else
+                if (content1 == 3)
+                {
+                    label1.Text = "امور داخلی";
+                    label2.Text = dbConnect.groupname;
+                    label3.Text = dbConnect.pr3;
+                }
+                else
+                if (content1 == 4)
+                {
+                    label1.Text = "وزیر علوم";
+                    label2.Text = dbConnect.groupname;
+                    label3.Text = dbConnect.pr4;
+                }
+                else
+                if (content1 == 5)
+                {
+                    label1.Text = "سخنگو دولت";
+                    label2.Text = dbConnect.groupname;
+                    label3.Text = dbConnect.pr5;
+                }
                 TextWriter txt = new StreamWriter("demo");
                 txt.Write("");
                 txt.Close();
