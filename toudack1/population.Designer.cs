@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.population_label_Child = new System.Windows.Forms.Label();
             this.population_label_Old = new System.Windows.Forms.Label();
             this.population_label_Adult = new System.Windows.Forms.Label();
@@ -45,10 +46,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.population_textBox_code = new System.Windows.Forms.TextBox();
             this.button_population = new System.Windows.Forms.Button();
-            this.button_population_code = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.button_population_code = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.population_textBox_code = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5_population_Child)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4_population_Young)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3_population_Old)).BeginInit();
@@ -150,6 +152,7 @@
             this.numericUpDown1_population_Soldier.Name = "numericUpDown1_population_Soldier";
             this.numericUpDown1_population_Soldier.Size = new System.Drawing.Size(57, 20);
             this.numericUpDown1_population_Soldier.TabIndex = 52;
+            this.numericUpDown1_population_Soldier.ValueChanged += new System.EventHandler(this.numericUpDown1_population_Soldier_ValueChanged);
             // 
             // label6
             // 
@@ -228,16 +231,6 @@
             this.label12.TabIndex = 251;
             this.label12.Text = "کد شخص";
             // 
-            // population_textBox_code
-            // 
-            this.population_textBox_code.BackColor = System.Drawing.Color.White;
-            this.population_textBox_code.Location = new System.Drawing.Point(331, 92);
-            this.population_textBox_code.Name = "population_textBox_code";
-            this.population_textBox_code.Size = new System.Drawing.Size(148, 20);
-            this.population_textBox_code.TabIndex = 250;
-            this.population_textBox_code.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.population_textBox_code.TextChanged += new System.EventHandler(this.population_textBox_code_TextChanged);
-            // 
             // button_population
             // 
             this.button_population.Enabled = false;
@@ -250,16 +243,6 @@
             this.button_population.UseVisualStyleBackColor = true;
             this.button_population.Click += new System.EventHandler(this.button_population_Click);
             // 
-            // button_population_code
-            // 
-            this.button_population_code.Font = new System.Drawing.Font("B Titr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.button_population_code.Image = global::toudack1.Properties.Resources.barcod;
-            this.button_population_code.Location = new System.Drawing.Point(253, 88);
-            this.button_population_code.Name = "button_population_code";
-            this.button_population_code.Size = new System.Drawing.Size(60, 31);
-            this.button_population_code.TabIndex = 252;
-            this.button_population_code.UseVisualStyleBackColor = true;
-            // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("B Titr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
@@ -271,15 +254,40 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // button_population_code
+            // 
+            this.button_population_code.Font = new System.Drawing.Font("B Titr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.button_population_code.Image = global::toudack1.Properties.Resources.barcod;
+            this.button_population_code.Location = new System.Drawing.Point(253, 88);
+            this.button_population_code.Name = "button_population_code";
+            this.button_population_code.Size = new System.Drawing.Size(60, 31);
+            this.button_population_code.TabIndex = 252;
+            this.button_population_code.UseVisualStyleBackColor = true;
+            this.button_population_code.Click += new System.EventHandler(this.button_population_code_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // population_textBox_code
+            // 
+            this.population_textBox_code.Location = new System.Drawing.Point(330, 96);
+            this.population_textBox_code.Name = "population_textBox_code";
+            this.population_textBox_code.ReadOnly = true;
+            this.population_textBox_code.Size = new System.Drawing.Size(133, 20);
+            this.population_textBox_code.TabIndex = 254;
+            this.population_textBox_code.UseSystemPasswordChar = true;
+            // 
             // population
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.population_textBox_code);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button_population_code);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.population_textBox_code);
             this.Controls.Add(this.button_population);
             this.Controls.Add(this.population_label_Child);
             this.Controls.Add(this.population_label_Old);
@@ -329,8 +337,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button_population_code;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox population_textBox_code;
         private System.Windows.Forms.Button button_population;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.TextBox population_textBox_code;
     }
 }

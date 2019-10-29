@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace toudack1
 {
     public partial class population : Form
     {
+        barcode barcode = new barcode();
         private DBConnect dbconnect;
         public population()
         {
@@ -27,34 +29,48 @@ namespace toudack1
         private void button_population_Click(object sender, EventArgs e)
         {   
             int j = 0;
-            //adult
-            j = Convert.ToInt32(population_label_Adult.Text) + Convert.ToInt32(numericUpDown2_population_Adult.Value);
-            dbconnect.Population_upadte(population_textBox_code.Text, "adult", j);
             int cost_adult = Convert.ToInt32(numericUpDown2_population_Adult.Value) * 4;
-            //old
-            j = Convert.ToInt32(population_label_Old.Text) + Convert.ToInt32(numericUpDown3_population_Old.Value);
-            dbconnect.Population_upadte(population_textBox_code.Text, "old", j);
             int cost_old = Convert.ToInt32(numericUpDown3_population_Old.Value) * 4;
-            //young
-            j = Convert.ToInt32(population_label_Young.Text) + Convert.ToInt32(numericUpDown4_population_Young.Value);
-            dbconnect.Population_upadte(population_textBox_code.Text, "young", j);
             int cost_young = Convert.ToInt32(numericUpDown4_population_Young.Value) * 4;
-            //child
-            j = Convert.ToInt32(population_label_Child.Text) + Convert.ToInt32(numericUpDown5_population_Child.Value);
-            dbconnect.Population_upadte(population_textBox_code.Text, "child", j);
             int cost_child = Convert.ToInt32(numericUpDown5_population_Child.Value) * 4;
-            //soldier
-            j = Convert.ToInt32(population_label_Soldier.Text) + Convert.ToInt32(numericUpDown1_population_Soldier.Value);
-            dbconnect.Population_upadte(population_textBox_code.Text, "soldier", j);
-            int cost_soldir =Convert.ToInt32( numericUpDown1_population_Soldier.Value) * 15;
+            int cost_soldir = Convert.ToInt32(numericUpDown1_population_Soldier.Value) * 15;
+            
+            
             //محاسبات مالی
             int cost_all = cost_soldir + cost_old + cost_child + cost_adult + cost_young;
             dbconnect.Fundscheck(population_textBox_code.Text);
-            dbconnect.FundsNegative(dbconnect.funds, cost_all,population_textBox_code.Text);
-            // MessageBox.Show(dbconnect.funds.ToString());
+            if (dbconnect.funds >= cost_all)
+            {
+                dbconnect.FundsNegative(dbconnect.funds, cost_all, population_textBox_code.Text);
+                //adult
+                j = Convert.ToInt32(population_label_Adult.Text) + Convert.ToInt32(numericUpDown2_population_Adult.Value);
+                dbconnect.Population_upadte(population_textBox_code.Text, "adult", j);
+
+                //old
+                j = Convert.ToInt32(population_label_Old.Text) + Convert.ToInt32(numericUpDown3_population_Old.Value);
+                dbconnect.Population_upadte(population_textBox_code.Text, "old", j);
+
+                //young
+                j = Convert.ToInt32(population_label_Young.Text) + Convert.ToInt32(numericUpDown4_population_Young.Value);
+                dbconnect.Population_upadte(population_textBox_code.Text, "young", j);
+
+                //child
+                j = Convert.ToInt32(population_label_Child.Text) + Convert.ToInt32(numericUpDown5_population_Child.Value);
+                dbconnect.Population_upadte(population_textBox_code.Text, "child", j);
+
+                //soldier
+                j = Convert.ToInt32(population_label_Soldier.Text) + Convert.ToInt32(numericUpDown1_population_Soldier.Value);
+                dbconnect.Population_upadte(population_textBox_code.Text, "soldier", j);
+                MessageBox.Show("انجام شد");
+            }
+            else
+            {
+                MessageBox.Show("پول کم دارد");
+            }
+            
 
             //code reset information
-            population_textBox_code.Text="0";
+            population_textBox_code.Text="";
             population_label_Adult.Text = "0";
             population_label_Old.Text = "0";
             population_label_Soldier.Text = "0";
@@ -177,6 +193,48 @@ namespace toudack1
         private void population_textBox_code_TextChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void button_population_code_Click(object sender, EventArgs e)
+        {
+            string content = File.ReadAllText("demo");
+            if (content != "")
+            {
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer1.Enabled = true;
+
+                barcode.Show();
+            }
+            else
+            {
+                timer1.Enabled = true;
+
+                barcode.Show();
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                string content = File.ReadAllText("demo");
+                population_textBox_code.Text = content.Remove(content.Length - 2);
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer1.Enabled = false;
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void numericUpDown1_population_Soldier_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

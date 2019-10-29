@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.factory_button_Bank = new System.Windows.Forms.Button();
             this.factory_button_Weapons = new System.Windows.Forms.Button();
@@ -58,6 +59,7 @@
             this.factory_en_button_Industry = new System.Windows.Forms.Button();
             this.factory_en_button_Education = new System.Windows.Forms.Button();
             this.factory_en_button_Weapons = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // label1
@@ -259,8 +261,10 @@
             // 
             this.factory_code_box.Location = new System.Drawing.Point(378, 63);
             this.factory_code_box.Name = "factory_code_box";
+            this.factory_code_box.ReadOnly = true;
             this.factory_code_box.Size = new System.Drawing.Size(110, 20);
             this.factory_code_box.TabIndex = 43;
+            this.factory_code_box.UseSystemPasswordChar = true;
             this.factory_code_box.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.factory_code_box_KeyPress);
             // 
             // prs_code_lable
@@ -283,6 +287,7 @@
             this.button_prs_code_box.Size = new System.Drawing.Size(32, 32);
             this.button_prs_code_box.TabIndex = 45;
             this.button_prs_code_box.UseVisualStyleBackColor = true;
+            this.button_prs_code_box.Click += new System.EventHandler(this.button_prs_code_box_Click);
             // 
             // button1
             // 
@@ -424,6 +429,11 @@
             this.factory_en_button_Weapons.UseVisualStyleBackColor = false;
             this.factory_en_button_Weapons.Click += new System.EventHandler(this.factory_en_button_Weapons_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // factory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -498,5 +508,6 @@
         private System.Windows.Forms.Button factory_en_button_Industry;
         private System.Windows.Forms.Button factory_en_button_Education;
         private System.Windows.Forms.Button factory_en_button_Weapons;
+        private System.Windows.Forms.Timer timer1;
     }
 }

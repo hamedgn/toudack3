@@ -6,11 +6,14 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
+
 
 namespace toudack1
 {
     public partial class factory : Form
     {
+        barcode barcode = new barcode();
         private DBConnect dbconnect;
         public factory()
         {
@@ -574,6 +577,43 @@ namespace toudack1
                     factory_en_label_Weapons.Text = Convert.ToString(Convert.ToInt32(factory_en_label_Weapons.Text) + 1);
                     MessageBox.Show(".یک کارخانه فعال شد");
                 }
+
+            }
+        }
+
+        private void button_prs_code_box_Click(object sender, EventArgs e)
+        {
+            string content = File.ReadAllText("demo");
+            if (content != "")
+            {
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer1.Enabled = true;
+
+                barcode.Show();
+            }
+            else
+            {
+                timer1.Enabled = true;
+
+                barcode.Show();
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                string content = File.ReadAllText("demo");
+                factory_code_box.Text = content.Remove(content.Length - 2);
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer1.Enabled = false;
+            }
+            catch
+            {
 
             }
         }

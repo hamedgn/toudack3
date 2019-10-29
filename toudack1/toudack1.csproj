@@ -277,6 +277,9 @@
     <EmbeddedResource Include="LOCKSCEREEN.resx">
       <DependentUpon>LOCKSCEREEN.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="population.resx">
+      <DependentUpon>population.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="sena.resx">
       <DependentUpon>sena.cs</DependentUpon>
     </EmbeddedResource>
