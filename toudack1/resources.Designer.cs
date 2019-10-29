@@ -28,24 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.resources_textBox_code = new System.Windows.Forms.TextBox();
             this.resources_label_petroleum = new System.Windows.Forms.Label();
             this.resources_label_silk = new System.Windows.Forms.Label();
             this.resources_label_Diamond = new System.Windows.Forms.Label();
             this.resources_label_gold = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.button_resources_code = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.button_resources_code = new System.Windows.Forms.Button();
+            this.resources_textBox_code = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label6
@@ -109,16 +111,6 @@
             this.label12.TabIndex = 251;
             this.label12.Text = "کد شخص";
             // 
-            // resources_textBox_code
-            // 
-            this.resources_textBox_code.BackColor = System.Drawing.Color.White;
-            this.resources_textBox_code.Location = new System.Drawing.Point(322, 104);
-            this.resources_textBox_code.Name = "resources_textBox_code";
-            this.resources_textBox_code.Size = new System.Drawing.Size(148, 20);
-            this.resources_textBox_code.TabIndex = 250;
-            this.resources_textBox_code.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.resources_textBox_code.TextChanged += new System.EventHandler(this.population_textBox_code_TextChanged);
-            // 
             // resources_label_petroleum
             // 
             this.resources_label_petroleum.AutoSize = true;
@@ -170,17 +162,6 @@
             this.label7.Size = new System.Drawing.Size(78, 42);
             this.label7.TabIndex = 258;
             this.label7.Text = " : سطح";
-            // 
-            // button_resources_code
-            // 
-            this.button_resources_code.Font = new System.Drawing.Font("B Titr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.button_resources_code.Image = global::toudack1.Properties.Resources.barcod;
-            this.button_resources_code.Location = new System.Drawing.Point(244, 100);
-            this.button_resources_code.Name = "button_resources_code";
-            this.button_resources_code.Size = new System.Drawing.Size(60, 31);
-            this.button_resources_code.TabIndex = 252;
-            this.button_resources_code.UseVisualStyleBackColor = true;
-            this.button_resources_code.Click += new System.EventHandler(this.button_resources_code_Click);
             // 
             // button2
             // 
@@ -241,11 +222,36 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // button_resources_code
+            // 
+            this.button_resources_code.Font = new System.Drawing.Font("B Titr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.button_resources_code.Image = global::toudack1.Properties.Resources.barcod;
+            this.button_resources_code.Location = new System.Drawing.Point(244, 100);
+            this.button_resources_code.Name = "button_resources_code";
+            this.button_resources_code.Size = new System.Drawing.Size(60, 31);
+            this.button_resources_code.TabIndex = 252;
+            this.button_resources_code.UseVisualStyleBackColor = true;
+            this.button_resources_code.Click += new System.EventHandler(this.button_resources_code_Click);
+            // 
+            // resources_textBox_code
+            // 
+            this.resources_textBox_code.Location = new System.Drawing.Point(322, 104);
+            this.resources_textBox_code.Name = "resources_textBox_code";
+            this.resources_textBox_code.ReadOnly = true;
+            this.resources_textBox_code.Size = new System.Drawing.Size(148, 20);
+            this.resources_textBox_code.TabIndex = 269;
+            this.resources_textBox_code.UseSystemPasswordChar = true;
+            // 
             // resources
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.resources_textBox_code);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button1);
@@ -258,7 +264,6 @@
             this.Controls.Add(this.resources_label_gold);
             this.Controls.Add(this.button_resources_code);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.resources_textBox_code);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -280,7 +285,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button_resources_code;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox resources_textBox_code;
         private System.Windows.Forms.Label resources_label_petroleum;
         private System.Windows.Forms.Label resources_label_silk;
         private System.Windows.Forms.Label resources_label_Diamond;
@@ -291,5 +295,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.TextBox resources_textBox_code;
     }
 }

@@ -280,6 +280,9 @@
     <EmbeddedResource Include="population.resx">
       <DependentUpon>population.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="resources.resx">
+      <DependentUpon>resources.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="sena.resx">
       <DependentUpon>sena.cs</DependentUpon>
     </EmbeddedResource>

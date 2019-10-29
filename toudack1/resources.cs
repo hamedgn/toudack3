@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace toudack1
 {
     public partial class resources : Form
     {
+        barcode barcode = new barcode();
         private DBConnect dbconnect;
         public resources()
         {
@@ -60,7 +62,22 @@ namespace toudack1
 
         private void button_resources_code_Click(object sender, EventArgs e)
         {
+            string content = File.ReadAllText("demo");
+            if (content != "")
+            {
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer1.Enabled = true;
 
+                barcode.Show();
+            }
+            else
+            {
+                timer1.Enabled = true;
+
+                barcode.Show();
+            }
         }
 
         private void numericUpDown5_resources_ValueChanged(object sender, EventArgs e)
@@ -605,6 +622,23 @@ namespace toudack1
                 resources_label_gold.Text = "0";
                 resources_label_petroleum.Text = "0";
                 resources_label_silk.Text = "0";
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                string content = File.ReadAllText("demo");
+                resources_textBox_code.Text = content.Remove(content.Length - 2);
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer1.Enabled = false;
+            }
+            catch
+            {
+
             }
         }
     }

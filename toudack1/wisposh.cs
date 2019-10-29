@@ -7,16 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using IronBarCode;
+using System.IO;
 //using System;
 
 namespace toudack1
 {
     public partial class wisposh : Form
     {
+        barcode barcode = new barcode();
         private DBConnect dbConnect;
         private string playeranswer;
         public wisposh()
         {
+            barcode barcode = new barcode();
             InitializeComponent();
             dbConnect = new DBConnect();
 
@@ -35,8 +38,7 @@ namespace toudack1
             qus_code_lable.Enabled = true;
             qus_code_box.Visible = true;
             qus_code_box.Enabled = true;
-            qus_barcode_btn.Visible = true;
-            qus_barcode_btn.Enabled = true;
+            
             qus_buy_btn_final.Visible = true;
             qus_buy_btn_final.Enabled = true;
             abort_clear_from.Visible = true;
@@ -57,8 +59,7 @@ namespace toudack1
             qus_code_lable.Enabled = true;
             qus_code_box.Visible = true;
             qus_code_box.Enabled = true;
-            qus_barcode_btn.Visible = true;
-            qus_barcode_btn.Enabled = true;
+            
             qus_answer_radio_1.Visible = true;
             qus_answer_radio_1.Enabled = true;
             qus_answer_radio_2.Visible = true;
@@ -90,8 +91,7 @@ namespace toudack1
             qus_code_lable.Enabled = false;
             qus_code_box.Visible = false;
             qus_code_box.Enabled = false;
-            qus_barcode_btn.Visible = false;
-            qus_barcode_btn.Enabled = false;
+            
             qus_buy_btn_final.Visible = false;
             qus_answer_radio_1.Visible = false;
             qus_answer_radio_1.Enabled = false;
@@ -141,15 +141,24 @@ namespace toudack1
 
         private void prs_barcode_btn_Click(object sender, EventArgs e)
         {
-
-            /*
-            BarcodeResult Result = BarcodeReader.QuicklyReadOneBarcode("GetStarted.png");
-            if (Result != null && Result.Text == "https://ironsoftware.com/csharp/barcode/")
+            string content = File.ReadAllText("demo");
+            if (content != "")
             {
-                MessageBox.Show("vahid", "vahid");
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer1.Enabled = true;
+
+                barcode.Show();
             }
-            */
+            else
+            {
+                timer1.Enabled = true;
+
+                barcode.Show();
+            }
             
+
         }
 
         private void qus_barcode_btn_Click(object sender, EventArgs e)
@@ -339,7 +348,7 @@ namespace toudack1
             dbConnect.TIME_GET_n();
             qus_code_lable.Enabled = false;
             qus_code_box.Enabled = false;
-            qus_barcode_btn.Enabled = false;
+            
             qus_answer_radio_1.Enabled = false;
             qus_answer_radio_2.Enabled = false;
             qus_answer_radio_3.Enabled = false;
@@ -386,6 +395,23 @@ namespace toudack1
             else
             {
                 MessageBox.Show("ابتدا کد شخص را وارد کنید");
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                string content = File.ReadAllText("demo");
+                prs_code_box.Text = content.Remove(content.Length - 2);
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer1.Enabled = false;
+            }
+            catch
+            {
+
             }
         }
     }

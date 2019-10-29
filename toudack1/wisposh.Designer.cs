@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.qus_buy_btn = new System.Windows.Forms.Button();
             this.qus_sell_btn = new System.Windows.Forms.Button();
             this.prs_code_lable = new System.Windows.Forms.Label();
@@ -43,11 +44,11 @@
             this.qus_answer_radio_3 = new System.Windows.Forms.RadioButton();
             this.qus_answer_radio_4 = new System.Windows.Forms.RadioButton();
             this.qus_anwser_panel = new System.Windows.Forms.Panel();
-            this.qus_barcode_btn = new System.Windows.Forms.Button();
             this.mahak_btn = new System.Windows.Forms.Button();
             this.yes_btn = new System.Windows.Forms.Button();
             this.mahak_pass = new System.Windows.Forms.TextBox();
             this.mahak_pass_lb = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // qus_buy_btn
@@ -99,8 +100,10 @@
             this.prs_code_box.Enabled = false;
             this.prs_code_box.Location = new System.Drawing.Point(385, 86);
             this.prs_code_box.Name = "prs_code_box";
+            this.prs_code_box.ReadOnly = true;
             this.prs_code_box.Size = new System.Drawing.Size(62, 20);
             this.prs_code_box.TabIndex = 4;
+            this.prs_code_box.UseSystemPasswordChar = true;
             this.prs_code_box.Visible = false;
             // 
             // qus_code_box
@@ -227,18 +230,6 @@
             this.qus_anwser_panel.TabIndex = 15;
             this.qus_anwser_panel.Visible = false;
             // 
-            // qus_barcode_btn
-            // 
-            this.qus_barcode_btn.BackgroundImage = global::toudack1.Properties.Resources.barcod;
-            this.qus_barcode_btn.Enabled = false;
-            this.qus_barcode_btn.Location = new System.Drawing.Point(347, 121);
-            this.qus_barcode_btn.Name = "qus_barcode_btn";
-            this.qus_barcode_btn.Size = new System.Drawing.Size(32, 32);
-            this.qus_barcode_btn.TabIndex = 7;
-            this.qus_barcode_btn.UseVisualStyleBackColor = true;
-            this.qus_barcode_btn.Visible = false;
-            this.qus_barcode_btn.Click += new System.EventHandler(this.qus_barcode_btn_Click);
-            // 
             // mahak_btn
             // 
             this.mahak_btn.Location = new System.Drawing.Point(12, 79);
@@ -280,6 +271,10 @@
             this.mahak_pass_lb.Text = "رمز:";
             this.mahak_pass_lb.Visible = false;
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // wisposh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -297,7 +292,6 @@
             this.Controls.Add(this.abort_clear_from);
             this.Controls.Add(this.qus_sell_btn_final);
             this.Controls.Add(this.qus_buy_btn_final);
-            this.Controls.Add(this.qus_barcode_btn);
             this.Controls.Add(this.prs_barcode_btn);
             this.Controls.Add(this.qus_code_box);
             this.Controls.Add(this.prs_code_box);
@@ -332,10 +326,10 @@
         private System.Windows.Forms.RadioButton qus_answer_radio_3;
         private System.Windows.Forms.RadioButton qus_answer_radio_4;
         private System.Windows.Forms.Panel qus_anwser_panel;
-        private System.Windows.Forms.Button qus_barcode_btn;
         private System.Windows.Forms.Button mahak_btn;
         private System.Windows.Forms.Button yes_btn;
         private System.Windows.Forms.TextBox mahak_pass;
         private System.Windows.Forms.Label mahak_pass_lb;
+        private System.Windows.Forms.Timer timer1;
     }
 }
