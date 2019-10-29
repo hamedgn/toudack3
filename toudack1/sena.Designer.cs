@@ -79,7 +79,6 @@
             this.Change_industry_price = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.sena_boss_changeprice_box = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.button12_investment = new System.Windows.Forms.Button();
             this.button14_investment = new System.Windows.Forms.Button();
             this.button13_investment = new System.Windows.Forms.Button();
@@ -89,7 +88,6 @@
             this.button_scan_Uninstall = new System.Windows.Forms.Button();
             this.button_scan_Installation = new System.Windows.Forms.Button();
             this.button_Approach = new System.Windows.Forms.Button();
-            this.button_Approach_price = new System.Windows.Forms.Button();
             this.radioButton_oil = new System.Windows.Forms.RadioButton();
             this.radioButton_gold = new System.Windows.Forms.RadioButton();
             this.radioButton_silk = new System.Windows.Forms.RadioButton();
@@ -139,6 +137,20 @@
             this.R_Sanctions = new System.Windows.Forms.RadioButton();
             this.R_not_Sanctions = new System.Windows.Forms.RadioButton();
             this.label37 = new System.Windows.Forms.Label();
+            this.timer_rahkar = new System.Windows.Forms.Timer(this.components);
+            this.timer_unistall = new System.Windows.Forms.Timer(this.components);
+            this.timer_install = new System.Windows.Forms.Timer(this.components);
+            this.timer_tahrim = new System.Windows.Forms.Timer(this.components);
+            this.timer_inv1 = new System.Windows.Forms.Timer(this.components);
+            this.timer_inv2 = new System.Windows.Forms.Timer(this.components);
+            this.timer_inv3 = new System.Windows.Forms.Timer(this.components);
+            this.timer_inv4 = new System.Windows.Forms.Timer(this.components);
+            this.timer_inv5 = new System.Windows.Forms.Timer(this.components);
+            this.timer_inv6 = new System.Windows.Forms.Timer(this.components);
+            this.timer_inv7 = new System.Windows.Forms.Timer(this.components);
+            this.timer_inv8 = new System.Windows.Forms.Timer(this.components);
+            this.timer_inv9 = new System.Windows.Forms.Timer(this.components);
+            this.timer_inv10 = new System.Windows.Forms.Timer(this.components);
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Change_service_price)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Change_education_price)).BeginInit();
@@ -222,8 +234,10 @@
             this.Approach_code.Enabled = false;
             this.Approach_code.Location = new System.Drawing.Point(60, 136);
             this.Approach_code.Name = "Approach_code";
+            this.Approach_code.ReadOnly = true;
             this.Approach_code.Size = new System.Drawing.Size(36, 20);
             this.Approach_code.TabIndex = 55;
+            this.Approach_code.UseSystemPasswordChar = true;
             // 
             // Approach_price
             // 
@@ -238,8 +252,10 @@
             this.Installation_code.Enabled = false;
             this.Installation_code.Location = new System.Drawing.Point(192, 136);
             this.Installation_code.Name = "Installation_code";
+            this.Installation_code.ReadOnly = true;
             this.Installation_code.Size = new System.Drawing.Size(30, 20);
             this.Installation_code.TabIndex = 58;
+            this.Installation_code.UseSystemPasswordChar = true;
             // 
             // label_Installation_code
             // 
@@ -257,8 +273,10 @@
             this.Uninstall_code.Enabled = false;
             this.Uninstall_code.Location = new System.Drawing.Point(331, 136);
             this.Uninstall_code.Name = "Uninstall_code";
+            this.Uninstall_code.ReadOnly = true;
             this.Uninstall_code.Size = new System.Drawing.Size(30, 20);
             this.Uninstall_code.TabIndex = 60;
+            this.Uninstall_code.UseSystemPasswordChar = true;
             // 
             // label_Uninstall_code
             // 
@@ -326,45 +344,53 @@
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.label9.Enabled = false;
             this.label9.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label9.Location = new System.Drawing.Point(516, 244);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(47, 29);
             this.label9.TabIndex = 137;
             this.label9.Text = "صنعت";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.label10.Enabled = false;
             this.label10.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label10.Location = new System.Drawing.Point(522, 211);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(41, 29);
             this.label10.TabIndex = 138;
             this.label10.Text = "سلاح";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.label11.Enabled = false;
             this.label11.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label11.Location = new System.Drawing.Point(509, 177);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(57, 29);
             this.label11.TabIndex = 139;
             this.label11.Text = "آموزش";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.label12.Enabled = false;
             this.label12.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label12.Location = new System.Drawing.Point(509, 142);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(54, 29);
             this.label12.TabIndex = 140;
             this.label12.Text = "خدمات";
+            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // Approach_button
             // 
@@ -416,8 +442,10 @@
             this.textBox9_investment.Enabled = false;
             this.textBox9_investment.Location = new System.Drawing.Point(730, 140);
             this.textBox9_investment.Name = "textBox9_investment";
+            this.textBox9_investment.ReadOnly = true;
             this.textBox9_investment.Size = new System.Drawing.Size(36, 20);
             this.textBox9_investment.TabIndex = 149;
+            this.textBox9_investment.UseSystemPasswordChar = true;
             // 
             // label13
             // 
@@ -435,8 +463,10 @@
             this.textBox10_investment.Enabled = false;
             this.textBox10_investment.Location = new System.Drawing.Point(632, 142);
             this.textBox10_investment.Name = "textBox10_investment";
+            this.textBox10_investment.ReadOnly = true;
             this.textBox10_investment.Size = new System.Drawing.Size(36, 20);
             this.textBox10_investment.TabIndex = 151;
+            this.textBox10_investment.UseSystemPasswordChar = true;
             // 
             // label14
             // 
@@ -454,8 +484,10 @@
             this.textBox11_investment.Enabled = false;
             this.textBox11_investment.Location = new System.Drawing.Point(730, 170);
             this.textBox11_investment.Name = "textBox11_investment";
+            this.textBox11_investment.ReadOnly = true;
             this.textBox11_investment.Size = new System.Drawing.Size(36, 20);
             this.textBox11_investment.TabIndex = 153;
+            this.textBox11_investment.UseSystemPasswordChar = true;
             // 
             // label15
             // 
@@ -473,8 +505,10 @@
             this.textBox12_investment.Enabled = false;
             this.textBox12_investment.Location = new System.Drawing.Point(632, 166);
             this.textBox12_investment.Name = "textBox12_investment";
+            this.textBox12_investment.ReadOnly = true;
             this.textBox12_investment.Size = new System.Drawing.Size(36, 20);
             this.textBox12_investment.TabIndex = 155;
+            this.textBox12_investment.UseSystemPasswordChar = true;
             // 
             // label16
             // 
@@ -524,8 +558,10 @@
             this.textBox13_investment.Enabled = false;
             this.textBox13_investment.Location = new System.Drawing.Point(730, 195);
             this.textBox13_investment.Name = "textBox13_investment";
+            this.textBox13_investment.ReadOnly = true;
             this.textBox13_investment.Size = new System.Drawing.Size(36, 20);
             this.textBox13_investment.TabIndex = 163;
+            this.textBox13_investment.UseSystemPasswordChar = true;
             // 
             // label21
             // 
@@ -543,8 +579,10 @@
             this.textBox14_investment.Enabled = false;
             this.textBox14_investment.Location = new System.Drawing.Point(632, 192);
             this.textBox14_investment.Name = "textBox14_investment";
+            this.textBox14_investment.ReadOnly = true;
             this.textBox14_investment.Size = new System.Drawing.Size(36, 20);
             this.textBox14_investment.TabIndex = 161;
+            this.textBox14_investment.UseSystemPasswordChar = true;
             // 
             // label22
             // 
@@ -602,6 +640,11 @@
             // 
             this.Change_service_price.Enabled = false;
             this.Change_service_price.Location = new System.Drawing.Point(443, 151);
+            this.Change_service_price.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.Change_service_price.Name = "Change_service_price";
             this.Change_service_price.Size = new System.Drawing.Size(51, 20);
             this.Change_service_price.TabIndex = 177;
@@ -610,6 +653,11 @@
             // 
             this.Change_education_price.Enabled = false;
             this.Change_education_price.Location = new System.Drawing.Point(443, 184);
+            this.Change_education_price.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.Change_education_price.Name = "Change_education_price";
             this.Change_education_price.Size = new System.Drawing.Size(51, 20);
             this.Change_education_price.TabIndex = 178;
@@ -618,6 +666,11 @@
             // 
             this.Change_weapon_price.Enabled = false;
             this.Change_weapon_price.Location = new System.Drawing.Point(443, 218);
+            this.Change_weapon_price.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.Change_weapon_price.Name = "Change_weapon_price";
             this.Change_weapon_price.Size = new System.Drawing.Size(51, 20);
             this.Change_weapon_price.TabIndex = 179;
@@ -626,6 +679,11 @@
             // 
             this.Change_industry_price.Enabled = false;
             this.Change_industry_price.Location = new System.Drawing.Point(443, 251);
+            this.Change_industry_price.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.Change_industry_price.Name = "Change_industry_price";
             this.Change_industry_price.Size = new System.Drawing.Size(51, 20);
             this.Change_industry_price.TabIndex = 180;
@@ -635,7 +693,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label2.Location = new System.Drawing.Point(477, 418);
+            this.label2.Location = new System.Drawing.Point(486, 492);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label2.Size = new System.Drawing.Size(90, 20);
@@ -644,19 +702,11 @@
             // 
             // sena_boss_changeprice_box
             // 
-            this.sena_boss_changeprice_box.Location = new System.Drawing.Point(480, 456);
+            this.sena_boss_changeprice_box.Location = new System.Drawing.Point(12, 492);
             this.sena_boss_changeprice_box.Name = "sena_boss_changeprice_box";
-            this.sena_boss_changeprice_box.Size = new System.Drawing.Size(72, 20);
+            this.sena_boss_changeprice_box.Size = new System.Drawing.Size(468, 20);
             this.sena_boss_changeprice_box.TabIndex = 182;
-            // 
-            // button1
-            // 
-            this.button1.BackgroundImage = global::toudack1.Properties.Resources.barcod;
-            this.button1.Location = new System.Drawing.Point(442, 449);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(32, 32);
-            this.button1.TabIndex = 183;
-            this.button1.UseVisualStyleBackColor = true;
+            this.sena_boss_changeprice_box.UseSystemPasswordChar = true;
             // 
             // button12_investment
             // 
@@ -668,6 +718,7 @@
             this.button12_investment.Size = new System.Drawing.Size(32, 20);
             this.button12_investment.TabIndex = 255;
             this.button12_investment.UseVisualStyleBackColor = true;
+            this.button12_investment.Click += new System.EventHandler(this.button12_investment_Click);
             // 
             // button14_investment
             // 
@@ -679,6 +730,7 @@
             this.button14_investment.Size = new System.Drawing.Size(32, 20);
             this.button14_investment.TabIndex = 256;
             this.button14_investment.UseVisualStyleBackColor = true;
+            this.button14_investment.Click += new System.EventHandler(this.button14_investment_Click);
             // 
             // button13_investment
             // 
@@ -690,6 +742,7 @@
             this.button13_investment.Size = new System.Drawing.Size(32, 20);
             this.button13_investment.TabIndex = 257;
             this.button13_investment.UseVisualStyleBackColor = true;
+            this.button13_investment.Click += new System.EventHandler(this.button13_investment_Click);
             // 
             // button9_investment
             // 
@@ -701,6 +754,7 @@
             this.button9_investment.Size = new System.Drawing.Size(32, 20);
             this.button9_investment.TabIndex = 258;
             this.button9_investment.UseVisualStyleBackColor = true;
+            this.button9_investment.Click += new System.EventHandler(this.button9_investment_Click);
             // 
             // button10_investment
             // 
@@ -712,6 +766,7 @@
             this.button10_investment.Size = new System.Drawing.Size(32, 20);
             this.button10_investment.TabIndex = 259;
             this.button10_investment.UseVisualStyleBackColor = true;
+            this.button10_investment.Click += new System.EventHandler(this.button10_investment_Click);
             // 
             // button11_investment
             // 
@@ -723,6 +778,7 @@
             this.button11_investment.Size = new System.Drawing.Size(32, 20);
             this.button11_investment.TabIndex = 260;
             this.button11_investment.UseVisualStyleBackColor = true;
+            this.button11_investment.Click += new System.EventHandler(this.button11_investment_Click);
             // 
             // button_scan_Uninstall
             // 
@@ -734,6 +790,7 @@
             this.button_scan_Uninstall.Size = new System.Drawing.Size(32, 20);
             this.button_scan_Uninstall.TabIndex = 261;
             this.button_scan_Uninstall.UseVisualStyleBackColor = true;
+            this.button_scan_Uninstall.Click += new System.EventHandler(this.button_scan_Uninstall_Click);
             // 
             // button_scan_Installation
             // 
@@ -745,6 +802,7 @@
             this.button_scan_Installation.Size = new System.Drawing.Size(32, 20);
             this.button_scan_Installation.TabIndex = 262;
             this.button_scan_Installation.UseVisualStyleBackColor = true;
+            this.button_scan_Installation.Click += new System.EventHandler(this.button_scan_Installation_Click);
             // 
             // button_Approach
             // 
@@ -756,17 +814,7 @@
             this.button_Approach.Size = new System.Drawing.Size(32, 20);
             this.button_Approach.TabIndex = 263;
             this.button_Approach.UseVisualStyleBackColor = true;
-            // 
-            // button_Approach_price
-            // 
-            this.button_Approach_price.Enabled = false;
-            this.button_Approach_price.Font = new System.Drawing.Font("B Titr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.button_Approach_price.Image = global::toudack1.Properties.Resources.barcod;
-            this.button_Approach_price.Location = new System.Drawing.Point(22, 176);
-            this.button_Approach_price.Name = "button_Approach_price";
-            this.button_Approach_price.Size = new System.Drawing.Size(32, 20);
-            this.button_Approach_price.TabIndex = 264;
-            this.button_Approach_price.UseVisualStyleBackColor = true;
+            this.button_Approach.Click += new System.EventHandler(this.button_Approach_Click);
             // 
             // radioButton_oil
             // 
@@ -1071,6 +1119,7 @@
             this.button18_investment.Size = new System.Drawing.Size(32, 20);
             this.button18_investment.TabIndex = 332;
             this.button18_investment.UseVisualStyleBackColor = true;
+            this.button18_investment.Click += new System.EventHandler(this.button18_investment_Click);
             // 
             // button16_investment
             // 
@@ -1082,6 +1131,7 @@
             this.button16_investment.Size = new System.Drawing.Size(32, 20);
             this.button16_investment.TabIndex = 331;
             this.button16_investment.UseVisualStyleBackColor = true;
+            this.button16_investment.Click += new System.EventHandler(this.button16_investment_Click);
             // 
             // button17_investment
             // 
@@ -1093,6 +1143,7 @@
             this.button17_investment.Size = new System.Drawing.Size(32, 20);
             this.button17_investment.TabIndex = 330;
             this.button17_investment.UseVisualStyleBackColor = true;
+            this.button17_investment.Click += new System.EventHandler(this.button17_investment_Click);
             // 
             // button15_investment
             // 
@@ -1104,14 +1155,17 @@
             this.button15_investment.Size = new System.Drawing.Size(32, 20);
             this.button15_investment.TabIndex = 329;
             this.button15_investment.UseVisualStyleBackColor = true;
+            this.button15_investment.Click += new System.EventHandler(this.button15_investment_Click);
             // 
             // textBox17_investment
             // 
             this.textBox17_investment.Enabled = false;
             this.textBox17_investment.Location = new System.Drawing.Point(730, 246);
             this.textBox17_investment.Name = "textBox17_investment";
+            this.textBox17_investment.ReadOnly = true;
             this.textBox17_investment.Size = new System.Drawing.Size(36, 20);
             this.textBox17_investment.TabIndex = 328;
+            this.textBox17_investment.UseSystemPasswordChar = true;
             // 
             // label32
             // 
@@ -1129,8 +1183,10 @@
             this.textBox15_investment.Enabled = false;
             this.textBox15_investment.Location = new System.Drawing.Point(730, 220);
             this.textBox15_investment.Name = "textBox15_investment";
+            this.textBox15_investment.ReadOnly = true;
             this.textBox15_investment.Size = new System.Drawing.Size(36, 20);
             this.textBox15_investment.TabIndex = 326;
+            this.textBox15_investment.UseSystemPasswordChar = true;
             // 
             // label33
             // 
@@ -1148,8 +1204,10 @@
             this.textBox18_investment.Enabled = false;
             this.textBox18_investment.Location = new System.Drawing.Point(632, 243);
             this.textBox18_investment.Name = "textBox18_investment";
+            this.textBox18_investment.ReadOnly = true;
             this.textBox18_investment.Size = new System.Drawing.Size(36, 20);
             this.textBox18_investment.TabIndex = 324;
+            this.textBox18_investment.UseSystemPasswordChar = true;
             // 
             // label34
             // 
@@ -1167,8 +1225,10 @@
             this.textBox16_investment.Enabled = false;
             this.textBox16_investment.Location = new System.Drawing.Point(632, 217);
             this.textBox16_investment.Name = "textBox16_investment";
+            this.textBox16_investment.ReadOnly = true;
             this.textBox16_investment.Size = new System.Drawing.Size(36, 20);
             this.textBox16_investment.TabIndex = 322;
+            this.textBox16_investment.UseSystemPasswordChar = true;
             // 
             // label35
             // 
@@ -1249,14 +1309,17 @@
             this.button_prs_code_box.Size = new System.Drawing.Size(32, 32);
             this.button_prs_code_box.TabIndex = 337;
             this.button_prs_code_box.UseVisualStyleBackColor = true;
+            this.button_prs_code_box.Click += new System.EventHandler(this.button_prs_code_box_Click);
             // 
             // text_sanction
             // 
             this.text_sanction.Enabled = false;
             this.text_sanction.Location = new System.Drawing.Point(626, 449);
             this.text_sanction.Name = "text_sanction";
+            this.text_sanction.ReadOnly = true;
             this.text_sanction.Size = new System.Drawing.Size(110, 20);
             this.text_sanction.TabIndex = 336;
+            this.text_sanction.UseSystemPasswordChar = true;
             this.text_sanction.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text_sanction_KeyPress);
             // 
             // prs_code_lable
@@ -1316,6 +1379,76 @@
             this.label37.Size = new System.Drawing.Size(225, 111);
             this.label37.TabIndex = 342;
             // 
+            // timer_rahkar
+            // 
+            this.timer_rahkar.Interval = 1000;
+            this.timer_rahkar.Tick += new System.EventHandler(this.timer_rahkar_Tick);
+            // 
+            // timer_unistall
+            // 
+            this.timer_unistall.Interval = 1000;
+            this.timer_unistall.Tick += new System.EventHandler(this.timer_unistall_Tick);
+            // 
+            // timer_install
+            // 
+            this.timer_install.Interval = 1000;
+            this.timer_install.Tick += new System.EventHandler(this.timer_install_Tick);
+            // 
+            // timer_tahrim
+            // 
+            this.timer_tahrim.Interval = 1000;
+            this.timer_tahrim.Tick += new System.EventHandler(this.timer_tahrim_Tick);
+            // 
+            // timer_inv1
+            // 
+            this.timer_inv1.Interval = 1000;
+            this.timer_inv1.Tick += new System.EventHandler(this.timer_inv1_Tick);
+            // 
+            // timer_inv2
+            // 
+            this.timer_inv2.Interval = 1000;
+            this.timer_inv2.Tick += new System.EventHandler(this.timer_inv2_Tick);
+            // 
+            // timer_inv3
+            // 
+            this.timer_inv3.Interval = 1000;
+            this.timer_inv3.Tick += new System.EventHandler(this.timer_inv3_Tick);
+            // 
+            // timer_inv4
+            // 
+            this.timer_inv4.Interval = 1000;
+            this.timer_inv4.Tick += new System.EventHandler(this.timer_inv4_Tick);
+            // 
+            // timer_inv5
+            // 
+            this.timer_inv5.Interval = 1000;
+            this.timer_inv5.Tick += new System.EventHandler(this.timer_inv5_Tick);
+            // 
+            // timer_inv6
+            // 
+            this.timer_inv6.Interval = 1000;
+            this.timer_inv6.Tick += new System.EventHandler(this.timer_inv6_Tick);
+            // 
+            // timer_inv7
+            // 
+            this.timer_inv7.Interval = 1000;
+            this.timer_inv7.Tick += new System.EventHandler(this.timer_inv7_Tick);
+            // 
+            // timer_inv8
+            // 
+            this.timer_inv8.Interval = 1000;
+            this.timer_inv8.Tick += new System.EventHandler(this.timer_inv8_Tick);
+            // 
+            // timer_inv9
+            // 
+            this.timer_inv9.Interval = 1000;
+            this.timer_inv9.Tick += new System.EventHandler(this.timer_inv9_Tick);
+            // 
+            // timer_inv10
+            // 
+            this.timer_inv10.Interval = 1000;
+            this.timer_inv10.Tick += new System.EventHandler(this.timer_inv10_Tick);
+            // 
             // sena
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1367,7 +1500,6 @@
             this.Controls.Add(this.radioButton_silk);
             this.Controls.Add(this.radioButton_gold);
             this.Controls.Add(this.radioButton_oil);
-            this.Controls.Add(this.button_Approach_price);
             this.Controls.Add(this.button_Approach);
             this.Controls.Add(this.button_scan_Installation);
             this.Controls.Add(this.button_scan_Uninstall);
@@ -1377,7 +1509,6 @@
             this.Controls.Add(this.button13_investment);
             this.Controls.Add(this.button14_investment);
             this.Controls.Add(this.button12_investment);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.sena_boss_changeprice_box);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Change_industry_price);
@@ -1490,7 +1621,6 @@
         private System.Windows.Forms.NumericUpDown Change_industry_price;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox sena_boss_changeprice_box;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button12_investment;
         private System.Windows.Forms.Button button14_investment;
         private System.Windows.Forms.Button button13_investment;
@@ -1500,7 +1630,6 @@
         private System.Windows.Forms.Button button_scan_Uninstall;
         private System.Windows.Forms.Button button_scan_Installation;
         private System.Windows.Forms.Button button_Approach;
-        private System.Windows.Forms.Button button_Approach_price;
         private System.Windows.Forms.RadioButton radioButton_oil;
         private System.Windows.Forms.RadioButton radioButton_gold;
         private System.Windows.Forms.RadioButton radioButton_silk;
@@ -1550,5 +1679,19 @@
         private System.Windows.Forms.RadioButton R_Sanctions;
         private System.Windows.Forms.RadioButton R_not_Sanctions;
         private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Timer timer_rahkar;
+        private System.Windows.Forms.Timer timer_unistall;
+        private System.Windows.Forms.Timer timer_install;
+        private System.Windows.Forms.Timer timer_tahrim;
+        private System.Windows.Forms.Timer timer_inv1;
+        private System.Windows.Forms.Timer timer_inv2;
+        private System.Windows.Forms.Timer timer_inv3;
+        private System.Windows.Forms.Timer timer_inv4;
+        private System.Windows.Forms.Timer timer_inv5;
+        private System.Windows.Forms.Timer timer_inv6;
+        private System.Windows.Forms.Timer timer_inv7;
+        private System.Windows.Forms.Timer timer_inv8;
+        private System.Windows.Forms.Timer timer_inv9;
+        private System.Windows.Forms.Timer timer_inv10;
     }
 }

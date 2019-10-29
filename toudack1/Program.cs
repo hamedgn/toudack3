@@ -19,7 +19,7 @@ namespace toudack1
             // int groupnum;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TIMEADMIN());
+            Application.Run(new sena());
         }
     }
 }

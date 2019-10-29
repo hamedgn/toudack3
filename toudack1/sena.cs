@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.IO;
 
 namespace toudack1
 {
     public partial class sena : Form
     {
+        barcode barcode = new barcode();
         private DBConnect dbconnect;
         int sena_number_mode = 0;
         int i = 0;
@@ -61,10 +63,10 @@ namespace toudack1
             if (sena_number_mode == 2)
             {
                 sena_clear_Click();
-                Change_service_price.Enabled = true;
-                Change_education_price.Enabled = true;
-                Change_weapon_price.Enabled = true;
-                Change_industry_price.Enabled = true;
+                label9.Enabled = true;
+                label10.Enabled = true;
+                label11.Enabled = true;
+                label12.Enabled = true;
                 button__Price_change.Enabled = true;
 
             }
@@ -109,7 +111,7 @@ namespace toudack1
                 Approach_code.ResetText();
                 Approach_price.ResetText();
                 button_Approach.Enabled = true;
-                button_Approach_price.Enabled = true;
+                //button_Approach_price.Enabled = true;
                 Approach_button.Enabled = true;
                 Approach_code.Enabled = true;
                 Approach_price.Enabled = true;
@@ -171,12 +173,16 @@ namespace toudack1
             Approach_code.ResetText();
             Approach_price.ResetText();
             button_Approach.Enabled = false;
-            button_Approach_price.Enabled = false;
+            //button_Approach_price.Enabled = false;
             Approach_button.Enabled = false;
             Approach_code.Enabled = false;
             Approach_price.Enabled = false;
 
             //lable click 3
+            Change_service_price.Minimum = 0;
+            Change_education_price.Minimum = 0;
+            Change_industry_price.Minimum = 0;
+            Change_weapon_price.Minimum = 0;
             Change_service_price.Value = 0;
             Change_education_price.Value = 0;
             Change_weapon_price.Value = 0;
@@ -187,6 +193,11 @@ namespace toudack1
             Change_industry_price.Enabled = false;
             button__Price_change.Enabled = false;
             listBox_Installation_code.Enabled = false;
+            label9.Enabled = false;
+            label10.Enabled = false;
+            label11.Enabled = false;
+            label12.Enabled = false;
+
 
             //lable click 4
             listBox_Uninstall_code.ResetText();
@@ -463,7 +474,6 @@ namespace toudack1
             }
             sena_clear_Click();
         }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             dbconnect.getprice("variable");
@@ -661,7 +671,6 @@ namespace toudack1
 
         }
 
-
         private void button2_Click_1(object sender, EventArgs e)
         {
             if (sena_boss_changeprice_box.Text == "1")
@@ -774,6 +783,596 @@ namespace toudack1
         {
             opecchange();
 
+        }
+
+        private void button_Approach_Click(object sender, EventArgs e)
+        {
+            string content = File.ReadAllText("demo");
+            if (content != "")
+            {
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer_rahkar.Enabled = true;
+
+                barcode.Show();
+            }
+            else
+            {
+                timer_rahkar.Enabled = true;
+
+                barcode.Show();
+            }
+        }
+
+        private void timer_rahkar_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                string content = File.ReadAllText("demo");
+                Approach_code.Text = content.Remove(content.Length - 2);
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer_rahkar.Enabled = false;
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void button_scan_Uninstall_Click(object sender, EventArgs e)
+        {
+            string content = File.ReadAllText("demo");
+            if (content != "")
+            {
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer_unistall.Enabled = true;
+
+                barcode.Show();
+            }
+            else
+            {
+                timer_unistall.Enabled = true;
+
+                barcode.Show();
+            }
+        }
+
+        private void timer_unistall_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                string content = File.ReadAllText("demo");
+                Uninstall_code.Text = content.Remove(content.Length - 2);
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer_unistall.Enabled = false;
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void button_scan_Installation_Click(object sender, EventArgs e)
+        {
+            string content = File.ReadAllText("demo");
+            if (content != "")
+            {
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer_install.Enabled = true;
+
+                barcode.Show();
+            }
+            else
+            {
+                timer_install.Enabled = true;
+
+                barcode.Show();
+            }
+        }
+
+        private void timer_install_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                string content = File.ReadAllText("demo");
+                Installation_code.Text = content.Remove(content.Length - 2);
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer_install.Enabled = false;
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void button_prs_code_box_Click(object sender, EventArgs e)
+        {
+            string content = File.ReadAllText("demo");
+            if (content != "")
+            {
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer_tahrim.Enabled = true;
+
+                barcode.Show();
+            }
+            else
+            {
+                timer_tahrim.Enabled = true;
+
+                barcode.Show();
+            }
+        }
+
+        private void timer_tahrim_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                string content = File.ReadAllText("demo");
+                text_sanction.Text = content.Remove(content.Length - 2);
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer_tahrim.Enabled = false;
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void button12_investment_Click(object sender, EventArgs e)
+        {
+            string content = File.ReadAllText("demo");
+            if (content != "")
+            {
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer_inv1.Enabled = true;
+
+                barcode.Show();
+            }
+            else
+            {
+                timer_inv1.Enabled = true;
+
+                barcode.Show();
+            }
+        }
+
+        private void timer_inv1_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                string content = File.ReadAllText("demo");
+                textBox9_investment.Text = content.Remove(content.Length - 2);
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer_inv1.Enabled = false;
+            }
+            catch
+            {
+
+            }
+        }
+        
+        private void button9_investment_Click(object sender, EventArgs e)
+        {
+            string content = File.ReadAllText("demo");
+            if (content != "")
+            {
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer_inv2.Enabled = true;
+
+                barcode.Show();
+            }
+            else
+            {
+                timer_inv2.Enabled = true;
+
+                barcode.Show();
+            }
+        }
+
+        private void button14_investment_Click(object sender, EventArgs e)
+        {
+            string content = File.ReadAllText("demo");
+            if (content != "")
+            {
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer_inv3.Enabled = true;
+
+                barcode.Show();
+            }
+            else
+            {
+                timer_inv3.Enabled = true;
+
+                barcode.Show();
+            }
+        }
+
+        private void button10_investment_Click(object sender, EventArgs e)
+        {
+            string content = File.ReadAllText("demo");
+            if (content != "")
+            {
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer_inv4.Enabled = true;
+
+                barcode.Show();
+            }
+            else
+            {
+                timer_inv4.Enabled = true;
+
+                barcode.Show();
+            }
+        }
+
+        private void button13_investment_Click(object sender, EventArgs e)
+        {
+            string content = File.ReadAllText("demo");
+            if (content != "")
+            {
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer_inv5.Enabled = true;
+
+                barcode.Show();
+            }
+            else
+            {
+                timer_inv5.Enabled = true;
+
+                barcode.Show();
+            }
+        }
+
+        private void button11_investment_Click(object sender, EventArgs e)
+        {
+            string content = File.ReadAllText("demo");
+            if (content != "")
+            {
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer_inv6.Enabled = true;
+
+                barcode.Show();
+            }
+            else
+            {
+                timer_inv6.Enabled = true;
+
+                barcode.Show();
+            }
+        }
+
+        private void button15_investment_Click(object sender, EventArgs e)
+        {
+            string content = File.ReadAllText("demo");
+            if (content != "")
+            {
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer_inv7.Enabled = true;
+
+                barcode.Show();
+            }
+            else
+            {
+                timer_inv7.Enabled = true;
+
+                barcode.Show();
+            }
+        }
+
+        private void button16_investment_Click(object sender, EventArgs e)
+        {
+            string content = File.ReadAllText("demo");
+            if (content != "")
+            {
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer_inv8.Enabled = true;
+
+                barcode.Show();
+            }
+            else
+            {
+                timer_inv8.Enabled = true;
+
+                barcode.Show();
+            }
+        }
+
+        private void button17_investment_Click(object sender, EventArgs e)
+        {
+            string content = File.ReadAllText("demo");
+            if (content != "")
+            {
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer_inv9.Enabled = true;
+
+                barcode.Show();
+            }
+            else
+            {
+                timer_inv9.Enabled = true;
+
+                barcode.Show();
+            }
+        }
+
+        private void button18_investment_Click(object sender, EventArgs e)
+        {
+            string content = File.ReadAllText("demo");
+            if (content != "")
+            {
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer_inv10.Enabled = true;
+
+                barcode.Show();
+            }
+            else
+            {
+                timer_inv10.Enabled = true;
+
+                barcode.Show();
+            }
+        }
+
+        private void timer_inv2_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                string content = File.ReadAllText("demo");
+                textBox10_investment.Text = content.Remove(content.Length - 2);
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer_inv2.Enabled = false;
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void timer_inv3_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                string content = File.ReadAllText("demo");
+                textBox11_investment.Text = content.Remove(content.Length - 2);
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer_inv3.Enabled = false;
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void timer_inv4_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                string content = File.ReadAllText("demo");
+                textBox12_investment.Text = content.Remove(content.Length - 2);
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer_inv4.Enabled = false;
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void timer_inv5_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                string content = File.ReadAllText("demo");
+                textBox13_investment.Text = content.Remove(content.Length - 2);
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer_inv5.Enabled = false;
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void timer_inv6_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                string content = File.ReadAllText("demo");
+                textBox14_investment.Text = content.Remove(content.Length - 2);
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer_inv6.Enabled = false;
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void timer_inv7_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                string content = File.ReadAllText("demo");
+                textBox15_investment.Text = content.Remove(content.Length - 2);
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer_inv7.Enabled = false;
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void timer_inv8_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                string content = File.ReadAllText("demo");
+                textBox16_investment.Text = content.Remove(content.Length - 2);
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer_inv8.Enabled = false;
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void timer_inv9_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                string content = File.ReadAllText("demo");
+                textBox17_investment.Text = content.Remove(content.Length - 2);
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer_inv9.Enabled = false;
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void timer_inv10_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                string content = File.ReadAllText("demo");
+                textBox18_investment.Text = content.Remove(content.Length - 2);
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer_inv10.Enabled = false;
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+            Change_service_price.Enabled = true;
+            Change_education_price.Enabled = false;
+            Change_industry_price.Enabled = false;
+            Change_weapon_price.Enabled = false;
+            Change_weapon_price.Minimum = 0;
+            Change_education_price.Minimum = 0;
+            Change_industry_price.Minimum = 0;
+            Change_education_price.Value = 0;
+            Change_weapon_price.Value = 0;
+            Change_industry_price.Value = 0;
+            Change_service_price.Value = Convert.ToInt32(label_Services_seller.Text);
+            Change_service_price.Maximum = Convert.ToInt32(label_Services_seller.Text) + 3;
+            Change_service_price.Minimum = Convert.ToInt32(label_Services_seller.Text) - 3;
+            
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+            Change_service_price.Enabled = false;
+            Change_education_price.Enabled = true;
+            Change_industry_price.Enabled = false;
+            Change_weapon_price.Enabled = false;
+            Change_service_price.Minimum = 0;
+            Change_weapon_price.Minimum = 0;
+            Change_industry_price.Minimum = 0;
+            Change_service_price.Value = 0;
+            Change_weapon_price.Value = 0;
+            Change_industry_price.Value = 0;
+            Change_education_price.Value = Convert.ToInt32(label_Education_seller.Text);
+            Change_education_price.Maximum = Convert.ToInt32(label_Education_seller.Text) + 3;
+            Change_education_price.Minimum = Convert.ToInt32(label_Education_seller.Text) - 3;
+            
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+            Change_service_price.Enabled = false;
+            Change_education_price.Enabled = false;
+            Change_industry_price.Enabled = false;
+            Change_weapon_price.Enabled = true;
+            Change_service_price.Minimum = 0;
+            Change_education_price.Minimum = 0;
+            Change_industry_price.Minimum = 0;
+            Change_service_price.Value = 0;
+            Change_education_price.Value = 0;
+            Change_industry_price.Value = 0;
+            Change_weapon_price.Value = Convert.ToInt32(label_Weapons_seller.Text);
+            Change_weapon_price.Maximum = Convert.ToInt32(label_Weapons_seller.Text) + 3;
+            Change_weapon_price.Minimum = Convert.ToInt32(label_Weapons_seller.Text) - 3;
+            
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+            Change_service_price.Enabled = false;
+            Change_education_price.Enabled = false;
+            Change_industry_price.Enabled = true;
+            Change_weapon_price.Enabled = false;
+            Change_service_price.Minimum = 0;
+            Change_education_price.Minimum = 0;
+            Change_weapon_price.Minimum = 0;
+            Change_service_price.Value = 0;
+            Change_education_price.Value = 0;
+            Change_weapon_price.Value = 0;
+            Change_industry_price.Value = Convert.ToInt32(label_Industry_seller.Text);
+            Change_industry_price.Maximum = Convert.ToInt32(label_Industry_seller.Text)+3;
+            Change_industry_price.Minimum = Convert.ToInt32(label_Industry_seller.Text)-3;
+            
         }
     }
 }
