@@ -404,6 +404,11 @@ namespace toudack1
             {
                 string content = File.ReadAllText("demo");
                 prs_code_box.Text = content.Remove(content.Length - 2);
+                
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer1.Enabled = false;
                 int content1 = Convert.ToInt32(content.Substring(4, 1));
                 dbConnect.groupname_GET(Convert.ToInt32(content.Remove(3)));
 
@@ -412,6 +417,8 @@ namespace toudack1
                     label1.Text = "شهریار";
                     label2.Text = dbConnect.groupname;
                     label3.Text = dbConnect.pr1;
+                    abort_clear_from_Click(sender, e);
+                    MessageBox.Show("وزیر علوم مراجعه کند ");
 
                 }
                 else
@@ -420,6 +427,7 @@ namespace toudack1
                     label1.Text = "امور خارجی";
                     label2.Text = dbConnect.groupname;
                     label3.Text = dbConnect.pr2;
+                    MessageBox.Show("وزیر علوم مراجعه کند ");
                 }
                 else
                 if (content1 == 3)
@@ -427,6 +435,7 @@ namespace toudack1
                     label1.Text = "امور داخلی";
                     label2.Text = dbConnect.groupname;
                     label3.Text = dbConnect.pr3;
+                    MessageBox.Show("وزیر علوم مراجعه کند ");
                 }
                 else
                 if (content1 == 4)
@@ -441,16 +450,18 @@ namespace toudack1
                     label1.Text = "سخنگو دولت";
                     label2.Text = dbConnect.groupname;
                     label3.Text = dbConnect.pr5;
+                    MessageBox.Show("وزیر علوم مراجعه کند ");
                 }
-                TextWriter txt = new StreamWriter("demo");
-                txt.Write("");
-                txt.Close();
-                timer1.Enabled = false;
             }
             catch
             {
 
             }
+        }
+
+        private void wisposh_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
