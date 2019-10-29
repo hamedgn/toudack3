@@ -148,6 +148,10 @@ namespace toudack1
         public int senf_code;
         #endregion
 
+        #region terrorist
+        public int status_ID;
+        #endregion
+
         #endregion
 
         #region Hamed code
@@ -1783,6 +1787,29 @@ namespace toudack1
                         factory_box_Services_out = Convert.ToInt32(myreader["services_out"].ToString());
                         factory_box_Education_out = Convert.ToInt32(myreader["education_out"].ToString());
                         factory_box_Weapons_out = Convert.ToInt32(myreader["weapons_out"].ToString());
+                    }
+                }
+                //close connection
+                this.CloseConnection();
+
+
+            }
+        }
+        #endregion
+
+        #region terrorist
+        public void terrorist()
+        {
+            string query = "SELECT * FROM terrorist";
+            if (this.OpenConnection() == true)
+            {
+                //create command and assign the query and connection from the constructor seller
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                using (MySqlDataReader myreader = cmd.ExecuteReader())
+                {
+                    while (myreader.Read())
+                    {
+                        status_ID = Convert.ToInt32(myreader["status"].ToString());
                     }
                 }
                 //close connection

@@ -249,17 +249,204 @@ namespace toudack1
         private void button_investment_Click(object sender, EventArgs e)
         {
             // sena_clear_Click();
+            if (sena_boss_changeprice_box.Text == "amin koni")
+            {
+                dbconnect.TIME_GET_n();
+
+                if (textBox9_investment.Text != "" && textBox10_investment.Text != "" && textBox11_investment.Text != "" && textBox12_investment.Text != "" && textBox13_investment.Text != "" && textBox14_investment.Text != "" && textBox15_investment.Text != "" && textBox16_investment.Text != "" && textBox17_investment.Text != "" && textBox18_investment.Text != "")
+                {
+                    if (textBox9_investment.Text != textBox10_investment.Text && textBox9_investment.Text != textBox11_investment.Text && textBox9_investment.Text != textBox12_investment.Text && textBox9_investment.Text != textBox13_investment.Text && textBox9_investment.Text != textBox14_investment.Text && textBox9_investment.Text != textBox15_investment.Text && textBox9_investment.Text != textBox16_investment.Text && textBox9_investment.Text != textBox17_investment.Text && textBox9_investment.Text != textBox18_investment.Text)
+                    {
+                        if (textBox10_investment.Text != textBox11_investment.Text && textBox10_investment.Text != textBox12_investment.Text && textBox10_investment.Text != textBox13_investment.Text && textBox10_investment.Text != textBox14_investment.Text && textBox10_investment.Text != textBox15_investment.Text && textBox10_investment.Text != textBox16_investment.Text && textBox10_investment.Text != textBox17_investment.Text && textBox10_investment.Text != textBox18_investment.Text)
+                        {
+                            if (textBox11_investment.Text != textBox12_investment.Text && textBox11_investment.Text != textBox13_investment.Text && textBox11_investment.Text != textBox14_investment.Text && textBox11_investment.Text != textBox15_investment.Text && textBox11_investment.Text != textBox16_investment.Text && textBox11_investment.Text != textBox17_investment.Text && textBox11_investment.Text != textBox18_investment.Text)
+                            {
+                                if (textBox12_investment.Text != textBox13_investment.Text && textBox12_investment.Text != textBox14_investment.Text && textBox12_investment.Text != textBox15_investment.Text && textBox12_investment.Text != textBox16_investment.Text && textBox12_investment.Text != textBox17_investment.Text && textBox12_investment.Text != textBox18_investment.Text)
+                                {
+                                    if (textBox13_investment.Text != textBox14_investment.Text && textBox13_investment.Text != textBox15_investment.Text && textBox13_investment.Text != textBox16_investment.Text && textBox13_investment.Text != textBox17_investment.Text && textBox13_investment.Text != textBox18_investment.Text)
+                                    {
+                                        if (textBox14_investment.Text != textBox15_investment.Text && textBox14_investment.Text != textBox16_investment.Text && textBox14_investment.Text != textBox17_investment.Text && textBox14_investment.Text != textBox18_investment.Text)
+                                        {
+                                            if (textBox15_investment.Text != textBox16_investment.Text && textBox15_investment.Text != textBox17_investment.Text && textBox15_investment.Text != textBox18_investment.Text)
+                                            {
+                                                if (textBox16_investment.Text != textBox17_investment.Text && textBox16_investment.Text != textBox18_investment.Text)
+                                                {
+                                                    if (textBox17_investment.Text != textBox18_investment.Text)
+                                                    {
+                                                        dbconnect.funds = 0;
+                                                        opec_fund_check(textBox9_investment.Text);
+                                                        if (dbconnect.funds < Convert.ToInt32(label_investment_Coefficient.Text))
+                                                        {
+                                                            MessageBox.Show("دارایی نفر اول کم است");
+                                                        }
+                                                        else
+                                                        {
+                                                            dbconnect.funds = 0;
+                                                            opec_fund_check(textBox10_investment.Text);
+                                                            if (dbconnect.funds < Convert.ToInt32(label_investment_Coefficient.Text))
+                                                            {
+                                                                MessageBox.Show("دارایی نفر دوم کم است");
+                                                            }
+                                                            else
+                                                            {
+                                                                dbconnect.funds = 0;
+                                                                opec_fund_check(textBox11_investment.Text);
+                                                                if (dbconnect.funds < Convert.ToInt32(label_investment_Coefficient.Text))
+                                                                {
+                                                                    MessageBox.Show("دارایی نفر سوم کم است");
+                                                                }
+                                                                else
+                                                                {
+                                                                    dbconnect.funds = 0;
+                                                                    opec_fund_check(textBox12_investment.Text);
+                                                                    if (dbconnect.funds < Convert.ToInt32(label_investment_Coefficient.Text))
+                                                                    {
+                                                                        MessageBox.Show("دارایی نفر چهارم کم است");
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        dbconnect.funds = 0;
+                                                                        opec_fund_check(textBox13_investment.Text);
+                                                                        if (dbconnect.funds < Convert.ToInt32(label_investment_Coefficient.Text))
+                                                                        {
+                                                                            MessageBox.Show("دارایی نفر پنچم کم است");
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            dbconnect.funds = 0;
+                                                                            opec_fund_check(textBox14_investment.Text);
+                                                                            if (dbconnect.funds < Convert.ToInt32(label_investment_Coefficient.Text))
+                                                                            {
+                                                                                MessageBox.Show("دارایی نفر ششم کم است");
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                dbconnect.funds = 0;
+                                                                                opec_fund_check(textBox15_investment.Text);
+                                                                                if (dbconnect.funds < Convert.ToInt32(label_investment_Coefficient.Text))
+                                                                                {
+                                                                                    MessageBox.Show("دارایی نفر هفتم کم است");
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                    dbconnect.funds = 0;
+                                                                                    opec_fund_check(textBox16_investment.Text);
+                                                                                    if (dbconnect.funds < Convert.ToInt32(label_investment_Coefficient.Text))
+                                                                                    {
+                                                                                        MessageBox.Show("دارایی نفر هشتم کم است");
+                                                                                    }
+                                                                                    else
+                                                                                    {
+                                                                                        dbconnect.funds = 0;
+                                                                                        opec_fund_check(textBox17_investment.Text);
+                                                                                        if (dbconnect.funds < Convert.ToInt32(label_investment_Coefficient.Text))
+                                                                                        {
+                                                                                            MessageBox.Show("دارایی نفر نهم کم است");
+                                                                                        }
+                                                                                        else
+                                                                                        {
+                                                                                            dbconnect.funds = 0;
+                                                                                            opec_fund_check(textBox18_investment.Text);
+                                                                                            if (dbconnect.funds < Convert.ToInt32(label_investment_Coefficient.Text))
+                                                                                            {
+                                                                                                MessageBox.Show("دارایی نفر دهم کم است");
+                                                                                            }
+                                                                                            else
+                                                                                            {
+                                                                                                dbconnect.opec_in(i, Convert.ToInt32(investment_Coefficient.Value), dbconnect.h, Convert.ToInt32(textBox9_investment.Text), Convert.ToInt32(textBox10_investment.Text), Convert.ToInt32(textBox11_investment.Text), Convert.ToInt32(textBox12_investment.Text), Convert.ToInt32(textBox13_investment.Text), Convert.ToInt32(textBox14_investment.Text), Convert.ToInt32(textBox15_investment.Text), Convert.ToInt32(textBox16_investment.Text), Convert.ToInt32(textBox17_investment.Text), Convert.ToInt32(textBox18_investment.Text));
+                                                                                                MessageBox.Show("ثبت شد");
+                                                                                            }
+                                                                                        }
+
+                                                                                    }
+
+                                                                                }
+
+                                                                            }
+
+                                                                        }
+
+                                                                    }
+
+                                                                }
+
+                                                            }
+
+                                                        }
+
+                                                    }
+                                                    else
+                                                    {
+                                                        MessageBox.Show("نفر نهم را دو بار وارد کرده اید");
+                                                    }
+
+                                                }
+                                                else
+                                                {
+                                                    MessageBox.Show("نفر هشتم را دو بار وارد کرده اید");
+                                                }
+
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("نفر هفتم را دو بار وارد کرده اید");
+                                            }
+
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("نفر ششم را دو بار وارد کرده اید");
+                                        }
+
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("نفر پنچم را دو بار وارد کرده اید");
+                                    }
+
+                                }
+                                else
+                                {
+                                    MessageBox.Show("نفر چهارم را دو بار وارد کرده اید");
+                                }
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("نفر سوم را دو بار وارد کرده اید");
+                            }
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("نفر دوم را دو بار وارد کرده اید");
+                        }
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("نفر اول را دو بار وارد کرده اید");
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("کد افراد را پر کنید");
+                }
+            }
+            else
+            {
+                MessageBox.Show("کد رئیس سنا را وارد کنید");
+            }
+
+
            
-            dbconnect.TIME_GET_n();
-            dbconnect.opec_in(i,Convert.ToInt32(investment_Coefficient.Value), dbconnect.h, Convert.ToInt32(textBox9_investment.Text), Convert.ToInt32(textBox10_investment.Text), Convert.ToInt32(textBox11_investment.Text), Convert.ToInt32(textBox12_investment.Text), Convert.ToInt32(textBox13_investment.Text), Convert.ToInt32(textBox14_investment.Text), Convert.ToInt32(textBox15_investment.Text), Convert.ToInt32(textBox16_investment.Text), Convert.ToInt32(textBox17_investment.Text), Convert.ToInt32(textBox18_investment.Text));
-            MessageBox.Show("Test");
-
-
-
-
+        }
+        private void opec_fund_check(string playercode)
+        {
+            dbconnect.Fundscheck(playercode);
 
         }
-
         private void Approach_button_Click(object sender, EventArgs e)
         {
             if (sena_boss_changeprice_box.Text == "amin koni")

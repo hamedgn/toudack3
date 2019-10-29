@@ -414,7 +414,7 @@
             // textBox9_investment
             // 
             this.textBox9_investment.Enabled = false;
-            this.textBox9_investment.Location = new System.Drawing.Point(632, 140);
+            this.textBox9_investment.Location = new System.Drawing.Point(730, 140);
             this.textBox9_investment.Name = "textBox9_investment";
             this.textBox9_investment.Size = new System.Drawing.Size(36, 20);
             this.textBox9_investment.TabIndex = 149;
@@ -426,14 +426,14 @@
             this.label13.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label13.Location = new System.Drawing.Point(671, 135);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(29, 29);
+            this.label13.Size = new System.Drawing.Size(22, 29);
             this.label13.TabIndex = 148;
-            this.label13.Text = "کد";
+            this.label13.Text = "2";
             // 
             // textBox10_investment
             // 
             this.textBox10_investment.Enabled = false;
-            this.textBox10_investment.Location = new System.Drawing.Point(632, 166);
+            this.textBox10_investment.Location = new System.Drawing.Point(632, 142);
             this.textBox10_investment.Name = "textBox10_investment";
             this.textBox10_investment.Size = new System.Drawing.Size(36, 20);
             this.textBox10_investment.TabIndex = 151;
@@ -445,14 +445,14 @@
             this.label14.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label14.Location = new System.Drawing.Point(671, 161);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(29, 29);
+            this.label14.Size = new System.Drawing.Size(23, 29);
             this.label14.TabIndex = 150;
-            this.label14.Text = "کد";
+            this.label14.Text = "4";
             // 
             // textBox11_investment
             // 
             this.textBox11_investment.Enabled = false;
-            this.textBox11_investment.Location = new System.Drawing.Point(632, 192);
+            this.textBox11_investment.Location = new System.Drawing.Point(730, 170);
             this.textBox11_investment.Name = "textBox11_investment";
             this.textBox11_investment.Size = new System.Drawing.Size(36, 20);
             this.textBox11_investment.TabIndex = 153;
@@ -464,14 +464,14 @@
             this.label15.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label15.Location = new System.Drawing.Point(671, 187);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(29, 29);
+            this.label15.Size = new System.Drawing.Size(22, 29);
             this.label15.TabIndex = 152;
-            this.label15.Text = "کد";
+            this.label15.Text = "6";
             // 
             // textBox12_investment
             // 
             this.textBox12_investment.Enabled = false;
-            this.textBox12_investment.Location = new System.Drawing.Point(730, 140);
+            this.textBox12_investment.Location = new System.Drawing.Point(632, 166);
             this.textBox12_investment.Name = "textBox12_investment";
             this.textBox12_investment.Size = new System.Drawing.Size(36, 20);
             this.textBox12_investment.TabIndex = 155;
@@ -483,9 +483,9 @@
             this.label16.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label16.Location = new System.Drawing.Point(769, 135);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(29, 29);
+            this.label16.Size = new System.Drawing.Size(20, 29);
             this.label16.TabIndex = 154;
-            this.label16.Text = "کد";
+            this.label16.Text = "1";
             // 
             // label17
             // 
@@ -534,14 +534,14 @@
             this.label21.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label21.Location = new System.Drawing.Point(769, 190);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(29, 29);
+            this.label21.Size = new System.Drawing.Size(22, 29);
             this.label21.TabIndex = 162;
-            this.label21.Text = "کد";
+            this.label21.Text = "5";
             // 
             // textBox14_investment
             // 
             this.textBox14_investment.Enabled = false;
-            this.textBox14_investment.Location = new System.Drawing.Point(730, 169);
+            this.textBox14_investment.Location = new System.Drawing.Point(632, 192);
             this.textBox14_investment.Name = "textBox14_investment";
             this.textBox14_investment.Size = new System.Drawing.Size(36, 20);
             this.textBox14_investment.TabIndex = 161;
@@ -553,9 +553,9 @@
             this.label22.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label22.Location = new System.Drawing.Point(769, 164);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(29, 29);
+            this.label22.Size = new System.Drawing.Size(23, 29);
             this.label22.TabIndex = 160;
-            this.label22.Text = "کد";
+            this.label22.Text = "3";
             // 
             // button_investment
             // 
@@ -1120,9 +1120,9 @@
             this.label32.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label32.Location = new System.Drawing.Point(769, 241);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(29, 29);
+            this.label32.Size = new System.Drawing.Size(21, 29);
             this.label32.TabIndex = 327;
-            this.label32.Text = "کد";
+            this.label32.Text = "9";
             // 
             // textBox15_investment
             // 
@@ -1139,9 +1139,9 @@
             this.label33.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label33.Location = new System.Drawing.Point(769, 215);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(29, 29);
+            this.label33.Size = new System.Drawing.Size(23, 29);
             this.label33.TabIndex = 325;
-            this.label33.Text = "کد";
+            this.label33.Text = "7";
             // 
             // textBox18_investment
             // 
@@ -1158,9 +1158,9 @@
             this.label34.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label34.Location = new System.Drawing.Point(671, 238);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(29, 29);
+            this.label34.Size = new System.Drawing.Size(27, 29);
             this.label34.TabIndex = 323;
-            this.label34.Text = "کد";
+            this.label34.Text = "10";
             // 
             // textBox16_investment
             // 
@@ -1177,9 +1177,9 @@
             this.label35.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label35.Location = new System.Drawing.Point(671, 212);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(29, 29);
+            this.label35.Size = new System.Drawing.Size(23, 29);
             this.label35.TabIndex = 321;
-            this.label35.Text = "کد";
+            this.label35.Text = "8";
             // 
             // investment_Coefficient
             // 

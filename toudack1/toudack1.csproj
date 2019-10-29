@@ -114,6 +114,10 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WMPLib">
+      <HintPath>..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\PrivateAssemblies\WMPLib.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="black_market_factory.cs">
@@ -212,6 +216,12 @@
     <Compile Include="senfboss.Designer.cs">
       <DependentUpon>senfboss.cs</DependentUpon>
     </Compile>
+    <Compile Include="terrorist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="terrorist.Designer.cs">
+      <DependentUpon>terrorist.cs</DependentUpon>
+    </Compile>
     <Compile Include="TIMEADMIN.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -277,6 +287,9 @@
     <EmbeddedResource Include="senfboss.resx">
       <DependentUpon>senfboss.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="terrorist.resx">
+      <DependentUpon>terrorist.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TIMEADMIN.resx">
       <DependentUpon>TIMEADMIN.cs</DependentUpon>
     </EmbeddedResource>
@@ -319,6 +332,27 @@
     <Content Include="Resources\GetStarted.png" />
     <Content Include="Resources\icons8-lock-512.png" />
     <Content Include="Resources\TextFile1.txt" />
+    <Content Include="Resources\VID_20191029_120232_503.mp4" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="WMPLib1">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="WMPLib2">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

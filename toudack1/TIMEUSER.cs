@@ -21,6 +21,7 @@ namespace toudack1
     {
         private DBConnect dbconnect;
         LOCKSCEREEN LOCKSCEREEN = new LOCKSCEREEN();
+        terrorist terrorist = new terrorist();
         public TIMEUSER()
         {
             InitializeComponent();
@@ -65,6 +66,24 @@ namespace toudack1
                     LOCKSCEREEN.Hide();
                 }
                 i = dbconnect.s;
+            }
+            catch
+            {
+
+            }
+            
+        }
+
+        private void timerterorist_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                dbconnect.terrorist();
+                if (dbconnect.status_ID == 1)
+
+                {
+                    terrorist.Show();
+                }
             }
             catch
             {
