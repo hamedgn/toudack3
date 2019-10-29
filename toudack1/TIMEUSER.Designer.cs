@@ -71,6 +71,7 @@
             // 
             // timerterorist
             // 
+            this.timerterorist.Enabled = true;
             this.timerterorist.Interval = 1000;
             this.timerterorist.Tick += new System.EventHandler(this.timerterorist_Tick);
             // 
