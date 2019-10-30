@@ -104,6 +104,8 @@ namespace toudack1
         public int natural_resources_numbergroup;
         public int natural_resources_Buyer;
         public int natural_resources_seller;
+        
+        
         #endregion
 
         #region price
@@ -2145,6 +2147,28 @@ namespace toudack1
             }
         }
         #endregion
+
+        public void updateterror(int amount)
+        {
+            string query = "UPDATE terrorist SET `status`=" + amount;
+
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                //create mysql command
+                MySqlCommand cmd = new MySqlCommand();
+                //Assign the query using CommandText
+                cmd.CommandText = query;
+                //Assign the connection using Connection
+                cmd.Connection = connection;
+
+                //Execute query
+                cmd.ExecuteNonQuery();
+
+                //close connection
+                this.CloseConnection();
+            }
+        }
         #endregion
     }
 }
