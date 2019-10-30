@@ -250,12 +250,16 @@ namespace toudack1
             radioButton2.Checked = false;
             radioButton4.Checked = false;
             radioButton3.Checked = false;
+            for (int i = 1; i <= 28; i++)
+            {
 
+                comboBox1.Items.Add(i.ToString());
+            }
             //  DateTime time = DateTime.Now;
             // sec.Text = time.ToString("ss");
-           // dbconnect.
-            
-           // hr.Text = time.ToString("hh");
+            // dbconnect.
+
+            // hr.Text = time.ToString("hh");
             timer1.Enabled = true;
         }
 

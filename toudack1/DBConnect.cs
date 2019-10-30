@@ -2121,28 +2121,104 @@ namespace toudack1
             string checknumber = namegroup;
             switch (checknumber)
             {
-                case "ali":
+                case "1":
                     groupnumber1 = 101;
-
-
                     break;
-                case "reza":
+                case "2":
                     groupnumber1 = 102;
                     break;
-                case "alireza":
+                case "3":
                     groupnumber1 = 103;
                     break;
-                case "vahid":
+                case "4":
                     groupnumber1 = 104;
 
                     break;
-                case "hasan":
+                case "5":
                     groupnumber1 = 105;
                     break;
 
+                case "6":
+                    groupnumber1 = 106;
+                    break;
+                case "7":
+                    groupnumber1 = 107;
+                    break;
+                case "8":
+                    groupnumber1 = 108;
+                    break;
+                case "9":
+                    groupnumber1 = 109;
+                    break;
+                case "10":
+                    groupnumber1 = 110;
+                    break;
+
+
+                case "11":
+                    groupnumber1 = 111;
+                    break;
+                case "12":
+                    groupnumber1 = 112;
+                    break;
+                case "13":
+                    groupnumber1 = 113;
+                    break;
+                case "14":
+                    groupnumber1 = 114;
+
+                    break;
+                case "15":
+                    groupnumber1 = 115;
+                    break;
+
+                case "16":
+                    groupnumber1 = 116;
+                    break;
+                case "17":
+                    groupnumber1 = 117;
+                    break;
+                case "18":
+                    groupnumber1 = 118;
+                    break;
+                case "19":
+                    groupnumber1 = 119;
+                    break;
+                case "20":
+                    groupnumber1 = 120;
+                    break;
+
+                case "21":
+                    groupnumber1 = 121;
+                    break;
+                case "22":
+                    groupnumber1 = 122;
+                    break;
+                case "23":
+                    groupnumber1 = 123;
+                    break;
+
+                case "24":
+                    groupnumber1 = 124;
+                    break;
+                case "25":
+                    groupnumber1 = 125;
+                    break;
+
+                case "26":
+                    groupnumber1 = 126;
+                    break;
+                case "27":
+                    groupnumber1 = 127;
+                    break;
+                case "28":
+                    groupnumber1 = 128;
+                    break;
+
+
 
                 default:
-                    MessageBox.Show(".لطفا نام گروه صحیح را وارد نمایید", "خطا!!!!!");
+                    MessageBox.Show(".لطفا نام گروه صحيح را وارد نماييد", "خطا!!!!!");
                     break;
             }
         }
