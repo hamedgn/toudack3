@@ -43,18 +43,7 @@ namespace toudack1
            
             dbconnect.TIME_GET_u();
             label2.Text = (dbconnect.h.ToString()+":"+ dbconnect.m.ToString()+":"+ dbconnect.s.ToString());
-             
-           
 
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void timer2_Tick(object sender, EventArgs e)
-        {
             try
             {
                 if (i == dbconnect.s)
@@ -71,11 +60,6 @@ namespace toudack1
             {
 
             }
-            
-        }
-
-        private void timerterorist_Tick(object sender, EventArgs e)
-        {
             try
             {
                 dbconnect.terrorist();
@@ -89,7 +73,14 @@ namespace toudack1
             {
 
             }
-            
+
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }

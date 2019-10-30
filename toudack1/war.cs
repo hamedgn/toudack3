@@ -21,14 +21,8 @@ namespace toudack1
         {
             InitializeComponent();
             dbconnect = new DBConnect();
-            comboBox1.Items.Add("ali");
-            comboBox1.Items.Add("reza");
-            comboBox1.Items.Add("alireza");
-            comboBox1.Items.Add("vahid");
-            comboBox1.Items.Add("hasan");
-            comboBox1.Items.Add("white");
-            comboBox1.Items.Add("gholi");
-           timeuser.Show();
+            
+          
            // timeadmin.Show();
 
 
@@ -232,10 +226,19 @@ namespace toudack1
 
             }
         }
-        TIMEUSER user = new TIMEUSER();
+        //TIMEUSER user = new TIMEUSER();
         private void war_Load(object sender, EventArgs e)
         {
-            user.Show();
+            radioButton1.Checked = false;
+            radioButton2.Checked = false;
+            radioButton4.Checked = false;
+            radioButton3.Checked = false;
+            for (int i = 1; i <= 28; i++)
+            {
+
+                comboBox1.Items.Add(i.ToString());
+            }
+            timeuser.Show();
             // TODO: This line of code loads data into the 'testDataSet5.factory_en' table. You can move, or remove it, as needed.
             this.factory_enTableAdapter.Fill(this.testDataSet5.factory_en);
             // TODO: This line of code loads data into the 'testDataSet4.population' table. You can move, or remove it, as needed.
@@ -246,15 +249,7 @@ namespace toudack1
             this.groupsTableAdapter.Fill(this.testDataSet2.groups);
             // TODO: This line of code loads data into the 'testDataSet1.bank' table. You can move, or remove it, as needed.
             this.bankTableAdapter.Fill(this.testDataSet1.bank);
-            radioButton1.Checked = false;
-            radioButton2.Checked = false;
-            radioButton4.Checked = false;
-            radioButton3.Checked = false;
-            for (int i = 1; i <= 28; i++)
-            {
-
-                comboBox1.Items.Add(i.ToString());
-            }
+            
             //  DateTime time = DateTime.Now;
             // sec.Text = time.ToString("ss");
             // dbconnect.

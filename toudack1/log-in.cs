@@ -49,25 +49,122 @@ namespace toudack1
             dbConnect.Logincheck(userbox1.Text,paswbox1.Text);
             if (dbConnect.qpass==true)
             {
+                if (userbox1.Text == "210")
+                {
+                    Bank form2 = new Bank();
+                    form2.Show();
+                    this.Hide();
+                }
+
+                if (userbox1.Text == "211")
+                {
+                    black_market_factory form2 = new black_market_factory();
+                    form2.Show();
+                    this.Hide();
+                }
+                if (userbox1.Text == "212")
+                {
+                    black_market_resources form2 = new black_market_resources();
+                    form2.Show();
+                    this.Hide();
+                }
                 if (userbox1.Text == "213")
                 {
-                    wisposh form2 = new wisposh();
+                    Board_Diamond form2 = new Board_Diamond();
                     form2.Show();
                     this.Hide();
                 }
 
                 if (userbox1.Text == "214")
                 {
-                    factory form2 = new factory();
+                    Board_gold form2 = new Board_gold();
+                    form2.Show();
+                    this.Hide();
+                }
+                if (userbox1.Text == "215")
+                {
+                    Board_oil form2 = new Board_oil();
                     form2.Show();
                     this.Hide();
                 }
                 if (userbox1.Text == "216")
                 {
-                    Bank form2 = new Bank();
+                    Board_Silk form2 = new Board_Silk();
                     form2.Show();
                     this.Hide();
                 }
+
+                if (userbox1.Text == "217")
+                {
+                    dolaty_market_factory form2 = new dolaty_market_factory();
+                    form2.Show();
+                    this.Hide();
+                }
+                if (userbox1.Text == "218")
+                {
+                    factory form2 = new factory();
+                    form2.Show();
+                    this.Hide();
+                }
+                if (userbox1.Text == "219")
+                {
+                    partnership form2 = new partnership();
+                    form2.Show();
+                    this.Hide();
+                }
+                if (userbox1.Text == "220")
+                {
+                    population form2 = new population();
+                    form2.Show();
+                    this.Hide();
+                }
+                if (userbox1.Text == "221")
+                {
+                    resources form2 = new resources();
+                    form2.Show();
+                    this.Hide();
+                }
+
+                if (userbox1.Text == "222")
+                {
+                    sena form2 = new sena();
+                    form2.Show();
+                    this.Hide();
+                }
+                if (userbox1.Text == "223")
+                {
+                    senfboss form2 = new senfboss();
+                    form2.Show();
+                    this.Hide();
+                }
+                if (userbox1.Text == "224")
+                {
+                    war form2 = new war();
+                    form2.Show();
+                    this.Hide();
+                }
+                if (userbox1.Text == "225")
+                {
+                    wisposh form2 = new wisposh();
+                    form2.Show();
+                    this.Hide();
+                }
+                if (userbox1.Text == "226")
+                {
+                    display form2 = new display();
+                    form2.Show();
+                    this.Hide();
+                }
+
+                if (userbox1.Text == "227")
+                {
+                    admin form2 = new admin();
+                    form2.Show();
+                    this.Hide();
+                }
+                
+
+               
             }
             else
             {

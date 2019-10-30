@@ -174,20 +174,21 @@ namespace toudack1
 
         private void timer_factory_Tick(object sender, EventArgs e)
         {
-            dbconnect.TIME_GET_n();
+           // dbconnect.TIME_GET_n();
             if (dbconnect.m == 0)
             {
                 timer_factory2.Enabled = true;
                 timer_factory1.Enabled = false;
                 for(int i = 101; i < 129; i++)
                 {
-                    dbconnect.factory_en_code_public(i.ToString());
+                   // dbconnect.factory_en_code_public(i.ToString());
                     dbconnect.factory_en_updown("services", 0, i.ToString());
                     dbconnect.factory_en_updown("industry", 0, i.ToString());
                     dbconnect.factory_en_updown("education", 0, i.ToString());
                     dbconnect.factory_en_updown("weapons", 0, i.ToString());
+                    
                 }
-                
+                MessageBox.Show("تمامی کارخانه هاغیر فعال شدند");
 
             }
         }
