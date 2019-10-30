@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace toudack1
 {
     public partial class partnership : Form
     {
+        barcode barcode = new barcode();
+        TIMEUSER user = new TIMEUSER();
         private DBConnect dbConnect;
         private string playeranswer;
         public partnership()
@@ -165,6 +168,179 @@ namespace toudack1
                 MessageBox.Show(".این گروه این سوال نخریده است");
 
                 }
+        }
+
+        private void prs_barcode_btn_Click(object sender, EventArgs e)
+        {
+            string content = File.ReadAllText("demo");
+            if (content != "")
+            {
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer1.Enabled = true;
+
+                barcode.Show();
+            }
+            else
+            {
+                timer1.Enabled = true;
+
+                barcode.Show();
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string content = File.ReadAllText("demo");
+            if (content != "")
+            {
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer2.Enabled = true;
+
+                barcode.Show();
+            }
+            else
+            {
+                timer2.Enabled = true;
+
+                barcode.Show();
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                string content = File.ReadAllText("demo");
+                prs_code_box.Text = content.Remove(content.Length - 2);
+
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer1.Enabled = false;
+                int content1 = Convert.ToInt32(content.Substring(4, 1));
+                dbConnect.groupname_GET(Convert.ToInt32(content.Remove(3)));
+
+                if (content1 == 1)
+                {
+                    label6.Text = "شهریار";
+                    label7.Text = dbConnect.groupname;
+                    label8.Text = dbConnect.pr1;
+                    prs_code_box.Text = "";
+                    MessageBox.Show("وزیر علوم مراجعه کند ");
+
+                }
+                else
+                if (content1 == 2)
+                {
+                    label6.Text = "امور خارجی";
+                    label7.Text = dbConnect.groupname;
+                    label8.Text = dbConnect.pr2;
+                    prs_code_box.Text = "";
+                    MessageBox.Show("وزیر علوم مراجعه کند ");
+                }
+                else
+                if (content1 == 3)
+                {
+                    label6.Text = "امور داخلی";
+                    label7.Text = dbConnect.groupname;
+                    label8.Text = dbConnect.pr3;
+                    prs_code_box.Text = "";
+                    MessageBox.Show("وزیر علوم مراجعه کند ");
+                }
+                else
+                if (content1 == 4)
+                {
+                    label6.Text = "وزیر علوم";
+                    label7.Text = dbConnect.groupname;
+                    label8.Text = dbConnect.pr4;
+                }
+                else
+                if (content1 == 5)
+                {
+                    label6.Text = "سخنگو دولت";
+                    label7.Text = dbConnect.groupname;
+                    label8.Text = dbConnect.pr5;
+                    prs_code_box.Text = "";
+                    MessageBox.Show("وزیر علوم مراجعه کند ");
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                string content = File.ReadAllText("demo");
+                textBox1.Text = content.Remove(content.Length - 2);
+
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer2.Enabled = false;
+                int content1 = Convert.ToInt32(content.Substring(4, 1));
+                dbConnect.groupname_GET(Convert.ToInt32(content.Remove(3)));
+
+                if (content1 == 1)
+                {
+                    label6.Text = "شهریار";
+                    label7.Text = dbConnect.groupname;
+                    label8.Text = dbConnect.pr1;
+                    textBox1.Text = "";
+                    MessageBox.Show("وزیر علوم مراجعه کند ");
+
+                }
+                else
+                if (content1 == 2)
+                {
+                    label6.Text = "امور خارجی";
+                    label7.Text = dbConnect.groupname;
+                    label8.Text = dbConnect.pr2;
+                    textBox1.Text = "";
+                    MessageBox.Show("وزیر علوم مراجعه کند ");
+                }
+                else
+                if (content1 == 3)
+                {
+                    label6.Text = "امور داخلی";
+                    label7.Text = dbConnect.groupname;
+                    label8.Text = dbConnect.pr3;
+                    textBox1.Text = "";
+                    MessageBox.Show("وزیر علوم مراجعه کند ");
+                }
+                else
+                if (content1 == 4)
+                {
+                    label6.Text = "وزیر علوم";
+                    label7.Text = dbConnect.groupname;
+                    label8.Text = dbConnect.pr4;
+                }
+                else
+                if (content1 == 5)
+                {
+                    label6.Text = "سخنگو دولت";
+                    label7.Text = dbConnect.groupname;
+                    label8.Text = dbConnect.pr5;
+                    textBox1.Text = "";
+                    MessageBox.Show("وزیر علوم مراجعه کند ");
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void partnership_Load(object sender, EventArgs e)
+        {
+            user.Close();
         }
     }
 }

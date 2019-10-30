@@ -7,13 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace toudack1
 {
     public partial class war : Form
     {
+        barcode barcode = new barcode();
         TIMEUSER timeuser =new TIMEUSER();
-        TIMEADMIN timeadmin = new TIMEADMIN();
+        //TIMEADMIN timeadmin = new TIMEADMIN();
         private DBConnect dbconnect;
         public war()
         {
@@ -594,6 +596,91 @@ namespace toudack1
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button_Buyer_Click(object sender, EventArgs e)
+        {
+            string content = File.ReadAllText("demo");
+            if (content != "")
+            {
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer2.Enabled = true;
+
+                barcode.Show();
+            }
+            else
+            {
+                timer2.Enabled = true;
+
+                barcode.Show();
+            }
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                string content = File.ReadAllText("demo");
+                textBox1.Text = content.Remove(content.Length - 2);
+
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer1.Enabled = false;
+                int content1 = Convert.ToInt32(content.Substring(4, 1));
+                dbconnect.groupname_GET(Convert.ToInt32(content.Remove(3)));
+
+                if (content1 == 1)
+                {
+                    label2.Text = "شهریار";
+                    label3.Text = dbconnect.groupname;
+                    label6.Text = dbconnect.pr1;
+                    
+
+                }
+                else
+                if (content1 == 2)
+                {
+                    label2.Text = "امور خارجی";
+                    label3.Text = dbconnect.groupname;
+                    label6.Text = dbconnect.pr2;
+                    textBox1.Text = "";
+                    MessageBox.Show("شهریار علوم مراجعه کند ");
+                }
+                else
+                if (content1 == 3)
+                {
+                    label2.Text = "امور داخلی";
+                    label3.Text = dbconnect.groupname;
+                    label6.Text = dbconnect.pr3;
+                    textBox1.Text = "";
+                    MessageBox.Show("شهریار علوم مراجعه کند ");
+                }
+                else
+                if (content1 == 4)
+                {
+                    label2.Text = "وزیر علوم";
+                    label3.Text = dbconnect.groupname;
+                    label6.Text = dbconnect.pr4;
+                    textBox1.Text = "";
+                    MessageBox.Show("شهریار علوم مراجعه کند ");
+                }
+                else
+                if (content1 == 5)
+                {
+                    label2.Text = "سخنگو دولت";
+                    label3.Text = dbconnect.groupname;
+                    label6.Text = dbconnect.pr5;
+                    textBox1.Text = "";
+                    MessageBox.Show("شهریار علوم مراجعه کند ");
+                }
+            }
+            catch
+            {
+
+            }
         }
     }
  }

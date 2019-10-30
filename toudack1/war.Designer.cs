@@ -52,7 +52,6 @@
             this.factoryenBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.testDataSet5 = new toudack1.testDataSet5();
             this.button_Buyer = new System.Windows.Forms.Button();
-            this.button_seller = new System.Windows.Forms.Button();
             this.testDataSet1 = new toudack1.testDataSet1();
             this.bankBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bankTableAdapter = new toudack1.testDataSet1TableAdapters.bankTableAdapter();
@@ -66,6 +65,10 @@
             this.populationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.populationTableAdapter = new toudack1.testDataSet4TableAdapters.populationTableAdapter();
             this.factory_enTableAdapter = new toudack1.testDataSet5TableAdapters.factory_enTableAdapter();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.factoryenBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.testDataSet5)).BeginInit();
@@ -139,9 +142,11 @@
             this.textBox1.BackColor = System.Drawing.Color.White;
             this.textBox1.Location = new System.Drawing.Point(472, 51);
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(148, 20);
             this.textBox1.TabIndex = 304;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox1.UseSystemPasswordChar = true;
             // 
             // comboBox1
             // 
@@ -309,16 +314,7 @@
             this.button_Buyer.Size = new System.Drawing.Size(60, 31);
             this.button_Buyer.TabIndex = 309;
             this.button_Buyer.UseVisualStyleBackColor = true;
-            // 
-            // button_seller
-            // 
-            this.button_seller.Font = new System.Drawing.Font("B Titr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.button_seller.Image = global::toudack1.Properties.Resources.barcod;
-            this.button_seller.Location = new System.Drawing.Point(79, 46);
-            this.button_seller.Name = "button_seller";
-            this.button_seller.Size = new System.Drawing.Size(60, 31);
-            this.button_seller.TabIndex = 303;
-            this.button_seller.UseVisualStyleBackColor = true;
+            this.button_Buyer.Click += new System.EventHandler(this.button_Buyer_Click);
             // 
             // testDataSet1
             // 
@@ -380,12 +376,44 @@
             // 
             this.factory_enTableAdapter.ClearBeforeFill = true;
             // 
+            // timer2
+            // 
+            this.timer2.Interval = 1000;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(457, 19);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 13);
+            this.label2.TabIndex = 318;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(418, 18);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(0, 13);
+            this.label3.TabIndex = 319;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(377, 18);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(0, 13);
+            this.label6.TabIndex = 320;
+            // 
             // war
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(749, 312);
             this.ControlBox = false;
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.sec);
             this.Controls.Add(this.min);
             this.Controls.Add(this.hr);
@@ -399,7 +427,6 @@
             this.Controls.Add(this.label26);
             this.Controls.Add(this.label27);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button_seller);
             this.Controls.Add(this.button_Attack);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -433,7 +460,6 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button_seller;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.ListBox listBox2;
@@ -463,5 +489,9 @@
         private testDataSet5 testDataSet5;
         private System.Windows.Forms.BindingSource factoryenBindingSource;
         private testDataSet5TableAdapters.factory_enTableAdapter factory_enTableAdapter;
+        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label6;
     }
 }

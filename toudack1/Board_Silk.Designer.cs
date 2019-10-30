@@ -47,6 +47,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.allplus = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.timer3 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.domainUpDown_Board_Silk_seller)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.domainUpDown_Board_Silk_pcs)).BeginInit();
             this.SuspendLayout();
@@ -54,7 +56,7 @@
             // label_seller
             // 
             this.label_seller.AutoSize = true;
-            this.label_seller.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.label_seller.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.label_seller.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label_seller.Location = new System.Drawing.Point(282, 144);
             this.label_seller.Name = "label_seller";
@@ -65,8 +67,10 @@
             // textBox_seller
             // 
             this.textBox_seller.BackColor = System.Drawing.Color.White;
+            this.textBox_seller.Enabled = false;
             this.textBox_seller.Location = new System.Drawing.Point(523, 150);
             this.textBox_seller.Name = "textBox_seller";
+            this.textBox_seller.PasswordChar = '*';
             this.textBox_seller.Size = new System.Drawing.Size(148, 20);
             this.textBox_seller.TabIndex = 264;
             this.textBox_seller.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -76,7 +80,7 @@
             // label__Buyer
             // 
             this.label__Buyer.AutoSize = true;
-            this.label__Buyer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.label__Buyer.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.label__Buyer.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label__Buyer.Location = new System.Drawing.Point(677, 144);
             this.label__Buyer.Name = "label__Buyer";
@@ -87,8 +91,10 @@
             // textBox_Buyer
             // 
             this.textBox_Buyer.BackColor = System.Drawing.Color.White;
+            this.textBox_Buyer.Enabled = false;
             this.textBox_Buyer.Location = new System.Drawing.Point(128, 150);
             this.textBox_Buyer.Name = "textBox_Buyer";
+            this.textBox_Buyer.PasswordChar = '*';
             this.textBox_Buyer.Size = new System.Drawing.Size(148, 20);
             this.textBox_Buyer.TabIndex = 261;
             this.textBox_Buyer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -97,7 +103,7 @@
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.label40.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.label40.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label40.Location = new System.Drawing.Point(571, 95);
             this.label40.Name = "label40";
@@ -108,7 +114,7 @@
             // label39
             // 
             this.label39.AutoSize = true;
-            this.label39.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.label39.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.label39.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label39.Location = new System.Drawing.Point(175, 95);
             this.label39.Name = "label39";
@@ -118,19 +124,20 @@
             // 
             // button_Board_Silk
             // 
+            this.button_Board_Silk.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button_Board_Silk.Font = new System.Drawing.Font("B Titr", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.button_Board_Silk.Location = new System.Drawing.Point(229, 224);
             this.button_Board_Silk.Name = "button_Board_Silk";
             this.button_Board_Silk.Size = new System.Drawing.Size(332, 56);
             this.button_Board_Silk.TabIndex = 257;
             this.button_Board_Silk.Text = "ثبت";
-            this.button_Board_Silk.UseVisualStyleBackColor = true;
+            this.button_Board_Silk.UseVisualStyleBackColor = false;
             this.button_Board_Silk.Click += new System.EventHandler(this.button_Board_Silk_Click);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.label6.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.label6.Font = new System.Drawing.Font("B Titr", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label6.Location = new System.Drawing.Point(351, 42);
             this.label6.Name = "label6";
@@ -140,7 +147,7 @@
             // 
             // label38
             // 
-            this.label38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.label38.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.label38.Location = new System.Drawing.Point(12, 84);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(776, 205);
@@ -149,7 +156,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.label1.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.label1.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label1.Location = new System.Drawing.Point(245, 181);
             this.label1.Name = "label1";
@@ -160,7 +167,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.label2.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.label2.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label2.Location = new System.Drawing.Point(640, 181);
             this.label2.Name = "label2";
@@ -185,6 +192,7 @@
             this.button_seller.Size = new System.Drawing.Size(60, 31);
             this.button_seller.TabIndex = 266;
             this.button_seller.UseVisualStyleBackColor = true;
+            this.button_seller.Click += new System.EventHandler(this.button_seller_Click);
             // 
             // button_Buyer
             // 
@@ -208,7 +216,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.label4.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.label4.Location = new System.Drawing.Point(67, 251);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -219,7 +227,7 @@
             // allplus
             // 
             this.allplus.AutoSize = true;
-            this.allplus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.allplus.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.allplus.Location = new System.Drawing.Point(24, 251);
             this.allplus.Name = "allplus";
             this.allplus.Size = new System.Drawing.Size(13, 13);
@@ -231,6 +239,14 @@
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // timer2
+            // 
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // timer3
+            // 
+            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
             // 
             // Board_Silk
             // 
@@ -283,5 +299,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label allplus;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Timer timer3;
     }
 }

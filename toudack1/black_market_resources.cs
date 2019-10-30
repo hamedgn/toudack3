@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace toudack1
 {
@@ -32,6 +33,7 @@ namespace toudack1
 
         private void button_black_market_References_Click(object sender, EventArgs e)
         {
+            
             /*
             if (textBox_Buyer.Text != "" || textBox_seller.Text != "")
             {
@@ -138,6 +140,7 @@ namespace toudack1
                             label_Oil_Buyer.Text = (Convert.ToInt32(dbconnect.natural_resources_Oil)).ToString();
                             label_Silk_Buyer.Text = (Convert.ToInt32(dbconnect.natural_resources_Silk)).ToString();
                             label_Diamond_Buyer.Text = (Convert.ToInt32(dbconnect.natural_resources_Diamond)).ToString();
+                            MessageBox.Show("خرید شما انجام شد:مقدار خرید شما=" + vahid.ToString());
                         }
                         else
                         {
@@ -194,6 +197,7 @@ namespace toudack1
                             label_Oil_seller.Text = (Convert.ToInt32(dbconnect.natural_resources_Oil)).ToString();
                             label_Silk_seller.Text = (Convert.ToInt32(dbconnect.natural_resources_Silk)).ToString();
                             label_Diamond_seller.Text = (Convert.ToInt32(dbconnect.natural_resources_Diamond)).ToString();
+                            MessageBox.Show("خرید شما انجام شد:مقدار خرید شما="+ vahid.ToString());
                         }
                         else
                         {
@@ -221,35 +225,25 @@ namespace toudack1
             number_Oil_seller.Value = 0;
             number_Silk_seller.Value = 0;
             number_Diamond_seller.Value = 0;
+            timer1.Enabled = true;
         }
 
         private void References_button_Services_Click(object sender, EventArgs e)
         {
-            button_Buyer.Enabled = false;
-            textBox_Buyer.Text = "";
-            textBox_seller.Text = "";
-            textBox_seller.Enabled = true;
-            button_seller.Enabled = true;
-            number_Gold_seller.Enabled = true;
-            number_Oil_seller.Enabled = true;
-            number_Silk_seller.Enabled = true;
-            number_Diamond_seller.Enabled = true;
-            label_Diamond_seller.Enabled = true;
-            label_Gold_seller.Enabled = true;
-            label_Oil_seller.Enabled = true;
-            label_Silk_seller.Enabled = true;
-
-            textBox_Buyer.Enabled = false;
-            button_Buyer.Enabled = false;
-            number_Diamond_Buyer.Enabled = false;
-            number_Gold_Buyer.Enabled = false;
             number_Oil_Buyer.Enabled = false;
+            number_Gold_Buyer.Enabled = false;
+            number_Diamond_Buyer.Enabled = false;
             number_Silk_Buyer.Enabled = false;
-            label_Gold_Buyer.Enabled = false;
-            label_Oil_Buyer.Enabled = false;
-            label_Silk_Buyer.Enabled = false;
-            label_Diamond_Buyer.Enabled = false;
-
+            button_Buyer.Enabled = false;
+            button_seller.Enabled = true;
+            label11.Enabled = true;
+            label9.Enabled = true;
+            label38.Enabled = true;
+            label13.Enabled = true;
+            label10.Enabled = false;
+            label14.Enabled = false;
+            label7.Enabled = false;
+            label2.Enabled = false;
             textBox_Buyer.ResetText();
             textBox_seller.ResetText();
             number_Gold_Buyer.Value = 0;
@@ -264,32 +258,20 @@ namespace toudack1
 
         private void References_button_Industry_Click(object sender, EventArgs e)
         {
-            button_seller.Enabled = false;
-            textBox_Buyer.Text="";
-            textBox_seller.Text="";
-            textBox_seller.Enabled=false;
-            textBox_Buyer.Enabled = true;
-            button_Buyer.Enabled = true;
-            number_Gold_seller.Enabled = false;
             number_Oil_seller.Enabled = false;
+            number_Gold_seller.Enabled = false;
             number_Silk_seller.Enabled = false;
             number_Diamond_seller.Enabled = false;
-            label_Diamond_seller.Enabled = false;
-            label_Gold_seller.Enabled = false;
-            label_Oil_seller.Enabled = false;
-            label_Silk_seller.Enabled = false;
-
-            textBox_Buyer.Enabled = true;
             button_Buyer.Enabled = true;
-            number_Diamond_Buyer.Enabled = true;
-            number_Gold_Buyer.Enabled = true;
-            number_Oil_Buyer.Enabled = true;
-            number_Silk_Buyer.Enabled = true;
-            label_Gold_Buyer.Enabled = true;
-            label_Oil_Buyer.Enabled = true;
-            label_Silk_Buyer.Enabled = true;
-            label_Diamond_Buyer.Enabled = true;
-
+            button_seller.Enabled = false;
+            label11.Enabled = false;
+            label9.Enabled = false;
+            label38.Enabled = false;
+            label13.Enabled = false;
+            label10.Enabled = true;
+            label14.Enabled = true;
+            label7.Enabled = true;
+            label2.Enabled = true;
             textBox_Buyer.ResetText();
             textBox_seller.ResetText();
             number_Gold_Buyer.Value = 0;
@@ -333,6 +315,310 @@ namespace toudack1
                 button_Buyer.Enabled = false;
                 button_seller.Enabled = false;
             }
+          
+            
+                try
+                {
+                    string content = File.ReadAllText("demo");
+                if (textBox_Buyer.Text != "")
+                {
+                    textBox_Buyer.Text = content.Remove(content.Length - 2);
+                }
+                if (textBox_seller.Text != "")
+                {
+                    textBox_seller.Text = content.Remove(content.Length - 2);
+                }
+                TextWriter txt = new StreamWriter("demo");
+                    txt.Write("");
+                    txt.Close();
+                    timer1.Enabled = false;
+                }
+                catch
+                {
+
+                }             
+            
+      
+        }
+        barcode barcode = new barcode();
+        private void button_seller_Click(object sender, EventArgs e)
+        {
+            timer1.Enabled = false;
+            string content = File.ReadAllText("demo");
+            if (content != "")
+            {
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer2.Enabled = true;
+
+                barcode.Show();
+            }
+            else
+            {
+                timer2.Enabled = true;
+
+                barcode.Show();
+            }
+        }
+        private void button_Buyer_Click(object sender, EventArgs e)
+        {
+            timer1.Enabled = false;
+            string content = File.ReadAllText("demo");
+            if (content != "")
+            {
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer3.Enabled = true;
+
+                barcode.Show();
+            }
+            else
+            {
+                timer3.Enabled = true;
+
+                barcode.Show();
+            }
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                string content = File.ReadAllText("demo");
+                textBox_seller.Text = content.Remove(content.Length - 2);
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer2.Enabled = false;
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void timer3_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                string content = File.ReadAllText("demo");
+                textBox_Buyer.Text = content.Remove(content.Length - 2);
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer3.Enabled = false;
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void number_Oil_seller_ValueChanged(object sender, EventArgs e)
+        {
+            all_price.Text= ((number_Oil_seller.Value)*(dbconnect.price_oil - 6)).ToString();
+        }
+
+        private void number_Silk_seller_ValueChanged(object sender, EventArgs e)
+        {
+            all_price.Text = ((number_Silk_seller.Value) * (dbconnect.price_silk - 6)).ToString();
+        }
+
+        private void number_Gold_seller_ValueChanged(object sender, EventArgs e)
+        {
+            all_price.Text = ((number_Gold_seller.Value) * (dbconnect.price_gold - 6)).ToString();
+        }
+
+        private void number_Diamond_seller_ValueChanged(object sender, EventArgs e)
+        {
+            all_price.Text = ((number_Diamond_seller.Value) * (dbconnect.price_diamond - 6)).ToString();
+        }
+
+        private void number_Oil_Buyer_ValueChanged(object sender, EventArgs e)
+        {
+            all_price.Text = ((number_Oil_Buyer.Value) * (dbconnect.price_oil + 6)).ToString();
+        }
+
+        private void number_Silk_Buyer_ValueChanged(object sender, EventArgs e)
+        {
+            all_price.Text = ((number_Silk_Buyer.Value) * (dbconnect.price_silk + 6)).ToString();
+        }
+
+        private void number_Gold_Buyer_ValueChanged(object sender, EventArgs e)
+        {
+            all_price.Text = ((number_Gold_Buyer.Value) * (dbconnect.price_gold + 6)).ToString();
+        }
+
+        private void number_Diamond_Buyer_ValueChanged(object sender, EventArgs e)
+        {
+            all_price.Text = ((number_Diamond_Buyer.Value) * (dbconnect.price_diamond + 6)).ToString();
+        }
+
+        private void label56_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+            number_Oil_seller.Enabled = true;
+            number_Gold_seller.Enabled = false;
+            number_Silk_seller.Enabled = false;
+            number_Diamond_seller.Enabled = false;
+            number_Oil_Buyer.Enabled = false;
+            number_Gold_Buyer.Enabled = false;
+            number_Diamond_Buyer.Enabled = false;
+            number_Gold_Buyer.Value = 0;
+            number_Oil_Buyer.Value = 0;
+            number_Silk_Buyer.Value = 0;
+            number_Diamond_Buyer.Value = 0;
+            number_Gold_seller.Value = 0;
+            number_Oil_seller.Value = 0;
+            number_Silk_seller.Value = 0;
+            number_Diamond_seller.Value = 0;
+            number_Silk_Buyer.Enabled = false;
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+            number_Oil_seller.Enabled = false;
+            number_Gold_seller.Enabled = false;
+            number_Silk_seller.Enabled = true;
+            number_Diamond_seller.Enabled = false;
+            number_Oil_Buyer.Enabled = false;
+            number_Gold_Buyer.Enabled = false;
+            number_Diamond_Buyer.Enabled = false;
+            number_Gold_Buyer.Value = 0;
+            number_Oil_Buyer.Value = 0;
+            number_Silk_Buyer.Value = 0;
+            number_Diamond_Buyer.Value = 0;
+            number_Gold_seller.Value = 0;
+            number_Oil_seller.Value = 0;
+            number_Silk_seller.Value = 0;
+            number_Diamond_seller.Value = 0;
+            number_Silk_Buyer.Enabled = false;
+        }
+
+        private void label38_Click(object sender, EventArgs e)
+        {
+            number_Oil_seller.Enabled = false;
+            number_Gold_seller.Enabled = true;
+            number_Silk_seller.Enabled = false;
+            number_Diamond_seller.Enabled = false;
+            number_Oil_Buyer.Enabled = false;
+            number_Gold_Buyer.Enabled = false;
+            number_Diamond_Buyer.Enabled = false;
+            number_Silk_Buyer.Enabled = false; 
+            number_Gold_Buyer.Value = 0;
+            number_Oil_Buyer.Value = 0;
+            number_Silk_Buyer.Value = 0;
+            number_Diamond_Buyer.Value = 0;
+            number_Gold_seller.Value = 0;
+            number_Oil_seller.Value = 0;
+            number_Silk_seller.Value = 0;
+            number_Diamond_seller.Value = 0;
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+            number_Oil_seller.Enabled = false;
+            number_Gold_seller.Enabled = false;
+            number_Silk_seller.Enabled = false;
+            number_Diamond_seller.Enabled = true;
+            number_Oil_Buyer.Enabled = false;
+            number_Gold_Buyer.Enabled = false;
+            number_Diamond_Buyer.Enabled = false;
+            number_Silk_Buyer.Enabled = false;
+            number_Gold_Buyer.Value = 0;
+            number_Oil_Buyer.Value = 0;
+            number_Silk_Buyer.Value = 0;
+            number_Diamond_Buyer.Value = 0;
+            number_Gold_seller.Value = 0;
+            number_Oil_seller.Value = 0;
+            number_Silk_seller.Value = 0;
+            number_Diamond_seller.Value = 0;
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+            number_Oil_seller.Enabled = false;
+            number_Gold_seller.Enabled = false;
+            number_Silk_seller.Enabled = false;
+            number_Diamond_seller.Enabled = false;
+            number_Oil_Buyer.Enabled = true;
+            number_Gold_Buyer.Enabled = false;
+            number_Diamond_Buyer.Enabled = false;
+            number_Silk_Buyer.Enabled = false;
+            number_Gold_Buyer.Value = 0;
+            number_Oil_Buyer.Value = 0;
+            number_Silk_Buyer.Value = 0;
+            number_Diamond_Buyer.Value = 0;
+            number_Gold_seller.Value = 0;
+            number_Oil_seller.Value = 0;
+            number_Silk_seller.Value = 0;
+            number_Diamond_seller.Value = 0;
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+            number_Oil_seller.Enabled = false;
+            number_Gold_seller.Enabled = false;
+            number_Silk_seller.Enabled = false;
+            number_Diamond_seller.Enabled = false;
+            number_Oil_Buyer.Enabled = false;
+            number_Gold_Buyer.Enabled = false;
+            number_Diamond_Buyer.Enabled = false;
+            number_Silk_Buyer.Enabled = true;
+            number_Gold_Buyer.Value = 0;
+            number_Oil_Buyer.Value = 0;
+            number_Silk_Buyer.Value = 0;
+            number_Diamond_Buyer.Value = 0;
+            number_Gold_seller.Value = 0;
+            number_Oil_seller.Value = 0;
+            number_Silk_seller.Value = 0;
+            number_Diamond_seller.Value = 0;
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+            number_Oil_seller.Enabled = false;
+            number_Gold_seller.Enabled = false;
+            number_Silk_seller.Enabled = false;
+            number_Diamond_seller.Enabled = false;
+            number_Oil_Buyer.Enabled = false;
+            number_Gold_Buyer.Enabled = true;
+            number_Diamond_Buyer.Enabled = false;
+            number_Silk_Buyer.Enabled = false;
+            number_Gold_Buyer.Value = 0;
+            number_Oil_Buyer.Value = 0;
+            number_Silk_Buyer.Value = 0;
+            number_Diamond_Buyer.Value = 0;
+            number_Gold_seller.Value = 0;
+            number_Oil_seller.Value = 0;
+            number_Silk_seller.Value = 0;
+            number_Diamond_seller.Value = 0;
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            number_Oil_seller.Enabled = false;
+            number_Gold_seller.Enabled = false;
+            number_Silk_seller.Enabled = false;
+            number_Diamond_seller.Enabled = false;
+            number_Oil_Buyer.Enabled = false;
+            number_Gold_Buyer.Enabled = false;
+            number_Diamond_Buyer.Enabled = true;
+            number_Silk_Buyer.Enabled = false;
+            number_Gold_Buyer.Value = 0;
+            number_Oil_Buyer.Value = 0;
+            number_Silk_Buyer.Value = 0;
+            number_Diamond_Buyer.Value = 0;
+            number_Gold_seller.Value = 0;
+            number_Oil_seller.Value = 0;
+            number_Silk_seller.Value = 0;
+            number_Diamond_seller.Value = 0;
         }
     }
 }

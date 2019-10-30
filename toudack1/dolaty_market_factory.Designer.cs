@@ -61,6 +61,8 @@
             this.button_Buyer = new System.Windows.Forms.Button();
             this.button_seller = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.timer3 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.Price_Education_seller)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Price_Services_seller)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Price_Weapons_seller)).BeginInit();
@@ -333,11 +335,13 @@
             // textBox_Buyer
             // 
             this.textBox_Buyer.BackColor = System.Drawing.Color.White;
+            this.textBox_Buyer.Enabled = false;
             this.textBox_Buyer.Location = new System.Drawing.Point(90, 186);
             this.textBox_Buyer.Name = "textBox_Buyer";
             this.textBox_Buyer.Size = new System.Drawing.Size(148, 20);
             this.textBox_Buyer.TabIndex = 349;
             this.textBox_Buyer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox_Buyer.UseSystemPasswordChar = true;
             // 
             // Price_Industry_seller
             // 
@@ -355,11 +359,13 @@
             // 
             // textBox_seller
             // 
+            this.textBox_seller.Enabled = false;
             this.textBox_seller.Location = new System.Drawing.Point(686, 189);
             this.textBox_seller.Name = "textBox_seller";
             this.textBox_seller.Size = new System.Drawing.Size(148, 20);
             this.textBox_seller.TabIndex = 346;
             this.textBox_seller.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox_seller.UseSystemPasswordChar = true;
             // 
             // button_black_market_factory
             // 
@@ -400,6 +406,7 @@
             this.button_Buyer.Size = new System.Drawing.Size(60, 31);
             this.button_Buyer.TabIndex = 358;
             this.button_Buyer.UseVisualStyleBackColor = true;
+            this.button_Buyer.Click += new System.EventHandler(this.button_Buyer_Click);
             // 
             // button_seller
             // 
@@ -410,6 +417,7 @@
             this.button_seller.Size = new System.Drawing.Size(60, 31);
             this.button_seller.TabIndex = 347;
             this.button_seller.UseVisualStyleBackColor = true;
+            this.button_seller.Click += new System.EventHandler(this.button_seller_Click);
             // 
             // timer1
             // 
@@ -417,7 +425,15 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // market_factury
+            // timer2
+            // 
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // timer3
+            // 
+            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
+            // 
+            // dolaty_market_factory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -453,7 +469,7 @@
             this.Controls.Add(this.button_black_market_factory);
             this.Controls.Add(this.label50);
             this.Controls.Add(this.label56);
-            this.Name = "market_factury";
+            this.Name = "dolaty_market_factory";
             this.Text = "market_factury";
             ((System.ComponentModel.ISupportInitialize)(this.Price_Education_seller)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Price_Services_seller)).EndInit();
@@ -498,5 +514,7 @@
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.Label label56;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Timer timer3;
     }
 }

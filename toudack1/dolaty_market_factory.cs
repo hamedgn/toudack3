@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.IO;
 namespace toudack1
 {
     public partial class dolaty_market_factory : Form
     {
         private DBConnect dbconnect;
+        barcode barcode = new barcode();
         public dolaty_market_factory()
         {
             InitializeComponent();
@@ -27,146 +28,153 @@ namespace toudack1
             }
             else
             {
-                dbconnect.factory_market_public(textBox_seller.Text, textBox_Buyer.Text, "industry_out");
-                string DPNG1 = dbconnect.factory_market_code_seller.ToString();
-                string DPNG2 = dbconnect.factory_market_code_Buyer.ToString();
-                if (textBox_Buyer.Text == DPNG1 && textBox_seller.Text == DPNG2)
+                if (textBox_Buyer.Text != textBox_seller.Text)
                 {
-                    if (Price_Industry_seller.Enabled == true)
+                    dbconnect.factory_market_public(textBox_seller.Text, textBox_Buyer.Text, "industry_out");
+                    string DPNG1 = dbconnect.factory_market_code_seller.ToString();
+                    string DPNG2 = dbconnect.factory_market_code_Buyer.ToString();
+                    if (textBox_Buyer.Text == DPNG1 && textBox_seller.Text == DPNG2)
                     {
-                        int value = Convert.ToInt32(all_price.Text);
-                        dbconnect.factory_box_code_check(textBox_seller.Text);
-                        if (dbconnect.factory_box_Industry_out < Price_Industry_seller.Value)
+                        if (Price_Industry_seller.Enabled == true)
                         {
-                            MessageBox.Show("مقدار منابع نفر اول کم است");
-                        }
-                        else
-                        {
-                            dbconnect.Fundscheck(textBox_Buyer.Text);
-                            if (dbconnect.funds < Convert.ToInt32(all_price.Text))
+                            int value = Convert.ToInt32(all_price.Text);
+                            dbconnect.factory_box_code_check(textBox_seller.Text);
+                            if (dbconnect.factory_box_Industry_out < Price_Industry_seller.Value)
                             {
-                                MessageBox.Show("مقدار پول نفر دوم کم است");
+                                MessageBox.Show("مقدار منابع نفر اول کم است");
                             }
                             else
                             {
-                                dbconnect.FundsNegative(dbconnect.funds, value, textBox_Buyer.Text);
-                                dbconnect.factory_box_Negative(dbconnect.factory_box_Industry_out, Convert.ToInt32(Price_Industry_seller.Value), textBox_seller.Text, "industry_out");
-                                dbconnect.Fundscheck(textBox_seller.Text);
-                                dbconnect.Fundsplus(dbconnect.funds, value, textBox_seller.Text);
-                                // MessageBox.Show("ok1");
-                                dbconnect.factory_box_code_check(textBox_Buyer.Text);
-                                dbconnect.factory_box_plus(dbconnect.factory_box_Industry_out, Convert.ToInt32(Price_Industry_seller.Value), textBox_Buyer.Text, "industry_out");
+                                dbconnect.Fundscheck(textBox_Buyer.Text);
+                                if (dbconnect.funds < Convert.ToInt32(all_price.Text))
+                                {
+                                    MessageBox.Show("مقدار پول نفر دوم کم است");
+                                }
+                                else
+                                {
+                                    dbconnect.FundsNegative(dbconnect.funds, value, textBox_Buyer.Text);
+                                    dbconnect.factory_box_Negative(dbconnect.factory_box_Industry_out, Convert.ToInt32(Price_Industry_seller.Value), textBox_seller.Text, "industry_out");
+                                    dbconnect.Fundscheck(textBox_seller.Text);
+                                    dbconnect.Fundsplus(dbconnect.funds, value, textBox_seller.Text);
+                                    // MessageBox.Show("ok1");
+                                    dbconnect.factory_box_code_check(textBox_Buyer.Text);
+                                    dbconnect.factory_box_plus(dbconnect.factory_box_Industry_out, Convert.ToInt32(Price_Industry_seller.Value), textBox_Buyer.Text, "industry_out");
 
-                                MessageBox.Show("عملیات انجام شد");
-                                clearall();
+                                    MessageBox.Show("عملیات انجام شد");
+                                    clearall();
+                                }
+
                             }
-                            
+
                         }
-                        
+                        if (Price_Education_seller.Enabled == true)
+                        {
+                            int value = Convert.ToInt32(all_price.Text);
+                            dbconnect.factory_box_code_check(textBox_seller.Text);
+                            if (dbconnect.factory_box_Education_out < Price_Education_seller.Value)
+                            {
+                                MessageBox.Show("مقدار منابع نفر اول کم است");
+                            }
+                            else
+                            {
+                                dbconnect.Fundscheck(textBox_Buyer.Text);
+                                if (dbconnect.funds < Convert.ToInt32(all_price.Text))
+                                {
+                                    MessageBox.Show("مقدار پول نفر دوم کم است");
+                                }
+                                else
+                                {
+                                    dbconnect.FundsNegative(dbconnect.funds, value, textBox_Buyer.Text);
+                                    dbconnect.factory_box_Negative(dbconnect.factory_box_Education_out, Convert.ToInt32(Price_Education_seller.Value), textBox_seller.Text, "education_out");
+                                    dbconnect.Fundscheck(textBox_seller.Text);
+                                    dbconnect.Fundsplus(dbconnect.funds, value, textBox_seller.Text);
+                                    // MessageBox.Show("ok1");
+                                    dbconnect.factory_box_code_check(textBox_Buyer.Text);
+                                    dbconnect.factory_box_plus(dbconnect.factory_box_Education_out, Convert.ToInt32(Price_Education_seller.Value), textBox_Buyer.Text, "education_out");
+
+                                    MessageBox.Show("عملیات انجام شد");
+                                    clearall();
+                                }
+
+                            }
+
+                        }
+                        if (Price_Weapons_seller.Enabled == true)
+                        {
+                            int value = Convert.ToInt32(all_price.Text);
+                            dbconnect.factory_box_code_check(textBox_seller.Text);
+                            if (dbconnect.factory_box_Weapons_out < Price_Weapons_seller.Value)
+                            {
+                                MessageBox.Show("مقدار منابع نفر اول کم است");
+                            }
+                            else
+                            {
+                                dbconnect.Fundscheck(textBox_Buyer.Text);
+                                if (dbconnect.funds < Convert.ToInt32(all_price.Text))
+                                {
+                                    MessageBox.Show("مقدار پول نفر دوم کم است");
+                                }
+                                else
+                                {
+                                    dbconnect.FundsNegative(dbconnect.funds, value, textBox_Buyer.Text);
+                                    dbconnect.factory_box_Negative(dbconnect.factory_box_Weapons_out, Convert.ToInt32(Price_Weapons_seller.Value), textBox_seller.Text, "weapons_out");
+                                    dbconnect.Fundscheck(textBox_seller.Text);
+                                    dbconnect.Fundsplus(dbconnect.funds, value, textBox_seller.Text);
+                                    // MessageBox.Show("ok1");
+                                    dbconnect.factory_box_code_check(textBox_Buyer.Text);
+                                    dbconnect.factory_box_plus(dbconnect.factory_box_Weapons_out, Convert.ToInt32(Price_Weapons_seller.Value), textBox_Buyer.Text, "weapons_out");
+
+                                    MessageBox.Show("عملیات انجام شد");
+                                    clearall();
+                                }
+
+                            }
+
+                        }
+                        if (Price_Services_seller.Enabled == true)
+                        {
+                            int value = Convert.ToInt32(all_price.Text);
+                            dbconnect.factory_box_code_check(textBox_seller.Text);
+                            if (dbconnect.factory_box_Services_out < Price_Services_seller.Value)
+                            {
+                                MessageBox.Show("مقدار منابع نفر اول کم است");
+                            }
+                            else
+                            {
+                                dbconnect.Fundscheck(textBox_Buyer.Text);
+                                if (dbconnect.funds < Convert.ToInt32(all_price.Text))
+                                {
+                                    MessageBox.Show("مقدار پول نفر دوم کم است");
+                                }
+                                else
+                                {
+                                    dbconnect.FundsNegative(dbconnect.funds, value, textBox_Buyer.Text);
+                                    dbconnect.factory_box_Negative(dbconnect.factory_box_Services_out, Convert.ToInt32(Price_Services_seller.Value), textBox_seller.Text, "services_out");
+                                    dbconnect.Fundscheck(textBox_seller.Text);
+                                    dbconnect.Fundsplus(dbconnect.funds, value, textBox_seller.Text);
+                                    // MessageBox.Show("ok1");
+                                    dbconnect.factory_box_code_check(textBox_Buyer.Text);
+                                    dbconnect.factory_box_plus(dbconnect.factory_box_Services_out, Convert.ToInt32(Price_Services_seller.Value), textBox_Buyer.Text, "services_out");
+
+                                    MessageBox.Show("عملیات انجام شد");
+                                    clearall();
+                                }
+
+                            }
+
+                        }
                     }
-                    if (Price_Education_seller.Enabled == true)
+                    else
                     {
-                        int value = Convert.ToInt32(all_price.Text);
-                        dbconnect.factory_box_code_check(textBox_seller.Text);
-                        if (dbconnect.factory_box_Education_out < Price_Education_seller.Value)
-                        {
-                            MessageBox.Show("مقدار منابع نفر اول کم است");
-                        }
-                        else
-                        {
-                            dbconnect.Fundscheck(textBox_Buyer.Text);
-                            if (dbconnect.funds < Convert.ToInt32(all_price.Text))
-                            {
-                                MessageBox.Show("مقدار پول نفر دوم کم است");
-                            }
-                            else
-                            {
-                                dbconnect.FundsNegative(dbconnect.funds, value, textBox_Buyer.Text);
-                                dbconnect.factory_box_Negative(dbconnect.factory_box_Education_out, Convert.ToInt32(Price_Education_seller.Value), textBox_seller.Text, "education_out");
-                                dbconnect.Fundscheck(textBox_seller.Text);
-                                dbconnect.Fundsplus(dbconnect.funds, value, textBox_seller.Text);
-                                // MessageBox.Show("ok1");
-                                dbconnect.factory_box_code_check(textBox_Buyer.Text);
-                                dbconnect.factory_box_plus(dbconnect.factory_box_Education_out, Convert.ToInt32(Price_Education_seller.Value), textBox_Buyer.Text, "education_out");
-
-                                MessageBox.Show("عملیات انجام شد");
-                                clearall();
-                            }
-
-                        }
-
-                    }
-                    if (Price_Weapons_seller.Enabled == true)
-                    {
-                        int value = Convert.ToInt32(all_price.Text);
-                        dbconnect.factory_box_code_check(textBox_seller.Text);
-                        if (dbconnect.factory_box_Weapons_out < Price_Weapons_seller.Value)
-                        {
-                            MessageBox.Show("مقدار منابع نفر اول کم است");
-                        }
-                        else
-                        {
-                            dbconnect.Fundscheck(textBox_Buyer.Text);
-                            if (dbconnect.funds < Convert.ToInt32(all_price.Text))
-                            {
-                                MessageBox.Show("مقدار پول نفر دوم کم است");
-                            }
-                            else
-                            {
-                                dbconnect.FundsNegative(dbconnect.funds, value, textBox_Buyer.Text);
-                                dbconnect.factory_box_Negative(dbconnect.factory_box_Weapons_out, Convert.ToInt32(Price_Weapons_seller.Value), textBox_seller.Text, "weapons_out");
-                                dbconnect.Fundscheck(textBox_seller.Text);
-                                dbconnect.Fundsplus(dbconnect.funds, value, textBox_seller.Text);
-                                // MessageBox.Show("ok1");
-                                dbconnect.factory_box_code_check(textBox_Buyer.Text);
-                                dbconnect.factory_box_plus(dbconnect.factory_box_Weapons_out, Convert.ToInt32(Price_Weapons_seller.Value), textBox_Buyer.Text, "weapons_out");
-
-                                MessageBox.Show("عملیات انجام شد");
-                                clearall();
-                            }
-
-                        }
-
-                    }
-                    if (Price_Services_seller.Enabled == true)
-                    {
-                        int value = Convert.ToInt32(all_price.Text);
-                        dbconnect.factory_box_code_check(textBox_seller.Text);
-                        if (dbconnect.factory_box_Services_out < Price_Services_seller.Value)
-                        {
-                            MessageBox.Show("مقدار منابع نفر اول کم است");
-                        }
-                        else
-                        {
-                            dbconnect.Fundscheck(textBox_Buyer.Text);
-                            if (dbconnect.funds < Convert.ToInt32(all_price.Text))
-                            {
-                                MessageBox.Show("مقدار پول نفر دوم کم است");
-                            }
-                            else
-                            {
-                                dbconnect.FundsNegative(dbconnect.funds, value, textBox_Buyer.Text);
-                                dbconnect.factory_box_Negative(dbconnect.factory_box_Services_out, Convert.ToInt32(Price_Services_seller.Value), textBox_seller.Text, "services_out");
-                                dbconnect.Fundscheck(textBox_seller.Text);
-                                dbconnect.Fundsplus(dbconnect.funds, value, textBox_seller.Text);
-                                // MessageBox.Show("ok1");
-                                dbconnect.factory_box_code_check(textBox_Buyer.Text);
-                                dbconnect.factory_box_plus(dbconnect.factory_box_Services_out, Convert.ToInt32(Price_Services_seller.Value), textBox_Buyer.Text, "services_out");
-
-                                MessageBox.Show("عملیات انجام شد");
-                                clearall();
-                            }
-
-                        }
-
+                        MessageBox.Show("مقدار منابع هایتان یا پولتان کمتر از حد برداشت است", "ERROR");
                     }
                 }
                 else
-                {
-                    MessageBox.Show("مقدار منابع هایتان یا پولتان کمتر از حد برداشت است", "ERROR");
-                }
+                    MessageBox.Show("کد های وارد شده با هم برابر است", "ERROR");
             }
-
+            textBox_Buyer.Text = "";
+            textBox_seller.Text = "";
+            timer1.Enabled = true;
         }
 
         private void label11_Click(object sender, EventArgs e)
@@ -276,6 +284,82 @@ namespace toudack1
             textBox_Buyer.Text = "";
             textBox_seller.Text = "";
             all_price.Text = "0";
+        }
+
+        private void button_seller_Click(object sender, EventArgs e)
+        {
+            timer1.Enabled = false;
+            string content = File.ReadAllText("demo");
+            if (content != "")
+            {
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer2.Enabled = true;
+
+                barcode.Show();
+            }
+            else
+            {
+                timer2.Enabled = true;
+
+                barcode.Show();
+            }
+        }
+
+        private void button_Buyer_Click(object sender, EventArgs e)
+        {
+            timer1.Enabled = false;
+            string content = File.ReadAllText("demo");
+            if (content != "")
+            {
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer3.Enabled = true;
+
+                barcode.Show();
+            }
+            else
+            {
+                timer3.Enabled = true;
+
+                barcode.Show();
+            }
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                string content = File.ReadAllText("demo");
+                textBox_seller.Text = content.Remove(content.Length - 2);
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer2.Enabled = false;
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void timer3_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                string content = File.ReadAllText("demo");
+                textBox_Buyer.Text = content.Remove(content.Length - 2);
+                TextWriter txt = new StreamWriter("demo");
+                txt.Write("");
+                txt.Close();
+                timer3.Enabled = false;
+            }
+            catch
+            {
+
+            }
         }
     }
 }

@@ -79,6 +79,8 @@
             this.label31 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.timer3 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.number_Diamond_seller)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.number_Gold_seller)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.number_Silk_seller)).BeginInit();
@@ -91,10 +93,10 @@
             // 
             // References_button_Services
             // 
-            this.References_button_Services.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.References_button_Services.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.References_button_Services.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.References_button_Services.Font = new System.Drawing.Font("B Titr", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.References_button_Services.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.References_button_Services.ForeColor = System.Drawing.Color.Yellow;
             this.References_button_Services.Location = new System.Drawing.Point(483, 86);
             this.References_button_Services.Name = "References_button_Services";
             this.References_button_Services.Size = new System.Drawing.Size(75, 34);
@@ -105,10 +107,10 @@
             // 
             // References_button_Industry
             // 
-            this.References_button_Industry.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.References_button_Industry.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.References_button_Industry.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.References_button_Industry.Font = new System.Drawing.Font("B Titr", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.References_button_Industry.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.References_button_Industry.ForeColor = System.Drawing.Color.Yellow;
             this.References_button_Industry.Location = new System.Drawing.Point(379, 86);
             this.References_button_Industry.Name = "References_button_Industry";
             this.References_button_Industry.Size = new System.Drawing.Size(75, 34);
@@ -129,13 +131,15 @@
             this.number_Diamond_seller.Name = "number_Diamond_seller";
             this.number_Diamond_seller.Size = new System.Drawing.Size(42, 20);
             this.number_Diamond_seller.TabIndex = 313;
+            this.number_Diamond_seller.ValueChanged += new System.EventHandler(this.number_Diamond_seller_ValueChanged);
             // 
             // label_Diamond_seller
             // 
             this.label_Diamond_seller.AutoSize = true;
-            this.label_Diamond_seller.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.label_Diamond_seller.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label_Diamond_seller.Enabled = false;
             this.label_Diamond_seller.Font = new System.Drawing.Font("B Titr", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label_Diamond_seller.ForeColor = System.Drawing.Color.Yellow;
             this.label_Diamond_seller.Location = new System.Drawing.Point(648, 289);
             this.label_Diamond_seller.Name = "label_Diamond_seller";
             this.label_Diamond_seller.Size = new System.Drawing.Size(29, 42);
@@ -145,13 +149,15 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label13.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label13.ForeColor = System.Drawing.Color.Yellow;
             this.label13.Location = new System.Drawing.Point(636, 225);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(49, 29);
             this.label13.TabIndex = 311;
             this.label13.Text = "الماس";
+            this.label13.Click += new System.EventHandler(this.label13_Click);
             // 
             // number_Gold_seller
             // 
@@ -165,6 +171,7 @@
             this.number_Gold_seller.Name = "number_Gold_seller";
             this.number_Gold_seller.Size = new System.Drawing.Size(42, 20);
             this.number_Gold_seller.TabIndex = 310;
+            this.number_Gold_seller.ValueChanged += new System.EventHandler(this.number_Gold_seller_ValueChanged);
             // 
             // number_Silk_seller
             // 
@@ -178,13 +185,15 @@
             this.number_Silk_seller.Name = "number_Silk_seller";
             this.number_Silk_seller.Size = new System.Drawing.Size(42, 20);
             this.number_Silk_seller.TabIndex = 309;
+            this.number_Silk_seller.ValueChanged += new System.EventHandler(this.number_Silk_seller_ValueChanged);
             // 
             // label_Silk_seller
             // 
             this.label_Silk_seller.AutoSize = true;
-            this.label_Silk_seller.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.label_Silk_seller.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label_Silk_seller.Enabled = false;
             this.label_Silk_seller.Font = new System.Drawing.Font("B Titr", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label_Silk_seller.ForeColor = System.Drawing.Color.Yellow;
             this.label_Silk_seller.Location = new System.Drawing.Point(806, 289);
             this.label_Silk_seller.Name = "label_Silk_seller";
             this.label_Silk_seller.Size = new System.Drawing.Size(29, 42);
@@ -194,20 +203,23 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label9.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label9.ForeColor = System.Drawing.Color.Yellow;
             this.label9.Location = new System.Drawing.Point(798, 224);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(50, 29);
             this.label9.TabIndex = 307;
             this.label9.Text = "ابریشم";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label_Oil_seller
             // 
             this.label_Oil_seller.AutoSize = true;
-            this.label_Oil_seller.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.label_Oil_seller.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label_Oil_seller.Enabled = false;
             this.label_Oil_seller.Font = new System.Drawing.Font("B Titr", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label_Oil_seller.ForeColor = System.Drawing.Color.Yellow;
             this.label_Oil_seller.Location = new System.Drawing.Point(884, 292);
             this.label_Oil_seller.Name = "label_Oil_seller";
             this.label_Oil_seller.Size = new System.Drawing.Size(29, 42);
@@ -217,20 +229,23 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label11.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label11.ForeColor = System.Drawing.Color.Yellow;
             this.label11.Location = new System.Drawing.Point(878, 224);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(35, 29);
             this.label11.TabIndex = 305;
             this.label11.Text = "نفت";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // label_Gold_seller
             // 
             this.label_Gold_seller.AutoSize = true;
-            this.label_Gold_seller.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.label_Gold_seller.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label_Gold_seller.Enabled = false;
             this.label_Gold_seller.Font = new System.Drawing.Font("B Titr", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label_Gold_seller.ForeColor = System.Drawing.Color.Yellow;
             this.label_Gold_seller.Location = new System.Drawing.Point(729, 289);
             this.label_Gold_seller.Name = "label_Gold_seller";
             this.label_Gold_seller.Size = new System.Drawing.Size(29, 42);
@@ -240,13 +255,15 @@
             // label38
             // 
             this.label38.AutoSize = true;
-            this.label38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.label38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label38.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label38.ForeColor = System.Drawing.Color.Yellow;
             this.label38.Location = new System.Drawing.Point(726, 225);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(33, 29);
             this.label38.TabIndex = 303;
             this.label38.Text = "طلا";
+            this.label38.Click += new System.EventHandler(this.label38_Click);
             // 
             // button_Buyer
             // 
@@ -258,12 +275,14 @@
             this.button_Buyer.Size = new System.Drawing.Size(60, 31);
             this.button_Buyer.TabIndex = 300;
             this.button_Buyer.UseVisualStyleBackColor = true;
+            this.button_Buyer.Click += new System.EventHandler(this.button_Buyer_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label5.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label5.ForeColor = System.Drawing.Color.Yellow;
             this.label5.Location = new System.Drawing.Point(854, 169);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(67, 29);
@@ -273,8 +292,9 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label4.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label4.ForeColor = System.Drawing.Color.Yellow;
             this.label4.Location = new System.Drawing.Point(255, 169);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(67, 29);
@@ -292,8 +312,9 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.label26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label26.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label26.ForeColor = System.Drawing.Color.Yellow;
             this.label26.Location = new System.Drawing.Point(747, 140);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(62, 29);
@@ -303,8 +324,9 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.label27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label27.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label27.ForeColor = System.Drawing.Color.Yellow;
             this.label27.Location = new System.Drawing.Point(145, 140);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(54, 29);
@@ -317,9 +339,11 @@
             this.textBox_Buyer.Enabled = false;
             this.textBox_Buyer.Location = new System.Drawing.Point(104, 175);
             this.textBox_Buyer.Name = "textBox_Buyer";
+            this.textBox_Buyer.ReadOnly = true;
             this.textBox_Buyer.Size = new System.Drawing.Size(148, 20);
             this.textBox_Buyer.TabIndex = 291;
             this.textBox_Buyer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox_Buyer.UseSystemPasswordChar = true;
             this.textBox_Buyer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.black_market_resources_KeyPress);
             // 
             // number_Oil_seller
@@ -334,6 +358,7 @@
             this.number_Oil_seller.Name = "number_Oil_seller";
             this.number_Oil_seller.Size = new System.Drawing.Size(42, 20);
             this.number_Oil_seller.TabIndex = 290;
+            this.number_Oil_seller.ValueChanged += new System.EventHandler(this.number_Oil_seller_ValueChanged);
             // 
             // button_seller
             // 
@@ -345,33 +370,38 @@
             this.button_seller.Size = new System.Drawing.Size(60, 31);
             this.button_seller.TabIndex = 289;
             this.button_seller.UseVisualStyleBackColor = true;
+            this.button_seller.Click += new System.EventHandler(this.button_seller_Click);
             // 
             // textBox_seller
             // 
             this.textBox_seller.Enabled = false;
             this.textBox_seller.Location = new System.Drawing.Point(700, 178);
             this.textBox_seller.Name = "textBox_seller";
+            this.textBox_seller.ReadOnly = true;
             this.textBox_seller.Size = new System.Drawing.Size(148, 20);
             this.textBox_seller.TabIndex = 288;
             this.textBox_seller.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox_seller.UseSystemPasswordChar = true;
             this.textBox_seller.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.black_market_resources_KeyPress);
             // 
             // button_black_market_References
             // 
+            this.button_black_market_References.BackColor = System.Drawing.Color.Yellow;
             this.button_black_market_References.Font = new System.Drawing.Font("B Titr", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.button_black_market_References.Location = new System.Drawing.Point(352, 292);
             this.button_black_market_References.Name = "button_black_market_References";
             this.button_black_market_References.Size = new System.Drawing.Size(240, 56);
             this.button_black_market_References.TabIndex = 287;
             this.button_black_market_References.Text = "ثبت";
-            this.button_black_market_References.UseVisualStyleBackColor = true;
+            this.button_black_market_References.UseVisualStyleBackColor = false;
             this.button_black_market_References.Click += new System.EventHandler(this.button_black_market_References_Click);
             // 
             // label50
             // 
             this.label50.AutoSize = true;
-            this.label50.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.label50.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label50.Font = new System.Drawing.Font("B Titr", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label50.ForeColor = System.Drawing.Color.Yellow;
             this.label50.Location = new System.Drawing.Point(761, 18);
             this.label50.Name = "label50";
             this.label50.Size = new System.Drawing.Size(182, 42);
@@ -381,11 +411,12 @@
             // 
             // label56
             // 
-            this.label56.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.label56.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label56.Location = new System.Drawing.Point(12, 60);
             this.label56.Name = "label56";
             this.label56.Size = new System.Drawing.Size(931, 308);
             this.label56.TabIndex = 292;
+            this.label56.Click += new System.EventHandler(this.label56_Click);
             // 
             // number_Diamond_Buyer
             // 
@@ -399,13 +430,15 @@
             this.number_Diamond_Buyer.Name = "number_Diamond_Buyer";
             this.number_Diamond_Buyer.Size = new System.Drawing.Size(42, 20);
             this.number_Diamond_Buyer.TabIndex = 327;
+            this.number_Diamond_Buyer.ValueChanged += new System.EventHandler(this.number_Diamond_Buyer_ValueChanged);
             // 
             // label_Diamond_Buyer
             // 
             this.label_Diamond_Buyer.AutoSize = true;
-            this.label_Diamond_Buyer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.label_Diamond_Buyer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label_Diamond_Buyer.Enabled = false;
             this.label_Diamond_Buyer.Font = new System.Drawing.Font("B Titr", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label_Diamond_Buyer.ForeColor = System.Drawing.Color.Yellow;
             this.label_Diamond_Buyer.Location = new System.Drawing.Point(50, 291);
             this.label_Diamond_Buyer.Name = "label_Diamond_Buyer";
             this.label_Diamond_Buyer.Size = new System.Drawing.Size(29, 42);
@@ -415,13 +448,15 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label2.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label2.ForeColor = System.Drawing.Color.Yellow;
             this.label2.Location = new System.Drawing.Point(38, 227);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 29);
             this.label2.TabIndex = 325;
             this.label2.Text = "الماس";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // number_Gold_Buyer
             // 
@@ -435,6 +470,7 @@
             this.number_Gold_Buyer.Name = "number_Gold_Buyer";
             this.number_Gold_Buyer.Size = new System.Drawing.Size(42, 20);
             this.number_Gold_Buyer.TabIndex = 324;
+            this.number_Gold_Buyer.ValueChanged += new System.EventHandler(this.number_Gold_Buyer_ValueChanged);
             // 
             // number_Silk_Buyer
             // 
@@ -448,13 +484,15 @@
             this.number_Silk_Buyer.Name = "number_Silk_Buyer";
             this.number_Silk_Buyer.Size = new System.Drawing.Size(42, 20);
             this.number_Silk_Buyer.TabIndex = 323;
+            this.number_Silk_Buyer.ValueChanged += new System.EventHandler(this.number_Silk_Buyer_ValueChanged);
             // 
             // label_Silk_Buyer
             // 
             this.label_Silk_Buyer.AutoSize = true;
-            this.label_Silk_Buyer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.label_Silk_Buyer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label_Silk_Buyer.Enabled = false;
             this.label_Silk_Buyer.Font = new System.Drawing.Font("B Titr", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label_Silk_Buyer.ForeColor = System.Drawing.Color.Yellow;
             this.label_Silk_Buyer.Location = new System.Drawing.Point(208, 291);
             this.label_Silk_Buyer.Name = "label_Silk_Buyer";
             this.label_Silk_Buyer.Size = new System.Drawing.Size(29, 42);
@@ -464,20 +502,23 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label7.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label7.ForeColor = System.Drawing.Color.Yellow;
             this.label7.Location = new System.Drawing.Point(200, 226);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(50, 29);
             this.label7.TabIndex = 321;
             this.label7.Text = "ابریشم";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label_Oil_Buyer
             // 
             this.label_Oil_Buyer.AutoSize = true;
-            this.label_Oil_Buyer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.label_Oil_Buyer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label_Oil_Buyer.Enabled = false;
             this.label_Oil_Buyer.Font = new System.Drawing.Font("B Titr", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label_Oil_Buyer.ForeColor = System.Drawing.Color.Yellow;
             this.label_Oil_Buyer.Location = new System.Drawing.Point(286, 294);
             this.label_Oil_Buyer.Name = "label_Oil_Buyer";
             this.label_Oil_Buyer.Size = new System.Drawing.Size(29, 42);
@@ -487,20 +528,23 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label10.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label10.ForeColor = System.Drawing.Color.Yellow;
             this.label10.Location = new System.Drawing.Point(280, 226);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(35, 29);
             this.label10.TabIndex = 319;
             this.label10.Text = "نفت";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // label_Gold_Buyer
             // 
             this.label_Gold_Buyer.AutoSize = true;
-            this.label_Gold_Buyer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.label_Gold_Buyer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label_Gold_Buyer.Enabled = false;
             this.label_Gold_Buyer.Font = new System.Drawing.Font("B Titr", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label_Gold_Buyer.ForeColor = System.Drawing.Color.Yellow;
             this.label_Gold_Buyer.Location = new System.Drawing.Point(131, 291);
             this.label_Gold_Buyer.Name = "label_Gold_Buyer";
             this.label_Gold_Buyer.Size = new System.Drawing.Size(29, 42);
@@ -510,13 +554,15 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label14.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label14.ForeColor = System.Drawing.Color.Yellow;
             this.label14.Location = new System.Drawing.Point(128, 227);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(33, 29);
             this.label14.TabIndex = 317;
             this.label14.Text = "طلا";
+            this.label14.Click += new System.EventHandler(this.label14_Click);
             // 
             // number_Oil_Buyer
             // 
@@ -530,6 +576,7 @@
             this.number_Oil_Buyer.Name = "number_Oil_Buyer";
             this.number_Oil_Buyer.Size = new System.Drawing.Size(42, 20);
             this.number_Oil_Buyer.TabIndex = 316;
+            this.number_Oil_Buyer.ValueChanged += new System.EventHandler(this.number_Oil_Buyer_ValueChanged);
             // 
             // all_price
             // 
@@ -540,6 +587,7 @@
             this.all_price.TabIndex = 328;
             this.all_price.Text = "****";
             this.all_price.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.all_price.Visible = false;
             // 
             // timer1
             // 
@@ -658,11 +706,19 @@
             this.label16.Size = new System.Drawing.Size(421, 75);
             this.label16.TabIndex = 329;
             // 
+            // timer2
+            // 
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // timer3
+            // 
+            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
+            // 
             // black_market_resources
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(960, 377);
+            this.ClientSize = new System.Drawing.Size(951, 379);
             this.Controls.Add(this.db_price_diamon);
             this.Controls.Add(this.label28);
             this.Controls.Add(this.db_price_silk);
@@ -781,5 +837,7 @@
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Timer timer3;
     }
 }

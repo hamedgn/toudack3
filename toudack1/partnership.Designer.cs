@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -38,13 +39,18 @@
             this.rdb_c = new System.Windows.Forms.RadioButton();
             this.rdb_d = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
-            this.prs_barcode_btn = new System.Windows.Forms.Button();
             this.qus_code_box = new System.Windows.Forms.TextBox();
             this.prs_code_box = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.qus_sell_btn_final = new System.Windows.Forms.Button();
             this.qus_anwser_panel = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.prs_barcode_btn = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -177,15 +183,6 @@
             this.label4.TabIndex = 326;
             this.label4.Text = "کد سوال";
             // 
-            // prs_barcode_btn
-            // 
-            this.prs_barcode_btn.BackgroundImage = global::toudack1.Properties.Resources.barcod;
-            this.prs_barcode_btn.Location = new System.Drawing.Point(128, 67);
-            this.prs_barcode_btn.Name = "prs_barcode_btn";
-            this.prs_barcode_btn.Size = new System.Drawing.Size(32, 32);
-            this.prs_barcode_btn.TabIndex = 329;
-            this.prs_barcode_btn.UseVisualStyleBackColor = true;
-            // 
             // qus_code_box
             // 
             this.qus_code_box.Location = new System.Drawing.Point(166, 173);
@@ -197,24 +194,19 @@
             // 
             this.prs_code_box.Location = new System.Drawing.Point(166, 73);
             this.prs_code_box.Name = "prs_code_box";
+            this.prs_code_box.ReadOnly = true;
             this.prs_code_box.Size = new System.Drawing.Size(62, 20);
             this.prs_code_box.TabIndex = 327;
+            this.prs_code_box.UseSystemPasswordChar = true;
             // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(166, 112);
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(62, 20);
             this.textBox1.TabIndex = 331;
-            // 
-            // button1
-            // 
-            this.button1.BackgroundImage = global::toudack1.Properties.Resources.barcod;
-            this.button1.Location = new System.Drawing.Point(128, 107);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(32, 32);
-            this.button1.TabIndex = 332;
-            this.button1.UseVisualStyleBackColor = true;
+            this.textBox1.UseSystemPasswordChar = true;
             // 
             // qus_sell_btn_final
             // 
@@ -235,11 +227,66 @@
             this.qus_anwser_panel.Size = new System.Drawing.Size(77, 85);
             this.qus_anwser_panel.TabIndex = 334;
             // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::toudack1.Properties.Resources.barcod;
+            this.button1.Location = new System.Drawing.Point(128, 107);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(32, 32);
+            this.button1.TabIndex = 332;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // prs_barcode_btn
+            // 
+            this.prs_barcode_btn.BackgroundImage = global::toudack1.Properties.Resources.barcod;
+            this.prs_barcode_btn.Location = new System.Drawing.Point(128, 67);
+            this.prs_barcode_btn.Name = "prs_barcode_btn";
+            this.prs_barcode_btn.Size = new System.Drawing.Size(32, 32);
+            this.prs_barcode_btn.TabIndex = 329;
+            this.prs_barcode_btn.UseVisualStyleBackColor = true;
+            this.prs_barcode_btn.Click += new System.EventHandler(this.prs_barcode_btn_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // timer2
+            // 
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(34, 37);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(0, 13);
+            this.label6.TabIndex = 335;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(34, 58);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(0, 13);
+            this.label7.TabIndex = 336;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(34, 77);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(0, 13);
+            this.label8.TabIndex = 337;
+            // 
             // partnership
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(386, 450);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.qus_anwser_panel);
             this.Controls.Add(this.qus_sell_btn_final);
             this.Controls.Add(this.button1);
@@ -259,6 +306,7 @@
             this.Controls.Add(this.label5);
             this.Name = "partnership";
             this.Text = "partnership";
+            this.Load += new System.EventHandler(this.partnership_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -283,5 +331,10 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button qus_sell_btn_final;
         private System.Windows.Forms.Panel qus_anwser_panel;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
     }
 }
