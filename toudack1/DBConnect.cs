@@ -152,6 +152,23 @@ namespace toudack1
         public int status_ID;
         #endregion
 
+        #region value alireza
+        public int sumpop;
+        public int countpop;
+        public int sumchild;
+        public int sumyoung;
+        public int sumadult;
+        public int sumold;
+        public int sumsoldier;
+
+        //Public soldier check
+        public int soldiercheck1;
+
+        //check namegroup with numbergroup
+        public int groupnumber1;
+        public string checksena;
+        #endregion
+
         #endregion
 
         #region Hamed code
@@ -1931,6 +1948,203 @@ namespace toudack1
         }
         #endregion
 
+        #region alireza
+
+        public void checksena1(string n1umbergroup)
+        {
+            string query = "SELECT * FROM `groups` WHERE `senf`=" + n1umbergroup;
+            if (this.OpenConnection() == true)
+            { //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader myreader = cmd.ExecuteReader();
+                while (myreader.Read())
+
+                    //   MessageBox.Show((myreader["groupname"]).ToString());
+
+                    checksena = (myreader["groupname"].ToString());
+
+
+                //close connection
+                this.CloseConnection();
+
+
+            }
+        }
+
+        
+        public void warsoldiercheck(string n1umbergroup)
+        {
+            string query = "SELECT * FROM population WHERE numbergroup =" + n1umbergroup;
+            if (this.OpenConnection() == true)
+            { //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader myreader = cmd.ExecuteReader();
+
+
+                while (myreader.Read())
+                    //  MessageBox.Show(myreader[playercode].ToString());
+
+                    numbergroup = Convert.ToInt32(myreader["numbergroup"]);
+
+
+                if (numbergroup == Convert.ToInt32(n1umbergroup))
+                {
+                    soldiercheck1 = Convert.ToInt32(myreader["soldier"]);
+                }
+                else
+                {
+                    this.CloseConnection();
+                    MessageBox.Show("لطفا شماره گروه معتبر وارد کنید.", "خطا!!!!!");
+                }
+
+
+                //close connection
+                this.CloseConnection();
+
+
+            }
+        }
+        //test alireza for pop
+        public void popcount()
+        {
+            int ac;
+            string query = "SELECT COUNT(*) FROM population ";
+            if (this.OpenConnection() == true)
+            { //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                // MySqlDataReader myreader = cmd.ExecuteReader();
+                ac = Convert.ToInt32((cmd.ExecuteScalar()));
+
+
+                countpop = ac;
+
+                this.CloseConnection();
+
+
+
+
+
+                //close connection
+
+
+
+            }
+        }
+
+
+        public void sumpopnumbergroup(int i)
+        {
+
+
+
+            string query = "SELECT * FROM `population` WHERE numbergroup=" + i;
+
+            if (this.OpenConnection() == true)
+            {
+
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader myreader = cmd.ExecuteReader();
+                while (myreader.Read())
+                {
+                    sumadult = Convert.ToInt32(myreader["adult"]);
+                    sumsoldier = Convert.ToInt32(myreader["soldier"]);
+                    sumyoung = Convert.ToInt32(myreader["young"]);
+                    sumold = Convert.ToInt32(myreader["old"]);
+                    sumchild = Convert.ToInt32(myreader["child"]);
+                    sumpop = sumadult + sumsoldier + sumyoung + sumold + sumchild;
+
+
+
+                }
+                //MessageBox.Show(myreader[playercode].ToString());
+
+                //close connection
+                this.CloseConnection();
+
+
+            }
+
+        }
+
+
+        public void updatesumpop(int amount, int playercode)
+        {
+            string query = "UPDATE population SET `sum`=" + amount + " WHERE numbergroup=" + playercode;
+
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                //create mysql command
+                MySqlCommand cmd = new MySqlCommand();
+                //Assign the query using CommandText
+                cmd.CommandText = query;
+                //Assign the connection using Connection
+                cmd.Connection = connection;
+
+                //Execute query
+                cmd.ExecuteNonQuery();
+
+                //close connection
+                this.CloseConnection();
+            }
+        }
+
+
+        public void updatesoldier(int amount, int playercode)
+        {
+            string query = "UPDATE population SET `soldier`=" + amount + " WHERE numbergroup=" + playercode;
+
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                //create mysql command
+                MySqlCommand cmd = new MySqlCommand();
+                //Assign the query using CommandText
+                cmd.CommandText = query;
+                //Assign the connection using Connection
+                cmd.Connection = connection;
+
+                //Execute query
+                cmd.ExecuteNonQuery();
+
+                //close connection
+                this.CloseConnection();
+            }
+        }
+
+        public void checknumbergroup(string namegroup)
+        {
+
+            string checknumber = namegroup;
+            switch (checknumber)
+            {
+                case "ali":
+                    groupnumber1 = 101;
+
+
+                    break;
+                case "reza":
+                    groupnumber1 = 102;
+                    break;
+                case "alireza":
+                    groupnumber1 = 103;
+                    break;
+                case "vahid":
+                    groupnumber1 = 104;
+
+                    break;
+                case "hasan":
+                    groupnumber1 = 105;
+                    break;
+
+
+                default:
+                    MessageBox.Show(".لطفا نام گروه صحیح را وارد نمایید", "خطا!!!!!");
+                    break;
+            }
+        }
+        #endregion
         #endregion
     }
 }

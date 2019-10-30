@@ -116,12 +116,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="black_market_factory.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="black_market_factory.Designer.cs">
-      <DependentUpon>black_market_factory.cs</DependentUpon>
-    </Compile>
     <Compile Include="black_market_resources.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +147,12 @@
       <DependentUpon>Board_Silk.cs</DependentUpon>
     </Compile>
     <Compile Include="DBConnect.cs" />
+    <Compile Include="display1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="display1.Designer.cs">
+      <DependentUpon>display1.cs</DependentUpon>
+    </Compile>
     <Compile Include="dolaty_market_factory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,6 +182,12 @@
     </Compile>
     <Compile Include="LOCKSCEREEN.Designer.cs">
       <DependentUpon>LOCKSCEREEN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="partnership.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="partnership.Designer.cs">
+      <DependentUpon>partnership.cs</DependentUpon>
     </Compile>
     <Compile Include="population.cs">
       <SubType>Form</SubType>
@@ -218,6 +224,39 @@
     <Compile Include="terrorist.Designer.cs">
       <DependentUpon>terrorist.cs</DependentUpon>
     </Compile>
+    <Compile Include="testDataSet.cs">
+      <DependentUpon>testDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="testDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>testDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="testDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>testDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="testDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>testDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="testDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>testDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="testDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>testDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="testDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>testDataSet5.xsd</DependentUpon>
+    </Compile>
     <Compile Include="TIMEADMIN.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -229,6 +268,12 @@
     </Compile>
     <Compile Include="TIMEUSER.Designer.cs">
       <DependentUpon>TIMEUSER.cs</DependentUpon>
+    </Compile>
+    <Compile Include="war.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="war.Designer.cs">
+      <DependentUpon>war.cs</DependentUpon>
     </Compile>
     <Compile Include="wisposh.cs">
       <SubType>Form</SubType>
@@ -247,9 +292,6 @@
     <EmbeddedResource Include="barcode.resx">
       <DependentUpon>barcode.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="black_market_factory.resx">
-      <DependentUpon>black_market_factory.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="black_market_resources.resx">
       <DependentUpon>black_market_resources.cs</DependentUpon>
     </EmbeddedResource>
@@ -264,6 +306,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Board_Silk.resx">
       <DependentUpon>Board_Silk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="display1.resx">
+      <DependentUpon>display1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="dolaty_market_factory.resx">
       <DependentUpon>dolaty_market_factory.cs</DependentUpon>
@@ -298,6 +343,9 @@
     <EmbeddedResource Include="TIMEUSER.resx">
       <DependentUpon>TIMEUSER.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="war.resx">
+      <DependentUpon>war.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="wisposh.resx">
       <DependentUpon>wisposh.cs</DependentUpon>
     </EmbeddedResource>
@@ -320,6 +368,72 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="testDataSet.xsc">
+      <DependentUpon>testDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="testDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>testDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="testDataSet.xss">
+      <DependentUpon>testDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="testDataSet1.xsc">
+      <DependentUpon>testDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="testDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>testDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="testDataSet1.xss">
+      <DependentUpon>testDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="testDataSet2.xsc">
+      <DependentUpon>testDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="testDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>testDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="testDataSet2.xss">
+      <DependentUpon>testDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="testDataSet3.xsc">
+      <DependentUpon>testDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="testDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>testDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="testDataSet3.xss">
+      <DependentUpon>testDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="testDataSet4.xsc">
+      <DependentUpon>testDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="testDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>testDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="testDataSet4.xss">
+      <DependentUpon>testDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="testDataSet5.xsc">
+      <DependentUpon>testDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="testDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>testDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="testDataSet5.xss">
+      <DependentUpon>testDataSet5.xsd</DependentUpon>
+    </None>
     <None Include="toudack1_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

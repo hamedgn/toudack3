@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="testDataSet4" targetNamespace="http://tempuri.org/testDataSet4.xsd" xmlns:mstns="http://tempuri.org/testDataSet4.xsd" xmlns="http://tempuri.org/testDataSet4.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="testConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="testConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.toudack1.Properties.Settings.GlobalReference.Default.testConnectionString" Provider="MySql.Data.MySqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="populationTableAdapter" GeneratorDataComponentClassName="populationTableAdapter" Name="population" UserDataComponentName="populationTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="testConnectionString (Settings)" DbObjectName="test.population" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `sum` FROM `population`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="sum" DataSetColumn="sum" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="testDataSet4" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="testDataSet4" msprop:Generator_UserDSName="testDataSet4">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="population" msprop:Generator_TableClassName="populationDataTable" msprop:Generator_TableVarName="tablepopulation" msprop:Generator_TablePropName="population" msprop:Generator_RowDeletingName="populationRowDeleting" msprop:Generator_RowChangingName="populationRowChanging" msprop:Generator_RowEvHandlerName="populationRowChangeEventHandler" msprop:Generator_RowDeletedName="populationRowDeleted" msprop:Generator_UserTableName="population" msprop:Generator_RowChangedName="populationRowChanged" msprop:Generator_RowEvArgName="populationRowChangeEvent" msprop:Generator_RowClassName="populationRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="sum" msprop:Generator_ColumnVarNameInTable="columnsum" msprop:Generator_ColumnPropNameInRow="sum" msprop:Generator_ColumnPropNameInTable="sumColumn" msprop:Generator_UserColumnName="sum" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
