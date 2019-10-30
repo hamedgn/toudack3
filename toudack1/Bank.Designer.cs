@@ -183,7 +183,7 @@
             // 
             // clear_from_btn
             // 
-            this.clear_from_btn.Location = new System.Drawing.Point(12, 5);
+            this.clear_from_btn.Location = new System.Drawing.Point(12, 4);
             this.clear_from_btn.Name = "clear_from_btn";
             this.clear_from_btn.Size = new System.Drawing.Size(75, 23);
             this.clear_from_btn.TabIndex = 18;
@@ -436,7 +436,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(342, 12);
+            this.label1.Location = new System.Drawing.Point(238, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 40;
@@ -444,7 +444,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(286, 12);
+            this.label2.Location = new System.Drawing.Point(238, 29);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(0, 13);
             this.label2.TabIndex = 41;
@@ -452,7 +452,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(241, 11);
+            this.label3.Location = new System.Drawing.Point(238, 51);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(0, 13);
             this.label3.TabIndex = 42;
