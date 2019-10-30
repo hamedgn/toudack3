@@ -338,6 +338,53 @@ namespace toudack1
                 txt.Write("");
                 txt.Close();
                 timer2.Enabled = false;
+                int content1 = Convert.ToInt32(content.Substring(4, 1));
+                dbconnect.groupname_GET(Convert.ToInt32(content.Remove(3)));
+
+                if (content1 == 1)
+                {
+                    label1.Text = "شهریار";
+                    label2.Text = dbconnect.groupname;
+                    label7.Text = dbconnect.pr1;
+                    textBox_seller.Text = "";
+                    MessageBox.Show("امور خارجی علوم مراجعه کند ");
+
+                }
+                else
+                if (content1 == 2)
+                {
+                    label1.Text = "امور خارجی";
+                    label2.Text = dbconnect.groupname;
+                    label7.Text = dbconnect.pr2;
+                    
+                }
+                else
+                if (content1 == 3)
+                {
+                    label1.Text = "امور داخلی";
+                    label2.Text = dbconnect.groupname;
+                    label7.Text = dbconnect.pr3;
+                    textBox_seller.Text = "";
+                    MessageBox.Show("امور خارجی علوم مراجعه کند ");
+                }
+                else
+                if (content1 == 4)
+                {
+                    label1.Text = "وزیر علوم";
+                    label2.Text = dbconnect.groupname;
+                    label7.Text = dbconnect.pr4;
+                    textBox_seller.Text = "";
+                    MessageBox.Show("امور خارجی علوم مراجعه کند ");
+                }
+                else
+                if (content1 == 5)
+                {
+                    label1.Text = "سخنگو دولت";
+                    label2.Text = dbconnect.groupname;
+                    label7.Text = dbconnect.pr5;
+                    textBox_seller.Text = "";
+                    MessageBox.Show("امور خارجی علوم مراجعه کند ");
+                }
             }
             catch
             {
@@ -355,6 +402,53 @@ namespace toudack1
                 txt.Write("");
                 txt.Close();
                 timer3.Enabled = false;
+                int content1 = Convert.ToInt32(content.Substring(4, 1));
+                dbconnect.groupname_GET(Convert.ToInt32(content.Remove(3)));
+
+                if (content1 == 1)
+                {
+                    label1.Text = "شهریار";
+                    label2.Text = dbconnect.groupname;
+                    label7.Text = dbconnect.pr1;
+                    textBox_Buyer.Text = "";
+                    MessageBox.Show("امور خارجی علوم مراجعه کند ");
+
+                }
+                else
+                if (content1 == 2)
+                {
+                    label1.Text = "امور خارجی";
+                    label2.Text = dbconnect.groupname;
+                    label7.Text = dbconnect.pr2;
+
+                }
+                else
+                if (content1 == 3)
+                {
+                    label1.Text = "امور داخلی";
+                    label2.Text = dbconnect.groupname;
+                    label7.Text = dbconnect.pr3;
+                    textBox_Buyer.Text = "";
+                    MessageBox.Show("امور خارجی علوم مراجعه کند ");
+                }
+                else
+                if (content1 == 4)
+                {
+                    label1.Text = "وزیر علوم";
+                    label2.Text = dbconnect.groupname;
+                    label7.Text = dbconnect.pr4;
+                    textBox_Buyer.Text = "";
+                    MessageBox.Show("امور خارجی علوم مراجعه کند ");
+                }
+                else
+                if (content1 == 5)
+                {
+                    label1.Text = "سخنگو دولت";
+                    label2.Text = dbconnect.groupname;
+                    label7.Text = dbconnect.pr5;
+                    textBox_Buyer.Text = "";
+                    MessageBox.Show("امور خارجی علوم مراجعه کند ");
+                }
             }
             catch
             {
