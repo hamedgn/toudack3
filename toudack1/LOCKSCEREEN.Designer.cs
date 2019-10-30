@@ -37,8 +37,10 @@
             this.BackgroundImage = global::toudack1.Properties.Resources.icons8_lock_512;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ControlBox = false;
             this.DoubleBuffered = true;
             this.Name = "LOCKSCEREEN";
+            this.ShowInTaskbar = false;
             this.Text = "LOCKSCREEN";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);

@@ -427,6 +427,7 @@ namespace toudack1
                     label1.Text = "امور خارجی";
                     label2.Text = dbConnect.groupname;
                     label3.Text = dbConnect.pr2;
+                    abort_clear_from_Click(sender, e);
                     MessageBox.Show("وزیر علوم مراجعه کند ");
                 }
                 else
@@ -435,6 +436,7 @@ namespace toudack1
                     label1.Text = "امور داخلی";
                     label2.Text = dbConnect.groupname;
                     label3.Text = dbConnect.pr3;
+                    abort_clear_from_Click(sender, e);
                     MessageBox.Show("وزیر علوم مراجعه کند ");
                 }
                 else
@@ -450,6 +452,7 @@ namespace toudack1
                     label1.Text = "سخنگو دولت";
                     label2.Text = dbConnect.groupname;
                     label3.Text = dbConnect.pr5;
+                    abort_clear_from_Click(sender, e);
                     MessageBox.Show("وزیر علوم مراجعه کند ");
                 }
             }

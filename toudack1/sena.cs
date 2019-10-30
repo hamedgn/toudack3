@@ -6,6 +6,7 @@ namespace toudack1
 {
     public partial class sena : Form
     {
+        public bool ok;
         barcode barcode = new barcode();
         private DBConnect dbconnect;
         int sena_number_mode = 0;
@@ -815,6 +816,11 @@ namespace toudack1
                 txt.Write("");
                 txt.Close();
                 timer_rahkar.Enabled = false;
+                bar_ch(content);
+                if (ok == false)
+                {
+                    Approach_code.Text = "";
+                }
             }
             catch
             {
@@ -852,6 +858,11 @@ namespace toudack1
                 txt.Write("");
                 txt.Close();
                 timer_unistall.Enabled = false;
+                bar_ch(content);
+                if (ok == false)
+                {
+                    Uninstall_code.Text = "";
+                }
             }
             catch
             {
@@ -889,6 +900,11 @@ namespace toudack1
                 txt.Write("");
                 txt.Close();
                 timer_install.Enabled = false;
+                bar_ch(content);
+                if (ok == false)
+                {
+                    Installation_code.Text = "";
+                }
             }
             catch
             {
@@ -926,6 +942,11 @@ namespace toudack1
                 txt.Write("");
                 txt.Close();
                 timer_tahrim.Enabled = false;
+                bar_ch(content);
+                if (ok == false)
+                {
+                    text_sanction.Text = "";
+                }
             }
             catch
             {
@@ -963,6 +984,11 @@ namespace toudack1
                 txt.Write("");
                 txt.Close();
                 timer_inv1.Enabled = false;
+                bar_ch(content);
+                if (ok == false)
+                {
+                    textBox9_investment.Text = "";
+                }
             }
             catch
             {
@@ -1160,6 +1186,11 @@ namespace toudack1
                 txt.Write("");
                 txt.Close();
                 timer_inv2.Enabled = false;
+                bar_ch(content);
+                if (ok == false)
+                {
+                    textBox10_investment.Text = "";
+                }
             }
             catch
             {
@@ -1177,6 +1208,11 @@ namespace toudack1
                 txt.Write("");
                 txt.Close();
                 timer_inv3.Enabled = false;
+                bar_ch(content);
+                if (ok == false)
+                {
+                    textBox11_investment.Text = "";
+                }
             }
             catch
             {
@@ -1194,6 +1230,11 @@ namespace toudack1
                 txt.Write("");
                 txt.Close();
                 timer_inv4.Enabled = false;
+                bar_ch(content);
+                if (ok == false)
+                {
+                    textBox12_investment.Text = "";
+                }
             }
             catch
             {
@@ -1211,6 +1252,11 @@ namespace toudack1
                 txt.Write("");
                 txt.Close();
                 timer_inv5.Enabled = false;
+                bar_ch(content);
+                if (ok == false)
+                {
+                    textBox13_investment.Text = "";
+                }
             }
             catch
             {
@@ -1228,6 +1274,11 @@ namespace toudack1
                 txt.Write("");
                 txt.Close();
                 timer_inv6.Enabled = false;
+                bar_ch(content);
+                if (ok == false)
+                {
+                    textBox14_investment.Text = "";
+                }
             }
             catch
             {
@@ -1245,6 +1296,11 @@ namespace toudack1
                 txt.Write("");
                 txt.Close();
                 timer_inv7.Enabled = false;
+                bar_ch(content);
+                if (ok == false)
+                {
+                    textBox15_investment.Text = "";
+                }
             }
             catch
             {
@@ -1262,6 +1318,11 @@ namespace toudack1
                 txt.Write("");
                 txt.Close();
                 timer_inv8.Enabled = false;
+                bar_ch(content);
+                if (ok == false)
+                {
+                    textBox16_investment.Text = "";
+                }
             }
             catch
             {
@@ -1279,6 +1340,11 @@ namespace toudack1
                 txt.Write("");
                 txt.Close();
                 timer_inv9.Enabled = false;
+                bar_ch(content);
+                if (ok == false)
+                {
+                    textBox17_investment.Text = "";
+                }
             }
             catch
             {
@@ -1296,6 +1362,11 @@ namespace toudack1
                 txt.Write("");
                 txt.Close();
                 timer_inv10.Enabled = false;
+                bar_ch(content);
+                if (ok == false)
+                {
+                    textBox18_investment.Text = "";
+                }
             }
             catch
             {
@@ -1373,6 +1444,63 @@ namespace toudack1
             Change_industry_price.Maximum = Convert.ToInt32(label_Industry_seller.Text)+3;
             Change_industry_price.Minimum = Convert.ToInt32(label_Industry_seller.Text)-3;
             
+        }
+
+        public void bar_ch(string content)
+        {
+            int content1 = Convert.ToInt32(content.Substring(4, 1));
+            dbconnect.groupname_GET(Convert.ToInt32(content.Remove(3)));
+
+            if (content1 == 1)
+            {
+                label36.Text = "شهریار";
+                label39.Text = dbconnect.groupname;
+                label40.Text = dbconnect.pr1;
+                ok = false;
+                MessageBox.Show("وزیر علوم مراجعه کند ");
+
+            }
+            else
+            if (content1 == 2)
+            {
+                label36.Text = "امور خارجی";
+                label39.Text = dbconnect.groupname;
+                label40.Text = dbconnect.pr2;
+                ok = false;
+                MessageBox.Show("وزیر علوم مراجعه کند ");
+            }
+            else
+            if (content1 == 3)
+            {
+                label36.Text = "امور داخلی";
+                label39.Text = dbconnect.groupname;
+                label40.Text = dbconnect.pr3;
+                ok = false;
+                MessageBox.Show("وزیر علوم مراجعه کند ");
+            }
+            else
+            if (content1 == 4)
+            {
+                label36.Text = "وزیر علوم";
+                label39.Text = dbconnect.groupname;
+                label40.Text = dbconnect.pr4;
+                ok = false;
+                MessageBox.Show("وزیر علوم مراجعه کند ");
+            }
+            else
+            if (content1 == 5)
+            {
+                label36.Text = "سخنگو دولت";
+                label39.Text = dbconnect.groupname;
+                label40.Text = dbconnect.pr5;
+                ok = true;
+                
+            }
+        }
+        TIMEUSER user = new TIMEUSER();
+        private void sena_Load(object sender, EventArgs e)
+        {
+            user.Show();
         }
     }
 }

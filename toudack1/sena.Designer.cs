@@ -151,6 +151,9 @@
             this.timer_inv8 = new System.Windows.Forms.Timer(this.components);
             this.timer_inv9 = new System.Windows.Forms.Timer(this.components);
             this.timer_inv10 = new System.Windows.Forms.Timer(this.components);
+            this.label36 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Change_service_price)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Change_education_price)).BeginInit();
@@ -1449,11 +1452,38 @@
             this.timer_inv10.Interval = 1000;
             this.timer_inv10.Tick += new System.EventHandler(this.timer_inv10_Tick);
             // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(483, 425);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(0, 13);
+            this.label36.TabIndex = 343;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(483, 442);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(0, 13);
+            this.label39.TabIndex = 344;
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(483, 458);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(0, 13);
+            this.label40.TabIndex = 345;
+            // 
             // sena
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 518);
+            this.Controls.Add(this.label40);
+            this.Controls.Add(this.label39);
+            this.Controls.Add(this.label36);
             this.Controls.Add(this.R_not_Sanctions);
             this.Controls.Add(this.R_Sanctions);
             this.Controls.Add(this.label_tahrim);
@@ -1558,6 +1588,7 @@
             this.Controls.Add(this.label37);
             this.Name = "sena";
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.sena_Load);
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Change_service_price)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Change_education_price)).EndInit();
@@ -1693,5 +1724,8 @@
         private System.Windows.Forms.Timer timer_inv8;
         private System.Windows.Forms.Timer timer_inv9;
         private System.Windows.Forms.Timer timer_inv10;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label40;
     }
 }

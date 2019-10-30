@@ -88,6 +88,7 @@
             this.MinimizeBox = false;
             this.Name = "TIMEUSER";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.ShowInTaskbar = false;
             this.Text = "TIME";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.TIME_Load);
