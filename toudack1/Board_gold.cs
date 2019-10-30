@@ -231,6 +231,53 @@ namespace toudack1
                 txt.Write("");
                 txt.Close();
                 timer2.Enabled = false;
+                int content1 = Convert.ToInt32(content.Substring(4, 1));
+                dbconnect.groupname_GET(Convert.ToInt32(content.Remove(3)));
+
+                if (content1 == 1)
+                {
+                    label3.Text = "شهریار";
+                    label5.Text = dbconnect.groupname;
+                    label7.Text = dbconnect.pr1;
+                    textBox_seller.Text = "";
+                    MessageBox.Show("امور خارجی علوم مراجعه کند ");
+
+                }
+                else
+                if (content1 == 2)
+                {
+                    label3.Text = "امور خارجی";
+                    label5.Text = dbconnect.groupname;
+                    label7.Text = dbconnect.pr2;
+
+                }
+                else
+                if (content1 == 3)
+                {
+                    label3.Text = "امور داخلی";
+                    label5.Text = dbconnect.groupname;
+                    label7.Text = dbconnect.pr3;
+                    textBox_seller.Text = "";
+                    MessageBox.Show("امور خارجی علوم مراجعه کند ");
+                }
+                else
+                if (content1 == 4)
+                {
+                    label3.Text = "وزیر علوم";
+                    label5.Text = dbconnect.groupname;
+                    label7.Text = dbconnect.pr4;
+                    textBox_seller.Text = "";
+                    MessageBox.Show("امور خارجی علوم مراجعه کند ");
+                }
+                else
+                if (content1 == 5)
+                {
+                    label3.Text = "سخنگو دولت";
+                    label5.Text = dbconnect.groupname;
+                    label7.Text = dbconnect.pr5;
+                    textBox_seller.Text = "";
+                    MessageBox.Show("امور خارجی علوم مراجعه کند ");
+                }
             }
             catch
             {
@@ -248,6 +295,53 @@ namespace toudack1
                 txt.Write("");
                 txt.Close();
                 timer3.Enabled = false;
+                int content1 = Convert.ToInt32(content.Substring(4, 1));
+                dbconnect.groupname_GET(Convert.ToInt32(content.Remove(3)));
+
+                if (content1 == 1)
+                {
+                    label3.Text = "شهریار";
+                    label5.Text = dbconnect.groupname;
+                    label7.Text = dbconnect.pr1;
+                    textBox_Buyer.Text = "";
+                    MessageBox.Show("امور خارجی علوم مراجعه کند ");
+
+                }
+                else
+                if (content1 == 2)
+                {
+                    label3.Text = "امور خارجی";
+                    label5.Text = dbconnect.groupname;
+                    label7.Text = dbconnect.pr2;
+
+                }
+                else
+                if (content1 == 3)
+                {
+                    label3.Text = "امور داخلی";
+                    label5.Text = dbconnect.groupname;
+                    label7.Text = dbconnect.pr3;
+                    textBox_Buyer.Text = "";
+                    MessageBox.Show("امور خارجی علوم مراجعه کند ");
+                }
+                else
+                if (content1 == 4)
+                {
+                    label3.Text = "وزیر علوم";
+                    label5.Text = dbconnect.groupname;
+                    label7.Text = dbconnect.pr4;
+                    textBox_Buyer.Text = "";
+                    MessageBox.Show("امور خارجی علوم مراجعه کند ");
+                }
+                else
+                if (content1 == 5)
+                {
+                    label3.Text = "سخنگو دولت";
+                    label5.Text = dbconnect.groupname;
+                    label7.Text = dbconnect.pr5;
+                    textBox_Buyer.Text = "";
+                    MessageBox.Show("امور خارجی علوم مراجعه کند ");
+                }
             }
             catch
             {

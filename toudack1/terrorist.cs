@@ -61,7 +61,7 @@ namespace toudack1
         {
 
             axWindowsMediaPlayer1.Visible = true;
-            String s = "C:\\toudack\\toudack1\\toudack1\\Resources\\VID_20191029_120232_503.mp4";
+            String s = ".//Resources\\VID_20191029_120232_503.mp4";
             axWindowsMediaPlayer1.URL = s;
             axWindowsMediaPlayer1.Ctlcontrols.play();
             axWindowsMediaPlayer1.uiMode = "none";
