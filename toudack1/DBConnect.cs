@@ -186,11 +186,11 @@ namespace toudack1
         //Initialize values
         private void Initialize()
         {
-            server = "127.0.0.1";
+            server = "94.182.191.138";
             port = "3306";
             database = "test";
-            uid = "root";
-            password = "";
+            uid = "hamedgn";
+            password = "shaverma213";
             string connectionString;
             connectionString = "SERVER=" + server + ";" + "PORT=" + port + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
 

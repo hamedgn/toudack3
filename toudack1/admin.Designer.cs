@@ -40,10 +40,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button_Buyer = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer_factory1 = new System.Windows.Forms.Timer(this.components);
+            this.timer_factory2 = new System.Windows.Forms.Timer(this.components);
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -169,10 +171,15 @@
             this.textBox2.UseSystemPasswordChar = true;
             this.textBox2.Visible = false;
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 10000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
+            // 
             // pictureBox2
             // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Red;
             this.pictureBox2.Enabled = false;
-            //this.pictureBox2.Image = global::toudack1.Properties.Resources.download2;
             this.pictureBox2.Location = new System.Drawing.Point(-2, 363);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(51, 50);
@@ -184,7 +191,7 @@
             // 
             // pictureBox1
             // 
-            //this.pictureBox1.Image = global::toudack1.Properties.Resources.WX_circle_red;
+            this.pictureBox1.BackColor = System.Drawing.Color.Lime;
             this.pictureBox1.Location = new System.Drawing.Point(-2, 363);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(51, 50);
@@ -203,10 +210,16 @@
             this.button_Buyer.TabIndex = 312;
             this.button_Buyer.UseVisualStyleBackColor = true;
             // 
-            // timer1
+            // timer_factory1
             // 
-            this.timer1.Interval = 10000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
+            this.timer_factory1.Enabled = true;
+            this.timer_factory1.Interval = 1000;
+            this.timer_factory1.Tick += new System.EventHandler(this.timer_factory_Tick);
+            // 
+            // timer_factory2
+            // 
+            this.timer_factory2.Interval = 1000;
+            this.timer_factory2.Tick += new System.EventHandler(this.timer_factory2_Tick);
             // 
             // admin
             // 
@@ -252,5 +265,7 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timer_factory1;
+        private System.Windows.Forms.Timer timer_factory2;
     }
 }

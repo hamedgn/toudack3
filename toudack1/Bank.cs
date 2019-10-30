@@ -223,7 +223,7 @@ namespace toudack1
                 double w = 1; 
                 for (int z = 0; z < i; z++)
                 {
-                    w = w * 1.02;
+                    w = w * 1.06;
                 }
                 loans_pay_loans_left_box.Text = Convert.ToString(dbConnect.loans);
                 loans_pay_num_Installments_box.Text = Convert.ToString(dbConnect.month);

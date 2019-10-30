@@ -15,18 +15,18 @@ namespace toudack1
         private DBConnect dbconnect;
         public admin()
         {
-
-         
+            InitializeComponent();
+            dbconnect = new DBConnect();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
 
         }
-
+        TIMEADMIN TIMEADMIN = new TIMEADMIN();
         private void admin_Load(object sender, EventArgs e)
         {
-
+            TIMEADMIN.Show();
             for (int i = 1; i <= 28; i++)
             {
 
@@ -169,6 +169,36 @@ namespace toudack1
                 }
 
 
+            }
+        }
+
+        private void timer_factory_Tick(object sender, EventArgs e)
+        {
+            dbconnect.TIME_GET_n();
+            if (dbconnect.m == 0)
+            {
+                timer_factory2.Enabled = true;
+                timer_factory1.Enabled = false;
+                for(int i = 101; i < 129; i++)
+                {
+                    dbconnect.factory_en_code_public(i.ToString());
+                    dbconnect.factory_en_updown("services", 0, i.ToString());
+                    dbconnect.factory_en_updown("industry", 0, i.ToString());
+                    dbconnect.factory_en_updown("education", 0, i.ToString());
+                    dbconnect.factory_en_updown("weapons", 0, i.ToString());
+                }
+                
+
+            }
+        }
+
+        private void timer_factory2_Tick(object sender, EventArgs e)
+        {
+            dbconnect.TIME_GET_n();
+            if (dbconnect.m == 1)
+            {
+                timer_factory1.Enabled = true;
+                timer_factory2.Enabled = false;
             }
         }
     }
