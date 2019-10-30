@@ -302,6 +302,7 @@
             this.Controls.Add(this.label38);
             this.Name = "Board_Silk";
             this.Text = "Board_Silk";
+            this.Load += new System.EventHandler(this.Board_Silk_Load);
             ((System.ComponentModel.ISupportInitialize)(this.domainUpDown_Board_Silk_seller)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.domainUpDown_Board_Silk_pcs)).EndInit();
             this.ResumeLayout(false);

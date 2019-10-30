@@ -305,6 +305,7 @@
             this.Controls.Add(this.label38);
             this.Name = "Board_Diamond";
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.Board_Diamond_Load);
             ((System.ComponentModel.ISupportInitialize)(this.domainUpDown_Board_Diamond_seller)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.domainUpDown_Board_Diamond_pcs)).EndInit();
             this.ResumeLayout(false);

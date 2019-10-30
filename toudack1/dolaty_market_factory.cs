@@ -58,7 +58,7 @@ namespace toudack1
                                     dbconnect.Fundsplus(dbconnect.funds, value, textBox_seller.Text);
                                     // MessageBox.Show("ok1");
                                     dbconnect.factory_box_code_check(textBox_Buyer.Text);
-                                    dbconnect.factory_box_plus(dbconnect.factory_box_Industry_out, Convert.ToInt32(Price_Industry_seller.Value), textBox_Buyer.Text, "industry_out");
+                                    dbconnect.factory_box_plus(dbconnect.factory_box_Industry, Convert.ToInt32(Price_Industry_seller.Value), textBox_Buyer.Text, "industry");
 
                                     MessageBox.Show("عملیات انجام شد");
                                     clearall();
@@ -90,7 +90,7 @@ namespace toudack1
                                     dbconnect.Fundsplus(dbconnect.funds, value, textBox_seller.Text);
                                     // MessageBox.Show("ok1");
                                     dbconnect.factory_box_code_check(textBox_Buyer.Text);
-                                    dbconnect.factory_box_plus(dbconnect.factory_box_Education_out, Convert.ToInt32(Price_Education_seller.Value), textBox_Buyer.Text, "education_out");
+                                    dbconnect.factory_box_plus(dbconnect.factory_box_Education, Convert.ToInt32(Price_Education_seller.Value), textBox_Buyer.Text, "education");
 
                                     MessageBox.Show("عملیات انجام شد");
                                     clearall();
@@ -122,7 +122,7 @@ namespace toudack1
                                     dbconnect.Fundsplus(dbconnect.funds, value, textBox_seller.Text);
                                     // MessageBox.Show("ok1");
                                     dbconnect.factory_box_code_check(textBox_Buyer.Text);
-                                    dbconnect.factory_box_plus(dbconnect.factory_box_Weapons_out, Convert.ToInt32(Price_Weapons_seller.Value), textBox_Buyer.Text, "weapons_out");
+                                    dbconnect.factory_box_plus(dbconnect.factory_box_Weapons, Convert.ToInt32(Price_Weapons_seller.Value), textBox_Buyer.Text, "weapons");
 
                                     MessageBox.Show("عملیات انجام شد");
                                     clearall();
@@ -154,7 +154,7 @@ namespace toudack1
                                     dbconnect.Fundsplus(dbconnect.funds, value, textBox_seller.Text);
                                     // MessageBox.Show("ok1");
                                     dbconnect.factory_box_code_check(textBox_Buyer.Text);
-                                    dbconnect.factory_box_plus(dbconnect.factory_box_Services_out, Convert.ToInt32(Price_Services_seller.Value), textBox_Buyer.Text, "services_out");
+                                    dbconnect.factory_box_plus(dbconnect.factory_box_Services, Convert.ToInt32(Price_Services_seller.Value), textBox_Buyer.Text, "services");
 
                                     MessageBox.Show("عملیات انجام شد");
                                     clearall();
@@ -454,6 +454,13 @@ namespace toudack1
             {
 
             }
+        }
+        TIMEUSER user = new TIMEUSER();
+        private void dolaty_market_factory_Load(object sender, EventArgs e)
+        {
+            user.Close();
+            textBox_seller.Enabled = true;
+            textBox_Buyer.Enabled = true;
         }
     }
 }

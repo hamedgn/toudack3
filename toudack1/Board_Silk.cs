@@ -311,5 +311,10 @@ namespace toudack1
                 barcode.Show();
             }
         }
+        TIMEUSER user = new TIMEUSER();
+        private void Board_Silk_Load(object sender, EventArgs e)
+        {
+            user.Show();
+        }
     }
 }

@@ -191,7 +191,10 @@ namespace toudack1
                 button5.Enabled = false;
             }
         }
-
-       
+        TIMEUSER user = new TIMEUSER();
+        private void senfboss_Load(object sender, EventArgs e)
+        {
+            user.Show();
+        }
     }
 }

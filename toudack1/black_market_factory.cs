@@ -524,5 +524,10 @@ namespace toudack1
         {
             all_price.Text =((number_Industry_buy.Value) * (dbconnect.price_industry + 2)).ToString();
         }
+        TIMEUSER user = new TIMEUSER();
+        private void black_market_factory_Load(object sender, EventArgs e)
+        {
+            user.Show();
+        }
     }
 }

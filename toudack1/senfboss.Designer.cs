@@ -219,6 +219,7 @@
             this.Controls.Add(this.type_senf);
             this.Name = "senfboss";
             this.Text = "senfboss";
+            this.Load += new System.EventHandler(this.senfboss_Load);
             ((System.ComponentModel.ISupportInitialize)(this.price_set)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

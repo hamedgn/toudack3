@@ -305,6 +305,7 @@
             this.Controls.Add(this.label38);
             this.Name = "Board_gold";
             this.Text = "ss";
+            this.Load += new System.EventHandler(this.Board_gold_Load);
             ((System.ComponentModel.ISupportInitialize)(this.domainUpDown_Board_gold_pcs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.domainUpDown_Board_gold_seller)).EndInit();
             this.ResumeLayout(false);

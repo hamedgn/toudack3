@@ -44,10 +44,8 @@
             this.label_Industry_buy = new System.Windows.Forms.Label();
             this.label_i = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button_seller = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.button_Buyer = new System.Windows.Forms.Button();
             this.label_Weapons_buy = new System.Windows.Forms.Label();
             this.label_w = new System.Windows.Forms.Label();
             this.label_Weapons_seller = new System.Windows.Forms.Label();
@@ -82,6 +80,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.button_Buyer = new System.Windows.Forms.Button();
+            this.button_seller = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.number_Industry_seller)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.number_Weapons_seller)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.number_Services_seller)).BeginInit();
@@ -286,18 +286,6 @@
             this.label3.TabIndex = 246;
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // button_seller
-            // 
-            this.button_seller.Enabled = false;
-            this.button_seller.Font = new System.Drawing.Font("B Titr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.button_seller.Image = global::toudack1.Properties.Resources.barcod;
-            this.button_seller.Location = new System.Drawing.Point(634, 185);
-            this.button_seller.Name = "button_seller";
-            this.button_seller.Size = new System.Drawing.Size(60, 31);
-            this.button_seller.TabIndex = 222;
-            this.button_seller.UseVisualStyleBackColor = true;
-            this.button_seller.Click += new System.EventHandler(this.button_seller_Click);
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -322,18 +310,6 @@
             this.label5.TabIndex = 248;
             this.label5.Text = "کد شخص";
             this.label5.Click += new System.EventHandler(this.label5_Click);
-            // 
-            // button_Buyer
-            // 
-            this.button_Buyer.Enabled = false;
-            this.button_Buyer.Font = new System.Drawing.Font("B Titr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.button_Buyer.Image = global::toudack1.Properties.Resources.barcod;
-            this.button_Buyer.Location = new System.Drawing.Point(44, 133);
-            this.button_Buyer.Name = "button_Buyer";
-            this.button_Buyer.Size = new System.Drawing.Size(60, 31);
-            this.button_Buyer.TabIndex = 249;
-            this.button_Buyer.UseVisualStyleBackColor = true;
-            this.button_Buyer.Click += new System.EventHandler(this.button1_Click);
             // 
             // label_Weapons_buy
             // 
@@ -726,27 +702,48 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(169, 88);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 340;
-            this.label1.Text = "label1";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(126, 88);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(0, 13);
             this.label2.TabIndex = 341;
-            this.label2.Text = "label2";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(82, 88);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.Size = new System.Drawing.Size(0, 13);
             this.label7.TabIndex = 342;
-            this.label7.Text = "label7";
+            // 
+            // button_Buyer
+            // 
+            this.button_Buyer.Enabled = false;
+            this.button_Buyer.Font = new System.Drawing.Font("B Titr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.button_Buyer.Image = global::toudack1.Properties.Resources.barcod;
+            this.button_Buyer.Location = new System.Drawing.Point(44, 133);
+            this.button_Buyer.Name = "button_Buyer";
+            this.button_Buyer.Size = new System.Drawing.Size(60, 31);
+            this.button_Buyer.TabIndex = 249;
+            this.button_Buyer.UseVisualStyleBackColor = true;
+            this.button_Buyer.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button_seller
+            // 
+            this.button_seller.Enabled = false;
+            this.button_seller.Font = new System.Drawing.Font("B Titr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.button_seller.Image = global::toudack1.Properties.Resources.barcod;
+            this.button_seller.Location = new System.Drawing.Point(634, 185);
+            this.button_seller.Name = "button_seller";
+            this.button_seller.Size = new System.Drawing.Size(60, 31);
+            this.button_seller.TabIndex = 222;
+            this.button_seller.UseVisualStyleBackColor = true;
+            this.button_seller.Click += new System.EventHandler(this.button_seller_Click);
             // 
             // black_market_factory
             // 
@@ -807,6 +804,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "black_market_factory";
             this.Text = "black_market";
+            this.Load += new System.EventHandler(this.black_market_factory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.number_Industry_seller)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.number_Weapons_seller)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.number_Services_seller)).EndInit();

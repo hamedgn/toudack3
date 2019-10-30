@@ -19,10 +19,10 @@ namespace toudack1
             InitializeComponent();
             dbconnect = new DBConnect();
         }
-
+        TIMEUSER user = new TIMEUSER();
         private void Board_Load(object sender, EventArgs e)
         {
-
+            user.Show();
         }
 
         private void domainUpDown1_SelectedItemChanged(object sender, EventArgs e)

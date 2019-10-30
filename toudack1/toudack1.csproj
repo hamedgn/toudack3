@@ -295,6 +295,9 @@
     <EmbeddedResource Include="barcode.resx">
       <DependentUpon>barcode.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="black_market_factory.resx">
+      <DependentUpon>black_market_factory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="black_market_resources.resx">
       <DependentUpon>black_market_resources.cs</DependentUpon>
     </EmbeddedResource>

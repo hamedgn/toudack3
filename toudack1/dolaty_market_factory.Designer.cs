@@ -501,6 +501,7 @@
             this.Controls.Add(this.label56);
             this.Name = "dolaty_market_factory";
             this.Text = "market_factury";
+            this.Load += new System.EventHandler(this.dolaty_market_factory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Price_Education_seller)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Price_Services_seller)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Price_Weapons_seller)).EndInit();

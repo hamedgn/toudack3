@@ -232,9 +232,10 @@ namespace toudack1
 
             }
         }
-
+        TIMEUSER user = new TIMEUSER();
         private void war_Load(object sender, EventArgs e)
         {
+            user.Show();
             // TODO: This line of code loads data into the 'testDataSet5.factory_en' table. You can move, or remove it, as needed.
             this.factory_enTableAdapter.Fill(this.testDataSet5.factory_en);
             // TODO: This line of code loads data into the 'testDataSet4.population' table. You can move, or remove it, as needed.

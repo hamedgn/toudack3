@@ -21,9 +21,10 @@ namespace toudack1
             dbconnect = new DBConnect();
 
         }
+        TIMEUSER user = new TIMEUSER();
         private void black_market_factory_Load(object sender, EventArgs e)
         {
-
+            user.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
