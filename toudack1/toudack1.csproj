@@ -230,9 +230,6 @@
     <Compile Include="terrorist.Designer.cs">
       <DependentUpon>terrorist.cs</DependentUpon>
     </Compile>
-    <Compile Include="testDataSet.cs">
-      <DependentUpon>testDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="testDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

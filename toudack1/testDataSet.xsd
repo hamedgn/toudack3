@@ -12,14 +12,13 @@
               <DbSource ConnectionRef="testConnectionString (Settings)" DbObjectName="test.factory" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT `weapons`, `bank`, `numbergroup` FROM `factory`</CommandText>
+                    <CommandText>SELECT `bank`, `numbergroup` FROM `factory`</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
             </MainSource>
             <Mappings>
-              <Mapping SourceColumn="weapons" DataSetColumn="weapons" />
               <Mapping SourceColumn="bank" DataSetColumn="bank" />
               <Mapping SourceColumn="numbergroup" DataSetColumn="numbergroup" />
             </Mappings>
@@ -30,7 +29,7 @@
               <DbSource ConnectionRef="testConnectionString (Settings)" DbObjectName="test.factory_box" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT `education`, `weapons`, `services` FROM `factory_box`</CommandText>
+                    <CommandText>SELECT `education`, `weapons`, `services`, `industry` FROM `factory_box`</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -40,25 +39,27 @@
               <Mapping SourceColumn="education" DataSetColumn="education" />
               <Mapping SourceColumn="weapons" DataSetColumn="weapons" />
               <Mapping SourceColumn="services" DataSetColumn="services" />
+              <Mapping SourceColumn="industry" DataSetColumn="industry" />
             </Mappings>
             <Sources />
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="resourceTableAdapter" GeneratorDataComponentClassName="resourceTableAdapter" Name="resource" UserDataComponentName="resourceTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="testConnectionString (Settings)" DbObjectName="test.resource" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="testConnectionString (Settings)" DbObjectName="test.resource" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT `silk`, `gold`, `diamond`, `dedicated` FROM `resource`</CommandText>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT `oil`,`silk`, `gold`, `diamond`, `dedicated` FROM `resource`</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
             </MainSource>
             <Mappings>
-              <Mapping SourceColumn="silk" DataSetColumn="silk" />
+              <Mapping SourceColumn="oil" DataSetColumn="oil" />
               <Mapping SourceColumn="gold" DataSetColumn="gold" />
               <Mapping SourceColumn="diamond" DataSetColumn="diamond" />
               <Mapping SourceColumn="dedicated" DataSetColumn="dedicated" />
+              <Mapping SourceColumn="silk" DataSetColumn="silk" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -70,31 +71,32 @@
   <xs:element name="testDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="testDataSet" msprop:Generator_UserDSName="testDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="factory" msprop:Generator_TableClassName="factoryDataTable" msprop:Generator_TableVarName="tablefactory" msprop:Generator_TablePropName="factory" msprop:Generator_RowDeletingName="factoryRowDeleting" msprop:Generator_RowChangingName="factoryRowChanging" msprop:Generator_RowEvHandlerName="factoryRowChangeEventHandler" msprop:Generator_RowDeletedName="factoryRowDeleted" msprop:Generator_UserTableName="factory" msprop:Generator_RowChangedName="factoryRowChanged" msprop:Generator_RowEvArgName="factoryRowChangeEvent" msprop:Generator_RowClassName="factoryRow">
+        <xs:element name="factory" msprop:Generator_TableClassName="factoryDataTable" msprop:Generator_TableVarName="tablefactory" msprop:Generator_RowChangedName="factoryRowChanged" msprop:Generator_TablePropName="factory" msprop:Generator_RowDeletingName="factoryRowDeleting" msprop:Generator_RowChangingName="factoryRowChanging" msprop:Generator_RowEvHandlerName="factoryRowChangeEventHandler" msprop:Generator_RowDeletedName="factoryRowDeleted" msprop:Generator_RowClassName="factoryRow" msprop:Generator_UserTableName="factory" msprop:Generator_RowEvArgName="factoryRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="weapons" msprop:Generator_ColumnVarNameInTable="columnweapons" msprop:Generator_ColumnPropNameInRow="weapons" msprop:Generator_ColumnPropNameInTable="weaponsColumn" msprop:Generator_UserColumnName="weapons" type="xs:int" />
               <xs:element name="bank" msprop:Generator_ColumnVarNameInTable="columnbank" msprop:Generator_ColumnPropNameInRow="bank" msprop:Generator_ColumnPropNameInTable="bankColumn" msprop:Generator_UserColumnName="bank" type="xs:int" />
               <xs:element name="numbergroup" msprop:Generator_ColumnVarNameInTable="columnnumbergroup" msprop:Generator_ColumnPropNameInRow="numbergroup" msprop:Generator_ColumnPropNameInTable="numbergroupColumn" msprop:Generator_UserColumnName="numbergroup" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="factory_box" msprop:Generator_TableClassName="factory_boxDataTable" msprop:Generator_TableVarName="tablefactory_box" msprop:Generator_TablePropName="factory_box" msprop:Generator_RowDeletingName="factory_boxRowDeleting" msprop:Generator_RowChangingName="factory_boxRowChanging" msprop:Generator_RowEvHandlerName="factory_boxRowChangeEventHandler" msprop:Generator_RowDeletedName="factory_boxRowDeleted" msprop:Generator_UserTableName="factory_box" msprop:Generator_RowChangedName="factory_boxRowChanged" msprop:Generator_RowEvArgName="factory_boxRowChangeEvent" msprop:Generator_RowClassName="factory_boxRow">
+        <xs:element name="factory_box" msprop:Generator_TableClassName="factory_boxDataTable" msprop:Generator_TableVarName="tablefactory_box" msprop:Generator_RowChangedName="factory_boxRowChanged" msprop:Generator_TablePropName="factory_box" msprop:Generator_RowDeletingName="factory_boxRowDeleting" msprop:Generator_RowChangingName="factory_boxRowChanging" msprop:Generator_RowEvHandlerName="factory_boxRowChangeEventHandler" msprop:Generator_RowDeletedName="factory_boxRowDeleted" msprop:Generator_RowClassName="factory_boxRow" msprop:Generator_UserTableName="factory_box" msprop:Generator_RowEvArgName="factory_boxRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="education" msprop:Generator_ColumnVarNameInTable="columneducation" msprop:Generator_ColumnPropNameInRow="education" msprop:Generator_ColumnPropNameInTable="educationColumn" msprop:Generator_UserColumnName="education" type="xs:int" />
               <xs:element name="weapons" msprop:Generator_ColumnVarNameInTable="columnweapons" msprop:Generator_ColumnPropNameInRow="weapons" msprop:Generator_ColumnPropNameInTable="weaponsColumn" msprop:Generator_UserColumnName="weapons" type="xs:int" />
               <xs:element name="services" msprop:Generator_ColumnVarNameInTable="columnservices" msprop:Generator_ColumnPropNameInRow="services" msprop:Generator_ColumnPropNameInTable="servicesColumn" msprop:Generator_UserColumnName="services" type="xs:int" />
+              <xs:element name="industry" msprop:Generator_ColumnVarNameInTable="columnindustry" msprop:Generator_ColumnPropNameInRow="industry" msprop:Generator_ColumnPropNameInTable="industryColumn" msprop:Generator_UserColumnName="industry" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="resource" msprop:Generator_TableClassName="resourceDataTable" msprop:Generator_TableVarName="tableresource" msprop:Generator_TablePropName="resource" msprop:Generator_RowDeletingName="resourceRowDeleting" msprop:Generator_RowChangingName="resourceRowChanging" msprop:Generator_RowEvHandlerName="resourceRowChangeEventHandler" msprop:Generator_RowDeletedName="resourceRowDeleted" msprop:Generator_UserTableName="resource" msprop:Generator_RowChangedName="resourceRowChanged" msprop:Generator_RowEvArgName="resourceRowChangeEvent" msprop:Generator_RowClassName="resourceRow">
+        <xs:element name="resource" msprop:Generator_TableClassName="resourceDataTable" msprop:Generator_TableVarName="tableresource" msprop:Generator_RowChangedName="resourceRowChanged" msprop:Generator_TablePropName="resource" msprop:Generator_RowDeletingName="resourceRowDeleting" msprop:Generator_RowChangingName="resourceRowChanging" msprop:Generator_RowEvHandlerName="resourceRowChangeEventHandler" msprop:Generator_RowDeletedName="resourceRowDeleted" msprop:Generator_RowClassName="resourceRow" msprop:Generator_UserTableName="resource" msprop:Generator_RowEvArgName="resourceRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="silk" msprop:Generator_ColumnVarNameInTable="columnsilk" msprop:Generator_ColumnPropNameInRow="silk" msprop:Generator_ColumnPropNameInTable="silkColumn" msprop:Generator_UserColumnName="silk" type="xs:int" />
+              <xs:element name="oil" msprop:Generator_ColumnVarNameInTable="columnoil" msprop:Generator_ColumnPropNameInRow="oil" msprop:Generator_ColumnPropNameInTable="oilColumn" msprop:Generator_UserColumnName="oil" type="xs:int" />
               <xs:element name="gold" msprop:Generator_ColumnVarNameInTable="columngold" msprop:Generator_ColumnPropNameInRow="gold" msprop:Generator_ColumnPropNameInTable="goldColumn" msprop:Generator_UserColumnName="gold" type="xs:int" />
               <xs:element name="diamond" msprop:Generator_ColumnVarNameInTable="columndiamond" msprop:Generator_ColumnPropNameInRow="diamond" msprop:Generator_ColumnPropNameInTable="diamondColumn" msprop:Generator_UserColumnName="diamond" type="xs:int" />
               <xs:element name="dedicated" msprop:Generator_ColumnVarNameInTable="columndedicated" msprop:Generator_ColumnPropNameInRow="dedicated" msprop:Generator_ColumnPropNameInTable="dedicatedColumn" msprop:Generator_UserColumnName="dedicated" type="xs:int" />
+              <xs:element name="silk" msprop:Generator_ColumnVarNameInTable="columnsilk" msprop:Generator_ColumnPropNameInRow="silk" msprop:Generator_ColumnPropNameInTable="silkColumn" msprop:Generator_UserColumnName="silk" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

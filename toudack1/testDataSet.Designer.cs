@@ -349,8 +349,6 @@ namespace toudack1 {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class factoryDataTable : global::System.Data.TypedTableBase<factoryRow> {
             
-            private global::System.Data.DataColumn columnweapons;
-            
             private global::System.Data.DataColumn columnbank;
             
             private global::System.Data.DataColumn columnnumbergroup;
@@ -386,14 +384,6 @@ namespace toudack1 {
             protected factoryDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn weaponsColumn {
-                get {
-                    return this.columnweapons;
-                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -449,10 +439,9 @@ namespace toudack1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public factoryRow AddfactoryRow(int weapons, int bank, int numbergroup) {
+            public factoryRow AddfactoryRow(int bank, int numbergroup) {
                 factoryRow rowfactoryRow = ((factoryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        weapons,
                         bank,
                         numbergroup};
                 rowfactoryRow.ItemArray = columnValuesArray;
@@ -477,7 +466,6 @@ namespace toudack1 {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columnweapons = base.Columns["weapons"];
                 this.columnbank = base.Columns["bank"];
                 this.columnnumbergroup = base.Columns["numbergroup"];
             }
@@ -485,13 +473,10 @@ namespace toudack1 {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnweapons = new global::System.Data.DataColumn("weapons", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnweapons);
                 this.columnbank = new global::System.Data.DataColumn("bank", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnbank);
                 this.columnnumbergroup = new global::System.Data.DataColumn("numbergroup", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnumbergroup);
-                this.columnweapons.AllowDBNull = false;
                 this.columnbank.AllowDBNull = false;
                 this.columnnumbergroup.AllowDBNull = false;
             }
@@ -633,6 +618,8 @@ namespace toudack1 {
             
             private global::System.Data.DataColumn columnservices;
             
+            private global::System.Data.DataColumn columnindustry;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public factory_boxDataTable() {
@@ -692,6 +679,14 @@ namespace toudack1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn industryColumn {
+                get {
+                    return this.columnindustry;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -727,12 +722,13 @@ namespace toudack1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public factory_boxRow Addfactory_boxRow(int education, int weapons, int services) {
+            public factory_boxRow Addfactory_boxRow(int education, int weapons, int services, int industry) {
                 factory_boxRow rowfactory_boxRow = ((factory_boxRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         education,
                         weapons,
-                        services};
+                        services,
+                        industry};
                 rowfactory_boxRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowfactory_boxRow);
                 return rowfactory_boxRow;
@@ -758,6 +754,7 @@ namespace toudack1 {
                 this.columneducation = base.Columns["education"];
                 this.columnweapons = base.Columns["weapons"];
                 this.columnservices = base.Columns["services"];
+                this.columnindustry = base.Columns["industry"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -769,9 +766,12 @@ namespace toudack1 {
                 base.Columns.Add(this.columnweapons);
                 this.columnservices = new global::System.Data.DataColumn("services", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnservices);
+                this.columnindustry = new global::System.Data.DataColumn("industry", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnindustry);
                 this.columneducation.AllowDBNull = false;
                 this.columnweapons.AllowDBNull = false;
                 this.columnservices.AllowDBNull = false;
+                this.columnindustry.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -905,13 +905,15 @@ namespace toudack1 {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class resourceDataTable : global::System.Data.TypedTableBase<resourceRow> {
             
-            private global::System.Data.DataColumn columnsilk;
+            private global::System.Data.DataColumn columnoil;
             
             private global::System.Data.DataColumn columngold;
             
             private global::System.Data.DataColumn columndiamond;
             
             private global::System.Data.DataColumn columndedicated;
+            
+            private global::System.Data.DataColumn columnsilk;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -948,9 +950,9 @@ namespace toudack1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn silkColumn {
+            public global::System.Data.DataColumn oilColumn {
                 get {
-                    return this.columnsilk;
+                    return this.columnoil;
                 }
             }
             
@@ -975,6 +977,14 @@ namespace toudack1 {
             public global::System.Data.DataColumn dedicatedColumn {
                 get {
                     return this.columndedicated;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn silkColumn {
+                get {
+                    return this.columnsilk;
                 }
             }
             
@@ -1015,13 +1025,14 @@ namespace toudack1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public resourceRow AddresourceRow(int silk, int gold, int diamond, int dedicated) {
+            public resourceRow AddresourceRow(int oil, int gold, int diamond, int dedicated, int silk) {
                 resourceRow rowresourceRow = ((resourceRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        silk,
+                        oil,
                         gold,
                         diamond,
-                        dedicated};
+                        dedicated,
+                        silk};
                 rowresourceRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowresourceRow);
                 return rowresourceRow;
@@ -1044,27 +1055,31 @@ namespace toudack1 {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columnsilk = base.Columns["silk"];
+                this.columnoil = base.Columns["oil"];
                 this.columngold = base.Columns["gold"];
                 this.columndiamond = base.Columns["diamond"];
                 this.columndedicated = base.Columns["dedicated"];
+                this.columnsilk = base.Columns["silk"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnsilk = new global::System.Data.DataColumn("silk", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnsilk);
+                this.columnoil = new global::System.Data.DataColumn("oil", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnoil);
                 this.columngold = new global::System.Data.DataColumn("gold", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columngold);
                 this.columndiamond = new global::System.Data.DataColumn("diamond", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndiamond);
                 this.columndedicated = new global::System.Data.DataColumn("dedicated", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndedicated);
-                this.columnsilk.AllowDBNull = false;
+                this.columnsilk = new global::System.Data.DataColumn("silk", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsilk);
+                this.columnoil.AllowDBNull = false;
                 this.columngold.AllowDBNull = false;
                 this.columndiamond.AllowDBNull = false;
                 this.columndedicated.AllowDBNull = false;
+                this.columnsilk.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1207,17 +1222,6 @@ namespace toudack1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int weapons {
-                get {
-                    return ((int)(this[this.tablefactory.weaponsColumn]));
-                }
-                set {
-                    this[this.tablefactory.weaponsColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int bank {
                 get {
                     return ((int)(this[this.tablefactory.bankColumn]));
@@ -1285,6 +1289,17 @@ namespace toudack1 {
                     this[this.tablefactory_box.servicesColumn] = value;
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int industry {
+                get {
+                    return ((int)(this[this.tablefactory_box.industryColumn]));
+                }
+                set {
+                    this[this.tablefactory_box.industryColumn] = value;
+                }
+            }
         }
         
         /// <summary>
@@ -1303,12 +1318,12 @@ namespace toudack1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int silk {
+            public int oil {
                 get {
-                    return ((int)(this[this.tableresource.silkColumn]));
+                    return ((int)(this[this.tableresource.oilColumn]));
                 }
                 set {
-                    this[this.tableresource.silkColumn] = value;
+                    this[this.tableresource.oilColumn] = value;
                 }
             }
             
@@ -1342,6 +1357,17 @@ namespace toudack1 {
                 }
                 set {
                     this[this.tableresource.dedicatedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int silk {
+                get {
+                    return ((int)(this[this.tableresource.silkColumn]));
+                }
+                set {
+                    this[this.tableresource.silkColumn] = value;
                 }
             }
         }
@@ -1573,7 +1599,6 @@ namespace toudack1.testDataSetTableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "factory";
-            tableMapping.ColumnMappings.Add("weapons", "weapons");
             tableMapping.ColumnMappings.Add("bank", "bank");
             tableMapping.ColumnMappings.Add("numbergroup", "numbergroup");
             this._adapter.TableMappings.Add(tableMapping);
@@ -1592,7 +1617,7 @@ namespace toudack1.testDataSetTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `weapons`, `bank`, `numbergroup` FROM `factory`";
+            this._commandCollection[0].CommandText = "SELECT `bank`, `numbergroup` FROM `factory`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1745,6 +1770,7 @@ namespace toudack1.testDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("education", "education");
             tableMapping.ColumnMappings.Add("weapons", "weapons");
             tableMapping.ColumnMappings.Add("services", "services");
+            tableMapping.ColumnMappings.Add("industry", "industry");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1761,7 +1787,7 @@ namespace toudack1.testDataSetTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `education`, `weapons`, `services` FROM `factory_box`";
+            this._commandCollection[0].CommandText = "SELECT `education`, `weapons`, `services`, `industry` FROM `factory_box`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1911,10 +1937,11 @@ namespace toudack1.testDataSetTableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "resource";
-            tableMapping.ColumnMappings.Add("silk", "silk");
+            tableMapping.ColumnMappings.Add("oil", "oil");
             tableMapping.ColumnMappings.Add("gold", "gold");
             tableMapping.ColumnMappings.Add("diamond", "diamond");
             tableMapping.ColumnMappings.Add("dedicated", "dedicated");
+            tableMapping.ColumnMappings.Add("silk", "silk");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1931,7 +1958,7 @@ namespace toudack1.testDataSetTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `silk`, `gold`, `diamond`, `dedicated` FROM `resource`";
+            this._commandCollection[0].CommandText = "SELECT `oil`,`silk`, `gold`, `diamond`, `dedicated` FROM `resource`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
