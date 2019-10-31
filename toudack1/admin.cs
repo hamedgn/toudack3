@@ -12,6 +12,8 @@ namespace toudack1
 {
     public partial class admin : Form
     {
+        string tyei = "";
+        int tyei1 = 0;
         private DBConnect dbconnect;
         public admin()
         {
@@ -37,10 +39,7 @@ namespace toudack1
 
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-
-        }
+       
         
         private void button2_Click(object sender, EventArgs e)
         {
@@ -102,75 +101,132 @@ namespace toudack1
 
         private void timer1_Tick_1(object sender, EventArgs e)
         {
-            string checkdbded = dbconnect.playerresded;
-            int checklevel = dbconnect.playerreslevel;
             int updateded = 0;
             int i;
             dbconnect.TIME_GET_n();
             int checkclock = dbconnect.m;
-            if(checkclock==0|| checkclock==30)
+            if (checkclock == 0 || checkclock == 30)
             {
-                for(i=101;i<128;i++)
-                { }
+                timer1.Enabled = false;
 
-                if  ( Convert.ToInt32( dbconnect.res_oil)<100 && checkdbded == "petroleum" && checklevel == 0)
+                for (i = 101; i <= 128; i++)
                 {
+                    dbconnect.ResourceDEDcheck2(i.ToString());
+                    string checkdbded = dbconnect.playerresded;
+                    int checklevel = dbconnect.playerreslevel;
 
-                    updateded = 100;
-                   // dbconnect.admin_update_res(Convert.ToString(i), );
+                    if (Convert.ToInt32(dbconnect.res_oil) < 100 && checkdbded == "oil" && checklevel == 0)
+                    {
+
+                        updateded = 100;
+                        dbconnect.admin_update_res(Convert.ToString(i), "oil", updateded);
+
+                    }
+                    else if (Convert.ToInt32(dbconnect.res_oil) < 300 && checkdbded == "oil" && checklevel == 1)
+                    {
+                        updateded = 300;
+                        dbconnect.admin_update_res(Convert.ToString(i), "oil", updateded);
+
+                    }
+                    else if (Convert.ToInt32(dbconnect.res_gold) < 100 && checkdbded == "gold" && checklevel == 0)
+                    {
+                        updateded = 100;
+                        dbconnect.admin_update_res(Convert.ToString(i), "gold", updateded);
+
+                    }
+
+                    else if (Convert.ToInt32(dbconnect.res_gold) < 300 && checkdbded == "gold" && checklevel == 1)
+                    {
+                        updateded = 300;
+                        dbconnect.admin_update_res(Convert.ToString(i), "gold", updateded);
+
+                    }
+
+                    else if (Convert.ToInt32(dbconnect.res_diamond) < 100 && checkdbded == "diamond" && checklevel == 0)
+                    {
+                        updateded = 100;
+
+                        dbconnect.admin_update_res(Convert.ToString(i), "diamond", updateded);
+                    }
+                    else if (Convert.ToInt32(dbconnect.res_diamond) < 300 && checkdbded == "diamond" && checklevel == 1)
+                    {
+
+                        updateded = 300;
+                        dbconnect.admin_update_res(Convert.ToString(i), "diamond", updateded);
+
+                    }
+
+                    else if (Convert.ToInt32(dbconnect.res_silk) < 100 && checkdbded == "silk" && checklevel == 0)
+                    {
+
+                        updateded = 100;
+                        dbconnect.admin_update_res(Convert.ToString(i), "silk", updateded);
+
+
+                    }
+                    else if (Convert.ToInt32(dbconnect.res_silk) < 300 && checkdbded == "silk" && checklevel == 1)
+                    {
+                        updateded = 300;
+                        dbconnect.admin_update_res(Convert.ToString(i), "silk", updateded);
+
+                    }
+                }
+
+               i= dbconnect.opec_count();
+                for (int w=0;w<i;w++)
+                {
+                    dbconnect.opec_sel(w);
+                    dbconnect.natural_resources_code_check(dbconnect.pr1opec.ToString());
+                    qqq();
+                    dbconnect.natural_resources_plus(tyei1, dbconnect.nopec, dbconnect.pr1opec.ToString(),tyei);
+
+                    dbconnect.natural_resources_code_check(dbconnect.pr2opec.ToString());
+                    qqq();
+                    dbconnect.natural_resources_plus(tyei1, dbconnect.nopec, dbconnect.pr2opec.ToString(), tyei);
+
+                    dbconnect.natural_resources_code_check(dbconnect.pr3opec.ToString());
+                    qqq();
+                    dbconnect.natural_resources_plus(tyei1, dbconnect.nopec, dbconnect.pr3opec.ToString(), tyei);
+
+                    dbconnect.natural_resources_code_check(dbconnect.pr4opec.ToString());
+                    qqq();
+                    dbconnect.natural_resources_plus(tyei1, dbconnect.nopec, dbconnect.pr4opec.ToString(), tyei);
+
+                    dbconnect.natural_resources_code_check(dbconnect.pr5opec.ToString());
+                    qqq();
+                    dbconnect.natural_resources_plus(tyei1, dbconnect.nopec, dbconnect.pr5opec.ToString(), tyei);
+
+                    dbconnect.natural_resources_code_check(dbconnect.pr6opec.ToString());
+                    qqq();
+                    dbconnect.natural_resources_plus(tyei1, dbconnect.nopec, dbconnect.pr6opec.ToString(), tyei);
+
+                    dbconnect.natural_resources_code_check(dbconnect.pr7opec.ToString());
+                    qqq();
+                    dbconnect.natural_resources_plus(tyei1, dbconnect.nopec, dbconnect.pr7opec.ToString(), tyei);
+
+                    dbconnect.natural_resources_code_check(dbconnect.pr8opec.ToString());
+                    qqq();
+                    dbconnect.natural_resources_plus(tyei1, dbconnect.nopec, dbconnect.pr8opec.ToString(), tyei);
+
+                    dbconnect.natural_resources_code_check(dbconnect.pr9opec.ToString());
+                    qqq();
+                    dbconnect.natural_resources_plus(tyei1, dbconnect.nopec, dbconnect.pr9opec.ToString(), tyei);
+
+                    dbconnect.natural_resources_code_check(dbconnect.pr10opec.ToString());
+                    qqq();
+                    dbconnect.natural_resources_plus(tyei1, dbconnect.nopec, dbconnect.pr10opec.ToString(), tyei);
+
 
                 }
-                else if (Convert.ToInt32(dbconnect.res_oil) <300&& checkdbded == "petroleum" && checklevel == 1)
-                {
-                    updateded = 300;
 
-                }
-                else if (Convert.ToInt32(dbconnect.res_gold) <100 &&checkdbded == "gold" && checklevel == 0)
-                {
-                    updateded = 100;
-
-                }
-
-                else if (checkdbded == "gold" && checklevel == 1)
-                {
-                    updateded = 300;
-                }
-
-                else if (checkdbded == "diamond" && checklevel == 0)
-                {
-                    updateded = 100;
-
-
-                }
-                else if (checkdbded == "diamond" && checklevel == 1)
-                {
-
-                    updateded = 300;
-                }
-
-                else if (checkdbded == "silk" && checklevel == 0)
-                {
-
-                    updateded = 100;
-
-                }
-                else if (checkdbded == "silk" && checklevel == 1)
-                {
-                    updateded = 300;
-                }
-
-                if (dbconnect.checkfalse == "false")
-                {
-                    
-
-
-
-
-                }
+                MessageBox.Show(".منابع پر شد");
+                timer2.Enabled = true;
 
 
             }
+
         }
+        
 
         private void timer_factory_Tick(object sender, EventArgs e)
         {
@@ -200,6 +256,43 @@ namespace toudack1
             {
                 timer_factory1.Enabled = true;
                 timer_factory2.Enabled = false;
+            }
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            dbconnect.TIME_GET_n();
+            if (dbconnect.m == 1||dbconnect.m==31)
+            {
+                timer1.Enabled = true;
+                timer2.Enabled = false;
+            }
+        }
+        public void qqq()
+        {
+            
+            if (dbconnect.typeopec == 1)
+            {
+                tyei = "oil";
+                tyei1 = dbconnect.res_oil;
+            }
+            else
+            if (dbconnect.typeopec == 2)
+            {
+                tyei = "silk";
+                tyei1 = dbconnect.res_silk;
+            }
+            else
+            if (dbconnect.typeopec == 3)
+            {
+                tyei = "gold";
+                tyei1 = dbconnect.res_gold;
+            }
+            else
+            if (dbconnect.typeopec == 4)
+            {
+                tyei = "diamond";
+                tyei1 = dbconnect.res_diamond;
             }
         }
     }

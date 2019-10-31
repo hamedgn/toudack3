@@ -46,6 +46,7 @@
             this.button_Buyer = new System.Windows.Forms.Button();
             this.timer_factory1 = new System.Windows.Forms.Timer(this.components);
             this.timer_factory2 = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -174,7 +175,7 @@
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 10000;
+            this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
             // 
             // pictureBox2
@@ -219,8 +220,13 @@
             // 
             // timer_factory2
             // 
-            this.timer_factory2.Interval = 1000;
+            this.timer_factory2.Interval = 60000;
             this.timer_factory2.Tick += new System.EventHandler(this.timer_factory2_Tick);
+            // 
+            // timer2
+            // 
+            this.timer2.Interval = 60000;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // admin
             // 
@@ -268,5 +274,6 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timer_factory1;
         private System.Windows.Forms.Timer timer_factory2;
+        private System.Windows.Forms.Timer timer2;
     }
 }

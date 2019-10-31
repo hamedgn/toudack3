@@ -13,7 +13,7 @@
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkProfile />
-    <PublishUrl>C:\Users\h7mad-mac\Desktop\1111111111\</PublishUrl>
+    <PublishUrl>C:\Users\h7mad-mac\Desktop\1111111111\112324324\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -23,8 +23,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>2</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -371,7 +370,7 @@
       <DependentUpon>log-in.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
@@ -465,6 +464,7 @@
     <Content Include="Resources\barcod.png" />
     <Content Include="Resources\GetStarted.png" />
     <Content Include="Resources\icons8-lock-512.png" />
+    <None Include="Resources\terrorist.bmp" />
     <Content Include="Resources\TextFile1.txt" />
     <Content Include="Resources\VID_20191029_120232_503.mp4" />
   </ItemGroup>

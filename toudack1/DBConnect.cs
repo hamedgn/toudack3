@@ -170,7 +170,18 @@ namespace toudack1
         public int groupnumber1;
         public string checksena;
         #endregion
-
+        public int typeopec;
+        public int nopec;
+        public int pr1opec;
+        public int pr2opec;
+        public int pr3opec;
+        public int pr4opec;
+        public int pr5opec;
+        public int pr6opec;
+        public int pr7opec;
+        public int pr8opec;
+        public int pr9opec;
+        public int pr10opec;
         #endregion
 
         #region Hamed code
@@ -1391,7 +1402,8 @@ namespace toudack1
         //opec Insert
         public void opec_in(int type,int number ,int houer, int pr1, int pr2, int pr3, int pr4, int pr5, int pr6, int pr7, int pr8, int pr9, int pr10)
         {
-            string query = "INSERT INTO `opec`(`type`, `n`, `h`, `pr1`, `pr2`, `pr3`, `pr4`, `pr5`, `pr6`, `pr7`, `pr8`, `pr9`, `pr10`) VALUES (" + type + "," + number + "," + houer + "," + pr1 + "," + pr2 + "," + pr3 + "," + pr4 + "," + pr5 + "," + pr6 + "," + pr7 + "," + pr8 + "," + pr9 + "," + pr10 + ")";
+            
+            string query = "INSERT INTO `opec`(`id`,`type`, `n`, `h`, `pr1`, `pr2`, `pr3`, `pr4`, `pr5`, `pr6`, `pr7`, `pr8`, `pr9`, `pr10`) VALUES ("+opec_count()+"," + type + "," + number + "," + houer + "," + pr1 + "," + pr2 + "," + pr3 + "," + pr4 + "," + pr5 + "," + pr6 + "," + pr7 + "," + pr8 + "," + pr9 + "," + pr10 + ")";
 
             //open connection
             if (this.OpenConnection() == true)
@@ -1404,6 +1416,64 @@ namespace toudack1
 
                 //close connection
                 this.CloseConnection();
+            }
+        }
+
+        public int opec_count()
+        {
+            string query = "SELECT Count(*) FROM opec";
+            int opec_count = -1;
+
+            //Open Connection
+            if (this.OpenConnection() == true)
+            {
+                //Create Mysql Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                //ExecuteScalar will return one value
+                opec_count = int.Parse(cmd.ExecuteScalar() + "");
+
+                //close Connection
+                this.CloseConnection();
+
+                return opec_count;
+            }
+            else
+            {
+                return opec_count;
+            }
+        }
+
+        public void opec_sel(int id)
+        {
+            string query = "SELECT * FROM opec WHERE id =" + id;
+
+            if (this.OpenConnection() == true)
+            {
+
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader myreader = cmd.ExecuteReader();
+                while (myreader.Read())
+                {
+                    typeopec = Convert.ToInt32(myreader["type"]);
+                    nopec = Convert.ToInt32(myreader["n"]);
+                    pr1opec = Convert.ToInt32(myreader["pr1"]);
+                    pr2opec = Convert.ToInt32(myreader["pr2"]);
+                    pr3opec = Convert.ToInt32(myreader["pr3"]);
+                    pr4opec = Convert.ToInt32(myreader["pr4"]);
+                    pr5opec = Convert.ToInt32(myreader["pr5"]);
+                    pr6opec = Convert.ToInt32(myreader["pr6"]);
+                    pr7opec = Convert.ToInt32(myreader["pr7"]);
+                    pr8opec = Convert.ToInt32(myreader["pr8"]);
+                    pr8opec = Convert.ToInt32(myreader["pr9"]);
+                    pr10opec = Convert.ToInt32(myreader["pr10"]);
+                    
+                }
+
+                //close connection
+                this.CloseConnection();
+
             }
         }
         #endregion
@@ -1868,7 +1938,7 @@ namespace toudack1
                     if (myreader["dedicated"].ToString() == "1")
                     {
 
-                        playerresded = "petroleum";
+                        playerresded = "oil";
                     }
                     else
                         if (myreader["dedicated"].ToString() == "2")
@@ -1926,6 +1996,113 @@ namespace toudack1
             }
         }
 
+        //Resource check
+        public void ResourceDEDcheck2(string n1umbergroup)
+        {
+            string query = "SELECT * FROM resource WHERE numbergroup =" + n1umbergroup;
+            if (this.OpenConnection() == true)
+            {
+
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    //  MessageBox.Show(myreader[playercode].ToString());
+                    numbergroup = Convert.ToInt32(myreader["numbergroup"]);
+                    //check dedicated (manbA ekhtesasi)
+                    if (n1umbergroup == numbergroup.ToString())
+                    {
+
+                        res_diamond = Convert.ToInt32(myreader["diamond"].ToString());
+                        res_silk = Convert.ToInt32(myreader["silk"].ToString());
+                        res_gold = Convert.ToInt32(myreader["gold"].ToString());
+                        res_oil = Convert.ToInt32(myreader["oil"].ToString());
+
+
+                        if (myreader["dedicated"].ToString() == "1")
+                        {
+
+                            playerresded = "oil";
+                        }
+                        else
+                            if (myreader["dedicated"].ToString() == "2")
+                        {
+
+                            playerresded = "silk";
+                        }
+                        else
+                            if (myreader["dedicated"].ToString() == "3")
+                        {
+
+                            playerresded = "gold";
+                        }
+                        else
+                            if (myreader["dedicated"].ToString() == "4")
+                        {
+
+                            playerresded = "diamond";
+                        }
+
+
+                        if (myreader["level"].ToString() == "0")
+                        {
+
+                            playerreslevel = 0;
+                        }
+                        else
+                     if (myreader["level"].ToString() == "1")
+                        {
+
+                            playerreslevel = 1;
+
+
+                        }
+
+
+                    }
+                    else
+                    {
+
+                        MessageBox.Show("لطفا شماره گروه معتبر وارد کنید.", "خطا!!!!!");
+                        checkfalse = "false";
+
+
+
+                    }
+                }
+                   
+
+                //close connection
+                this.CloseConnection();
+
+
+            }
+        }
+
+        //Transfer Recource Fund
+        public void admin_update_res(string playercode, string type, int amount)
+        {
+            string query = "UPDATE resource SET `" + type + "`=" + amount + " WHERE numbergroup=" + playercode;
+
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                //create mysql command
+                MySqlCommand cmd = new MySqlCommand();
+                //Assign the query using CommandText
+                cmd.CommandText = query;
+                //Assign the connection using Connection
+                cmd.Connection = connection;
+
+                //Execute query
+                cmd.ExecuteNonQuery();
+
+                //close connection
+                this.CloseConnection();
+            }
+        }
         //resource level update
         public void Resupdatelevel(string numbergroup)
         {

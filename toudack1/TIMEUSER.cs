@@ -39,8 +39,8 @@ namespace toudack1
          
         private void timer1_Tick(object sender, EventArgs e)
         {
-            
-           
+
+            timer1.Enabled = false;
             dbconnect.TIME_GET_u();
             label2.Text = (dbconnect.h.ToString()+":"+ dbconnect.m.ToString()+":"+ dbconnect.s.ToString());
 

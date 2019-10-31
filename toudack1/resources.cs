@@ -139,7 +139,7 @@ namespace toudack1
                 resources_label_silk.Text = dbconnect.res_silk.ToString();
                 int checklevel = dbconnect.playerreslevel;
                 // MessageBox.Show(checkdbded);
-                if (checkdbded == "petroleum" && checklevel == 0)
+                if (checkdbded == "oil" && checklevel == 0)
                 {
                     //  MessageBox.Show(checklevel.ToString());
                     label1.Enabled = true;
@@ -165,7 +165,7 @@ namespace toudack1
 
 
                 }
-                else if (checkdbded == "petroleum" && checklevel == 1)
+                else if (checkdbded == "oil" && checklevel == 1)
                 {
                     // MessageBox.Show(checklevel.ToString());
                     label1.Enabled = false;

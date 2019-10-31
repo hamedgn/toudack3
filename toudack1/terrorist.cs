@@ -59,9 +59,9 @@ namespace toudack1
 
         private void terrorist_true()
         {
-
+          
             axWindowsMediaPlayer1.Visible = true;
-            String s = ".//Resources\\VID_20191029_120232_503.mp4";
+            String s = "http://94.182.191.138/terrorist.mp4";
             axWindowsMediaPlayer1.URL = s;
             axWindowsMediaPlayer1.Ctlcontrols.play();
             axWindowsMediaPlayer1.uiMode = "none";
