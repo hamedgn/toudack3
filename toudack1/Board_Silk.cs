@@ -20,7 +20,12 @@ namespace toudack1
             InitializeComponent();
             dbconnect = new DBConnect();
         }
-
+        public string time;
+        public void timenow()
+        {
+            dbconnect.TIME_GET_n();
+            time = (dbconnect.h + ":" + dbconnect.m + ":" + dbconnect.s).ToString();
+        }
         private void textBox_seller_TextChanged(object sender, EventArgs e)
         {
 
@@ -52,12 +57,10 @@ namespace toudack1
                             //از وحید بپرس کد مشکل
                             dbconnect.References_box_code_check(textBox_seller.Text);
                             dbconnect.Fundscheck(textBox_Buyer.Text);
-                            if (
-                                Convert.ToInt32(dbconnect.natural_resources_Silk) >= Convert.ToInt32(domainUpDown_Board_Silk_pcs.Text)
-                                &&
-                                Convert.ToInt32(dbconnect.funds) >= value
-                                )
+                            if (Convert.ToInt32(dbconnect.natural_resources_Silk) >= Convert.ToInt32(domainUpDown_Board_Silk_pcs.Text)&&Convert.ToInt32(dbconnect.funds) >= value)
                             {
+                                timenow();
+                                dbconnect.log_insert(time, textBox_seller.Text, 216, "forosh abrisham az: " + textBox_seller.Text + " be: " + textBox_Buyer.Text + " tedad: " + domainUpDown_Board_Silk_pcs.Value + " ghimat: " + domainUpDown_Board_Silk_seller.Value + " jame kol: " + allplus.Text + "");
                                 dbconnect.natural_resources_plus(Convert.ToInt32(dbconnect.natural_resources_Buyer), Convert.ToInt32(domainUpDown_Board_Silk_pcs.Text), DPNG1, "silk");
                                 dbconnect.natural_resources_Negative(Convert.ToInt32(dbconnect.natural_resources_seller), Convert.ToInt32(domainUpDown_Board_Silk_pcs.Text), DPNG2, "silk");
                                 dbconnect.Fundscheck(DPNG1);
@@ -65,6 +68,7 @@ namespace toudack1
                                 dbconnect.Fundscheck(DPNG2);
                                 dbconnect.Fundsplus(dbconnect.funds, value, DPNG2);
                                 dbconnect.setprice("silk", Convert.ToInt32(domainUpDown_Board_Silk_seller.Value));
+                                dbconnect.log_done(time, textBox_seller.Text, 216);
                                 MessageBox.Show("انجام شد");
                                 textBox_seller.Text = "";
                                 textBox_Buyer.Text = "";

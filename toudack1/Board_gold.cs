@@ -13,6 +13,7 @@ namespace toudack1
 {
     public partial class Board_gold : Form
     {
+        public string time;
         private DBConnect dbconnect;
         public Board_gold()            
         {
@@ -24,9 +25,14 @@ namespace toudack1
         {
 
         }
-
+        public void timenow()
+        {
+            dbconnect.TIME_GET_n();
+            time = (dbconnect.h + ":" + dbconnect.m + ":" + dbconnect.s).ToString();
+        }
         private void button_Board_gold_Click_1(object sender, EventArgs e)
         {
+            #region testvahid
             /*
             if (textBox_Buyer.Text=="" && textBox_seller.Text=="")
             {
@@ -68,6 +74,7 @@ namespace toudack1
                 }
             }
             */
+            #endregion
             if (textBox_Buyer.Text == "" || textBox_seller.Text == "")
             {
                 MessageBox.Show("کد را وارد کنید", "ERROR");
@@ -94,6 +101,8 @@ namespace toudack1
                             dbconnect.Fundscheck(textBox_Buyer.Text);
                             if (Convert.ToInt32(dbconnect.natural_resources_Gold) >= Convert.ToInt32(domainUpDown_Board_gold_pcs.Text) && Convert.ToInt32(dbconnect.funds) >= value)
                             {
+                                timenow();
+                                dbconnect.log_insert(time, textBox_seller.Text, 214, "forosh tala az: "+textBox_seller.Text+" be: "+textBox_Buyer.Text+" tedad: "+domainUpDown_Board_gold_pcs.Value+" ghimat: "+domainUpDown_Board_gold_seller.Value+" jame kol: "+allplus.Text+"");
                                 dbconnect.natural_resources_plus(Convert.ToInt32(dbconnect.natural_resources_Buyer), Convert.ToInt32(domainUpDown_Board_gold_pcs.Text), DPNG1, "gold");
                                 dbconnect.natural_resources_Negative(Convert.ToInt32(dbconnect.natural_resources_seller), Convert.ToInt32(domainUpDown_Board_gold_pcs.Text), DPNG2, "gold");
                                 dbconnect.Fundscheck(DPNG1);
@@ -101,6 +110,7 @@ namespace toudack1
                                 dbconnect.Fundscheck(DPNG2);
                                 dbconnect.Fundsplus(dbconnect.funds, value, DPNG2);
                                 dbconnect.setprice("gold", Convert.ToInt32(domainUpDown_Board_gold_seller.Value));
+                                dbconnect.log_done(time, textBox_seller.Text, 214);
                                 MessageBox.Show("انجام شد");
                                 timer1.Start();
                             }

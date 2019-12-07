@@ -13,11 +13,18 @@ namespace toudack1
 {
     public partial class Board_oil : Form
     {
+       
         private DBConnect dbconnect;
         public Board_oil()
         {
             InitializeComponent();
             dbconnect = new DBConnect();
+        }
+        public string time;
+        public void timenow()
+        {
+            dbconnect.TIME_GET_n();
+            time = (dbconnect.h + ":" + dbconnect.m + ":" + dbconnect.s).ToString();
         }
         TIMEUSER user = new TIMEUSER();
         private void Board_Load(object sender, EventArgs e)
@@ -62,7 +69,8 @@ namespace toudack1
                             dbconnect.Fundscheck(textBox_Buyer.Text);
                             if (Convert.ToInt32(dbconnect.natural_resources_Oil) >= Convert.ToInt32(domainUpDown_Board_oil_pcs.Text) && Convert.ToInt32(dbconnect.funds) >= value)
                             {
-
+                                timenow();
+                                dbconnect.log_insert(time, textBox_seller.Text, 215, "forosh naft az: " + textBox_seller.Text + " be: " + textBox_Buyer.Text + " tedad: " + domainUpDown_Board_oil_pcs.Value + " ghimat: " + domainUpDown_Board_oil_seller.Value + " jame kol: " + allplus.Text + "");
                                 dbconnect.natural_resources_plus(Convert.ToInt32(dbconnect.natural_resources_Buyer), Convert.ToInt32(domainUpDown_Board_oil_pcs.Text), DPNG1, "oil");
                                 dbconnect.natural_resources_Negative(Convert.ToInt32(dbconnect.natural_resources_seller), Convert.ToInt32(domainUpDown_Board_oil_pcs.Text), DPNG2, "oil");
                                 dbconnect.Fundscheck(DPNG1);
@@ -70,6 +78,7 @@ namespace toudack1
                                 dbconnect.Fundscheck(DPNG2);
                                 dbconnect.Fundsplus(dbconnect.funds, value, DPNG2);
                                 dbconnect.setprice("oil", Convert.ToInt32(domainUpDown_Board_oil_seller.Value));
+                                dbconnect.log_done(time, textBox_seller.Text, 215);
                                 MessageBox.Show("انجام شد");
                                 textBox_seller.Text = "";
                                 textBox_Buyer.Text = "";

@@ -13,13 +13,18 @@ namespace toudack1
 {
     public partial class Board_Diamond : Form
     {
+        public string time;
         private DBConnect dbconnect;
         public Board_Diamond()
         {
             InitializeComponent();
             dbconnect = new DBConnect();
         }
-
+        public void timenow()
+        {
+            dbconnect.TIME_GET_n();
+            time = (dbconnect.h + ":" + dbconnect.m + ":" + dbconnect.s).ToString();
+        }
         private void button_Board_Diamond_Click(object sender, EventArgs e)
         {
             if (textBox_Buyer.Text == "" || textBox_seller.Text == "")
@@ -48,6 +53,8 @@ namespace toudack1
                         dbconnect.Fundscheck(textBox_Buyer.Text);
                         if (Convert.ToInt32(dbconnect.natural_resources_Diamond) >= Convert.ToInt32(domainUpDown_Board_Diamond_pcs.Text) && Convert.ToInt32(dbconnect.funds) >= value)
                         {
+                            timenow();
+                            dbconnect.log_insert(time, textBox_seller.Text, 213, "forosh almas az: " + textBox_seller.Text + " be: " + textBox_Buyer.Text + " tedad: " + domainUpDown_Board_Diamond_pcs.Value + " ghimat: " + domainUpDown_Board_Diamond_seller.Value + " jame kol: " + allplus.Text + "");
                             dbconnect.natural_resources_plus(Convert.ToInt32(dbconnect.natural_resources_Buyer), Convert.ToInt32(domainUpDown_Board_Diamond_pcs.Text), DPNG1, "diamond");
                             dbconnect.natural_resources_Negative(Convert.ToInt32(dbconnect.natural_resources_seller), Convert.ToInt32(domainUpDown_Board_Diamond_pcs.Text), DPNG2, "diamond");
                             dbconnect.Fundscheck(DPNG1);
@@ -55,6 +62,7 @@ namespace toudack1
                             dbconnect.Fundscheck(DPNG2);
                             dbconnect.Fundsplus(dbconnect.funds, value, DPNG2);
                             dbconnect.setprice("diamond", Convert.ToInt32(domainUpDown_Board_Diamond_seller.Value));
+                            dbconnect.log_done(time, textBox_seller.Text, 213);
                             MessageBox.Show("انجام شد");
                             textBox_seller.Text = "";
                             textBox_Buyer.Text = "";

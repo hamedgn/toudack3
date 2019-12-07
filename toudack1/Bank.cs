@@ -13,7 +13,7 @@ namespace toudack1
 {
     public partial class Bank : Form
     {
-
+        public int loanspay;
         public int groupcode;
         private DBConnect dbConnect;
        // private Cache1 cache1;
@@ -39,21 +39,20 @@ namespace toudack1
             if (prs_code_box.Text != "")
             {
             timenow();
-            dbConnect.log_insert(time, prs_code_box.Text, 210, "mojudi gr : "+ prs_code_box.Text + "");
+            dbConnect.log_insert(time, prs_code_box.Text, 210, "mojudi gr: "+ prs_code_box.Text + "");
             dbConnect.Fundscheck(prs_code_box.Text);
-                {
-                    funds_box.Visible = true;
-                    funds_box.Enabled = true;
-                    funds_larin_lable.Visible = true;
-                    funds_larin_lable.Enabled = true;
-                    transaction_btn.Enabled = false;
-                    loans_get_btn.Enabled = false;
-                    loans_pay_btn.Enabled = false;
-                    funds_box.Text =Convert.ToString(dbConnect.funds);
-                    dbConnect.log_done((dbConnect.h + ":" + dbConnect.m + ":" + dbConnect.s).ToString(), prs_code_box.Text, 210);
+            funds_box.Visible = true;
+            funds_box.Enabled = true;
+            funds_larin_lable.Visible = true;
+            funds_larin_lable.Enabled = true;
+            transaction_btn.Enabled = false;
+            loans_get_btn.Enabled = false;
+            loans_pay_btn.Enabled = false;
+            funds_box.Text =Convert.ToString(dbConnect.funds);
+            dbConnect.log_done(time, prs_code_box.Text, 210);
 
 
-                }
+                
             }
             else
             {
@@ -99,7 +98,7 @@ namespace toudack1
             dbConnect.log_insert(time, prs_code_box.Text, 210, "enteghal az: " + prs_code_box.Text + " be: "+transaction_prs2_cod_box.Text+" mizan: "+transaction_cash_box.Text+"");
 
             dbConnect.Transactionfunds(prs_code_box.Text, transaction_prs2_cod_box.Text,Convert.ToInt32(transaction_cash_box.Text));
-            dbConnect.log_done((dbConnect.h + ":" + dbConnect.m + ":" + dbConnect.s).ToString(), prs_code_box.Text, 210);
+            dbConnect.log_done(time, prs_code_box.Text, 210);
 
         }
 
@@ -125,9 +124,12 @@ namespace toudack1
                     if (dbConnect.loans == 0)
                     {
                         dbConnect.TIME_GET_n();
+                        timenow();
+                        dbConnect.log_insert(time, prs_code_box.Text, 210, "vam: "+prs_code_box.Text+" mablagh: "+loans_get_amount_box.Text+" aghsat: "+loans_get_num_Installments_numeric.Value+" jame kol: "+loans_get_Final_amount_box.Text+"");
                         dbConnect.loansget(prs_code_box.Text, Convert.ToInt32(loans_get_Final_amount_box.Text), Convert.ToInt32(loans_get_num_Installments_numeric.Value),dbConnect.h);
                         dbConnect.Fundscheck(prs_code_box.Text);
                         dbConnect.Fundsplus(Convert.ToInt32(dbConnect.funds), Convert.ToInt32(loans_get_amount_box.Text), prs_code_box.Text);
+                        dbConnect.log_done(time, prs_code_box.Text, 210);
                         MessageBox.Show(".وام ثبت و به موجودی اضافه شد");
                     }
                 }
@@ -241,7 +243,7 @@ namespace toudack1
                 }
                 loans_pay_loans_left_box.Text = Convert.ToString(dbConnect.loans);
                 loans_pay_num_Installments_box.Text = Convert.ToString(dbConnect.month);
-                
+                loanspay = (Convert.ToInt32(dbConnect.loans * w));
                 int a = dbConnect.funds - (Convert.ToInt32(dbConnect.loans*w));
                 loans_pay_Final_amount_box.Text = Convert.ToString(a);
                 
@@ -256,8 +258,11 @@ namespace toudack1
         {
             if (Convert.ToInt32(loans_pay_Final_amount_box.Text) > 0)
             {
+                timenow();
+                dbConnect.log_insert(time, prs_code_box.Text, 210, "tasvie: "+prs_code_box.Text+" mablagh: "+loanspay.ToString()+" aghsat: "+loans_pay_num_Installments_box.Text+" extra time: "+loans_extra_time_box.Text+"");
                 dbConnect.Transferfundsmove(Convert.ToInt32(loans_pay_Final_amount_box.Text), prs_code_box.Text);
                 dbConnect.loansget(prs_code_box.Text, 0, 0, 0);
+                dbConnect.log_done(time, prs_code_box.Text, 210);
                 MessageBox.Show(".وام تصویه شد");
             }
             else
