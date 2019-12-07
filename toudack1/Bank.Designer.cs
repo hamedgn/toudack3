@@ -82,7 +82,6 @@
             // 
             this.prs_code_box.Location = new System.Drawing.Point(437, 12);
             this.prs_code_box.Name = "prs_code_box";
-            this.prs_code_box.ReadOnly = true;
             this.prs_code_box.Size = new System.Drawing.Size(62, 20);
             this.prs_code_box.TabIndex = 8;
             this.prs_code_box.UseSystemPasswordChar = true;

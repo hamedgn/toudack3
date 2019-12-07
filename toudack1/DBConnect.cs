@@ -1699,6 +1699,48 @@ namespace toudack1
         }
         #endregion
 
+        #region log
+
+        public void log_insert(string time, string grnum, int oprator, string log)
+        {
+
+            string query = "INSERT INTO `log`(`time`, `grnum`, `operator`, `log`) VALUES ('"+time+"','"+grnum+"','"+oprator+"','"+log+"')";
+
+            //open connection
+            if (this.OpenConnection() == true)
+            {
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                //Execute command
+                cmd.ExecuteNonQuery();
+
+                //close connection
+                this.CloseConnection();
+            }
+        }
+
+        public void log_done(string time, string grnum, int oprator)
+        {
+
+            string query = "UPDATE `log` SET `done`=1 WHERE `time`='"+time+"' &&`grnum`='"+grnum+"' &&`operator`='"+oprator+"'";
+
+            //open connection
+            if (this.OpenConnection() == true)
+            {
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                //Execute command
+                cmd.ExecuteNonQuery();
+
+                //close connection
+                this.CloseConnection();
+            }
+        }
+
+        #endregion
+
         #endregion
 
         #region Vahid code

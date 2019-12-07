@@ -62,6 +62,10 @@
   <PropertyGroup>
     <SignManifests>true</SignManifests>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="BC.NetBarcodeReaderTrial.Qrcode">
       <HintPath>..\..\..\Users\h7mad-mac\Desktop\BC.NetBarcodeReaderTrial.Qrcode.dll</HintPath>

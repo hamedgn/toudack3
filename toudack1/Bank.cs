@@ -18,6 +18,7 @@ namespace toudack1
         private DBConnect dbConnect;
        // private Cache1 cache1;
         public string q;
+        public string time;
         public Bank()
         {
             InitializeComponent();
@@ -37,19 +38,22 @@ namespace toudack1
         {
             if (prs_code_box.Text != "")
             {
-            
+            timenow();
+            dbConnect.log_insert(time, prs_code_box.Text, 210, "mojudi gr : "+ prs_code_box.Text + "");
             dbConnect.Fundscheck(prs_code_box.Text);
-            {
-                funds_box.Visible = true;
-                funds_box.Enabled = true;
-                funds_larin_lable.Visible = true;
-                funds_larin_lable.Enabled = true;
-                transaction_btn.Enabled = false;
-                loans_get_btn.Enabled = false;
-                loans_pay_btn.Enabled = false;
-                funds_box.Text =Convert.ToString(dbConnect.funds);
+                {
+                    funds_box.Visible = true;
+                    funds_box.Enabled = true;
+                    funds_larin_lable.Visible = true;
+                    funds_larin_lable.Enabled = true;
+                    transaction_btn.Enabled = false;
+                    loans_get_btn.Enabled = false;
+                    loans_pay_btn.Enabled = false;
+                    funds_box.Text =Convert.ToString(dbConnect.funds);
+                    dbConnect.log_done((dbConnect.h + ":" + dbConnect.m + ":" + dbConnect.s).ToString(), prs_code_box.Text, 210);
 
-            }
+
+                }
             }
             else
             {
@@ -57,6 +61,11 @@ namespace toudack1
             }
         }
 
+        public void timenow()
+        {
+            dbConnect.TIME_GET_n();
+            time = (dbConnect.h + ":" + dbConnect.m + ":" + dbConnect.s).ToString();
+        }
         private void transaction_btn_Click(object sender, EventArgs e)
         {
             if (prs_code_box.Text != "")
@@ -86,7 +95,12 @@ namespace toudack1
 
         private void transaction_ok_btn_Click(object sender, EventArgs e)
         {
+            timenow();
+            dbConnect.log_insert(time, prs_code_box.Text, 210, "enteghal az: " + prs_code_box.Text + " be: "+transaction_prs2_cod_box.Text+" mizan: "+transaction_cash_box.Text+"");
+
             dbConnect.Transactionfunds(prs_code_box.Text, transaction_prs2_cod_box.Text,Convert.ToInt32(transaction_cash_box.Text));
+            dbConnect.log_done((dbConnect.h + ":" + dbConnect.m + ":" + dbConnect.s).ToString(), prs_code_box.Text, 210);
+
         }
 
         private void loans_get_ok_Click(object sender, EventArgs e)
@@ -395,10 +409,10 @@ namespace toudack1
             
             
         }
-      //  TIMEUSER user = new TIMEUSER();
+        TIMEUSER user = new TIMEUSER();
         private void Bank_Load(object sender, EventArgs e)
         {
-            // user.Show();
+             user.Show();
             //prs_code_box.Text = Test.Remove(Test.Length - 2);
             using (var file = File.Create("demo"))
             {
