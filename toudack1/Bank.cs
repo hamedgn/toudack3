@@ -395,12 +395,16 @@ namespace toudack1
             
             
         }
-        TIMEUSER user = new TIMEUSER();
+      //  TIMEUSER user = new TIMEUSER();
         private void Bank_Load(object sender, EventArgs e)
         {
-            user.Show();
+            // user.Show();
             //prs_code_box.Text = Test.Remove(Test.Length - 2);
-            
+            using (var file = File.Create("demo"))
+            {
+
+            }
+
         }
 
         private void prs_code_lable_Click(object sender, EventArgs e)

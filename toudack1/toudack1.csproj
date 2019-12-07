@@ -164,6 +164,12 @@
     <Compile Include="display1.Designer.cs">
       <DependentUpon>display1.cs</DependentUpon>
     </Compile>
+    <Compile Include="displaytest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="displaytest.Designer.cs">
+      <DependentUpon>displaytest.cs</DependentUpon>
+    </Compile>
     <Compile Include="dolaty_market_factory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -234,6 +240,9 @@
     </Compile>
     <Compile Include="terrorist.Designer.cs">
       <DependentUpon>terrorist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="testDataSet.cs">
+      <DependentUpon>testDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="testDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -323,6 +332,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="display1.resx">
       <DependentUpon>display1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="displaytest.resx">
+      <DependentUpon>displaytest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="dolaty_market_factory.resx">
       <DependentUpon>dolaty_market_factory.cs</DependentUpon>

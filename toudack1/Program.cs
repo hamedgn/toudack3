@@ -16,10 +16,18 @@ namespace toudack1
         [STAThread]
         static void Main()
         {
-            // int groupnum;
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new login());
+            try
+            {
+                // int groupnum;
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new login());
+            }
+            catch
+            {
+
+            }
+            
         }
     }
 }

@@ -20,10 +20,14 @@ namespace toudack1
             InitializeComponent();
             dbconnect = new DBConnect();
         }
-        TIMEUSER user = new TIMEUSER();
+      //  TIMEUSER user = new TIMEUSER();
         private void population_Load(object sender, EventArgs e)
         {
-            user.Show();
+            //  user.Show();
+            using (var file = File.Create("demo"))
+            {
+
+            }
         }
 
         private void button_population_Click(object sender, EventArgs e)

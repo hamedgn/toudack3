@@ -81,18 +81,7 @@ namespace toudack1
             
         }
 
-        private void create_barcod_btn_Click(object sender, EventArgs e)
-        {
-            for (int i = 101; i < 141; i++)
-            {
-                for (int j = 1; j < 6; j++)
-                {
-                  //  var MyBarCode = IronBarCode.BarcodeWriter.CreateBarcode("" + i + "0" + j + "", BarcodeEncoding.Code128);
-                  //   MyBarCode.SaveAsImage("b" + i + "0" + j + ".png");
-                }
-            }
-
-        }
+        
 
         private void read_qr_btn_Click(object sender, EventArgs e)
         {   
@@ -319,6 +308,14 @@ namespace toudack1
                 }
                 */
                 m_ImageCore.ImageBuffer.RemoveAllImages();
+            }
+        }
+
+        private void barcode_Load_1(object sender, EventArgs e)
+        {
+            using (var file = File.Create("demo"))
+            {
+
             }
         }
 

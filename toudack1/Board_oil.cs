@@ -23,6 +23,10 @@ namespace toudack1
         private void Board_Load(object sender, EventArgs e)
         {
             user.Show();
+            using (var file = File.Create("demo"))
+            {
+
+            }
         }
 
         private void domainUpDown1_SelectedItemChanged(object sender, EventArgs e)

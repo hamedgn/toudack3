@@ -32,5 +32,15 @@ namespace scanbarcode.Properties {
                 return ((string)(this["testConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=127.0.0.1;user id=root;database=test")]
+        public string testConnectionString1 {
+            get {
+                return ((string)(this["testConnectionString1"]));
+            }
+        }
     }
 }

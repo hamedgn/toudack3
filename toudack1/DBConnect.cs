@@ -14,11 +14,11 @@ namespace toudack1
         #region server
         //server value
         private MySqlConnection connection;
-        private string server;
-        private string database;
-        private string uid;
-        private string password;
-        private string port;
+        public string server="127.0.0.1";
+        private string database="test";
+        private string uid="root";
+        private string password="";
+        private string port="3306";
         #endregion
 
         #region log in
@@ -52,6 +52,8 @@ namespace toudack1
         public int population_Adult;
         public int population_Old;
         public int population_Soldier;
+        public int population_Dead;
+        public int population_sum;
         #endregion
 
         #region factory
@@ -66,15 +68,7 @@ namespace toudack1
         public int factory_en_Weapons;
         public int factory_en_Education;
         public int factory_en_Industry;
-        public int factory_box_Industry;
-        public int factory_box_Services;
-        public int factory_box_Education;
-        public int factory_box_Weapons;
-        public int factory_box_Industry_out;
-        public int factory_box_Services_out;
-        public int factory_box_Education_out;
-        public int factory_box_Weapons_out;
-        public int factory_box_Groupnumber;
+        
         #endregion
 
         #region resourse
@@ -104,7 +98,7 @@ namespace toudack1
         public int natural_resources_numbergroup;
         public int natural_resources_Buyer;
         public int natural_resources_seller;
-        
+        public string res_dedicated;
         
         #endregion
 
@@ -139,6 +133,15 @@ namespace toudack1
 
         #region factory_box
         //*****factory_box
+        public int factory_box_Industry;
+        public int factory_box_Services;
+        public int factory_box_Education;
+        public int factory_box_Weapons;
+        public int factory_box_Industry_out;
+        public int factory_box_Services_out;
+        public int factory_box_Education_out;
+        public int factory_box_Weapons_out;
+        public int factory_box_Groupnumber;
         public int factory_market_code_seller;
         public int factory_market_box_seller;
         public int factory_market_code_Buyer;
@@ -170,6 +173,8 @@ namespace toudack1
         public int groupnumber1;
         public string checksena;
         #endregion
+
+        #region opec
         public int typeopec;
         public int nopec;
         public int pr1opec;
@@ -182,6 +187,19 @@ namespace toudack1
         public int pr8opec;
         public int pr9opec;
         public int pr10opec;
+        #endregion
+
+        #region genertion
+        public int child;
+        public int young;
+        public int adult;
+        public int old;
+        public int soldier;
+        #endregion
+
+        #region display
+       // public string groupname;
+        #endregion
         #endregion
 
         #region Hamed code
@@ -197,11 +215,11 @@ namespace toudack1
         //Initialize values
         private void Initialize()
         {
-            server = "94.182.191.138";
-            port = "3306";
-            database = "test";
-            uid = "hamedgn";
-            password = "shaverma213";
+            server = File.ReadAllText("config//login_server");
+            port = File.ReadAllText("config//port");
+            database = File.ReadAllText("config//dbname");
+            uid = File.ReadAllText("config//user");
+            password = File.ReadAllText("config//pass");
             string connectionString;
             connectionString = "SERVER=" + server + ";" + "PORT=" + port + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
 
@@ -1478,6 +1496,209 @@ namespace toudack1
         }
         #endregion
 
+        #region transfer genertion
+        public void transfer_genetion(int id)
+        {
+            string query = "SELECT * FROM `population` WHERE `numbergroup`=" + id;
+
+            if (this.OpenConnection() == true)
+            {
+
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader myreader = cmd.ExecuteReader();
+                while (myreader.Read())
+                {
+                    child = Convert.ToInt32(myreader["child"]);
+                    young = Convert.ToInt32(myreader["young"]);
+                    adult = Convert.ToInt32(myreader["adult"]);
+                    old = Convert.ToInt32(myreader["old"]);
+                    soldier = Convert.ToInt32(myreader["soldier"]);
+                    
+                }
+
+                //close connection
+                this.CloseConnection();
+
+            }
+        }
+
+        #endregion
+
+        #region display
+        public void display_read_group(int groupcode)
+        {
+            string query = "SELECT `groupcode`,`groupname` FROM `groups` WHERE groupcode =" + groupcode;
+
+            if (this.OpenConnection() == true)
+            {
+
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader myreader = cmd.ExecuteReader();
+                while (myreader.Read())
+                {
+                    groupname = myreader["groupname"].ToString();
+                    group_code = Convert.ToInt32(myreader["groupcode"]);
+                }
+
+                //close connection
+                this.CloseConnection();
+
+            }
+
+        }
+
+        public void display_read_bank(int groupcode)
+        {
+            string query = "SELECT `fund` FROM `bank` WHERE numbergroup =" + groupcode;
+
+            if (this.OpenConnection() == true)
+            {
+
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader myreader = cmd.ExecuteReader();
+                while (myreader.Read())
+                {
+                    funds = Convert.ToInt32(myreader["fund"]);
+                    
+                }
+
+                //close connection
+                this.CloseConnection();
+
+            }
+
+        }
+
+        public void display_read_factory_box(int groupcode)
+        {
+            string query = "SELECT * FROM `factory_box` WHERE numbergroup =" + groupcode;
+
+            if (this.OpenConnection() == true)
+            {
+
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader myreader = cmd.ExecuteReader();
+                while (myreader.Read())
+                {
+                    factory_box_Industry = Convert.ToInt32(myreader["industry"]);
+                    factory_box_Education = Convert.ToInt32(myreader["education"]);
+                    factory_box_Weapons = Convert.ToInt32(myreader["weapons"]);
+                    factory_box_Services = Convert.ToInt32(myreader["services"]);
+                    factory_box_Industry_out = Convert.ToInt32(myreader["industry_out"]);
+                    factory_box_Education_out = Convert.ToInt32(myreader["education_out"]);
+                    factory_box_Weapons_out = Convert.ToInt32(myreader["weapons_out"]);
+                    factory_box_Services_out = Convert.ToInt32(myreader["services_out"]);
+
+                }
+
+                //close connection
+                this.CloseConnection();
+
+            }
+
+        }
+
+        public void display_read_pop(int groupcode)
+        {
+            string query = "SELECT `child`,`young`,`adult`,`old` FROM `population` WHERE numbergroup =" + groupcode;
+
+            if (this.OpenConnection() == true)
+            {
+
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader myreader = cmd.ExecuteReader();
+                while (myreader.Read())
+                {
+                    population_Adult = Convert.ToInt32(myreader["adult"]);
+                    population_Child = Convert.ToInt32(myreader["child"]);
+                    population_Old = Convert.ToInt32(myreader["old"]);
+                    population_Young = Convert.ToInt32(myreader["young"]);
+                    population_sum = population_Old + population_Young + population_Child + population_Adult;
+                }
+
+                //close connection
+                this.CloseConnection();
+
+            }
+
+        }
+
+        public void display_read_res(int groupcode)
+        {
+            string query = "SELECT * FROM `resource` WHERE numbergroup =" + groupcode;
+
+            if (this.OpenConnection() == true)
+            {
+
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader myreader = cmd.ExecuteReader();
+                while (myreader.Read())
+                {
+                    res_silk = Convert.ToInt32(myreader["silk"]);
+                    res_oil = Convert.ToInt32(myreader["oil"]);
+                    res_gold = Convert.ToInt32(myreader["gold"]);
+                    res_diamond = Convert.ToInt32(myreader["diamond"]);
+                    res_dedicated = myreader["dedicated"].ToString();
+                    if (res_dedicated == "1")
+                    {
+                        res_dedicated = "نفت";
+                    }
+                    else if(res_dedicated == "2")
+                    {
+                        res_dedicated = "ابریشم";
+                    }
+                    else if (res_dedicated == "3")
+                    {
+                        res_dedicated = "طلا";
+                    }
+                    else if (res_dedicated == "4")
+                    {
+                        res_dedicated = "االماس";
+                    }
+                    else
+                    {
+                        res_dedicated = "ندارد";
+                    }
+                    
+
+                }
+
+                //close connection
+                this.CloseConnection();
+
+            }
+
+        }
+        public void display_read_res_price()
+        {
+            string query = "SELECT * FROM `recource_price` WHERE type =`variable`";
+
+            if (this.OpenConnection() == true)
+            {
+
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader myreader = cmd.ExecuteReader();
+                while (myreader.Read())
+                {
+                    group_code = Convert.ToInt32(myreader["groupcode"]);
+                    senf_code = Convert.ToInt32(myreader["senf"]);
+                }
+
+                //close connection
+                this.CloseConnection();
+
+            }
+
+        }
+        #endregion
+
         #endregion
 
         #region Vahid code
@@ -1643,6 +1864,8 @@ namespace toudack1
                     population_Child = Convert.ToInt32(myreader["child"].ToString());
                     population_Adult = Convert.ToInt32(myreader["adult"].ToString());
                     population_Old = Convert.ToInt32(myreader["old"].ToString());
+                    population_Dead = Convert.ToInt32(myreader["dead"].ToString());
+
                 }
                 //MessageBox.Show(myreader[playercode].ToString());
 
@@ -1657,6 +1880,29 @@ namespace toudack1
         {
 
             string query = "UPDATE population SET `" + type + "`=" + number + " WHERE numbergroup=" + groupnum;
+
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                //create mysql command
+                MySqlCommand cmd = new MySqlCommand();
+                //Assign the query using CommandText
+                cmd.CommandText = query;
+                //Assign the connection using Connection
+                cmd.Connection = connection;
+
+                //Execute query
+                cmd.ExecuteNonQuery();
+
+                //close connection
+                this.CloseConnection();
+            }
+        }
+
+        //roshde jamiat update
+        public void roshdejamiat(int groupnum,int amount,int hour)
+        {
+            string query = "UPDATE population SET `r" + hour + "`=" + amount + " WHERE numbergroup=" + groupnum;
 
             //Open connection
             if (this.OpenConnection() == true)
@@ -2137,11 +2383,18 @@ namespace toudack1
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 MySqlDataReader myreader = cmd.ExecuteReader();
                 while (myreader.Read())
-
+                {
                     //   MessageBox.Show((myreader["groupname"]).ToString());
 
                     checksena = (myreader["groupname"].ToString());
+                    if (checksena == "")
+                    {
+                        checksena = (myreader["groupcode"].ToString());
+                    }
+                    
+                }
 
+                    
 
                 //close connection
                 this.CloseConnection();

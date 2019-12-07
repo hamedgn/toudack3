@@ -1501,6 +1501,10 @@ namespace toudack1
         private void sena_Load(object sender, EventArgs e)
         {
             user.Show();
+            using (var file = File.Create("demo"))
+            {
+
+            }
         }
     }
 }

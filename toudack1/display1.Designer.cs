@@ -479,6 +479,7 @@
             this.dataGridView4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dataGridView4.Size = new System.Drawing.Size(102, 746);
             this.dataGridView4.TabIndex = 3;
+            this.dataGridView4.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4_CellContentClick);
             // 
             // groupnameDataGridViewTextBoxColumn
             // 
@@ -1129,7 +1130,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1284, 749);
+            this.ClientSize = new System.Drawing.Size(1276, 749);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);

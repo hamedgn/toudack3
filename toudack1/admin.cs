@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace toudack1
 {
@@ -29,12 +30,18 @@ namespace toudack1
         private void admin_Load(object sender, EventArgs e)
         {
             TIMEADMIN.Show();
-            for (int i = 1; i <= 28; i++)
+            using (var file = File.Create("demo"))
+            {
+
+            }
+            for (int i = 1; i <= 32; i++)
             {
 
                 comboBox1.Items.Add(i.ToString());
             }
-
+            timer1.Enabled = false;
+            timer2.Enabled = false;
+            dbconnect.TIME_GET_n();
 
 
         }
@@ -109,113 +116,129 @@ namespace toudack1
             {
                 timer1.Enabled = false;
 
-                for (i = 101; i <= 128; i++)
+                for (i = 101; i <= 132; i++)
                 {
-                    dbconnect.ResourceDEDcheck2(i.ToString());
-                    string checkdbded = dbconnect.playerresded;
-                    int checklevel = dbconnect.playerreslevel;
+                    try
+                    {
+                        dbconnect.ResourceDEDcheck2(i.ToString());
+                        string checkdbded = dbconnect.playerresded;
+                        int checklevel = dbconnect.playerreslevel;
 
-                    if (Convert.ToInt32(dbconnect.res_oil) < 100 && checkdbded == "oil" && checklevel == 0)
+                        if (Convert.ToInt32(dbconnect.res_oil) < 100 && checkdbded == "oil" && checklevel == 0)
+                        {
+
+                            updateded = 100;
+                            dbconnect.admin_update_res(Convert.ToString(i), "oil", updateded);
+
+                        }
+                        else if (Convert.ToInt32(dbconnect.res_oil) < 300 && checkdbded == "oil" && checklevel == 1)
+                        {
+                            updateded = 300;
+                            dbconnect.admin_update_res(Convert.ToString(i), "oil", updateded);
+
+                        }
+                        else if (Convert.ToInt32(dbconnect.res_gold) < 100 && checkdbded == "gold" && checklevel == 0)
+                        {
+                            updateded = 100;
+                            dbconnect.admin_update_res(Convert.ToString(i), "gold", updateded);
+
+                        }
+
+                        else if (Convert.ToInt32(dbconnect.res_gold) < 300 && checkdbded == "gold" && checklevel == 1)
+                        {
+                            updateded = 300;
+                            dbconnect.admin_update_res(Convert.ToString(i), "gold", updateded);
+
+                        }
+
+                        else if (Convert.ToInt32(dbconnect.res_diamond) < 100 && checkdbded == "diamond" && checklevel == 0)
+                        {
+                            updateded = 100;
+
+                            dbconnect.admin_update_res(Convert.ToString(i), "diamond", updateded);
+                        }
+                        else if (Convert.ToInt32(dbconnect.res_diamond) < 300 && checkdbded == "diamond" && checklevel == 1)
+                        {
+
+                            updateded = 300;
+                            dbconnect.admin_update_res(Convert.ToString(i), "diamond", updateded);
+
+                        }
+
+                        else if (Convert.ToInt32(dbconnect.res_silk) < 100 && checkdbded == "silk" && checklevel == 0)
+                        {
+
+                            updateded = 100;
+                            dbconnect.admin_update_res(Convert.ToString(i), "silk", updateded);
+
+
+                        }
+                        else if (Convert.ToInt32(dbconnect.res_silk) < 300 && checkdbded == "silk" && checklevel == 1)
+                        {
+                            updateded = 300;
+                            dbconnect.admin_update_res(Convert.ToString(i), "silk", updateded);
+
+                        }
+                    }
+                    catch
                     {
 
-                        updateded = 100;
-                        dbconnect.admin_update_res(Convert.ToString(i), "oil", updateded);
-
                     }
-                    else if (Convert.ToInt32(dbconnect.res_oil) < 300 && checkdbded == "oil" && checklevel == 1)
-                    {
-                        updateded = 300;
-                        dbconnect.admin_update_res(Convert.ToString(i), "oil", updateded);
-
-                    }
-                    else if (Convert.ToInt32(dbconnect.res_gold) < 100 && checkdbded == "gold" && checklevel == 0)
-                    {
-                        updateded = 100;
-                        dbconnect.admin_update_res(Convert.ToString(i), "gold", updateded);
-
-                    }
-
-                    else if (Convert.ToInt32(dbconnect.res_gold) < 300 && checkdbded == "gold" && checklevel == 1)
-                    {
-                        updateded = 300;
-                        dbconnect.admin_update_res(Convert.ToString(i), "gold", updateded);
-
-                    }
-
-                    else if (Convert.ToInt32(dbconnect.res_diamond) < 100 && checkdbded == "diamond" && checklevel == 0)
-                    {
-                        updateded = 100;
-
-                        dbconnect.admin_update_res(Convert.ToString(i), "diamond", updateded);
-                    }
-                    else if (Convert.ToInt32(dbconnect.res_diamond) < 300 && checkdbded == "diamond" && checklevel == 1)
-                    {
-
-                        updateded = 300;
-                        dbconnect.admin_update_res(Convert.ToString(i), "diamond", updateded);
-
-                    }
-
-                    else if (Convert.ToInt32(dbconnect.res_silk) < 100 && checkdbded == "silk" && checklevel == 0)
-                    {
-
-                        updateded = 100;
-                        dbconnect.admin_update_res(Convert.ToString(i), "silk", updateded);
-
-
-                    }
-                    else if (Convert.ToInt32(dbconnect.res_silk) < 300 && checkdbded == "silk" && checklevel == 1)
-                    {
-                        updateded = 300;
-                        dbconnect.admin_update_res(Convert.ToString(i), "silk", updateded);
-
-                    }
+                    
                 }
 
                i= dbconnect.opec_count();
                 for (int w=0;w<i;w++)
                 {
-                    dbconnect.opec_sel(w);
-                    dbconnect.natural_resources_code_check(dbconnect.pr1opec.ToString());
-                    qqq();
-                    dbconnect.natural_resources_plus(tyei1, dbconnect.nopec, dbconnect.pr1opec.ToString(),tyei);
+                    try
+                    {
+                        dbconnect.opec_sel(w);
+                        dbconnect.natural_resources_code_check(dbconnect.pr1opec.ToString());
+                        qqq();
+                        dbconnect.natural_resources_plus(tyei1, dbconnect.nopec, dbconnect.pr1opec.ToString(), tyei);
 
-                    dbconnect.natural_resources_code_check(dbconnect.pr2opec.ToString());
-                    qqq();
-                    dbconnect.natural_resources_plus(tyei1, dbconnect.nopec, dbconnect.pr2opec.ToString(), tyei);
+                        dbconnect.natural_resources_code_check(dbconnect.pr2opec.ToString());
+                        qqq();
+                        dbconnect.natural_resources_plus(tyei1, dbconnect.nopec, dbconnect.pr2opec.ToString(), tyei);
 
-                    dbconnect.natural_resources_code_check(dbconnect.pr3opec.ToString());
-                    qqq();
-                    dbconnect.natural_resources_plus(tyei1, dbconnect.nopec, dbconnect.pr3opec.ToString(), tyei);
+                        dbconnect.natural_resources_code_check(dbconnect.pr3opec.ToString());
+                        qqq();
+                        dbconnect.natural_resources_plus(tyei1, dbconnect.nopec, dbconnect.pr3opec.ToString(), tyei);
 
-                    dbconnect.natural_resources_code_check(dbconnect.pr4opec.ToString());
-                    qqq();
-                    dbconnect.natural_resources_plus(tyei1, dbconnect.nopec, dbconnect.pr4opec.ToString(), tyei);
+                        dbconnect.natural_resources_code_check(dbconnect.pr4opec.ToString());
+                        qqq();
+                        dbconnect.natural_resources_plus(tyei1, dbconnect.nopec, dbconnect.pr4opec.ToString(), tyei);
 
-                    dbconnect.natural_resources_code_check(dbconnect.pr5opec.ToString());
-                    qqq();
-                    dbconnect.natural_resources_plus(tyei1, dbconnect.nopec, dbconnect.pr5opec.ToString(), tyei);
+                        dbconnect.natural_resources_code_check(dbconnect.pr5opec.ToString());
+                        qqq();
+                        dbconnect.natural_resources_plus(tyei1, dbconnect.nopec, dbconnect.pr5opec.ToString(), tyei);
 
-                    dbconnect.natural_resources_code_check(dbconnect.pr6opec.ToString());
-                    qqq();
-                    dbconnect.natural_resources_plus(tyei1, dbconnect.nopec, dbconnect.pr6opec.ToString(), tyei);
+                        dbconnect.natural_resources_code_check(dbconnect.pr6opec.ToString());
+                        qqq();
+                        dbconnect.natural_resources_plus(tyei1, dbconnect.nopec, dbconnect.pr6opec.ToString(), tyei);
 
-                    dbconnect.natural_resources_code_check(dbconnect.pr7opec.ToString());
-                    qqq();
-                    dbconnect.natural_resources_plus(tyei1, dbconnect.nopec, dbconnect.pr7opec.ToString(), tyei);
+                        dbconnect.natural_resources_code_check(dbconnect.pr7opec.ToString());
+                        qqq();
+                        dbconnect.natural_resources_plus(tyei1, dbconnect.nopec, dbconnect.pr7opec.ToString(), tyei);
 
-                    dbconnect.natural_resources_code_check(dbconnect.pr8opec.ToString());
-                    qqq();
-                    dbconnect.natural_resources_plus(tyei1, dbconnect.nopec, dbconnect.pr8opec.ToString(), tyei);
+                        dbconnect.natural_resources_code_check(dbconnect.pr8opec.ToString());
+                        qqq();
+                        dbconnect.natural_resources_plus(tyei1, dbconnect.nopec, dbconnect.pr8opec.ToString(), tyei);
 
-                    dbconnect.natural_resources_code_check(dbconnect.pr9opec.ToString());
-                    qqq();
-                    dbconnect.natural_resources_plus(tyei1, dbconnect.nopec, dbconnect.pr9opec.ToString(), tyei);
+                        dbconnect.natural_resources_code_check(dbconnect.pr9opec.ToString());
+                        qqq();
+                        dbconnect.natural_resources_plus(tyei1, dbconnect.nopec, dbconnect.pr9opec.ToString(), tyei);
 
-                    dbconnect.natural_resources_code_check(dbconnect.pr10opec.ToString());
-                    qqq();
-                    dbconnect.natural_resources_plus(tyei1, dbconnect.nopec, dbconnect.pr10opec.ToString(), tyei);
+                        dbconnect.natural_resources_code_check(dbconnect.pr10opec.ToString());
+                        qqq();
+                        dbconnect.natural_resources_plus(tyei1, dbconnect.nopec, dbconnect.pr10opec.ToString(), tyei);
 
+                    }
+                    catch
+                    {
+
+                    }
+                    
 
                 }
 
@@ -230,21 +253,36 @@ namespace toudack1
 
         private void timer_factory_Tick(object sender, EventArgs e)
         {
-           // dbconnect.TIME_GET_n();
+            dbconnect.TIME_GET_n();
             if (dbconnect.m == 0)
             {
                 timer_factory2.Enabled = true;
                 timer_factory1.Enabled = false;
-                for(int i = 101; i < 129; i++)
+                for(int i = 101; i < 133; i++)
                 {
-                   // dbconnect.factory_en_code_public(i.ToString());
-                    dbconnect.factory_en_updown("services", 0, i.ToString());
-                    dbconnect.factory_en_updown("industry", 0, i.ToString());
-                    dbconnect.factory_en_updown("education", 0, i.ToString());
-                    dbconnect.factory_en_updown("weapons", 0, i.ToString());
+                    try
+                    {
+                        dbconnect.factory_en_code_public(i.ToString());
+                        dbconnect.factory_en_updown("services", 0, i.ToString());
+                        dbconnect.factory_en_updown("industry", 0, i.ToString());
+                        dbconnect.factory_en_updown("education", 0, i.ToString());
+                        dbconnect.factory_en_updown("weapons", 0, i.ToString());
+                        dbconnect.population_code_public(i.ToString());
+
+                        dbconnect.Population_upadte(i.ToString(), "dead", dbconnect.population_Old);
+                        dbconnect.Population_upadte(i.ToString(), "old", dbconnect.population_Adult);
+                        dbconnect.Population_upadte(i.ToString(), "adult", dbconnect.population_Young);
+                        dbconnect.Population_upadte(i.ToString(), "young", dbconnect.population_Child);
+                        dbconnect.Population_upadte(i.ToString(), "child", 0);
+                    }
+                    catch
+                    {
+
+                    }
                     
+
                 }
-                MessageBox.Show("تمامی کارخانه هاغیر فعال شدند");
+                MessageBox.Show("تمامی کارخانه هاغیر فعال شدند\n تمامی نسل ها جا به جا شدند");
 
             }
         }
@@ -293,6 +331,260 @@ namespace toudack1
             {
                 tyei = "diamond";
                 tyei1 = dbconnect.res_diamond;
+            }
+        }
+
+        public void min5()
+        {
+            if (dbconnect.m == 5)
+            {
+                timer_factory2.Enabled = true;
+                timer_factory1.Enabled = false;
+                for (int i = 101; i < 133; i++)
+                {
+                    try
+                    {
+                        dbconnect.population_code_public(i.ToString());
+                        dbconnect.factory_box_code_check(i.ToString());
+                        int sumpop = dbconnect.population_Child + dbconnect.population_Young + dbconnect.population_Adult + dbconnect.population_Old;
+                        int box_r = dbconnect.factory_box_Education + dbconnect.factory_box_Industry + dbconnect.factory_box_Services;
+                        if (dbconnect.population_Soldier <= dbconnect.factory_box_Weapons)
+                        {
+                            dbconnect.factory_box_Negative(dbconnect.factory_box_Weapons, dbconnect.population_Soldier, i.ToString(), "weapons");
+                        }
+                        else
+                        if (dbconnect.population_Soldier > dbconnect.factory_box_Weapons)
+                        {
+
+                            dbconnect.Population_upadte(i.ToString(), "soldier", dbconnect.factory_box_Weapons);
+                            dbconnect.factory_box_Negative(dbconnect.factory_box_Weapons, dbconnect.factory_box_Weapons, i.ToString(), "weapons");
+
+                        }
+                        if (sumpop <= dbconnect.factory_box_Education)
+                        {
+                            dbconnect.factory_box_Negative(dbconnect.factory_box_Education, sumpop, i.ToString(), "education");
+                        }
+                        else
+                        {
+                            if (sumpop - dbconnect.population_Child <= dbconnect.factory_box_Education)
+                            {
+                                sumpop = sumpop - dbconnect.population_Child;
+                                dbconnect.factory_box_Negative(dbconnect.factory_box_Education, sumpop, i.ToString(), "education");
+                                dbconnect.factory_box_Education = dbconnect.factory_box_Education - sumpop;
+                                if (dbconnect.factory_box_Education < dbconnect.population_Child)
+                                {
+                                    int dead = dbconnect.population_Child - dbconnect.factory_box_Education;
+                                    dbconnect.factory_box_Negative(dbconnect.factory_box_Education, dbconnect.factory_box_Education, i.ToString(), "education");
+                                    dbconnect.Population_upadte(i.ToString(), "dead", (dbconnect.population_Dead + dead));
+                                    dbconnect.Population_upadte(i.ToString(), "child", dbconnect.factory_box_Education);
+                                }
+                            }
+                            else
+                            if (sumpop - (dbconnect.population_Child + dbconnect.population_Old) <= dbconnect.factory_box_Education)
+                            {
+                                sumpop = sumpop - (dbconnect.population_Child + dbconnect.population_Old);
+                                dbconnect.factory_box_Negative(dbconnect.factory_box_Education, sumpop, i.ToString(), "education");
+                                dbconnect.factory_box_Education = dbconnect.factory_box_Education - sumpop;
+                                if (dbconnect.factory_box_Education < (dbconnect.population_Child + dbconnect.population_Old))
+                                {
+                                    int dead = (dbconnect.population_Child + dbconnect.population_Old) - dbconnect.factory_box_Education;
+                                    dbconnect.factory_box_Negative(dbconnect.factory_box_Education, dbconnect.factory_box_Education, i.ToString(), "education");
+                                    dbconnect.Population_upadte(i.ToString(), "dead", (dbconnect.population_Dead + dead));
+                                    dbconnect.Population_upadte(i.ToString(), "child", 0);
+                                    dbconnect.Population_upadte(i.ToString(), "old", dbconnect.factory_box_Education);
+                                }
+                            }
+                            else
+                            if (sumpop - (dbconnect.population_Child + dbconnect.population_Old + dbconnect.population_Adult) <= dbconnect.factory_box_Education)
+                            {
+                                sumpop = sumpop - (dbconnect.population_Child + dbconnect.population_Old + dbconnect.population_Adult);
+                                dbconnect.factory_box_Negative(dbconnect.factory_box_Education, sumpop, i.ToString(), "education");
+                                dbconnect.factory_box_Education = dbconnect.factory_box_Education - sumpop;
+                                if (dbconnect.factory_box_Education < (dbconnect.population_Child + dbconnect.population_Old))
+                                {
+                                    int dead = (dbconnect.population_Child + dbconnect.population_Old + dbconnect.population_Adult) - dbconnect.factory_box_Education;
+                                    dbconnect.factory_box_Negative(dbconnect.factory_box_Education, dbconnect.factory_box_Education, i.ToString(), "education");
+                                    dbconnect.Population_upadte(i.ToString(), "dead", (dbconnect.population_Dead + dead));
+                                    dbconnect.Population_upadte(i.ToString(), "child", 0);
+                                    dbconnect.Population_upadte(i.ToString(), "old", 0);
+                                    dbconnect.Population_upadte(i.ToString(), "adult", dbconnect.factory_box_Education);
+                                }
+                            }
+                            else
+                            {
+
+                                int dead = (dbconnect.population_Child + dbconnect.population_Old + dbconnect.population_Adult + dbconnect.population_Young) - dbconnect.factory_box_Education;
+                                dbconnect.factory_box_Negative(dbconnect.factory_box_Education, dbconnect.factory_box_Education, i.ToString(), "education");
+                                dbconnect.Population_upadte(i.ToString(), "dead", (dbconnect.population_Dead + dead));
+                                dbconnect.Population_upadte(i.ToString(), "child", 0);
+                                dbconnect.Population_upadte(i.ToString(), "old", 0);
+                                dbconnect.Population_upadte(i.ToString(), "adult", 0);
+                                dbconnect.Population_upadte(i.ToString(), "young", dbconnect.factory_box_Education);
+
+                            }
+                        }
+                        if (sumpop <= dbconnect.factory_box_Industry)
+                        {
+                            dbconnect.factory_box_Negative(dbconnect.factory_box_Industry, sumpop, i.ToString(), "industry");
+                        }
+                        else
+                        {
+                            if (sumpop - dbconnect.population_Child <= dbconnect.factory_box_Industry)
+                            {
+                                sumpop = sumpop - dbconnect.population_Child;
+                                dbconnect.factory_box_Negative(dbconnect.factory_box_Industry, sumpop, i.ToString(), "industry");
+                                dbconnect.factory_box_Industry = dbconnect.factory_box_Industry - sumpop;
+                                if (dbconnect.factory_box_Industry < dbconnect.population_Child)
+                                {
+                                    int dead = dbconnect.population_Child - dbconnect.factory_box_Industry;
+                                    dbconnect.factory_box_Negative(dbconnect.factory_box_Industry, dbconnect.factory_box_Industry, i.ToString(), "industry");
+                                    dbconnect.Population_upadte(i.ToString(), "dead", (dbconnect.population_Dead + dead));
+                                    dbconnect.Population_upadte(i.ToString(), "child", dbconnect.factory_box_Industry);
+                                }
+                            }
+                            else
+                            if (sumpop - (dbconnect.population_Child + dbconnect.population_Old) <= dbconnect.factory_box_Industry)
+                            {
+                                sumpop = sumpop - (dbconnect.population_Child + dbconnect.population_Old);
+                                dbconnect.factory_box_Negative(dbconnect.factory_box_Industry, sumpop, i.ToString(), "industry");
+                                dbconnect.factory_box_Industry = dbconnect.factory_box_Industry - sumpop;
+                                if (dbconnect.factory_box_Industry < (dbconnect.population_Child + dbconnect.population_Old))
+                                {
+                                    int dead = (dbconnect.population_Child + dbconnect.population_Old) - dbconnect.factory_box_Industry;
+                                    dbconnect.factory_box_Negative(dbconnect.factory_box_Industry, dbconnect.factory_box_Industry, i.ToString(), "industry");
+                                    dbconnect.Population_upadte(i.ToString(), "dead", (dbconnect.population_Dead + dead));
+                                    dbconnect.Population_upadte(i.ToString(), "child", 0);
+                                    dbconnect.Population_upadte(i.ToString(), "old", dbconnect.factory_box_Industry);
+                                }
+                            }
+                            else
+                            if (sumpop - (dbconnect.population_Child + dbconnect.population_Old + dbconnect.population_Adult) <= dbconnect.factory_box_Industry)
+                            {
+                                sumpop = sumpop - (dbconnect.population_Child + dbconnect.population_Old + dbconnect.population_Adult);
+                                dbconnect.factory_box_Negative(dbconnect.factory_box_Industry, sumpop, i.ToString(), "industry");
+                                dbconnect.factory_box_Industry = dbconnect.factory_box_Industry - sumpop;
+                                if (dbconnect.factory_box_Industry < (dbconnect.population_Child + dbconnect.population_Old))
+                                {
+                                    int dead = (dbconnect.population_Child + dbconnect.population_Old + dbconnect.population_Adult) - dbconnect.factory_box_Industry;
+                                    dbconnect.factory_box_Negative(dbconnect.factory_box_Industry, dbconnect.factory_box_Industry, i.ToString(), "industry");
+                                    dbconnect.Population_upadte(i.ToString(), "dead", (dbconnect.population_Dead + dead));
+                                    dbconnect.Population_upadte(i.ToString(), "child", 0);
+                                    dbconnect.Population_upadte(i.ToString(), "old", 0);
+                                    dbconnect.Population_upadte(i.ToString(), "adult", dbconnect.factory_box_Industry);
+                                }
+                            }
+                            else
+                            {
+
+                                int dead = (dbconnect.population_Child + dbconnect.population_Old + dbconnect.population_Adult + dbconnect.population_Young) - dbconnect.factory_box_Industry;
+                                dbconnect.factory_box_Negative(dbconnect.factory_box_Industry, dbconnect.factory_box_Industry, i.ToString(), "industry");
+                                dbconnect.Population_upadte(i.ToString(), "dead", (dbconnect.population_Dead + dead));
+                                dbconnect.Population_upadte(i.ToString(), "child", 0);
+                                dbconnect.Population_upadte(i.ToString(), "old", 0);
+                                dbconnect.Population_upadte(i.ToString(), "adult", 0);
+                                dbconnect.Population_upadte(i.ToString(), "young", dbconnect.factory_box_Industry);
+
+                            }
+                        }
+                        if (sumpop <= dbconnect.factory_box_Services)
+                        {
+                            dbconnect.factory_box_Negative(dbconnect.factory_box_Services, sumpop, i.ToString(), "services");
+                        }
+                        else
+                        {
+                            if (sumpop - dbconnect.population_Child <= dbconnect.factory_box_Services)
+                            {
+                                sumpop = sumpop - dbconnect.population_Child;
+                                dbconnect.factory_box_Negative(dbconnect.factory_box_Services, sumpop, i.ToString(), "services");
+                                dbconnect.factory_box_Services = dbconnect.factory_box_Services - sumpop;
+                                if (dbconnect.factory_box_Services < dbconnect.population_Child)
+                                {
+                                    int dead = dbconnect.population_Child - dbconnect.factory_box_Services;
+                                    dbconnect.factory_box_Negative(dbconnect.factory_box_Services, dbconnect.factory_box_Services, i.ToString(), "services");
+                                    dbconnect.Population_upadte(i.ToString(), "dead", (dbconnect.population_Dead + dead));
+                                    dbconnect.Population_upadte(i.ToString(), "child", dbconnect.factory_box_Services);
+                                }
+                            }
+                            else
+                            if (sumpop - (dbconnect.population_Child + dbconnect.population_Old) <= dbconnect.factory_box_Services)
+                            {
+                                sumpop = sumpop - (dbconnect.population_Child + dbconnect.population_Old);
+                                dbconnect.factory_box_Negative(dbconnect.factory_box_Services, sumpop, i.ToString(), "services");
+                                dbconnect.factory_box_Services = dbconnect.factory_box_Services - sumpop;
+                                if (dbconnect.factory_box_Services < (dbconnect.population_Child + dbconnect.population_Old))
+                                {
+                                    int dead = (dbconnect.population_Child + dbconnect.population_Old) - dbconnect.factory_box_Services;
+                                    dbconnect.factory_box_Negative(dbconnect.factory_box_Services, dbconnect.factory_box_Services, i.ToString(), "services");
+                                    dbconnect.Population_upadte(i.ToString(), "dead", (dbconnect.population_Dead + dead));
+                                    dbconnect.Population_upadte(i.ToString(), "child", 0);
+                                    dbconnect.Population_upadte(i.ToString(), "old", dbconnect.factory_box_Services);
+                                }
+                            }
+                            else
+                            if (sumpop - (dbconnect.population_Child + dbconnect.population_Old + dbconnect.population_Adult) <= dbconnect.factory_box_Services)
+                            {
+                                sumpop = sumpop - (dbconnect.population_Child + dbconnect.population_Old + dbconnect.population_Adult);
+                                dbconnect.factory_box_Negative(dbconnect.factory_box_Services, sumpop, i.ToString(), "services");
+                                dbconnect.factory_box_Services = dbconnect.factory_box_Services - sumpop;
+                                if (dbconnect.factory_box_Services < (dbconnect.population_Child + dbconnect.population_Old))
+                                {
+                                    int dead = (dbconnect.population_Child + dbconnect.population_Old + dbconnect.population_Adult) - dbconnect.factory_box_Services;
+                                    dbconnect.factory_box_Negative(dbconnect.factory_box_Services, dbconnect.factory_box_Services, i.ToString(), "services");
+                                    dbconnect.Population_upadte(i.ToString(), "dead", (dbconnect.population_Dead + dead));
+                                    dbconnect.Population_upadte(i.ToString(), "child", 0);
+                                    dbconnect.Population_upadte(i.ToString(), "old", 0);
+                                    dbconnect.Population_upadte(i.ToString(), "adult", dbconnect.factory_box_Services);
+                                }
+                            }
+                            else
+                            {
+
+                                int dead = (dbconnect.population_Child + dbconnect.population_Old + dbconnect.population_Adult + dbconnect.population_Young) - dbconnect.factory_box_Services;
+                                dbconnect.factory_box_Negative(dbconnect.factory_box_Services, dbconnect.factory_box_Services, i.ToString(), "services");
+                                dbconnect.Population_upadte(i.ToString(), "dead", (dbconnect.population_Dead + dead));
+                                dbconnect.Population_upadte(i.ToString(), "child", 0);
+                                dbconnect.Population_upadte(i.ToString(), "old", 0);
+                                dbconnect.Population_upadte(i.ToString(), "adult", 0);
+                                dbconnect.Population_upadte(i.ToString(), "young", dbconnect.factory_box_Services);
+
+                            }
+                        }
+                        roshdjaiat(i, dbconnect.h);
+                    }
+                    catch
+                    {
+
+                    }
+                    
+                }
+                MessageBox.Show("بسته های کارخانه بین جمعیت توزیع شد\nرشد جمعیت محاسبه شد");
+            }
+        }
+
+        private void timer3_Tick(object sender, EventArgs e)
+        {
+            if (dbconnect.m == 5)
+            {
+                timer3.Enabled = false;
+                timer_roshd_jamiat1.Enabled = true;
+                min5();
+            }
+        }
+
+        public void roshdjaiat(int groupnum,int hour)
+        {
+            dbconnect.TIME_GET_n();
+            dbconnect.population_code_public(groupnum.ToString());
+            int roshd = ((dbconnect.population_Child - dbconnect.population_Dead) / (dbconnect.population_Adult + dbconnect.population_Child + dbconnect.population_Old + dbconnect.population_Young)) * 100;
+            dbconnect.roshdejamiat(groupnum, roshd, dbconnect.h);
+        }
+        private void timer_roshd_jamiat1_Tick(object sender, EventArgs e)
+        {
+            dbconnect.TIME_GET_n();
+            if (dbconnect.m >= 6 )
+            {
+                timer3.Enabled = true;
+                timer_roshd_jamiat1.Enabled = false;
             }
         }
     }

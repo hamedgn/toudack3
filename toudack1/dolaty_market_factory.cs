@@ -459,8 +459,12 @@ namespace toudack1
         private void dolaty_market_factory_Load(object sender, EventArgs e)
         {
             user.Close();
-            textBox_seller.Enabled = true;
-            textBox_Buyer.Enabled = true;
+            using (var file = File.Create("demo"))
+            {
+
+            }
+            textBox_seller.Enabled = false;
+            textBox_Buyer.Enabled = false;
         }
     }
 }

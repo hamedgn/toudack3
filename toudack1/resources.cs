@@ -99,10 +99,14 @@ namespace toudack1
         {
 
         }
-        TIMEUSER user = new TIMEUSER();
+       // TIMEUSER user = new TIMEUSER();
         private void resources_Load(object sender, EventArgs e)
         {
-            user.Show();
+           // user.Show();
+            using (var file = File.Create("demo"))
+            {
+
+            }
             resources_label_Diamond.Text = "0";
             resources_label_gold.Text = "0";
             resources_label_petroleum.Text = "0";

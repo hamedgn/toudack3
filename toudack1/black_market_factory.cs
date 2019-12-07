@@ -528,6 +528,10 @@ namespace toudack1
         private void black_market_factory_Load(object sender, EventArgs e)
         {
             user.Show();
+            using (var file = File.Create("demo"))
+            {
+
+            }
         }
     }
 }

@@ -61,7 +61,7 @@ namespace toudack1
         {
           
             axWindowsMediaPlayer1.Visible = true;
-            String s = "http://94.182.191.138/terrorist.mp4";
+            String s = "http://"+dbconnect.server+"/terrorist.mp4";
             axWindowsMediaPlayer1.URL = s;
             axWindowsMediaPlayer1.Ctlcontrols.play();
             axWindowsMediaPlayer1.uiMode = "none";
@@ -113,6 +113,11 @@ namespace toudack1
                   e.Handled = true;
               }
               
+        }
+
+        private void axWindowsMediaPlayer1_Enter_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -306,7 +306,12 @@ namespace toudack1
         TIMEUSER user = new TIMEUSER();
         private void Board_Diamond_Load(object sender, EventArgs e)
         {
+            
             user.Show();
+            using (var file = File.Create("demo"))
+            {
+
+            }
         }
     }
 }

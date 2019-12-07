@@ -723,7 +723,6 @@
             // 
             // button_Buyer
             // 
-            this.button_Buyer.Enabled = false;
             this.button_Buyer.Font = new System.Drawing.Font("B Titr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.button_Buyer.Image = global::toudack1.Properties.Resources.barcod;
             this.button_Buyer.Location = new System.Drawing.Point(44, 133);

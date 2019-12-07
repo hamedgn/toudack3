@@ -239,6 +239,10 @@ namespace toudack1
                 comboBox1.Items.Add(i.ToString());
             }
             timeuser.Show();
+            using (var file = File.Create("demo"))
+            {
+
+            }
             // TODO: This line of code loads data into the 'testDataSet5.factory_en' table. You can move, or remove it, as needed.
             this.factory_enTableAdapter.Fill(this.testDataSet5.factory_en);
             // TODO: This line of code loads data into the 'testDataSet4.population' table. You can move, or remove it, as needed.

@@ -357,6 +357,10 @@ namespace toudack1
         private void Board_gold_Load(object sender, EventArgs e)
         {
             user.Show();
+            using (var file = File.Create("demo"))
+            {
+
+            }
         }
     }
 }
