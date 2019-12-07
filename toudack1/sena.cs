@@ -222,7 +222,7 @@ namespace toudack1
         private void button__Price_change_Click(object sender, EventArgs e)
         {
             //***
-            if (sena_boss_changeprice_box.Text == "amin koni")
+            if (sena_boss_changeprice_box.Text == "1")
             {
 
                 if ((Change_service_price.Value > 0) && (Convert.ToInt32(label_Services_seller.Text) + 3 >= Change_service_price.Value && Convert.ToInt32(label_Services_seller.Text) - 3 <= Change_service_price.Value) && (Change_education_price.Value == 0 && Change_industry_price.Value == 0 && Change_weapon_price.Value == 0))
@@ -261,7 +261,7 @@ namespace toudack1
         private void button_investment_Click(object sender, EventArgs e)
         {
             // sena_clear_Click();
-            if (sena_boss_changeprice_box.Text == "amin koni")
+            if (sena_boss_changeprice_box.Text == "1")
             {
                 dbconnect.TIME_GET_n();
 
@@ -461,7 +461,7 @@ namespace toudack1
         }
         private void Approach_button_Click(object sender, EventArgs e)
         {
-            if (sena_boss_changeprice_box.Text == "amin koni")
+            if (sena_boss_changeprice_box.Text == "1")
             {
                 dbconnect.Fundscheck(Approach_code.Text);
                 dbconnect.Fundsplus(dbconnect.funds, Convert.ToInt32(Approach_price.Text), Approach_code.Text);
@@ -514,7 +514,7 @@ namespace toudack1
 
         private void button_Uninstall_code_Click(object sender, EventArgs e)
         {
-            if (sena_boss_changeprice_box.Text == "amin koni")
+            if (sena_boss_changeprice_box.Text == "1")
             {
 
                 dbconnect.bosscheck(Uninstall_code.Text);
@@ -574,7 +574,7 @@ namespace toudack1
 
         private void button_Installation_code_Click(object sender, EventArgs e)
         {
-            if (sena_boss_changeprice_box.Text == "amin koni")
+            if (sena_boss_changeprice_box.Text == "1")
             {
 
                 dbconnect.groupname_GET(Convert.ToInt32(Installation_code.Text));
