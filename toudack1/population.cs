@@ -15,12 +15,18 @@ namespace toudack1
     {
         barcode barcode = new barcode();
         private DBConnect dbconnect;
+        public string time;
         public population()
         {
             InitializeComponent();
             dbconnect = new DBConnect();
         }
-      //  TIMEUSER user = new TIMEUSER();
+        public void timenow()
+        {
+            dbconnect.TIME_GET_n();
+            time = (dbconnect.h + ":" + dbconnect.m + ":" + dbconnect.s).ToString();
+        }
+        //  TIMEUSER user = new TIMEUSER();
         private void population_Load(object sender, EventArgs e)
         {
             //  user.Show();
@@ -45,6 +51,9 @@ namespace toudack1
             dbconnect.Fundscheck(population_textBox_code.Text);
             if (dbconnect.funds >= cost_all)
             {
+                timenow();
+                dbconnect.log_insert(time, population_textBox_code.Text, 220, " SAKHT JAMIYAT:   " + " kodak: " + numericUpDown5_population_Child.Value + " javan: " + numericUpDown4_population_Young.Value + " bozorgsal: " + numericUpDown2_population_Adult.Value + " kohansal: " + numericUpDown3_population_Old.Value+ " sarbaz: " + numericUpDown1_population_Soldier.Value);
+
                 dbconnect.FundsNegative(dbconnect.funds, cost_all, population_textBox_code.Text);
                 //adult
                 j = Convert.ToInt32(population_label_Adult.Text) + Convert.ToInt32(numericUpDown2_population_Adult.Value);
@@ -65,6 +74,7 @@ namespace toudack1
                 //soldier
                 j = Convert.ToInt32(population_label_Soldier.Text) + Convert.ToInt32(numericUpDown1_population_Soldier.Value);
                 dbconnect.Population_upadte(population_textBox_code.Text, "soldier", j);
+                dbconnect.log_done(time, population_textBox_code.Text, 220);
                 MessageBox.Show("انجام شد");
             }
             else
