@@ -13,7 +13,7 @@
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkProfile />
-    <PublishUrl>C:\Users\h7mad-mac\Desktop\1111111111\WebSite\</PublishUrl>
+    <PublishUrl>C:\Users\h7mad-mac\Desktop\1111111111\4.5.2\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -23,7 +23,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationRevision>7</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -49,6 +49,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>B4343F8435EDF287E2C83C9104ACD0128CEBDEC0</ManifestCertificateThumbprint>
@@ -60,11 +61,14 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>
     </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>text.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BC.NetBarcodeReaderTrial.Qrcode">
@@ -480,6 +484,7 @@
     <Content Include="Resources\barcod.png" />
     <Content Include="Resources\GetStarted.png" />
     <Content Include="Resources\icons8-lock-512.png" />
+    <Content Include="text.ico" />
     <None Include="Resources\terrorist.bmp" />
     <Content Include="Resources\TextFile1.txt" />
     <Content Include="Resources\VID_20191029_120232_503.mp4" />

@@ -1741,6 +1741,26 @@ namespace toudack1
 
         #endregion
 
+        #region random dedicated res
+        public void random(int ded, int grnum)
+        {
+
+            string query = "UPDATE `resource` SET `dedicated`="+ded+ " WHERE `numbergroup`=" + grnum + "";
+
+            //open connection
+            if (this.OpenConnection() == true)
+            {
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                //Execute command
+                cmd.ExecuteNonQuery();
+
+                //close connection
+                this.CloseConnection();
+            }
+        }
+        #endregion
         #endregion
 
         #region Vahid code

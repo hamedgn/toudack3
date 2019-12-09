@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 
+
 namespace toudack1
 {
     public partial class admin : Form
@@ -586,6 +587,37 @@ namespace toudack1
                 timer3.Enabled = true;
                 timer_roshd_jamiat1.Enabled = false;
             }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (textBox3.Text=="RANDOM DED RES")
+            {
+                try
+                {
+                    for (int i = 101; i < 133; i++)
+                    {
+                        dbconnect.random(RandomNumber(1, 5), i);
+                        
+                        System.Threading.Thread.Sleep(700);
+                    }
+                }
+                catch
+                {
+
+                }
+                button1.Enabled = false;
+            }
+            else
+            {
+                textBox3.Text = "WRONG PASS";
+            }
+            
+        }
+        public int RandomNumber(int min, int max)
+        {
+            Random random = new Random();
+            return random.Next(min, max);
         }
     }
 }
