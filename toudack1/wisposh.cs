@@ -24,7 +24,12 @@ namespace toudack1
             dbConnect = new DBConnect();
 
         }
-
+        public string time;
+        public void timenow()
+        {
+            dbConnect.TIME_GET_n();
+            time = (dbConnect.h + ":" + dbConnect.m + ":" + dbConnect.s).ToString();
+        }
         private void qus_buy_btn_Click(object sender, EventArgs e)
         {
             //visible and enable buy section by click at buy qustion
@@ -183,7 +188,9 @@ namespace toudack1
                             }
                             else
                             {
-                                
+                                timenow();
+                                dbConnect.log_insert(time, prs_code_box.Text, 225, "Kharid Soal: "+qus_code_box.Text+"");
+
                                 dbConnect.Questionuse(qus_code_box.Text,prs_code_box.Text);
                                 dbConnect.NumUsedcheck(qus_code_box.Text);
                                 dbConnect.Numusedplus(qus_code_box.Text,dbConnect.numused+1);
@@ -191,7 +198,7 @@ namespace toudack1
                                 dbConnect.FundsNegative(dbConnect.funds, 10, prs_code_box.Text);
                                 dbConnect.PlayerQususe(prs_code_box.Text, qus_code_box.Text);
 
-                                 
+                                dbConnect.log_done(time, prs_code_box.Text, 225);
                                 MessageBox.Show(".لارین کسر شد سوال را تحویل دهید");
                             }
                         }
@@ -251,7 +258,10 @@ namespace toudack1
                
                                 if (dbConnect.qusansw == true)
                                 {
-                    
+                                    timenow();
+                                    dbConnect.log_insert(time, prs_code_box.Text, 225, "frosh Soal: " + qus_code_box.Text + " Sahih ast");
+
+
                                     qus_anwser_panel.BackColor = Color.LightGreen;
                                     dbConnect.Fundscheck(prs_code_box.Text);
                                     dbConnect.Fundsplus(dbConnect.funds, 40, prs_code_box.Text);
@@ -303,16 +313,19 @@ namespace toudack1
                                         dbConnect.QusTypNumcheck(prs_code_box.Text, "honar");
                                         dbConnect.Qustypplus(prs_code_box.Text,"honar", dbConnect.qustypnumamswer + 1);
                                     }
-
+                                    dbConnect.log_done(time, prs_code_box.Text, 225);
 
                                     MessageBox.Show(".جواب درست است 40 لارین جایزه افزوده شد");
                                 }
                                 else
                                 if (dbConnect.qusansw==false)
                                 {
-                    
+                                    timenow();
+                                    dbConnect.log_insert(time, prs_code_box.Text, 225, "frosh Soal: " + qus_code_box.Text + " Eshtebah ast");
+
                                     qus_anwser_panel.BackColor = Color.Red;
-                                        MessageBox.Show(".جواب اشتباه است");
+                                    dbConnect.log_done(time, prs_code_box.Text, 225);
+                                    MessageBox.Show(".جواب اشتباه است");
                                 }
                                 dbConnect.QuestionUNuse(qus_code_box.Text);
                     
@@ -372,10 +385,13 @@ namespace toudack1
                         dbConnect.mahakcheck(dbConnect.h);
                         if (dbConnect.gnum ==0)
                         {
-                                dbConnect.mahakset(Convert.ToInt32(prs_code_box.Text), dbConnect.h);
+                            timenow();
+                            dbConnect.log_insert(time, prs_code_box.Text, 225, "sabte Javab Sahih MAHAK");
+                            dbConnect.mahakset(Convert.ToInt32(prs_code_box.Text), dbConnect.h);
                                 dbConnect.Fundscheck(prs_code_box.Text);
                                 dbConnect.Fundsplus(dbConnect.funds, 200, prs_code_box.Text);
-                                MessageBox.Show("جواب ثبت و 200 لارین جایزه افزوده شد");
+                            dbConnect.log_done(time, prs_code_box.Text, 225);
+                            MessageBox.Show("جواب ثبت و 200 لارین جایزه افزوده شد");
                         }
                         else
                         {

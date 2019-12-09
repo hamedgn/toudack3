@@ -6,6 +6,7 @@ namespace toudack1
 {
     public partial class sena : Form
     {
+        public string type;
         public bool ok;
         barcode barcode = new barcode();
         private DBConnect dbconnect;
@@ -16,7 +17,12 @@ namespace toudack1
             InitializeComponent();
             dbconnect = new DBConnect();
         }
-
+        public string time;
+        public void timenow()
+        {
+            dbconnect.TIME_GET_n();
+            time = (dbconnect.h + ":" + dbconnect.m + ":" + dbconnect.s).ToString();
+        }
 
         private void label2_Click_1(object sender, EventArgs e)
         {
@@ -227,22 +233,38 @@ namespace toudack1
 
                 if ((Change_service_price.Value > 0) && (Convert.ToInt32(label_Services_seller.Text) + 3 >= Change_service_price.Value && Convert.ToInt32(label_Services_seller.Text) - 3 <= Change_service_price.Value) && (Change_education_price.Value == 0 && Change_industry_price.Value == 0 && Change_weapon_price.Value == 0))
                 {
+                    timenow();
+                    dbconnect.log_insert(time, "999", 222, "ghimate PISHAVN be: "+Change_service_price.Value+"");
+
                     dbconnect.setprice("services", Convert.ToInt32(Change_service_price.Value));
+                    dbconnect.log_done(time, "999", 222);
                 }
                 else
                 if (Change_education_price.Value > 0 && (Convert.ToInt32(label_Education_seller.Text) + 3 >= Change_education_price.Value && Convert.ToInt32(label_Education_seller.Text) - 3 <= Change_education_price.Value) && (Change_service_price.Value == 0 && Change_industry_price.Value == 0 && Change_weapon_price.Value == 0))
                 {
+                    timenow();
+                    dbconnect.log_insert(time, "999", 222, "ghimate AAMMEH be: " + Change_education_price.Value + "");
+
                     dbconnect.setprice("education", Convert.ToInt32(Change_education_price.Value));
+                    dbconnect.log_done(time, "999", 222);
                 }
                 else
                 if (Change_weapon_price.Value > 0 && (Convert.ToInt32(label_Weapons_seller.Text) + 3 >= Change_weapon_price.Value && Convert.ToInt32(label_Weapons_seller.Text) - 3 <= Change_weapon_price.Value) && (Change_education_price.Value == 0 && Change_industry_price.Value == 0 && Change_service_price.Value == 0))
                 {
+                    timenow();
+                    dbconnect.log_insert(time, "999", 222, "ghimate KHADANG be: " + Change_weapon_price.Value + "");
+
                     dbconnect.setprice("weapons", Convert.ToInt32(Change_weapon_price.Value));
+                    dbconnect.log_done(time, "999", 222);
                 }
                 else
                 if (Change_industry_price.Value > 0 && (Convert.ToInt32(label_Industry_seller.Text) + 3 >= Change_industry_price.Value && Convert.ToInt32(label_Industry_seller.Text) - 3 <= Change_industry_price.Value) && (Change_education_price.Value == 0 && Change_service_price.Value == 0 && Change_weapon_price.Value == 0))
                 {
+                    timenow();
+                    dbconnect.log_insert(time, "999", 222, "ghimate AFZAREGAN be: " + Change_industry_price.Value + "");
+
                     dbconnect.setprice("industry", Convert.ToInt32(Change_industry_price.Value));
+                    dbconnect.log_done(time, "999", 222);
                 }
                 else
                 {
@@ -365,7 +387,29 @@ namespace toudack1
                                                                                             }
                                                                                             else
                                                                                             {
+                                                                                                timenow();
+                                                                                                dbconnect.log_insert(time, textBox9_investment.Text, 222, "opec dar " + type + " zarib: " + investment_Coefficient.Value + " mablaghe: " + label_investment_Coefficient.Text + "");
+                                                                                                dbconnect.log_insert(time, textBox10_investment.Text, 222, "opec dar " + type + " zarib: " + investment_Coefficient.Value + " mablaghe: " + label_investment_Coefficient.Text + "");
+                                                                                                dbconnect.log_insert(time, textBox11_investment.Text, 222, "opec dar " + type + " zarib: " + investment_Coefficient.Value + " mablaghe: " + label_investment_Coefficient.Text + "");
+                                                                                                dbconnect.log_insert(time, textBox12_investment.Text, 222, "opec dar " + type + " zarib: " + investment_Coefficient.Value + " mablaghe: " + label_investment_Coefficient.Text + "");
+                                                                                                dbconnect.log_insert(time, textBox13_investment.Text, 222, "opec dar " + type + " zarib: " + investment_Coefficient.Value + " mablaghe: " + label_investment_Coefficient.Text + "");
+                                                                                                dbconnect.log_insert(time, textBox14_investment.Text, 222, "opec dar " + type + " zarib: " + investment_Coefficient.Value + " mablaghe: " + label_investment_Coefficient.Text + "");
+                                                                                                dbconnect.log_insert(time, textBox15_investment.Text, 222, "opec dar " + type + " zarib: " + investment_Coefficient.Value + " mablaghe: " + label_investment_Coefficient.Text + "");
+                                                                                                dbconnect.log_insert(time, textBox16_investment.Text, 222, "opec dar " + type + " zarib: " + investment_Coefficient.Value + " mablaghe: " + label_investment_Coefficient.Text + "");
+                                                                                                dbconnect.log_insert(time, textBox17_investment.Text, 222, "opec dar " + type + " zarib: " + investment_Coefficient.Value + " mablaghe: " + label_investment_Coefficient.Text + "");
+                                                                                                dbconnect.log_insert(time, textBox18_investment.Text, 222, "opec dar " + type + " zarib: " + investment_Coefficient.Value + " mablaghe: " + label_investment_Coefficient.Text + "");
+
                                                                                                 dbconnect.opec_in(i, Convert.ToInt32(investment_Coefficient.Value), dbconnect.h, Convert.ToInt32(textBox9_investment.Text), Convert.ToInt32(textBox10_investment.Text), Convert.ToInt32(textBox11_investment.Text), Convert.ToInt32(textBox12_investment.Text), Convert.ToInt32(textBox13_investment.Text), Convert.ToInt32(textBox14_investment.Text), Convert.ToInt32(textBox15_investment.Text), Convert.ToInt32(textBox16_investment.Text), Convert.ToInt32(textBox17_investment.Text), Convert.ToInt32(textBox18_investment.Text));
+                                                                                                dbconnect.log_done(time, textBox9_investment.Text, 222);
+                                                                                                dbconnect.log_done(time, textBox10_investment.Text, 222);
+                                                                                                dbconnect.log_done(time, textBox11_investment.Text, 222);
+                                                                                                dbconnect.log_done(time, textBox12_investment.Text, 222);
+                                                                                                dbconnect.log_done(time, textBox13_investment.Text, 222);
+                                                                                                dbconnect.log_done(time, textBox14_investment.Text, 222);
+                                                                                                dbconnect.log_done(time, textBox15_investment.Text, 222);
+                                                                                                dbconnect.log_done(time, textBox16_investment.Text, 222);
+                                                                                                dbconnect.log_done(time, textBox17_investment.Text, 222);
+                                                                                                dbconnect.log_done(time, textBox18_investment.Text, 222);
                                                                                                 MessageBox.Show("ثبت شد");
                                                                                             }
                                                                                         }
@@ -463,10 +507,14 @@ namespace toudack1
         {
             if (sena_boss_changeprice_box.Text == "1")
             {
+                timenow();
+                dbconnect.log_insert(time,Approach_code.Text, 222, "afzayesh mojodi: "+Approach_price.Text+" az sena ");
+
                 dbconnect.Fundscheck(Approach_code.Text);
                 dbconnect.Fundsplus(dbconnect.funds, Convert.ToInt32(Approach_price.Text), Approach_code.Text);
                 Approach_code.Text = "";
                 Approach_price.Text = "";
+                dbconnect.log_done(time, Approach_code.Text, 222);
                 MessageBox.Show("انجام شد", "ERROR");
             }
             else
@@ -516,14 +564,19 @@ namespace toudack1
         {
             if (sena_boss_changeprice_box.Text == "1")
             {
+                
 
                 dbconnect.bosscheck(Uninstall_code.Text);
                 if (dbconnect.senf_code != 0 && dbconnect.senf_code != 5)
                 {
+                    timenow();
+                    dbconnect.log_insert(time, Uninstall_code.Text, 222, "az rias senf hazf shod tavasote sena");
 
-                
-                dbconnect.bossupdate(Uninstall_code.Text, 5);
-                dbconnect.getprice("dolati");
+
+
+                    dbconnect.bossupdate(Uninstall_code.Text, 5);
+                    dbconnect.log_done(time, Uninstall_code.Text, 222);
+                    dbconnect.getprice("dolati");
                 if (dbconnect.senf_code == 1)
                 {
                     dbconnect.setprice("industry", dbconnect.price_industry);
@@ -609,23 +662,39 @@ namespace toudack1
                             switch (listBox_Installation_code.SelectedItem)
                             {
                                 case "صنعت":
+                                    timenow();
+                                    dbconnect.log_insert(time, Installation_code.Text, 222, "raise senf AFZAREGAN shod tavasote sena");
+
                                     dbconnect.bossupdate(Installation_code.Text, 1);
                                     dbconnect.senf_code = 0;
+                                    dbconnect.log_done(time, Installation_code.Text, 222);
                                     MessageBox.Show("انجام شد", "ERROR");
                                     break;
                                 case "آموزش":
+                                    timenow();
+                                    dbconnect.log_insert(time, Installation_code.Text, 222, "raise senf AAMMEH shod tavasote sena");
+
                                     dbconnect.bossupdate(Installation_code.Text, 2);
                                     dbconnect.senf_code = 0;
+                                    dbconnect.log_done(time, Installation_code.Text, 222);
                                     MessageBox.Show("انجام شد", "ERROR");
                                     break;
                                 case "سلاح":
+                                    timenow();
+                                    dbconnect.log_insert(time, Installation_code.Text, 222, "raise senf KHADANG shod tavasote sena");
+
                                     dbconnect.bossupdate(Installation_code.Text, 3);
                                     dbconnect.senf_code = 0;
+                                    dbconnect.log_done(time, Installation_code.Text, 222);
                                     MessageBox.Show("انجام شد", "ERROR");
                                     break;
                                 case "خدمات":
+                                    timenow();
+                                    dbconnect.log_insert(time, Installation_code.Text, 222, "raise senf PISHVAN shod tavasote sena");
+
                                     dbconnect.bossupdate(Installation_code.Text, 4);
                                     dbconnect.senf_code = 0;
+                                    dbconnect.log_done(time, Installation_code.Text, 222);
                                     MessageBox.Show("انجام شد", "ERROR");
                                     break;
                                 default:
@@ -688,12 +757,21 @@ namespace toudack1
                     {
                         if (R_Sanctions.Checked == true)
                         {
+                            timenow();
+                            dbconnect.log_insert(time, text_sanction.Text, 222, "Tahrim shod az sena");
+
+
                             dbconnect.Factory_upadte(text_sanction.Text, "bank", 2);
+                            dbconnect.log_done(time, text_sanction.Text, 222);
                             MessageBox.Show("تحریم اعمال شد", "");
                         }
                         else if (R_not_Sanctions.Enabled == true)
                         {
+                            timenow();
+                            dbconnect.log_insert(time, text_sanction.Text, 222, "Tahrim laghv shod az sena");
+
                             dbconnect.Factory_upadte(text_sanction.Text, "bank", 1);
+                            dbconnect.log_done(time, text_sanction.Text, 222);
                             MessageBox.Show("لغو تحریم اعمال شد", "");
                         }
                     }
@@ -739,24 +817,28 @@ namespace toudack1
             if (radioButton_oil.Checked)
             {
                 i = 1;
+                type = "naft";
                 j = Convert.ToInt32(label_Oil_seller.Text);
             }
             else
             if (radioButton_silk.Checked)
             {
                 i = 2;
+                type = "abrisham";
                 j = Convert.ToInt32(label_Silk_seller.Text);
             }
             else
             if (radioButton_gold.Checked)
             {
                 i = 3;
+                type = "tala";
                 j = Convert.ToInt32(label_Gold_seller.Text);
             }
             else
             if (radioButton_diamond.Checked)
             {
                 i = 4;
+                type = "almas";
                 j = Convert.ToInt32(label_Diamond_seller.Text);
             }
             label_investment_Coefficient.Text = Convert.ToString(investment_Coefficient.Value * j);

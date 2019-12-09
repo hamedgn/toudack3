@@ -15,11 +15,18 @@ namespace toudack1
     {
         barcode barcode = new barcode();
         private DBConnect dbconnect;
+        
         public resources()
         {
             InitializeComponent();
             dbconnect = new DBConnect();
 
+        }
+        public string time;
+        public void timenow()
+        {
+            dbconnect.TIME_GET_n();
+            time = (dbconnect.h + ":" + dbconnect.m + ":" + dbconnect.s).ToString();
         }
 
         private void population_textBox_code_TextChanged(object sender, EventArgs e)
@@ -405,9 +412,11 @@ namespace toudack1
             dbconnect.Fundscheck(resources_textBox_code.Text);
             if (dbconnect.funds >= 1800)
             {
+                timenow();
+                dbconnect.log_insert(time, resources_textBox_code.Text, 221, "SATH ALMAS ertgha yaft.");
                 dbconnect.FundsNegative(dbconnect.funds, 1800, resources_textBox_code.Text);
                 dbconnect.Resupdatelevel(resources_textBox_code.Text);
-
+                
 
 
                 resources_label_silk.Enabled = false;
@@ -430,6 +439,7 @@ namespace toudack1
                 resources_label_gold.Text = "0";
                 resources_label_petroleum.Text = "0";
                 resources_label_silk.Text = "0";
+                dbconnect.log_done(time, resources_textBox_code.Text, 221);
                 MessageBox.Show(".عملیات شما با موفقیت انجام گردید");
             }
             else
@@ -465,6 +475,9 @@ namespace toudack1
             dbconnect.Fundscheck(resources_textBox_code.Text);
             if (dbconnect.funds >= 1800)
             {
+                timenow();
+                dbconnect.log_insert(time, resources_textBox_code.Text, 221, "SATH TALA ertgha yaft.");
+
                 dbconnect.FundsNegative(dbconnect.funds, 1800, resources_textBox_code.Text);
                 dbconnect.Resupdatelevel(resources_textBox_code.Text);
 
@@ -490,6 +503,7 @@ namespace toudack1
                 resources_label_gold.Text = "0";
                 resources_label_petroleum.Text = "0";
                 resources_label_silk.Text = "0";
+                dbconnect.log_done(time, resources_textBox_code.Text, 221);
                 MessageBox.Show(".عملیات شما با موفقیت انجام گردید");
             }
             else
@@ -525,6 +539,10 @@ namespace toudack1
             dbconnect.Fundscheck(resources_textBox_code.Text);
             if (dbconnect.funds >= 1800)
             {
+
+                timenow();
+                dbconnect.log_insert(time, resources_textBox_code.Text, 221, "SATH NAFT ertgha yaft.");
+
                 dbconnect.FundsNegative(dbconnect.funds, 1800, resources_textBox_code.Text);
                 dbconnect.Resupdatelevel(resources_textBox_code.Text);
 
@@ -550,6 +568,8 @@ namespace toudack1
                 resources_label_gold.Text = "0";
                 resources_label_petroleum.Text = "0";
                 resources_label_silk.Text = "0";
+                dbconnect.log_done(time, resources_textBox_code.Text, 221);
+
                 MessageBox.Show(".عملیات شما با موفقیت انجام گردید");
             }
             else
@@ -585,6 +605,9 @@ namespace toudack1
             dbconnect.Fundscheck(resources_textBox_code.Text);
             if (dbconnect.funds >= 1800)
             {
+                timenow();
+                dbconnect.log_insert(time, resources_textBox_code.Text, 221, "SATH ABRISHAM ertgha yaft.");
+
                 dbconnect.FundsNegative(dbconnect.funds, 1800, resources_textBox_code.Text);
                 dbconnect.Resupdatelevel(resources_textBox_code.Text);
 
@@ -610,6 +633,7 @@ namespace toudack1
                 resources_label_gold.Text = "0";
                 resources_label_petroleum.Text = "0";
                 resources_label_silk.Text = "0";
+                dbconnect.log_done(time, resources_textBox_code.Text, 221);
                 MessageBox.Show(".عملیات شما با موفقیت انجام گردید");
             }
             else

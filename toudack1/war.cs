@@ -35,6 +35,12 @@ namespace toudack1
         Boolean checktypedown=false;
         Boolean checktypeup = false;
         string alia;
+        public string time;
+        public void timenow()
+        {
+            dbconnect.TIME_GET_n();
+            time = (dbconnect.h + ":" + dbconnect.m + ":" + dbconnect.s).ToString();
+        }
         private void button_Attack_Click(object sender, EventArgs e)
         {
 
@@ -76,8 +82,12 @@ namespace toudack1
 
                     if (soldier1 == soldier2)
                     {
+                        timenow();
+                        dbconnect.log_insert(time, textBox1.Text, 224, "Jang be: "+ dbconnect.groupnumber1.ToString() + " va TASAVI");
+
                         dbconnect.updatesoldier(0, Convert.ToInt32(dbconnect.groupnumber1.ToString()));
                         dbconnect.updatesoldier(0, Convert.ToInt32(textBox1.Text));
+                        dbconnect.log_done(time, textBox1.Text, 224);
                         MessageBox.Show("تساوی");
                         if (comboBox1.Text != "")
                         {
@@ -96,6 +106,7 @@ namespace toudack1
                     {
                         if (soldier1 > soldier2)
                         {
+
                             int funds;
                             int sumfunds;
                             int fundssoldier;
@@ -106,15 +117,18 @@ namespace toudack1
                                 comboBox1.Items.RemoveAt(comboBox1.SelectedIndex);
 
                             }
+                            timenow();
+                            dbconnect.log_insert(time, textBox1.Text, 224, "Jang be: " + dbconnect.groupnumber1.ToString() + " va WIN");
 
 
                             //  MessageBox.Show(sum.ToString());
                             int neg = soldier1 - soldier2;
                             // MessageBox.Show(neg.ToString());
-                            MessageBox.Show("شما پیروز شدید تبریک میگم", "تبریک");
+                            
                             dbconnect.updatesoldier(0, Convert.ToInt32(dbconnect.groupnumber1.ToString()));
                             dbconnect.updatesoldier(neg, Convert.ToInt32(textBox1.Text));
-
+                            dbconnect.log_done(time, textBox1.Text, 224);
+                            MessageBox.Show("شما پیروز شدید تبریک میگم", "تبریک");
                             listBox1.Items.Add(comboBox1.Text);
                             //bug for test 103
                             comboBox1.Items.Remove(comboBox1.Text);
@@ -124,13 +138,18 @@ namespace toudack1
 
                             if (sum <= 14)
                             {
+                                
                                 dbconnect.Fundscheck(dbconnect.groupnumber1.ToString());
                                 funds = dbconnect.funds;
                                 dbconnect.Fundscheck(textBox1.Text);
                                 fundssoldier = dbconnect.funds;
                                 sumfunds = 15 * funds / 100;
+                                timenow();
+                                dbconnect.log_insert(time, textBox1.Text, 224, "jayezeh win "+sumfunds.ToString()+"");
+
                                 dbconnect.FundsNegative(funds, sumfunds, dbconnect.groupnumber1.ToString());
                                 dbconnect.Fundsplus(fundssoldier, sumfunds, textBox1.Text);
+                                dbconnect.log_done(time, textBox1.Text, 224);
                             }
 
                             if (sum >= 15 && sum <= 40)
@@ -140,11 +159,13 @@ namespace toudack1
                                 dbconnect.Fundscheck(textBox1.Text);
                                 fundssoldier = dbconnect.funds;
                                 sumfunds = 15 * funds / 100;
+                                timenow();
+                                dbconnect.log_insert(time, textBox1.Text, 224, "jayezeh win " + sumfunds.ToString() + "");
                                 dbconnect.FundsNegative(funds, sumfunds, dbconnect.groupnumber1.ToString());
                                 dbconnect.Fundsplus(fundssoldier, sumfunds, textBox1.Text);
                                 groupBox1.Enabled = true;
                                 checktypedown = true;
-
+                                dbconnect.log_done(time, textBox1.Text, 224);
                                 label1.Text = ".بسته کارخانه خود را انتخاب کنید";
 
                             }
@@ -155,10 +176,13 @@ namespace toudack1
                                 dbconnect.Fundscheck(textBox1.Text);
                                 fundssoldier = dbconnect.funds;
                                 sumfunds = 15 * funds / 100;
+                                timenow();
+                                dbconnect.log_insert(time, textBox1.Text, 224, "jayezeh win " + sumfunds.ToString() + "");
                                 dbconnect.FundsNegative(funds, sumfunds, dbconnect.groupnumber1.ToString());
                                 dbconnect.Fundsplus(fundssoldier, sumfunds, textBox1.Text);
                                 groupBox1.Enabled = true;
                                 checktypeup = true;
+                                dbconnect.log_done(time, textBox1.Text, 224);
                                 label1.Text = ".کارخانه خود را انتخاب کنید";
 
                             }
@@ -170,10 +194,15 @@ namespace toudack1
                             int funds;
                             int sumfunds;
                             int fundssoldier;
+                            timenow();
+                            dbconnect.log_insert(time, textBox1.Text, 224, "Jang be: " + dbconnect.groupnumber1.ToString() + " va LOSS");
+
                             sum = soldier2 - soldier1;
-                            MessageBox.Show(".شما بازنده شدید ");
+                            
                             dbconnect.updatesoldier(0, Convert.ToInt32(textBox1.Text));
-                          //  MessageBox.Show(sum.ToString());
+                            dbconnect.log_done(time, textBox1.Text, 224);
+                            //  MessageBox.Show(sum.ToString());
+                            MessageBox.Show(".شما بازنده شدید ");
                             listBox1.Items.Add(comboBox1.Text);
                             comboBox1.Items.RemoveAt(comboBox1.SelectedIndex);
                             listBox2.Items.Add(dbconnect.m);
@@ -293,7 +322,10 @@ namespace toudack1
 
                 if (radioButton1.Checked ==true)
                 {
-                    if(rew> Industry2) { rew = Industry2; }
+                    timenow();
+                    dbconnect.log_insert(time, textBox1.Text, 224, "jayezeh WIN basteh AFZAREGA");
+
+                    if (rew> Industry2) { rew = Industry2; }
                     dbconnect.factory_box_plus(Industry, rew, textBox1.Text, "industry");
                     
                     if (rew < Industry2)
@@ -306,6 +338,7 @@ namespace toudack1
                         dbconnect.factory_box_Negative(Industry2, Industry2, groupnumber2.ToString(), "industry");
 
                     }
+                    dbconnect.log_done(time, textBox1.Text, 224);
                     groupBox1.Enabled = false;
                     textBox1.Text = "";
                     label1.Text = "";
@@ -313,6 +346,9 @@ namespace toudack1
 
                 if (radioButton2.Checked ==true)
                 {
+                    timenow();
+                    dbconnect.log_insert(time, textBox1.Text, 224, "jayezeh WIN basteh AAMMEH");
+
                     if (rew > Education2) { rew = Education2; }
                     dbconnect.factory_box_plus(Education, rew, textBox1.Text, "education");
 
@@ -327,6 +363,7 @@ namespace toudack1
                         dbconnect.factory_box_Negative(Education2, Education2, groupnumber2.ToString(), "education");
 
                     }
+                    dbconnect.log_done(time, textBox1.Text, 224);
                     groupBox1.Enabled = false;
                     textBox1.Text = "";
                     label1.Text = "";
@@ -334,6 +371,9 @@ namespace toudack1
 
                 if (radioButton3.Checked == true)
                 {
+                    timenow();
+                    dbconnect.log_insert(time, textBox1.Text, 224, "jayezeh WIN basteh KHADANG");
+
                     if (rew > Weapons2) { rew = Weapons2; }
                     dbconnect.factory_box_plus(Weapons, rew, textBox1.Text, "weapons");
                     if (rew < Weapons2)
@@ -347,6 +387,7 @@ namespace toudack1
                         dbconnect.factory_box_Negative(Weapons2, Weapons2, groupnumber2.ToString(), "weapons");
 
                     }
+                    dbconnect.log_done(time, textBox1.Text, 224);
                     groupBox1.Enabled = false;
                     textBox1.Text = "";
                     label1.Text = "";
@@ -354,6 +395,9 @@ namespace toudack1
 
                 if (radioButton4.Checked == true)
                 {
+                    timenow();
+                    dbconnect.log_insert(time, textBox1.Text, 224, "jayezeh WIN basteh PISHVAN");
+
                     if (rew > Services2) { rew = Services2; }
                     dbconnect.factory_box_plus(Services, rew, textBox1.Text, "services");
                     if (rew < Services2)
@@ -366,6 +410,7 @@ namespace toudack1
                         dbconnect.factory_box_Negative(Services2,Services2, groupnumber2.ToString(), "services");
 
                     }
+                    dbconnect.log_done(time, textBox1.Text, 224);
                     groupBox1.Enabled = false;
                     textBox1.Text = "";
                     label1.Text = "";
@@ -391,6 +436,8 @@ namespace toudack1
 
                 if (radioButton1.Checked == true)
                 {
+                    timenow();
+                    dbconnect.log_insert(time, textBox1.Text, 224, "jayezeh WIN karkhaneh AFZAREGAN");
                     dbconnect.Factory_upadte(textBox1.Text, "industry", Industry + 1);
                     if (Industry2 > 0)
                     {
@@ -402,6 +449,7 @@ namespace toudack1
 
 
                     }
+                    dbconnect.log_done(time, textBox1.Text, 224);
                     groupBox1.Enabled = false;
                     textBox1.Text = "";
                     label1.Text = "";
@@ -410,6 +458,8 @@ namespace toudack1
                 //Education
                 if (radioButton2.Checked == true)
                 {
+                    timenow();
+                    dbconnect.log_insert(time, textBox1.Text, 224, "jayezeh WIN karkhaneh AAMMEH");
                     dbconnect.Factory_upadte(textBox1.Text, "education", Education + 1);
                     if (Education2 > 0)
                     {
@@ -420,6 +470,7 @@ namespace toudack1
                         dbconnect.Factory_upadte(groupnumber2.ToString(), "education", 0);
 
                     }
+                    dbconnect.log_done(time, textBox1.Text, 224);
                     groupBox1.Enabled = false;
                     textBox1.Text = "";
                     label1.Text = "";
@@ -427,6 +478,8 @@ namespace toudack1
                 //Weapons
                 if (radioButton3.Checked == true)
                 {
+                    timenow();
+                    dbconnect.log_insert(time, textBox1.Text, 224, "jayezeh WIN karkhaneh KHADANG");
                     dbconnect.Factory_upadte(textBox1.Text, "weapons", Weapons + 1);
                     if (Weapons2 > 0)
                     {
@@ -438,6 +491,7 @@ namespace toudack1
 
 
                     }
+                    dbconnect.log_done(time, textBox1.Text, 224);
                     groupBox1.Enabled = false;
                     textBox1.Text = "";
                     label1.Text = "";
@@ -445,7 +499,8 @@ namespace toudack1
                 //Services
                 if (radioButton4.Checked == true)
                 {
-                    
+                    timenow();
+                    dbconnect.log_insert(time, textBox1.Text, 224, "jayezeh WIN karkhaneh PISHVAN");
 
                     dbconnect.Factory_upadte(textBox1.Text, "services", Services + 1);
                     if(Services2>0)
@@ -459,6 +514,7 @@ namespace toudack1
 
 
                     }
+                    dbconnect.log_done(time, textBox1.Text, 224);
                     groupBox1.Enabled = false;
                     textBox1.Text = "";
                     label1.Text = "";

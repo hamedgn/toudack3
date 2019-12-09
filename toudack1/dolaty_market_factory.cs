@@ -13,13 +13,18 @@ namespace toudack1
     public partial class dolaty_market_factory : Form
     {
         private DBConnect dbconnect;
+        public string time;
         barcode barcode = new barcode();
         public dolaty_market_factory()
         {
             InitializeComponent();
             dbconnect = new DBConnect();
         }
-
+        public void timenow()
+        {
+            dbconnect.TIME_GET_n();
+            time = (dbconnect.h + ":" + dbconnect.m + ":" + dbconnect.s).ToString();
+        }
         private void button_black_market_factory_Click(object sender, EventArgs e)
         {
             if (textBox_Buyer.Text == "" && textBox_seller.Text == "")
@@ -52,6 +57,9 @@ namespace toudack1
                                 }
                                 else
                                 {
+                                    timenow();
+                                    dbconnect.log_insert(time, textBox_seller.Text, 217, "forosh sanAt az: " + textBox_seller.Text + " be: " + textBox_Buyer.Text + " tedad: " +  Price_Industry_seller.Value);
+
                                     dbconnect.FundsNegative(dbconnect.funds, value, textBox_Buyer.Text);
                                     dbconnect.factory_box_Negative(dbconnect.factory_box_Industry_out, Convert.ToInt32(Price_Industry_seller.Value), textBox_seller.Text, "industry_out");
                                     dbconnect.Fundscheck(textBox_seller.Text);
@@ -59,7 +67,7 @@ namespace toudack1
                                     // MessageBox.Show("ok1");
                                     dbconnect.factory_box_code_check(textBox_Buyer.Text);
                                     dbconnect.factory_box_plus(dbconnect.factory_box_Industry, Convert.ToInt32(Price_Industry_seller.Value), textBox_Buyer.Text, "industry");
-
+                                    dbconnect.log_done(time, textBox_seller.Text, 217);
                                     MessageBox.Show("عملیات انجام شد");
                                     clearall();
                                 }
@@ -84,6 +92,9 @@ namespace toudack1
                                 }
                                 else
                                 {
+                                    timenow();
+                                    dbconnect.log_insert(time, textBox_seller.Text, 217, "forosh amozesh az: " + textBox_seller.Text + " be: " + textBox_Buyer.Text + " tedad: " + Price_Education_seller.Value);
+
                                     dbconnect.FundsNegative(dbconnect.funds, value, textBox_Buyer.Text);
                                     dbconnect.factory_box_Negative(dbconnect.factory_box_Education_out, Convert.ToInt32(Price_Education_seller.Value), textBox_seller.Text, "education_out");
                                     dbconnect.Fundscheck(textBox_seller.Text);
@@ -91,7 +102,7 @@ namespace toudack1
                                     // MessageBox.Show("ok1");
                                     dbconnect.factory_box_code_check(textBox_Buyer.Text);
                                     dbconnect.factory_box_plus(dbconnect.factory_box_Education, Convert.ToInt32(Price_Education_seller.Value), textBox_Buyer.Text, "education");
-
+                                    dbconnect.log_done(time, textBox_seller.Text, 217);
                                     MessageBox.Show("عملیات انجام شد");
                                     clearall();
                                 }
@@ -116,6 +127,9 @@ namespace toudack1
                                 }
                                 else
                                 {
+                                    timenow();
+                                    dbconnect.log_insert(time, textBox_seller.Text, 217, "forosh selah az: " + textBox_seller.Text + " be: " + textBox_Buyer.Text + " tedad: " + Price_Weapons_seller.Value);
+
                                     dbconnect.FundsNegative(dbconnect.funds, value, textBox_Buyer.Text);
                                     dbconnect.factory_box_Negative(dbconnect.factory_box_Weapons_out, Convert.ToInt32(Price_Weapons_seller.Value), textBox_seller.Text, "weapons_out");
                                     dbconnect.Fundscheck(textBox_seller.Text);
@@ -123,7 +137,7 @@ namespace toudack1
                                     // MessageBox.Show("ok1");
                                     dbconnect.factory_box_code_check(textBox_Buyer.Text);
                                     dbconnect.factory_box_plus(dbconnect.factory_box_Weapons, Convert.ToInt32(Price_Weapons_seller.Value), textBox_Buyer.Text, "weapons");
-
+                                    dbconnect.log_done(time, textBox_seller.Text, 217);
                                     MessageBox.Show("عملیات انجام شد");
                                     clearall();
                                 }
@@ -148,6 +162,9 @@ namespace toudack1
                                 }
                                 else
                                 {
+                                    timenow();
+                                    dbconnect.log_insert(time, textBox_seller.Text, 217, "forosh khadamat az: " + textBox_seller.Text + " be: " + textBox_Buyer.Text + " tedad: " + Price_Services_seller.Value);
+
                                     dbconnect.FundsNegative(dbconnect.funds, value, textBox_Buyer.Text);
                                     dbconnect.factory_box_Negative(dbconnect.factory_box_Services_out, Convert.ToInt32(Price_Services_seller.Value), textBox_seller.Text, "services_out");
                                     dbconnect.Fundscheck(textBox_seller.Text);
@@ -155,7 +172,7 @@ namespace toudack1
                                     // MessageBox.Show("ok1");
                                     dbconnect.factory_box_code_check(textBox_Buyer.Text);
                                     dbconnect.factory_box_plus(dbconnect.factory_box_Services, Convert.ToInt32(Price_Services_seller.Value), textBox_Buyer.Text, "services");
-
+                                    dbconnect.log_done(time, textBox_seller.Text, 217);
                                     MessageBox.Show("عملیات انجام شد");
                                     clearall();
                                 }

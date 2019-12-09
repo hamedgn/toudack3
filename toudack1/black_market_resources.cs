@@ -14,12 +14,18 @@ namespace toudack1
     public partial class black_market_resources : Form
     {
         public int ali = 12;
+        public string time;
         private DBConnect dbconnect;
         public black_market_resources()
         {
             InitializeComponent();
             dbconnect = new DBConnect();
 
+        }
+        public void timenow()
+        {
+            dbconnect.TIME_GET_n();
+            time = (dbconnect.h + ":" + dbconnect.m + ":" + dbconnect.s).ToString();
         }
         TIMEUSER user = new TIMEUSER();
         private void black_market_factory_Load(object sender, EventArgs e)
@@ -133,6 +139,8 @@ namespace toudack1
                         dbconnect.References_box_code_check(textBox_Buyer.Text);
                         if (dbconnect.funds >= gold_value + oil_value + silk_value + diamond_value)                       
                             {
+                            timenow();
+                            dbconnect.log_insert(time, textBox_Buyer.Text, 212, "KHARID naft: " + number_Oil_Buyer.Value + " abrisham: " + number_Silk_Buyer.Value + " tala: " + number_Gold_Buyer.Value + " almas: " + number_Diamond_Buyer.Value);
                             dbconnect.natural_resources_plus(dbconnect.natural_resources_Oil, Convert.ToInt32(number_Oil_Buyer.Value), textBox_Buyer.Text, "oil");
                             dbconnect.natural_resources_plus(dbconnect.natural_resources_Gold, Convert.ToInt32(number_Gold_Buyer.Value), textBox_Buyer.Text, "gold");
                             dbconnect.natural_resources_plus(dbconnect.natural_resources_Silk, Convert.ToInt32(number_Silk_Buyer.Value), textBox_Buyer.Text, "silk");
@@ -145,6 +153,8 @@ namespace toudack1
                             label_Oil_Buyer.Text = (Convert.ToInt32(dbconnect.natural_resources_Oil)).ToString();
                             label_Silk_Buyer.Text = (Convert.ToInt32(dbconnect.natural_resources_Silk)).ToString();
                             label_Diamond_Buyer.Text = (Convert.ToInt32(dbconnect.natural_resources_Diamond)).ToString();
+                            dbconnect.log_done(time, textBox_Buyer.Text, 212);
+
                             MessageBox.Show("خرید شما انجام شد:مقدار خرید شما=" + vahid.ToString());
                         }
                         else
@@ -193,6 +203,8 @@ namespace toudack1
                             else
                                 r4 = dbconnect.price_diamond - 6;
                             /**end**/
+                            dbconnect.log_insert(time, textBox_seller.Text, 212, "FOROSH naft: " + number_Oil_seller.Value + " abrisham: " + number_Silk_seller.Value + " tala: " + number_Gold_seller.Value + " almas: " + number_Diamond_seller.Value);
+
                             int vahid =(Convert.ToInt32((number_Oil_seller.Value)*r2)+ (Convert.ToInt32(number_Gold_seller.Value)*r1)+ (Convert.ToInt32(number_Silk_seller.Value)*r3) + (Convert.ToInt32(number_Diamond_seller.Value)*r4));
                             dbconnect.Fundscheck(textBox_seller.Text);
                             all_price.Text = vahid.ToString();
@@ -202,6 +214,7 @@ namespace toudack1
                             label_Oil_seller.Text = (Convert.ToInt32(dbconnect.natural_resources_Oil)).ToString();
                             label_Silk_seller.Text = (Convert.ToInt32(dbconnect.natural_resources_Silk)).ToString();
                             label_Diamond_seller.Text = (Convert.ToInt32(dbconnect.natural_resources_Diamond)).ToString();
+                            dbconnect.log_done(time, textBox_Buyer.Text, 212);
                             MessageBox.Show("خرید شما انجام شد:مقدار خرید شما="+ vahid.ToString());
                         }
                         else

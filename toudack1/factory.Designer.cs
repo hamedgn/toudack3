@@ -157,20 +157,20 @@
             this.label17.Font = new System.Drawing.Font("B Titr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label17.Location = new System.Drawing.Point(342, 104);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(55, 33);
+            this.label17.Size = new System.Drawing.Size(74, 33);
             this.label17.TabIndex = 31;
-            this.label17.Text = "صنعت";
+            this.label17.Text = "افزارگان";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
             this.label18.Enabled = false;
             this.label18.Font = new System.Drawing.Font("B Titr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label18.Location = new System.Drawing.Point(241, 104);
+            this.label18.Location = new System.Drawing.Point(259, 104);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(67, 33);
+            this.label18.Size = new System.Drawing.Size(40, 33);
             this.label18.TabIndex = 32;
-            this.label18.Text = "آموزش";
+            this.label18.Text = "آمه";
             // 
             // label19
             // 
@@ -179,9 +179,9 @@
             this.label19.Font = new System.Drawing.Font("B Titr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label19.Location = new System.Drawing.Point(152, 102);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(49, 33);
+            this.label19.Size = new System.Drawing.Size(59, 33);
             this.label19.TabIndex = 33;
-            this.label19.Text = "سلاح";
+            this.label19.Text = "خدنگ";
             // 
             // label20
             // 
@@ -201,9 +201,9 @@
             this.label21.Font = new System.Drawing.Font("B Titr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label21.Location = new System.Drawing.Point(446, 104);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(64, 33);
+            this.label21.Size = new System.Drawing.Size(61, 33);
             this.label21.TabIndex = 35;
-            this.label21.Text = "خدمات";
+            this.label21.Text = "پیشوان";
             // 
             // factory_label_Services
             // 

@@ -21,6 +21,7 @@ namespace toudack1
             dbconnect = new DBConnect();
         }
         string type;
+        string type2;
         private void button5_Click(object sender, EventArgs e)
         {
             string content = File.ReadAllText("demo");
@@ -41,9 +42,17 @@ namespace toudack1
             }
             
         }
-
+        public string time;
+        public void timenow()
+        {
+            dbconnect.TIME_GET_n();
+            time = (dbconnect.h + ":" + dbconnect.m + ":" + dbconnect.s).ToString();
+        }
         private void set_price_btn_Click(object sender, EventArgs e)
         {
+            timenow();
+            dbconnect.log_insert(time, prs_cod_box.Text, 223, "senfBOSS: sabte ghimate: "+type2+" be: "+price_set.Value+" ");
+
             dbconnect.setprice(type,Convert.ToInt32(price_set.Value));
             pricenow_lb.Text = price_set.Value.ToString();
             senf_education_btn.Enabled = false;
@@ -57,6 +66,7 @@ namespace toudack1
             label3.ResetText();
             price_set.Minimum = 0;
             price_set.Maximum = 1000;
+            dbconnect.log_done(time, prs_cod_box.Text, 223);
             MessageBox.Show("قیمت ثبت شد");
 
         }
@@ -142,6 +152,7 @@ namespace toudack1
                         senf_industry_btn.Enabled = true;
                         price_set.Value = Convert.ToInt32(dbconnect.price_industry);
                         type = "industry";
+                        type2 = "AFZAREGAN";
                         if (Convert.ToInt32(dbconnect.price_industry) >= 3)
                         {
                             price_set.Minimum = Convert.ToInt32(dbconnect.price_industry) - 3;
@@ -161,6 +172,7 @@ namespace toudack1
                         senf_education_btn.Enabled = true;
                         price_set.Value = Convert.ToInt32(dbconnect.price_education);
                         type = "education";
+                        type2 = "AAMMEH";
                         if (Convert.ToInt32(dbconnect.price_education) >= 3)
                         {
                             price_set.Minimum = Convert.ToInt32(dbconnect.price_education) - 3;
@@ -180,6 +192,7 @@ namespace toudack1
                         senf_weapons_btn.Enabled = true;
                         price_set.Value = Convert.ToInt32(dbconnect.price_weapons);
                         type = "weapons";
+                        type2 = "KHADANG";
                         if (Convert.ToInt32(dbconnect.price_weapons) >= 3)
                         {
                             price_set.Minimum = Convert.ToInt32(dbconnect.price_weapons) - 3;
@@ -200,6 +213,7 @@ namespace toudack1
                         senf_services_btn.Enabled = true;
                         price_set.Value = Convert.ToInt32(dbconnect.price_services);
                         type = "services";
+                        type2 = "PISHVAN";
                         if (Convert.ToInt32(dbconnect.price_services) >= 3)
                         {
                             price_set.Minimum = Convert.ToInt32(dbconnect.price_services) - 3;

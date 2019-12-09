@@ -20,6 +20,13 @@ namespace toudack1
             InitializeComponent();
             dbconnect = new DBConnect();
         }
+
+        public string time;
+        public void timenow()
+        {
+            dbconnect.TIME_GET_n();
+            time = (dbconnect.h + ":" + dbconnect.m + ":" + dbconnect.s).ToString();
+        }
         TIMEUSER user = new TIMEUSER();
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -126,8 +133,11 @@ namespace toudack1
                         dbconnect.natural_resources_code_check(factory_code_box.Text);
                         if (dbconnect.res_diamond >= 45 && dbconnect.res_gold >= 45 && dbconnect.res_oil >= 45 && dbconnect.res_silk >= 45)
                         {
-                            
-                                        dbconnect.natural_resources_Negative(dbconnect.res_diamond, 45, factory_code_box.Text, "diamond");
+                            timenow();
+                            dbconnect.log_insert(time, factory_code_box.Text, 218, "Towlid va Faal karkhaneh PISHVAN");
+
+
+                            dbconnect.natural_resources_Negative(dbconnect.res_diamond, 45, factory_code_box.Text, "diamond");
                                         dbconnect.natural_resources_Negative(dbconnect.res_gold, 45, factory_code_box.Text, "gold");
                                         dbconnect.natural_resources_Negative(dbconnect.res_oil, 45, factory_code_box.Text, "oil");
                                         dbconnect.natural_resources_Negative(dbconnect.res_silk, 45, factory_code_box.Text, "silk");
@@ -135,8 +145,8 @@ namespace toudack1
                                         dbconnect.Factory_upadte(factory_code_box.Text, "services", Convert.ToInt32(factory_label_Services.Text));
                                         dbconnect.factory_en_plus(1, Convert.ToInt32(factory_en_label_Services.Text), factory_code_box.Text, "services");
                                         factory_en_label_Services.Text = Convert.ToString(Convert.ToInt32(factory_en_label_Services.Text) + 1);
-
-                                        MessageBox.Show("ok");
+                            dbconnect.log_done(time, factory_code_box.Text, 218);
+                            MessageBox.Show("ok");
                                     
                         }
                         else
@@ -205,6 +215,8 @@ namespace toudack1
                         dbconnect.natural_resources_code_check(factory_code_box.Text);
                         if (dbconnect.res_diamond >= 35 && dbconnect.res_gold >= 35 && dbconnect.res_oil >= 35 && dbconnect.res_silk >= 35)
                         {
+                            timenow();
+                            dbconnect.log_insert(time, factory_code_box.Text, 218, "Towlid va Faal karkhaneh AFZAREGAN");
 
                             dbconnect.natural_resources_Negative(dbconnect.res_diamond, 45, factory_code_box.Text, "diamond");
                             dbconnect.natural_resources_Negative(dbconnect.res_gold, 45, factory_code_box.Text, "gold");
@@ -214,7 +226,7 @@ namespace toudack1
                             dbconnect.Factory_upadte(factory_code_box.Text, "industry", Convert.ToInt32(factory_label_Industry.Text));
                             dbconnect.factory_en_plus(1, Convert.ToInt32(factory_en_label_Industry.Text), factory_code_box.Text, "industry");
                             factory_en_label_Industry.Text = Convert.ToString(Convert.ToInt32(factory_en_label_Industry.Text) + 1);
-
+                            dbconnect.log_done(time, factory_code_box.Text, 218);
                             MessageBox.Show("ok");
 
                         }
@@ -283,6 +295,8 @@ namespace toudack1
                         dbconnect.natural_resources_code_check(factory_code_box.Text);
                         if (dbconnect.res_diamond >= 25 && dbconnect.res_gold >= 25 && dbconnect.res_oil >= 25 && dbconnect.res_silk >= 25)
                         {
+                            timenow();
+                            dbconnect.log_insert(time, factory_code_box.Text, 218, "Towlid va Faal karkhaneh AAMMEH");
 
                             dbconnect.natural_resources_Negative(dbconnect.res_diamond, 45, factory_code_box.Text, "diamond");
                             dbconnect.natural_resources_Negative(dbconnect.res_gold, 45, factory_code_box.Text, "gold");
@@ -292,7 +306,7 @@ namespace toudack1
                             dbconnect.Factory_upadte(factory_code_box.Text, "education", Convert.ToInt32(factory_label_Education.Text));
                             dbconnect.factory_en_plus(1, Convert.ToInt32(factory_en_label_Education.Text), factory_code_box.Text, "education");
                             factory_en_label_Education.Text = Convert.ToString(Convert.ToInt32(factory_en_label_Education.Text) + 1);
-
+                            dbconnect.log_done(time, factory_code_box.Text, 218);
                             MessageBox.Show("ok");
 
                         }
@@ -360,6 +374,8 @@ namespace toudack1
                         dbconnect.natural_resources_code_check(factory_code_box.Text);
                         if (dbconnect.res_diamond >= 15 && dbconnect.res_gold >= 15 && dbconnect.res_oil >= 15 && dbconnect.res_silk >= 15)
                         {
+                            timenow();
+                            dbconnect.log_insert(time, factory_code_box.Text, 218, "Towlid va Faal karkhaneh KHADANG");
 
                             dbconnect.natural_resources_Negative(dbconnect.res_diamond, 45, factory_code_box.Text, "diamond");
                             dbconnect.natural_resources_Negative(dbconnect.res_gold, 45, factory_code_box.Text, "gold");
@@ -369,7 +385,7 @@ namespace toudack1
                             dbconnect.Factory_upadte(factory_code_box.Text, "weapons", Convert.ToInt32(factory_label_Weapons.Text));
                             dbconnect.factory_en_plus(1, Convert.ToInt32(factory_en_label_Weapons.Text), factory_code_box.Text, "weapons");
                             factory_en_label_Weapons.Text = Convert.ToString(Convert.ToInt32(factory_en_label_Weapons.Text) + 1);
-
+                            dbconnect.log_done(time, factory_code_box.Text, 218);
                             MessageBox.Show("ok");
 
                         }
@@ -427,6 +443,8 @@ namespace toudack1
                 dbconnect.natural_resources_code_check(factory_code_box.Text);
                 if (dbconnect.res_diamond >= 10 && dbconnect.res_gold >= 10 && dbconnect.res_oil >= 10 && dbconnect.res_silk >= 10)
                 {
+                    timenow();
+                    dbconnect.log_insert(time, factory_code_box.Text, 218, "Towlid va Faal karkhaneh BANK");
 
                     dbconnect.natural_resources_Negative(dbconnect.res_diamond, 45, factory_code_box.Text, "diamond");
                     dbconnect.natural_resources_Negative(dbconnect.res_gold, 45, factory_code_box.Text, "gold");
@@ -434,6 +452,7 @@ namespace toudack1
                     dbconnect.natural_resources_Negative(dbconnect.res_silk, 45, factory_code_box.Text, "silk");
                     factory_label_Bank.Text = (1 + Convert.ToInt32(factory_label_Bank.Text)).ToString();
                     dbconnect.Factory_upadte(factory_code_box.Text, "bank", Convert.ToInt32(factory_label_Bank.Text));
+                    dbconnect.log_done(time, factory_code_box.Text, 218);
                     MessageBox.Show("ok");
 
                 }
@@ -492,12 +511,16 @@ namespace toudack1
                 }
                 else
                 {
+                    timenow();
+                    dbconnect.log_insert(time, factory_code_box.Text, 218, "Faal 1 karkhaneh PISHVAN");
+
                     dbconnect.natural_resources_Negative(dbconnect.res_diamond, 9, factory_code_box.Text, "diamond");
                     dbconnect.natural_resources_Negative(dbconnect.res_gold, 9, factory_code_box.Text, "gold");
                     dbconnect.natural_resources_Negative(dbconnect.res_oil, 9, factory_code_box.Text, "oil");
                     dbconnect.natural_resources_Negative(dbconnect.res_silk, 9, factory_code_box.Text, "silk");
                     dbconnect.factory_en_plus(1, Convert.ToInt32(factory_en_label_Services.Text), factory_code_box.Text, "services");
                     factory_en_label_Services.Text = Convert.ToString(Convert.ToInt32(factory_en_label_Services.Text) + 1);
+                    dbconnect.log_done(time, factory_code_box.Text, 218);
                     MessageBox.Show(".یک کارخانه فعال شد");
                 }
                 
@@ -519,12 +542,15 @@ namespace toudack1
                 }
                 else
                 {
+                    timenow();
+                    dbconnect.log_insert(time, factory_code_box.Text, 218, "Faal 1 karkhaneh AFZAREGAN");
                     dbconnect.natural_resources_Negative(dbconnect.res_diamond, 7, factory_code_box.Text, "diamond");
                     dbconnect.natural_resources_Negative(dbconnect.res_gold, 7, factory_code_box.Text, "gold");
                     dbconnect.natural_resources_Negative(dbconnect.res_oil, 7, factory_code_box.Text, "oil");
                     dbconnect.natural_resources_Negative(dbconnect.res_silk, 7, factory_code_box.Text, "silk");
                     dbconnect.factory_en_plus(1, Convert.ToInt32(factory_en_label_Industry.Text), factory_code_box.Text, "industry");
                     factory_en_label_Industry.Text = Convert.ToString(Convert.ToInt32(factory_en_label_Industry.Text) + 1);
+                    dbconnect.log_done(time, factory_code_box.Text, 218);
                     MessageBox.Show(".یک کارخانه فعال شد");
                 }
 
@@ -546,12 +572,15 @@ namespace toudack1
                 }
                 else
                 {
+                    timenow();
+                    dbconnect.log_insert(time, factory_code_box.Text, 218, "Faal 1 karkhaneh AAMMEH");
                     dbconnect.natural_resources_Negative(dbconnect.res_diamond, 5, factory_code_box.Text, "diamond");
                     dbconnect.natural_resources_Negative(dbconnect.res_gold, 5, factory_code_box.Text, "gold");
                     dbconnect.natural_resources_Negative(dbconnect.res_oil, 5, factory_code_box.Text, "oil");
                     dbconnect.natural_resources_Negative(dbconnect.res_silk, 5, factory_code_box.Text, "silk");
                     dbconnect.factory_en_plus(1, Convert.ToInt32(factory_en_label_Education.Text), factory_code_box.Text, "education");
                     factory_en_label_Education.Text = Convert.ToString(Convert.ToInt32(factory_en_label_Education.Text) + 1);
+                    dbconnect.log_done(time, factory_code_box.Text, 218);
                     MessageBox.Show(".یک کارخانه فعال شد");
                 }
 
@@ -573,12 +602,15 @@ namespace toudack1
                 }
                 else
                 {
+                    timenow();
+                    dbconnect.log_insert(time, factory_code_box.Text, 218, "Faal 1 karkhaneh KHADANG");
                     dbconnect.natural_resources_Negative(dbconnect.res_diamond, 3, factory_code_box.Text, "diamond");
                     dbconnect.natural_resources_Negative(dbconnect.res_gold, 3, factory_code_box.Text, "gold");
                     dbconnect.natural_resources_Negative(dbconnect.res_oil, 3, factory_code_box.Text, "oil");
                     dbconnect.natural_resources_Negative(dbconnect.res_silk, 3, factory_code_box.Text, "silk");
                     dbconnect.factory_en_plus(1, Convert.ToInt32(factory_en_label_Weapons.Text), factory_code_box.Text, "weapons");
                     factory_en_label_Weapons.Text = Convert.ToString(Convert.ToInt32(factory_en_label_Weapons.Text) + 1);
+                    dbconnect.log_done(time, factory_code_box.Text, 218);
                     MessageBox.Show(".یک کارخانه فعال شد");
                 }
 

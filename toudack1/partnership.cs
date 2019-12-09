@@ -17,10 +17,16 @@ namespace toudack1
         TIMEUSER user = new TIMEUSER();
         private DBConnect dbConnect;
         private string playeranswer;
+        public string time;
         public partnership()
         {
             InitializeComponent();
             dbConnect = new DBConnect();
+        }
+        public void timenow()
+        {
+            dbConnect.TIME_GET_n();
+            time = (dbConnect.h + ":" + dbConnect.m + ":" + dbConnect.s).ToString();
         }
 
         int i;
@@ -130,16 +136,24 @@ namespace toudack1
                                         dbConnect.QusTypNumcheck(prs_code_box.Text, "honar");
                                         dbConnect.Qustypplus(prs_code_box.Text, "honar", dbConnect.qustypnumamswer + 1);
                                     }
+                                    timenow();
+                                    dbConnect.log_insert(time, prs_code_box.Text, 219, "KHARIDAR soal az: " + prs_code_box.Text + " BA sherakat: " + textBox1.Text + " code soal: " + qus_code_box.Text + " javab soal: " + playeranswer + " javab DOROST dadeh ");
 
+                                    dbConnect.log_done(time, prs_code_box.Text, 219);
 
-                                    MessageBox.Show(".جواب درست است به جایزه داده شد");
+                                    MessageBox.Show(".جواب درست است به شما جایزه تعلق گردید");
                                 }
                                 else
                                 if (dbConnect.qusansw == false)
                                 {
 
                                     qus_anwser_panel.BackColor = Color.Red;
+                                    timenow();
+                                    dbConnect.log_insert(time, prs_code_box.Text, 219, "KHARIDAR soal az: " + prs_code_box.Text + " BA sherakat: " + textBox1.Text + " code soal: " + qus_code_box.Text + " javab soal: " + playeranswer+ " javab ESHTEBAH dadeh ");
+
+                                    dbConnect.log_done(time, prs_code_box.Text, 219);
                                     MessageBox.Show(".جواب اشتباه است");
+
                                 }
                                 dbConnect.QuestionUNuse(qus_code_box.Text);
 

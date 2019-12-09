@@ -15,12 +15,18 @@ namespace toudack1
     {
         int value = 0;
         public int ali = 12;
-
+        
         private DBConnect dbconnect;
         public black_market_factory()
         {
             InitializeComponent();
             dbconnect = new DBConnect();
+        }
+        public string time;
+        public void timenow()
+        {
+            dbconnect.TIME_GET_n();
+            time = (dbconnect.h + ":" + dbconnect.m + ":" + dbconnect.s).ToString();
         }
         barcode barcode = new barcode();
         private void button1_Click(object sender, EventArgs e)
@@ -128,6 +134,9 @@ namespace toudack1
                         int vahid = (Education_value + Industry_value + Services_value + Weapons_value);
                         if (dbconnect.funds >= Education_value+Industry_value+Services_value+Weapons_value)
                         {
+                            timenow();
+                            dbconnect.log_insert(time, textBox_Buyer.Text, 211,"KHARID amozesh: "+ number_Education_buy.Value+" khadamat: "+ number_Services_buy.Value+ " selah: "+ number_Weapons_buy.Value+" sanAt: "+ number_Industry_buy.Value);
+                           
                             dbconnect.factory_box_plus(dbconnect.factory_box_Education, Convert.ToInt32(number_Education_buy.Value), textBox_Buyer.Text, "education");
                             dbconnect.factory_box_plus(dbconnect.factory_box_Industry, Convert.ToInt32(number_Industry_buy.Value), textBox_Buyer.Text, "industry");
                             dbconnect.factory_box_plus(dbconnect.factory_box_Services, Convert.ToInt32(number_Services_buy.Value), textBox_Buyer.Text, "services");
@@ -140,6 +149,7 @@ namespace toudack1
                             label_Industry_buy.Text = (Convert.ToInt32(dbconnect.factory_box_Industry) + Convert.ToInt32(number_Industry_buy.Value)).ToString();
                             label_Services_buy.Text = (Convert.ToInt32(dbconnect.factory_box_Services) + Convert.ToInt32(number_Services_buy.Value)).ToString();
                             label_Weapons_buy.Text = (Convert.ToInt32(dbconnect.factory_box_Weapons) + Convert.ToInt32(number_Weapons_buy.Value)).ToString();
+                            dbconnect.log_done(time, textBox_Buyer.Text, 211);
                             MessageBox.Show("خرید شما انجام شد:مقدار خرید شما=" + vahid.ToString());
                         }
                         else
