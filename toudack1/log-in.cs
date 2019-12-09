@@ -245,7 +245,7 @@ namespace toudack1
             {
                 //connection.Ping();
                // connection.Open();
-                MessageBox.Show("connected");
+               // MessageBox.Show("connected");
                 // return true;
             }
             catch (MySqlException ex)

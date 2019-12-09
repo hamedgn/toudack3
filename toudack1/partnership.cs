@@ -76,6 +76,8 @@ namespace toudack1
 
                                 if (dbConnect.qusansw == true)
                                 {
+                                    timenow();
+                                    dbConnect.log_insert(time, prs_code_box.Text, 219, "KHARIDAR soal az: " + prs_code_box.Text + " BA sherakat: " + textBox1.Text + " code soal: " + qus_code_box.Text + " javab soal: " + playeranswer + " javab DOROST dadeh ");
 
                                     qus_anwser_panel.BackColor = Color.LightGreen;
                                     dbConnect.Fundscheck(textBox1.Text);
@@ -136,9 +138,7 @@ namespace toudack1
                                         dbConnect.QusTypNumcheck(prs_code_box.Text, "honar");
                                         dbConnect.Qustypplus(prs_code_box.Text, "honar", dbConnect.qustypnumamswer + 1);
                                     }
-                                    timenow();
-                                    dbConnect.log_insert(time, prs_code_box.Text, 219, "KHARIDAR soal az: " + prs_code_box.Text + " BA sherakat: " + textBox1.Text + " code soal: " + qus_code_box.Text + " javab soal: " + playeranswer + " javab DOROST dadeh ");
-
+                                   
                                     dbConnect.log_done(time, prs_code_box.Text, 219);
 
                                     MessageBox.Show(".جواب درست است به شما جایزه تعلق گردید");
