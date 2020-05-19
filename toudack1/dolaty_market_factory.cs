@@ -475,7 +475,7 @@ namespace toudack1
         TIMEUSER user = new TIMEUSER();
         private void dolaty_market_factory_Load(object sender, EventArgs e)
         {
-            user.Close();
+            user.Show();
             using (var file = File.Create("demo"))
             {
 
